@@ -1,0 +1,130 @@
+:root {
+    --light: #D4D4D2;
+    --dark: #1C1C1C;
+    --grey: #505050;
+    --orange: #ff9500;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc {
+    background-color: var(--dark);
+    display: flex;
+    width: 39rem;
+    height: 84rem;
+    margin-top: 15vh;
+    border-radius: 53px;
+    box-shadow:  21px 21px 42px #b5b5b5,
+    -21px -21px 42px #ffffff;
+    flex-direction: column;
+    justify-content:flex-end;
+    overflow: hidden;
+
+}
+
+.display {
+    background-color: var(--dark);
+    width: 100%;
+    height: 12%;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+
+}
+
+.display p {
+    font-size: 9rem;
+    font-weight: 300;
+    margin-right: 3.5rem;
+}
+
+.calc-buttons {
+    padding: 1rem 2rem 3rem;
+    background-color:var(--dark);
+    height: 55%; 
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-rows: repeat(5, 8rem);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 3rem;
+}
+
+.button {
+    background-color: darkcyan;
+    color: white;
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 50px;
+    font-size: 4rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button:hover {
+    background-color: blanchedalmond;
+}
+
+.equals {
+    grid-row: 5 / 6;
+    grid-column: 4 / 5;
+}
+
+.dot {
+    grid-row: 5 / 6;
+    grid-column: 3 / 4;;
+}
+
+/* /////////////////////////// NUMERE ///////////////////////////  */
+
+.zero {
+    grid-row: 5 / 6;
+    grid-column: 1 / span 2;
+    width: 100%;
+    border-radius: 50px;
+
+}
+
+.zero p {
+    position: relative;
+    left: -4.5rem;
+}
+
+.light-btn {
+    background-color: var(--light);
+    color: black;
+    font-size: 3.2rem;
+    font-weight: 400;
+}
+
+.dark-btn {
+    background-color: var(--grey);
+}
+
+.orange-btn {
+    background-color: var(--orange);
+}
+
+/* //////////////////////////////////////////////////////// */
