@@ -15,7 +15,8 @@ class Calculator {
     currentOperation;
     currentValue = '0';
     storedValue;
-    result;
+    targetButton;
+    repeatValue;
 
 
     constructor(display) {
@@ -46,6 +47,15 @@ class Calculator {
         this.display.innerText = '';
         this.currentValue = '0';
         this.currentOperation = '';
+        this.storedValue = '';
+        this.targetButton = '';
+        this.repeatValue = '';
+    }
+    getTarget(target) {
+        if(this.targetButton === target) {
+            return;
+        }
+        this.targetButton = target;
     }
 
     setOperation(operation) {
@@ -54,11 +64,15 @@ class Calculator {
         }
     }
 
-    compute() {
-        
+    compute(target) {
+        console.log(this.targetButton);
         if(this.currentOperation === 'addition') {
-            let secondValue = Number(this.currentValue) ;
-            this.currentValue = Number(this.storedValue) + secondValue;
+            if(this.targetButton === target) {
+                this.currentValue = Number(this.currentValue) + Number(this.repeatValue);
+                return;
+            }
+            this.repeatValue = this.currentValue;
+            this.currentValue = Number(this.storedValue) + Number(this.currentValue)
         }
     }
 }
@@ -83,9 +97,11 @@ allClearBtn.addEventListener('click', () => {
 addBtn.addEventListener('click', () => {
     calculator.store();
     calculator.setOperation(addBtn.innerText);
+    calculator.show();
 })
 
-equalsBtn.addEventListener('click', () => {
-    calculator.compute();
+equalsBtn.addEventListener('click', (e) => {
+    calculator.compute(e.target.innerText);
+    calculator.getTarget(e.target.innerText);
     calculator.show();
 })
