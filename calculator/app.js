@@ -35,6 +35,18 @@ class Calculator {
 
     show() {
         this.display.innerText = this.currentValue.toString();
+        if(this.currentValue.length < 7) {
+            this.display.style.fontSize = '9rem';
+        }
+        if(this.currentValue.length == 7 ) {
+            this.display.style.fontSize = '8rem';
+        }
+        if(this.currentValue.length == 8) {
+            this.display.style.fontSize = '7rem';
+        }
+        if(this.currentValue.length == 9) {
+            this.display.style.fontSize = '6.5rem';
+        }
     }
 
     store() {
@@ -94,38 +106,38 @@ class Calculator {
         if(this.currentOperation === 'addition') {
             console.log('addition')
             if(this.targetButton === target) {
-                this.currentValue = Number(this.currentValue) + Number(this.repeatValue);
+                this.currentValue = (Number(this.currentValue) + Number(this.repeatValue)).toString();
                 return;
             }
             this.repeatValue = this.currentValue;
-            this.currentValue = Number(this.storedValue) + Number(this.currentValue)
+            this.currentValue = (Number(this.storedValue) + Number(this.currentValue)).toString();
         }
         if(this.currentOperation === 'subtraction') {
             if(this.targetButton === target) {
                 console.log('bang')
-                this.currentValue = Number(this.currentValue) - Number(this.repeatValue);
+                this.currentValue = (Number(this.currentValue) - Number(this.repeatValue)).toString();
                 return;
             }
             this.repeatValue = this.currentValue;
-            this.currentValue = Number(this.storedValue) - Number(this.currentValue)
+            this.currentValue = (Number(this.storedValue) - Number(this.currentValue)).toString();
         }
         if(this.currentOperation === 'division') {
             console.log('division')
             if(this.targetButton === target) {
-                this.currentValue = Number(this.currentValue) / Number(this.repeatValue);
+                this.currentValue = (Number(this.currentValue) / Number(this.repeatValue)).toString();
                 return;
             }
             this.repeatValue = this.currentValue;
-            this.currentValue = Number(this.storedValue) / Number(this.currentValue)
+            this.currentValue = (Number(this.storedValue) / Number(this.currentValue)).toString();
         }
         if(this.currentOperation === 'multiplication') {
             console.log('multiplication')
             if(this.targetButton === target) {
-                this.currentValue = Number(this.currentValue) * Number(this.repeatValue);
+                this.currentValue = (Number(this.currentValue) * Number(this.repeatValue)).toString();
                 return;
             }
             this.repeatValue = this.currentValue;
-            this.currentValue = Number(this.storedValue) * Number(this.currentValue)
+            this.currentValue = (Number(this.storedValue) * Number(this.currentValue)).toString();
         }
     }
 }
