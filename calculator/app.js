@@ -31,7 +31,6 @@ class Calculator {
         this.currentValue = this.currentValue.replace('0', '');
         }
         this.currentValue += number;
-        console.log(this.currentValue.charAt(0));
     }
 
     show() {
@@ -39,7 +38,6 @@ class Calculator {
     }
 
     store() {
-        console.log(this.currentValue)
         this.storedValue = this.currentValue;
         this.currentValue = '';
         this.targetButton= '';
@@ -76,6 +74,19 @@ class Calculator {
         console.log('changed to division')
         }
 
+    }
+
+    percent() {
+        this.currentValue = (Number(this.currentValue) / 100).toString();
+    }
+
+    negPos() {
+        if(this.currentValue > 0 ) {
+            this.currentValue = (0 - Number(this.currentValue)).toString();
+            
+        } else if(this.currentValue < 0 ) {
+            this.currentValue = (Number(this.currentValue) * -1).toString();
+        }
     }
 
     compute(target) {
@@ -135,6 +146,12 @@ allClearBtn.addEventListener('click', () => {
     calculator.show();
 });
 
+switchNegPosBtn.addEventListener('click', () => {
+    calculator.negPos();
+    calculator.show();
+})
+
+
 addBtn.addEventListener('click', () => {
     calculator.store();
     calculator.setOperation(addBtn.innerText);
@@ -157,7 +174,10 @@ divideBtn.addEventListener('click', () => {
     calculator.show();
     
 })
-
+percentageBtn.addEventListener('click', () => {
+    calculator.percent();
+    calculator.show();
+})
 
 
 equalsBtn.addEventListener('click', (e) => {
