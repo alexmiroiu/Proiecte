@@ -1,0 +1,91 @@
+:root {
+    --main-background: #F1F1F1;
+    --orange: #FDB827;
+    --neon-blue: #185ADB;
+    --dark: #23120B;
+    --neon-yellow: #F7FD04;
+
+}
+
+html {
+box-sizing: border-box;
+font-size: 62.5%;
+font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background-color: var(--main-background);
+}
+
+*{
+padding: 0;
+margin: 0;
+}
+
+header {
+    font-size: 4rem;
+    display: block;
+    width: 100vw;
+    text-align: center;
+    height: 5vh;
+    margin-top: 3vh;
+    margin-bottom: 4vh;
+}
+
+.game-display {
+    display: flex;
+    justify-content: space-between;
+}
+
+.maze {
+    display: grid;
+    width: 104rem;
+    height: 104rem;
+    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(10, 1fr);
+    background-color: var(--dark);
+    border: .2rem solid var(--dark);
+}
+
+.square{
+    position: relative;
+    background-color: var(--orange);
+    width: 10rem;
+    height: 10rem;
+    justify-self: center;
+    align-self: center;
+    border: .2rem solid var(--dark);
+    border-radius: 3px;
+}
+
+.left {
+    border-left: .2rem solid var(--orange);
+}
+.top {
+    border-top: .2rem solid var(--orange);
+}
+.right {
+    border-right: .2rem solid var(--orange);
+}
+.bot {
+    border-bottom: .2rem solid var(--orange);
+}
+
+.square:first-child::before {
+    content: "";
+    background-color: var(--orange);
+    width: 10rem;
+    height: .4rem;
+    position: absolute;
+    z-index: 3;
+    top: -.4rem;
+}
+.square:last-child::before {
+    content: "";
+    background-color: var(--orange);
+    width: 10rem;
+    height: .4rem;
+    position: absolute;
+    z-index: 3;
+    bottom: -.4rem;
+}
