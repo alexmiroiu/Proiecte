@@ -32,19 +32,50 @@ header {
     margin-bottom: 4vh;
 }
 
+.controls {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.controls button {
+    width: 24rem;
+    height: 12rem;
+    font-family: 'Press Start 2P', cursive;
+    border: 2px solid var(--neon-blue);
+    border-radius: 5px;
+    font-size: 2rem;
+    color: var(--neon-blue);
+    background-color: var(--main-background);
+}
+
 .game-display {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .maze {
     display: grid;
+    position: relative;
     width: 104rem;
     height: 104rem;
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(10, 1fr);
     background-color: var(--dark);
     border: .2rem solid var(--dark);
+}
+
+.hero {
+    position: absolute;
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    top: 1rem;
+    left: 1rem;
+    z-index: 3;
 }
 
 .square{
@@ -71,7 +102,7 @@ header {
     border-bottom: .2rem solid var(--orange);
 }
 
-.square:first-child::before {
+.square:nth-child(2)::before {
     content: "";
     background-color: var(--orange);
     width: 10rem;
@@ -88,4 +119,92 @@ header {
     position: absolute;
     z-index: 3;
     bottom: -.4rem;
+}
+
+.maze::before {
+    content: "";
+    display: block;
+    background-color:black;
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    top: -3rem;
+    left: 1rem;
+    clip-path: polygon(50% 29%, 0 0, 100% 0);
+
+
+}
+.maze::after {
+    content: "";
+    display: block;
+    background-color:black;
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    bottom: -8.5rem;
+    left: 95rem;
+    clip-path: polygon(50% 29%, 0 0, 100% 0);
+
+
+}
+
+.info {
+    display: flex;
+    width: 20%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.info_box {
+    position: relative;
+    margin: 3rem 1rem;
+    height: 15%;
+    width: 100%;
+    border: 2px solid var(--neon-blue);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--neon-blue);
+    line-height: 15rem;
+}
+
+.timer {
+    font-size: 4rem;
+}
+
+.timer::before {
+    content: "Remaining time";
+    font-size: 2rem;
+    position: absolute;
+    color: var(--dark);
+    line-height: normal;
+    top: -3rem;
+    left: 6rem;
+}
+.steps {
+
+}
+.steps::before {
+    content: "Moves completed";
+    font-size: 2rem;
+    position: absolute;
+    color: var(--dark);
+    line-height: normal;
+    top: -3rem;
+    left: 6rem;
+}
+
+
+.message {
+
+}
+
+.message::before {
+    content: "Game message";
+    font-size: 2rem;
+    position: absolute;
+    color: var(--dark);
+    line-height: normal;
+    top: -3rem;
+    left: 9rem;
 }
