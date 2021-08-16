@@ -63,10 +63,14 @@ class Board {
 }
 const maze = new Board(boardElements);
 maze.generate();
-console.log(maze.layout);
+const gameBoard = maze.layout;
+console.log(gameBoard)
+
 
 
 class Game {
+    y;
+    x;
     playerPos;
 
     constructor(player, board) {
@@ -74,16 +78,31 @@ class Game {
         this.board = board;
     }
 
-    moveRight(){
-        
+    setStartPosition() {
+        this.x = 0;
+        this.y = 0;
     }
-    moveLeft() {
+    setX(val){
+        this.x = val;
+    }
+    setY(val) {
+        this.y = val;
+    }
+    currentPosition() {
+        this.playerPos = this.board[this.y][this.x];
 
     }
-    moveUp() {
 
-    }
-    moveDown(){
-        
-    }
+    
+
 }
+
+let game1 = new Game(player, gameBoard);
+game1.setStartPosition();
+game1.setY(6);
+game1.setX(8);
+game1.currentPosition()
+console.log(game1.playerPos);
+
+
+

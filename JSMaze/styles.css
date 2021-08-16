@@ -23,13 +23,13 @@ margin: 0;
 }
 
 header {
-    font-size: 4rem;
+    font-size: 2rem;
     display: block;
     width: 100vw;
     text-align: center;
-    height: 5vh;
-    margin-top: 3vh;
-    margin-bottom: 4vh;
+    height: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 
 .controls {
