@@ -42,8 +42,8 @@ header {
 }
 
 .controls button {
-    width: 24rem;
-    height: 12rem;
+    width: 18rem;
+    height: 8rem;
     font-family: 'Press Start 2P', cursive;
     border: 2px solid var(--neon-blue);
     border-radius: 5px;
@@ -60,8 +60,8 @@ header {
 .maze {
     display: grid;
     position: relative;
-    width: 104rem;
-    height: 104rem;
+    width: 64rem;
+    height: 64rem;
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(10, 1fr);
     background-color: var(--dark);
@@ -71,18 +71,18 @@ header {
 .hero {
     position: absolute;
     display: block;
-    width: 8rem;
-    height: 8rem;
-    top: 1rem;
-    left: 1rem;
+    width: 5rem;
+    height: 5rem;
+    top: .5rem;
+    left: .5rem;
     z-index: 3;
 }
 
 .square{
     position: relative;
     background-color: var(--orange);
-    width: 10rem;
-    height: 10rem;
+    width: 6rem;
+    height: 6rem;
     justify-self: center;
     align-self: center;
     border: .2rem solid var(--dark);
@@ -105,7 +105,7 @@ header {
 .square:nth-child(2)::before {
     content: "";
     background-color: var(--orange);
-    width: 10rem;
+    width: 6rem;
     height: .4rem;
     position: absolute;
     z-index: 3;
@@ -114,7 +114,7 @@ header {
 .square:last-child::before {
     content: "";
     background-color: var(--orange);
-    width: 10rem;
+    width: 6rem;
     height: .4rem;
     position: absolute;
     z-index: 3;
@@ -126,7 +126,7 @@ header {
     display: block;
     background-color:black;
     position: absolute;
-    width: 8rem;
+    width: 4rem;
     height: 8rem;
     top: -3rem;
     left: 1rem;
@@ -139,10 +139,10 @@ header {
     display: block;
     background-color:black;
     position: absolute;
-    width: 8rem;
+    width: 4rem;
     height: 8rem;
     bottom: -8.5rem;
-    left: 95rem;
+    left: 59rem;
     clip-path: polygon(50% 29%, 0 0, 100% 0);
 
 
@@ -165,33 +165,36 @@ header {
     text-align: center;
     font-size: 2rem;
     color: var(--neon-blue);
-    line-height: 15rem;
+    line-height: 10rem;
 }
 
 .timer {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 .timer::before {
     content: "Remaining time";
-    font-size: 2rem;
+    width: 100%;
+    font-size: 1.5rem;
     position: absolute;
     color: var(--dark);
     line-height: normal;
-    top: -3rem;
-    left: 6rem;
+    top: -9rem;
+    top: -2rem;
+    left: 0rem;
 }
 .steps {
 
 }
 .steps::before {
     content: "Moves completed";
-    font-size: 2rem;
+    width: 100%;
+    font-size: 1.5rem;
     position: absolute;
     color: var(--dark);
     line-height: normal;
-    top: -3rem;
-    left: 6rem;
+    top: -2rem;
+    left: 0rem;
 }
 
 
@@ -201,10 +204,11 @@ header {
 
 .message::before {
     content: "Game message";
-    font-size: 2rem;
+    width: 100%;
+    font-size: 1.5rem;
     position: absolute;
     color: var(--dark);
     line-height: normal;
-    top: -3rem;
-    left: 9rem;
+    top: -2rem;
+    left: 0rem;
 }
