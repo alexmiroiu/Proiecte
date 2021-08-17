@@ -1,4 +1,4 @@
-const player = document.querySelector('.hero');
+const playerAvatar = document.querySelector('.hero');
 const boardElements = document.querySelectorAll('.square');
 // console.log(boardElements);
 
@@ -72,6 +72,10 @@ class Game {
     y;
     x;
     playerPos;
+    movingDistance = 6.4;
+    leftDistance = 0.5;
+    topDistance = 0.5;
+    steps = 0;
 
     constructor(player, board) {
         this.player = player;
@@ -88,21 +92,40 @@ class Game {
     setY(val) {
         this.y = val;
     }
-    currentPosition() {
+    getCurrentPosition() {
         this.playerPos = this.board[this.y][this.x];
-
+        this.player.style.left = (this.leftDistance).toString() + 'rem';
+        this.player.style.top = (this.topDistance).toString() + 'rem';
     }
+
+    move(direction) {
+        if(direction === 'ArrowUp') {
+            this.topDistance -= this.movingDistance;
+        } else if(direction === 'ArrowDown') {
+            this.topDistance += this.movingDistance;
+        } else if(direction === 'ArrowLeft') {
+            this.leftDistance -= this.movingDistance;
+        } else if(direction === 'ArrowRight') {
+            this.leftDistance += this.movingDistance;
+        }
+    }
+
 
     
 
 }
 
-let game1 = new Game(player, gameBoard);
-game1.setStartPosition();
-game1.setY(6);
-game1.setX(8);
-game1.currentPosition()
-console.log(game1.playerPos);
+let game = new Game(playerAvatar, gameBoard);
+game.setStartPosition();
+game.setY(6);
+game.setX(8);
+console.log(game.playerPos);
 
 
+window.addEventListener('keyup', (e) => {
+    console.log(e.key);
+    game.move(e.key);
+    game.getCurrentPosition();
+    console.log(game.player);
+} )
 

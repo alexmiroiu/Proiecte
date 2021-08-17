@@ -73,8 +73,8 @@ header {
     display: block;
     width: 5rem;
     height: 5rem;
-    top: .5rem;
-    left: .5rem;
+    /* top: 13.3rem;
+    left: 6.9rem; */
     z-index: 3;
 }
 
