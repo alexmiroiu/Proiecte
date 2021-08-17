@@ -187,7 +187,7 @@ header {
 
 }
 .steps::before {
-    content: "Moves completed";
+    content: "Steps completed";
     width: 100%;
     font-size: 1.5rem;
     position: absolute;

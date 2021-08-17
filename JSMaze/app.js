@@ -1,7 +1,3 @@
-const playerAvatar = document.querySelector('.hero');
-const boardElements = document.querySelectorAll('.square');
-// console.log(boardElements);
-
 class Board {
     layout;
 
@@ -61,12 +57,6 @@ class Board {
 
     
 }
-const maze = new Board(boardElements);
-maze.generate();
-const gameBoard = maze.layout;
-console.log(gameBoard)
-
-
 
 class Game {
     y;
@@ -77,20 +67,26 @@ class Game {
     topDistance = 0.5;
     steps = 0;
 
-    constructor(player, board) {
+    constructor(player, board, bodyElement, msgBox, stepsElement) {
         this.player = player;
         this.board = board;
+        this.background = bodyElement;
+        this.message = msgBox;
+        this.stepsMessage = stepsElement;
+        
     }
 
     setStartPosition() {
         this.x = 0;
         this.y = 0;
-    }
-    setX(val){
-        this.x = val;
-    }
-    setY(val) {
-        this.y = val;
+        this.leftDistance = 0.5;
+        this.topDistance = 0.5;
+        this.playerPos = this.board[this.y][this.x];
+        this.player.style.left = (this.leftDistance).toString() + 'rem';
+        this.player.style.top = (this.topDistance).toString() + 'rem';
+        this.steps = 0;
+        this.stepsMessage.textContent = (this.steps).toString();
+        console.log(this.leftDistance, this.topDistance)
     }
     getCurrentPosition() {
         this.playerPos = this.board[this.y][this.x];
@@ -99,33 +95,93 @@ class Game {
     }
 
     move(direction) {
-        if(direction === 'ArrowUp') {
+        if(direction === 'ArrowUp' && this.playerPos.includes('t') && this.y > 0) {
+            this.y--;
             this.topDistance -= this.movingDistance;
-        } else if(direction === 'ArrowDown') {
+        } else if(direction === 'ArrowUp' && !this.playerPos.includes('t') ) {
+            this.background.style.backgroundColor ='red';
+            this.message.textContent = 'Wrong way!'
+            setTimeout(() => {
+                this.background.style.backgroundColor = 'var(--main-background)';
+                this.message.textContent = '';
+            }, 300);
+        }
+        if(direction === 'ArrowDown' && this.playerPos.includes('b') && this.y < 9) {
+            this.y++;
             this.topDistance += this.movingDistance;
-        } else if(direction === 'ArrowLeft') {
+        } else if(direction === 'ArrowDown' && !this.playerPos.includes('b') ) {
+            this.background.style.backgroundColor ='red';
+            this.message.textContent = 'Wrong way!'
+            setTimeout(() => {
+                this.background.style.backgroundColor = 'var(--main-background)';
+                this.message.textContent = '';
+            }, 300);
+        }
+        if(direction === 'ArrowLeft' && this.playerPos.includes('l') && this.x > 0) {
+            this.x--;
             this.leftDistance -= this.movingDistance;
-        } else if(direction === 'ArrowRight') {
+        } else if(direction === 'ArrowLeft' && !this.playerPos.includes('l') ) {
+            this.background.style.backgroundColor ='red';
+            this.message.textContent = 'Wrong way!'
+            setTimeout(() => {
+                this.background.style.backgroundColor = 'var(--main-background)';
+                this.message.textContent = '';
+            }, 300);
+        }
+        if(direction === 'ArrowRight' && this.playerPos.includes('r') && this.x < 9) {
+            this.x++;
             this.leftDistance += this.movingDistance;
+        } else if(direction === 'ArrowRight' && !this.playerPos.includes('r') ) {
+            this.background.style.backgroundColor ='red';
+            this.message.textContent = 'Wrong way!'
+            setTimeout(() => {
+                this.background.style.backgroundColor = 'var(--main-background)';
+                this.message.textContent = '';
+            }, 300);
         }
     }
 
+    stepsIncrement() {
+        this.steps++;
+        this.stepsMessage.textContent = (this.steps).toString();
+    }
 
+    reset() {
+        this.message = '';
+
+    }
     
 
 }
+const playerAvatar = document.querySelector('.hero');
+const boardElements = document.querySelectorAll('.square');
+const body = document.body;
+const messageBox = document.querySelector('.message');
+const stepsBox = document.querySelector('.steps');
+const startButton = document.querySelector('.start-btn');
+const resetButton = document.querySelector('.reset-btn');
 
-let game = new Game(playerAvatar, gameBoard);
+const maze = new Board(boardElements);
+maze.generate();
+const gameBoard = maze.layout;
+
+
+let game = new Game(playerAvatar, gameBoard, body, messageBox, stepsBox);
 game.setStartPosition();
-game.setY(6);
-game.setX(8);
 console.log(game.playerPos);
+game.getCurrentPosition();
 
 
 window.addEventListener('keyup', (e) => {
-    console.log(e.key);
     game.move(e.key);
     game.getCurrentPosition();
-    console.log(game.player);
+    game.stepsIncrement();
 } )
+
+startButton.addEventListener('click', () => {
+})
+
+resetButton.addEventListener('click', () => {
+    game.setStartPosition();
+})
 
