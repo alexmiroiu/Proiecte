@@ -52,6 +52,13 @@ header {
     background-color: var(--main-background);
 }
 
+.controls button:hover {
+    background-color: var(--neon-yellow);
+}
+.controls button:focus {
+    background-color: var(--orange);
+}
+
 .game-display {
     display: flex;
     justify-content: space-around;
@@ -183,9 +190,7 @@ header {
     top: -2rem;
     left: 0rem;
 }
-.steps {
 
-}
 .steps::before {
     content: "Steps completed";
     width: 100%;
@@ -197,10 +202,6 @@ header {
     left: 0rem;
 }
 
-
-.message {
-
-}
 
 .message::before {
     content: "Game message";

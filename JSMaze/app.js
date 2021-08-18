@@ -67,14 +67,14 @@ class Game {
     topDistance = 0.5;
     steps = 0;
     remainingSeconds = 90;
+    gameStarted = false;
 
-    constructor(player, board, bodyElement, msgBox, stepsElement, timerElement) {
+    constructor(player, board, bodyElement, msgBox, stepsElement) {
         this.player = player;
         this.board = board;
         this.background = bodyElement;
         this.message = msgBox;
         this.stepsMessage = stepsElement;
-        this.remainingTimeElement = timerElement;
         
         
     }
@@ -90,6 +90,7 @@ class Game {
         this.steps = 0;
         this.stepsMessage.textContent = (this.steps).toString();
         console.log(this.leftDistance, this.topDistance);
+        this.remainingSeconds = 90;
     }
     getCurrentPosition() {
         this.playerPos = this.board[this.y][this.x];
@@ -153,13 +154,8 @@ class Game {
         this.message = '';
 
     }
-    setTimer() {
-
-        setInterval(() => {
-            this.remainingSeconds--;
-            this.remainingTimeElement.textContent = this.remainingSeconds;
-        }, 1000);
-
+    timerOn() {
+        this.remainingSeconds--;
     }   
     
 
@@ -172,6 +168,7 @@ const stepsBox = document.querySelector('.steps');
 const startButton = document.querySelector('.start-btn');
 const resetButton = document.querySelector('.reset-btn');
 const timer = document.querySelector('.timer');
+let timerStart;
 
 
 const maze = new Board(boardElements);
@@ -179,10 +176,11 @@ maze.generate();
 const gameBoard = maze.layout;
 
 
-let game = new Game(playerAvatar, gameBoard, body, messageBox, stepsBox, timer);
+let game = new Game(playerAvatar, gameBoard, body, messageBox, stepsBox);
 game.setStartPosition();
 console.log(game.playerPos);
 game.getCurrentPosition();
+timer.textContent = game.remainingSeconds;
 
 
 window.addEventListener('keyup', (e) => {
@@ -192,12 +190,17 @@ window.addEventListener('keyup', (e) => {
 } )
 
 startButton.addEventListener('click', () => {
-    game.setTimer();
-    startButton.disabled = 'true';
+    timerStart = setInterval(() => {
+        game.timerOn();
+        timer.textContent = game.remainingSeconds;
+    }, 1000)
+    startButton.disabled = true;
 })
 
 resetButton.addEventListener('click', () => {
     game.setStartPosition();
-    startButton.disabled = 'false';
+    startButton.disabled = false;
+    clearInterval(timerStart);
+    timer.textContent = game.remainingSeconds;
 })
 
