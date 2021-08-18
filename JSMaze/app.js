@@ -66,8 +66,8 @@ class Game {
     leftDistance = 0.5;
     topDistance = 0.5;
     steps = 0;
-    remainingSeconds = 90;
-    gameStarted = false;
+    remainingSeconds = 70;
+    gameRunning = false;
 
     constructor(player, board, bodyElement, msgBox, stepsElement) {
         this.player = player;
@@ -77,6 +77,10 @@ class Game {
         this.stepsMessage = stepsElement;
         
         
+    }
+
+    startGame() {
+        this.gameRunning = true;
     }
 
     setStartPosition() {
@@ -90,7 +94,9 @@ class Game {
         this.steps = 0;
         this.stepsMessage.textContent = (this.steps).toString();
         console.log(this.leftDistance, this.topDistance);
-        this.remainingSeconds = 90;
+        this.remainingSeconds = 70;
+        this.gameRunning = false;
+        this.message.textContent = 'Press Start';
     }
     getCurrentPosition() {
         this.playerPos = this.board[this.y][this.x];
@@ -103,6 +109,7 @@ class Game {
             this.y--;
             this.topDistance -= this.movingDistance;
         } else if(direction === 'ArrowUp' && !this.playerPos.includes('t') ) {
+            this.remainingSeconds--;
             this.background.style.backgroundColor ='red';
             this.message.textContent = 'Wrong way!'
             setTimeout(() => {
@@ -114,6 +121,7 @@ class Game {
             this.y++;
             this.topDistance += this.movingDistance;
         } else if(direction === 'ArrowDown' && !this.playerPos.includes('b') ) {
+            this.remainingSeconds--;
             this.background.style.backgroundColor ='red';
             this.message.textContent = 'Wrong way!'
             setTimeout(() => {
@@ -125,6 +133,7 @@ class Game {
             this.x--;
             this.leftDistance -= this.movingDistance;
         } else if(direction === 'ArrowLeft' && !this.playerPos.includes('l') ) {
+            this.remainingSeconds--;
             this.background.style.backgroundColor ='red';
             this.message.textContent = 'Wrong way!'
             setTimeout(() => {
@@ -136,8 +145,9 @@ class Game {
             this.x++;
             this.leftDistance += this.movingDistance;
         } else if(direction === 'ArrowRight' && !this.playerPos.includes('r') ) {
+            this.remainingSeconds--;
             this.background.style.backgroundColor ='red';
-            this.message.textContent = 'Wrong way!'
+            this.message.textContent = 'Wrong way!';
             setTimeout(() => {
                 this.background.style.backgroundColor = 'var(--main-background)';
                 this.message.textContent = '';
@@ -184,16 +194,32 @@ timer.textContent = game.remainingSeconds;
 
 
 window.addEventListener('keyup', (e) => {
+    if(!game.gameRunning) {
+        return;
+    }
     game.move(e.key);
     game.getCurrentPosition();
     game.stepsIncrement();
+    if(game.x === 9 && game.y === 9) {
+        game.gameRunning = false;
+        messageBox.textContent = 'You won!';
+        clearInterval(timerStart)
+    }
 } )
 
 startButton.addEventListener('click', () => {
+    game.startGame();
     timerStart = setInterval(() => {
         game.timerOn();
         timer.textContent = game.remainingSeconds;
-    }, 1000)
+        if(game.remainingSeconds === 0) {
+            clearInterval(timerStart);
+            game.gameRunning = false;
+            messageBox.textContent = 'Game is over!'
+        }
+
+    }, 1000);
+    messageBox.textContent = '';
     startButton.disabled = true;
 })
 
