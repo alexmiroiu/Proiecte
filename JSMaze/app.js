@@ -66,13 +66,16 @@ class Game {
     leftDistance = 0.5;
     topDistance = 0.5;
     steps = 0;
+    remainingSeconds = 90;
 
-    constructor(player, board, bodyElement, msgBox, stepsElement) {
+    constructor(player, board, bodyElement, msgBox, stepsElement, timerElement) {
         this.player = player;
         this.board = board;
         this.background = bodyElement;
         this.message = msgBox;
         this.stepsMessage = stepsElement;
+        this.remainingTimeElement = timerElement;
+        
         
     }
 
@@ -86,7 +89,7 @@ class Game {
         this.player.style.top = (this.topDistance).toString() + 'rem';
         this.steps = 0;
         this.stepsMessage.textContent = (this.steps).toString();
-        console.log(this.leftDistance, this.topDistance)
+        console.log(this.leftDistance, this.topDistance);
     }
     getCurrentPosition() {
         this.playerPos = this.board[this.y][this.x];
@@ -150,6 +153,14 @@ class Game {
         this.message = '';
 
     }
+    setTimer() {
+
+        setInterval(() => {
+            this.remainingSeconds--;
+            this.remainingTimeElement.textContent = this.remainingSeconds;
+        }, 1000);
+
+    }   
     
 
 }
@@ -160,13 +171,15 @@ const messageBox = document.querySelector('.message');
 const stepsBox = document.querySelector('.steps');
 const startButton = document.querySelector('.start-btn');
 const resetButton = document.querySelector('.reset-btn');
+const timer = document.querySelector('.timer');
+
 
 const maze = new Board(boardElements);
 maze.generate();
 const gameBoard = maze.layout;
 
 
-let game = new Game(playerAvatar, gameBoard, body, messageBox, stepsBox);
+let game = new Game(playerAvatar, gameBoard, body, messageBox, stepsBox, timer);
 game.setStartPosition();
 console.log(game.playerPos);
 game.getCurrentPosition();
@@ -179,9 +192,12 @@ window.addEventListener('keyup', (e) => {
 } )
 
 startButton.addEventListener('click', () => {
+    game.setTimer();
+    startButton.disabled = 'true';
 })
 
 resetButton.addEventListener('click', () => {
     game.setStartPosition();
+    startButton.disabled = 'false';
 })
 
