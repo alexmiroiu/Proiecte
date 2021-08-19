@@ -5,57 +5,68 @@ class Board {
         this.boardTiles = [...elementList];
     }
     generate() {
-        this.layout = [[],[],[],[],[],[],[],[],[],[]];
-        for(let i=0; i< 100; i++) {
+        this.layout = [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ];
+        for (let i = 0; i < 100; i++) {
             let item = this.boardTiles[i];
             let classes = Array.from(item.classList)
             let itemContent = '';
-            if(classes.includes('top')) {
+            if (classes.includes('top')) {
                 itemContent += 't';
-            } 
-            if(classes.includes('bot')) {
+            }
+            if (classes.includes('bot')) {
                 itemContent += 'b';
-            } 
-            if(classes.includes('left')) {
+            }
+            if (classes.includes('left')) {
                 itemContent += 'l';
-            } 
-            if(classes.includes('right')) {
+            }
+            if (classes.includes('right')) {
                 itemContent += 'r';
             }
-            if(i >= 0 && i < 10) {
+            if (i >= 0 && i < 10) {
                 this.layout[0].push(itemContent)
             }
-            if(i >= 10 && i < 20) {
+            if (i >= 10 && i < 20) {
                 this.layout[1].push(itemContent)
             }
-            if(i >= 20 && i < 30) {
+            if (i >= 20 && i < 30) {
                 this.layout[2].push(itemContent)
             }
-            if(i >= 30 && i < 40) {
+            if (i >= 30 && i < 40) {
                 this.layout[3].push(itemContent)
             }
-            if(i >= 40 && i < 50) {
+            if (i >= 40 && i < 50) {
                 this.layout[4].push(itemContent)
             }
-            if(i >= 50 && i < 60) {
+            if (i >= 50 && i < 60) {
                 this.layout[5].push(itemContent)
             }
-            if(i >= 60 && i < 70) {
+            if (i >= 60 && i < 70) {
                 this.layout[6].push(itemContent)
             }
-            if(i >= 70 && i < 80) {
+            if (i >= 70 && i < 80) {
                 this.layout[7].push(itemContent)
             }
-            if(i >= 80 && i < 90) {
+            if (i >= 80 && i < 90) {
                 this.layout[8].push(itemContent)
             }
-            if(i >= 90 && i < 100) {
+            if (i >= 90 && i < 100) {
                 this.layout[9].push(itemContent)
             }
         }
     }
 
-    
+
 }
 
 class Game {
@@ -75,8 +86,8 @@ class Game {
         this.background = bodyElement;
         this.message = msgBox;
         this.stepsMessage = stepsElement;
-        
-        
+
+
     }
 
     startGame() {
@@ -105,48 +116,48 @@ class Game {
     }
 
     move(direction) {
-        if(direction === 'ArrowUp' && this.playerPos.includes('t') && this.y > 0) {
+        if (direction === 'ArrowUp' && this.playerPos.includes('t') && this.y > 0) {
             this.y--;
             this.topDistance -= this.movingDistance;
-        } else if(direction === 'ArrowUp' && !this.playerPos.includes('t') ) {
+        } else if (direction === 'ArrowUp' && !this.playerPos.includes('t')) {
             this.remainingSeconds--;
-            this.background.style.backgroundColor ='red';
+            this.background.style.backgroundColor = 'red';
             this.message.textContent = 'Wrong way!'
             setTimeout(() => {
                 this.background.style.backgroundColor = 'var(--main-background)';
                 this.message.textContent = '';
             }, 300);
         }
-        if(direction === 'ArrowDown' && this.playerPos.includes('b') && this.y < 9) {
+        if (direction === 'ArrowDown' && this.playerPos.includes('b') && this.y < 9) {
             this.y++;
             this.topDistance += this.movingDistance;
-        } else if(direction === 'ArrowDown' && !this.playerPos.includes('b') ) {
+        } else if (direction === 'ArrowDown' && !this.playerPos.includes('b')) {
             this.remainingSeconds--;
-            this.background.style.backgroundColor ='red';
+            this.background.style.backgroundColor = 'red';
             this.message.textContent = 'Wrong way!'
             setTimeout(() => {
                 this.background.style.backgroundColor = 'var(--main-background)';
                 this.message.textContent = '';
             }, 300);
         }
-        if(direction === 'ArrowLeft' && this.playerPos.includes('l') && this.x > 0) {
+        if (direction === 'ArrowLeft' && this.playerPos.includes('l') && this.x > 0) {
             this.x--;
             this.leftDistance -= this.movingDistance;
-        } else if(direction === 'ArrowLeft' && !this.playerPos.includes('l') ) {
+        } else if (direction === 'ArrowLeft' && !this.playerPos.includes('l')) {
             this.remainingSeconds--;
-            this.background.style.backgroundColor ='red';
+            this.background.style.backgroundColor = 'red';
             this.message.textContent = 'Wrong way!'
             setTimeout(() => {
                 this.background.style.backgroundColor = 'var(--main-background)';
                 this.message.textContent = '';
             }, 300);
         }
-        if(direction === 'ArrowRight' && this.playerPos.includes('r') && this.x < 9) {
+        if (direction === 'ArrowRight' && this.playerPos.includes('r') && this.x < 9) {
             this.x++;
             this.leftDistance += this.movingDistance;
-        } else if(direction === 'ArrowRight' && !this.playerPos.includes('r') ) {
+        } else if (direction === 'ArrowRight' && !this.playerPos.includes('r')) {
             this.remainingSeconds--;
-            this.background.style.backgroundColor ='red';
+            this.background.style.backgroundColor = 'red';
             this.message.textContent = 'Wrong way!';
             setTimeout(() => {
                 this.background.style.backgroundColor = 'var(--main-background)';
@@ -166,8 +177,8 @@ class Game {
     }
     timerOn() {
         this.remainingSeconds--;
-    }   
-    
+    }
+
 
 }
 const playerAvatar = document.querySelector('.hero');
@@ -194,25 +205,25 @@ timer.textContent = game.remainingSeconds;
 
 
 window.addEventListener('keyup', (e) => {
-    if(!game.gameRunning) {
+    if (!game.gameRunning) {
         return;
     }
     game.move(e.key);
     game.getCurrentPosition();
     game.stepsIncrement();
-    if(game.x === 9 && game.y === 9) {
+    if (game.x === 9 && game.y === 9) {
         game.gameRunning = false;
         messageBox.textContent = 'You won!';
         clearInterval(timerStart)
     }
-} )
+})
 
 startButton.addEventListener('click', () => {
     game.startGame();
     timerStart = setInterval(() => {
         game.timerOn();
         timer.textContent = game.remainingSeconds;
-        if(game.remainingSeconds === 0) {
+        if (game.remainingSeconds === 0) {
             clearInterval(timerStart);
             game.gameRunning = false;
             messageBox.textContent = 'Game is over!'
@@ -229,4 +240,3 @@ resetButton.addEventListener('click', () => {
     clearInterval(timerStart);
     timer.textContent = game.remainingSeconds;
 })
-

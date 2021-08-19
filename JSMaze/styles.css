@@ -83,7 +83,7 @@ header {
     /* top: 13.3rem;
     left: 6.9rem; */
     z-index: 3;
-    transition: all .2s ease-out;
+    transition: all .3s ease-out;
 }
 
 .square{
