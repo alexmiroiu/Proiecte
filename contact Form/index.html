@@ -18,78 +18,52 @@
     <div class="background">
         <h1>This is a dummy contact form</h1>
         <div class="container">
-            <form action="POST" class="form">
-                <p>So we are talking to...</p>
-                <label for="gender">Mr</label>
-                <input type="radio" name="gender" id="male">
-                <label for="gender">Mrs</label>
-                <input type="radio" name="gender" id="female">
-                <label for="fname" class="form-fname">Your first name</label>
-                <input type="text" id="fname" name="fname">
-                <label for="lname" class="form-lname">Your last name</label>
-                <input type="text" name="lname" id="lname">
-                <label for="country" class="form-country">Country</label>
-                <input list="countries" name="country">
-                <datalist id="countries">
-                    <option value="Albania"></option>
-                    <option value="Andorra"></option>
-                    <option value="Armenia"></option>
-                    <option value="Austria"></option>
-                    <option value="Azerbaijan"></option>
-                    <option value="Belarus"></option>
-                    <option value="Belgium"></option>
-                    <option value="Bosnia & Herzegovina"></option>
-                    <option value="Bulgaria"></option>
-                    <option value="Croatia"></option>
-                    <option value="Cyprus"></option>
-                    <option value="Czechia"></option>
-                    <option value="Denmark"></option>
-                    <option value="Estonia"></option>
-                    <option value="Finland"></option>
-                    <option value="France"></option>
-                    <option value="Georgia"></option>
-                    <option value="Germany"></option>
-                    <option value="Greece"></option>
-                    <option value="Hungary"></option>
-                    <option value="Iceland"></option>
-                    <option value="Ireland"></option>
-                    <option value="Italy"></option>
-                    <option value="Kazakhstan"></option>
-                    <option value="Kosovo"></option>
-                    <option value="Latvia"></option>
-                    <option value="Liechtenstein"></option>
-                    <option value="Lithuania"></option>
-                    <option value="Luxembourg"></option>
-                    <option value="Malta"></option>
-                    <option value="Moldova"></option>
-                    <option value="Monaco"></option>
-                    <option value="Montenegro"></option>
-                    <option value="Netherlands"></option>
-                    <option value="North Macedonia"></option>
-                    <option value="Norway"></option>
-                    <option value="Poland"></option>
-                    <option value="Portugal"></option>
-                    <option value="Romania"></option>
-                    <option value="Russia"></option>
-                    <option value="San Marino"></option>
-                    <option value="Serbia"></option>
-                    <option value="Slovakia"></option>
-                    <option value="Slovenia"></option>
-                    <option value="Spain"></option>
-                    <option value="Sweden"></option>
-                    <option value="Switzerland"></option>
-                    <option value="Turkey"></option>
-                    <option value="Ukraine"></option>
-                    <option value="United Kingdom"></option>
-                    <option value="Vatican City"></option>
-                </datalist>
-                <label for="phone" class="form-phone">Phone</label>
-                <input type="text" name="phone" id="phone">
-                <label for="email" class="form-email">email</label>
-                <input type="text" name="email" id="email">
-                <p>Leave us a message</p>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-                <button>Submit</button>    
+            <form action="POST">
+                <p>Tell us a bit about yourself...</p>
+                <div class="form-gender ">
+                    <label for="gender">Mr</label>
+                    <input type="radio" name="gender" id="male">
+                    <label for="gender">Mrs</label>
+                    <input type="radio" name="gender" id="female">
+                </div>
+                <div class="form-fname section">
+                    <input type="text" id="fname" name="fname" required>
+                    <label for="fname">
+                        <span class="label-content">Your first name</span>
+                    </label>
+                </div>
+                <div class="form-lname section">
+                    <input type="text" name="lname" id="lname" required>
+                    <label for="lname">
+                        <span class="label-content">Your last name</span>
+                    </label>
+                </div>
+                <div class="form-country section">
+                    <input type="text" name="country" id="country" required>
+                    <label for="country">
+                        <span class="label-content">Country</span>
+                    </label>
+                    
+                </div>
+                <div class="form-phone section">
+                    <input type="text" name="phone" id="phone" required>
+                    <label for="phone">
+                        <span class="label-content">Phone</span>
+                    </label>
+                </div>
+                <div class="form-email section">
+                    <input type="text" name="email" id="email" required>
+                    <label for="email">
+                        <span class="label-content">Email</span>
+                    </label>
+                </div>
+                <div class="form-message section">
+                    <textarea name="message" id="message" cols="30" rows="3" required></textarea>
+                    <label for="message">
+                        <span class="label-content">Leave a message for us</span>
+                    </label>
+                </div>
+                <button>Submit</button>
             </form>
         </div>
     </div>

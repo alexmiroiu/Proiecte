@@ -1,3 +1,14 @@
+:root {
+    --form-bg: rgba(0, 1, 72, 0.95);
+    --gradient-start: rgb(239, 248, 255, 0.9);
+    --gradient-end: rgb(201, 203, 255, 0.9);
+    --form-bg: #E4FBFF;
+    --light: #1CC5DC;
+    --text: #233E8B;
+
+}
+
+
 * {
     padding: 0;
     margin: 0;
@@ -10,27 +21,218 @@ html {
 }
 
 .background {
+    color: var(--text);
     height: 100vh;
-    background-image:linear-gradient(to right bottom, rgba(10, 0, 154, 0.8), rgba(236, 253, 4, 0.8)), url(images/bg.jpg);
+    background-image: linear-gradient(to right bottom, var(--gradient-start), var(--gradient-end)), url(images/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 
+
 }
 
 h1 {
     font-size: 4rem;
-    color: white;
+    color: var(--text);
     margin: 4rem auto 8rem;
 }
 
 .container {
-    font-size: 1.7rem;
+    position: relative;
+    background-color: var(--form-bg);
+    height: 60%;
+    width: 25%;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow:
+    0 0.8px 1.1px rgba(0, 0, 0, 0.206),
+    0 2.7px 3.8px rgba(0, 0, 0, 0.304),
+    0 12px 17px rgba(0, 0, 0, 0.51);
+  
+
 }
 
-.form {
+
+
+form {
+    position: relative;
+    height: 100%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: space-around;
+    gap: 1rem;
+}
+
+
+
+.section {
+    position: relative;
+    height: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+
+.section label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    bottom: 0%;
+    border-bottom: 1px solid var(--light);
+    pointer-events: none;
+
+}
+
+.section input {
+    background-color: var(--form-bg);
+    font-family: inherit;
+    font-size: 1.7rem;
+    color: var(--light);
+    padding-top: 2rem;
+    padding-left: .2rem;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+
+}
+
+.section label::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 101%;
+    border-bottom: .4rem solid var(--text);
+    left: -.1rem;
+    bottom: -.3rem;
+    transform: translateX(-100%);
+    pointer-events: none;
+    transition: transform .3s ease;
+}
+
+.label-content {
+    color: var(--light);
+    position: absolute;
+    bottom: .3rem;
+    left: .2rem;
+    transition: transform 0.3s ease;
+}
+
+.section input:focus + label .label-content,
+.section input:valid + label .label-content {
+    transform: translateY(-120%);
+    font-size: 1.8rem;
+    color: var(--text);
+}
+
+.section input:focus + label::after,
+.section input:valid + label::after {
+    transform: translateX(0%);
+}
+
+form p {
+    margin: .2rem 0 .2rem;
+    justify-self: center;
+}
+
+.form-message {
+    height: 15rem;
+}
+
+textarea {
+    border: none;
+    background-color: var(--form-bg);
+    height: 50%;
+    resize: none;
+    outline: none;
+    font-family: inherit;
+    font-size: 1.7rem;
+    margin-top: 5rem;
+    color: var(--light);
+    padding-top: 7rem;
+    padding-left: .2rem;
+    resize: none;
+    overflow: hidden;
+
+}
+
+.section textarea:focus + label .label-content,
+.section textarea:valid + label .label-content {
+    transform: translateY(-450%);
+    font-size: 1.8rem;
+    color: var(--text);
+}
+.section textarea:focus + label::after,
+.section textarea:valid + label::after {
+    transform: translateX(0%);
+
+}
+
+
+button {
+    background-color: var(--light);
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: bold;
+    color: var(--text);
+    width: 25%;
+    justify-self: center;
+    position: relative;
+    padding: 1rem;
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+button::after, button::before {
+    content: "";
+    position: absolute;
+    opacity: .3;
+    background: var(--light);
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    transition: transform .3s ease;
+    z-index: -1;
+}
+
+button:hover {
+    transform: translate(-.8rem, .8rem);
+}
+button:hover::after {
+    transform: translate(.4rem, -.4rem);
+}
+button:hover::before {
+    transform: translate(.8rem, -.8rem);
+}
+
+.form-gender {
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    width: 30%;
+    align-items: center;
+    justify-content: space-between;
+    justify-self: center;
+}
+
+.form-gender label {
+    width: fit-content;
+}
+
+.form-gender input {
+    margin-right: 1rem;
 }
