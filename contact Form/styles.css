@@ -98,7 +98,7 @@ form {
     background-color: var(--form-bg);
     font-family: inherit;
     font-size: 1.7rem;
-    color: var(--light);
+    color: var(--text);
     padding-top: 2rem;
     padding-left: .2rem;
     height: 100%;
@@ -159,7 +159,7 @@ textarea {
     font-family: inherit;
     font-size: 1.7rem;
     margin-top: 5rem;
-    color: var(--light);
+    color: var(--text);
     padding-top: 7rem;
     padding-left: .2rem;
     resize: none;
@@ -235,4 +235,8 @@ button:hover::before {
 
 .form-gender input {
     margin-right: 1rem;
+}
+
+.invalid {
+    color: red;
 }
