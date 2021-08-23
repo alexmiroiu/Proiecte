@@ -5,6 +5,7 @@
     --form-bg: #E4FBFF;
     --light: #1CC5DC;
     --text: #233E8B;
+    --error: #FF6B6B;
 
 }
 
@@ -91,6 +92,7 @@ form {
     bottom: 0%;
     border-bottom: 1px solid var(--light);
     pointer-events: none;
+    font-weight: bold;
 
 }
 
@@ -144,6 +146,7 @@ form {
 form p {
     margin: .2rem 0 .2rem;
     justify-self: center;
+    font-weight: bold;
 }
 
 .form-message {
@@ -221,6 +224,7 @@ button:hover::before {
 
 .form-gender {
     display: flex;
+    font-weight: bold;
     flex-direction: row;
     height: 5rem;
     width: 30%;
@@ -239,4 +243,11 @@ button:hover::before {
 
 .invalid {
     color: yellow;
+}
+
+.error-message {
+    justify-self: center;
+    font-weight: bold;
+    color: var(--error);
+
 }
