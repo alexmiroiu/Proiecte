@@ -238,5 +238,5 @@ button:hover::before {
 }
 
 .invalid {
-    color: red;
+    color: yellow;
 }
