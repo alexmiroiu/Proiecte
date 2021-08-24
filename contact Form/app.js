@@ -14,6 +14,14 @@ class FormHandler {
         this.email = mail;
     }
 
+    getRadioValue(radioButtons) {
+        for(const i=0; i< radioButtons.length; i++) {
+            if(radioButtons[i].checked) {
+                return radioButtons[i].value;
+            }
+        }
+    }
+
     validateName(event) {
         const regExName = /^[\w'\-,.]*[^_!¡?÷?¿\/\\+=@#$%ˆ&*(){}|~<>;:[\]]*$/i;
         const regExPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
@@ -78,6 +86,7 @@ const email = document.getElementById('email');
 const errorBox = document.querySelector('.error-message');
 const form = document.querySelector('form');
 const submitBtn = document.querySelector('button');
+const radioBtns = document.getElementsByName('gender');
 
 const errorColor = '#FF6B6B';
 
@@ -138,14 +147,14 @@ email.addEventListener('input', (e) => {
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
+    const radioValue = formHandler.getRadioValue(radioBtns);
     if (formHandler.isValid()) {
         errorBox.textContent = 'Creating account';
-        form.style.display = 'none';
     } else {
         errorBox.textContent = 'There is an error';
     }
 
-console.log('clicked') 
+
 
 })
 

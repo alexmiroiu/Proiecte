@@ -22,9 +22,9 @@
                 <p>Let's create a dummy account </p>
                 <div class="form-gender ">
                     <label for="gender">Mr</label>
-                    <input type="radio" name="gender" id="male" checked>
+                    <input type="radio" name="gender" value="male" checked>
                     <label for="gender">Mrs</label>
-                    <input type="radio" name="gender" id="female">
+                    <input type="radio" name="gender" value="female">
                 </div>
                 <div class="form-fname section">
                     <input type="text" id="fname" name="fname" class="zzz" required>
@@ -60,6 +60,15 @@
                 <button>Submit</button>
                 <div class="error-message"></div>
             </form>
+            <ul class="input-values">
+                <li class="info header">The following info was sent to the server:</li>
+                <li class="info">Gender: <span class="value" id="gender-val">male</span></li>
+                <li class="info">First Name: <span class="value" id="fname-val">Johnny</span></li>
+                <li class="info">Last Name: <span class="value" id="lname-val">Williams</span></li>
+                <li class="info">Email: <span class="value" id="email-val">johnny@yahoo.com</span></li>
+                <li class="info">User Name: <span class="value" id="username-val">johnny77</span></li>
+                <li class="info">User Password: <span class="value" id="userpass-val">Thisisapassword06</span></li>
+            </ul>
         </div>
     </div>
 </body>
