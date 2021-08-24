@@ -15,7 +15,7 @@ class FormHandler {
     }
 
     getRadioValue(radioButtons) {
-        for(const i=0; i< radioButtons.length; i++) {
+        for(let i=0; i< radioButtons.length; i++) {
             if(radioButtons[i].checked) {
                 return radioButtons[i].value;
             }
@@ -86,7 +86,15 @@ const email = document.getElementById('email');
 const errorBox = document.querySelector('.error-message');
 const form = document.querySelector('form');
 const submitBtn = document.querySelector('button');
+const outputBox = document.querySelector('.input-values');
 const radioBtns = document.getElementsByName('gender');
+const genderOutput = document.getElementById('gender-val');
+const fnameOutput = document.getElementById('fname-val');
+const lnameOutput = document.getElementById('lname-val');
+const emailOutput = document.getElementById('email-val');
+const usernameOutput = document.getElementById('username-val');
+const passwordOutput = document.getElementById('userpass-val');
+
 
 const errorColor = '#FF6B6B';
 
@@ -149,7 +157,16 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     const radioValue = formHandler.getRadioValue(radioBtns);
     if (formHandler.isValid()) {
-        errorBox.textContent = 'Creating account';
+        // errorBox.textContent = 'Creating account';
+        genderOutput.textContent = radioValue;
+        fnameOutput.textContent = firstName.value;
+        lnameOutput.textContent = lastName.value;
+        emailOutput.textContent = email.value;
+        usernameOutput.textContent = userName.value;
+        passwordOutput.textContent = password.value;
+        form.style.display = 'none';
+        outputBox.style.display = 'grid';
+
     } else {
         errorBox.textContent = 'There is an error';
     }

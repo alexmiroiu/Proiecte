@@ -144,7 +144,7 @@ form {
 }
 
 form p {
-    margin: .2rem 0 .2rem;
+    margin: .2rem 0 -2rem;
     justify-self: center;
     font-weight: bold;
 }
@@ -189,7 +189,7 @@ button {
     font-size: inherit;
     font-weight: bold;
     color: var(--text);
-    width: 25%;
+    width:fit-content;
     justify-self: center;
     position: relative;
     padding: 1rem;
@@ -231,10 +231,12 @@ button:hover::before {
     align-items: center;
     justify-content: space-between;
     justify-self: center;
+    margin-bottom: -2rem;
 }
 
 .form-gender label {
     width: fit-content;
+    margin-right: .5rem;
 }
 
 .form-gender input {
@@ -275,7 +277,7 @@ button:hover::before {
 
 .info {
     list-style: none;
-    margin: 2rem 0;
+    margin: .5rem 0;
 }
 
 
