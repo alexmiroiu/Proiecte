@@ -15,8 +15,8 @@ class FormHandler {
     }
 
     getRadioValue(radioButtons) {
-        for(let i=0; i< radioButtons.length; i++) {
-            if(radioButtons[i].checked) {
+        for (let i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
                 return radioButtons[i].value;
             }
         }
@@ -94,6 +94,7 @@ const lnameOutput = document.getElementById('lname-val');
 const emailOutput = document.getElementById('email-val');
 const usernameOutput = document.getElementById('username-val');
 const passwordOutput = document.getElementById('userpass-val');
+const loadingSpinner = document.querySelector('.sk-chase');
 
 
 const errorColor = '#FF6B6B';
@@ -157,21 +158,22 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     const radioValue = formHandler.getRadioValue(radioBtns);
     if (formHandler.isValid()) {
-        // errorBox.textContent = 'Creating account';
-        genderOutput.textContent = radioValue;
-        fnameOutput.textContent = firstName.value;
-        lnameOutput.textContent = lastName.value;
-        emailOutput.textContent = email.value;
-        usernameOutput.textContent = userName.value;
-        passwordOutput.textContent = password.value;
         form.style.display = 'none';
-        outputBox.style.display = 'grid';
+        loadingSpinner.style.display = 'block';
+        setTimeout(() => {
+            genderOutput.textContent = radioValue;
+            fnameOutput.textContent = firstName.value;
+            lnameOutput.textContent = lastName.value;
+            emailOutput.textContent = email.value;
+            usernameOutput.textContent = userName.value;
+            passwordOutput.textContent = password.value;
+            outputBox.style.display = 'grid';
+            loadingSpinner.style.display = 'none';
+        }, 2000);
 
     } else {
         errorBox.textContent = 'There is an error';
     }
-
-
 
 })
 
