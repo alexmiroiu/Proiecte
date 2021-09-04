@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="weather.css">
+    <title>Vremea in Romania</title>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <label for="search-bar">Get the weather in your city</label>
+    <div class="input-box">
+        <input type="text" name="search-bar" id="search-bar">
+        <button class="search">Search</button>
+    </div>
+    <div class="container">
+        <div class="info icon"><img src="" alt="weather"></div>
+        <div class="info name"><span></span><span></span></div>
+        <div class="info temperature"><span></span> &deg;C</div>
+        <div class="info description"></div>
+        <div class="info feels">
+            <p>Feels like</p>
+            <p><span id="feels-like-temp"></span><span>&deg;C</span></p>
+        </div>
+        <div class="info humidity">Humidity : <span></span></div>
+
+    </div>
+
+</body>
+
+</html>
