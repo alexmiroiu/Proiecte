@@ -1,0 +1,35 @@
+*{
+    border: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    background-color: #FFF8E5;
+}
+
+h1 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-left: 10rem;
+}
+
+.left {
+width: 50%;
+margin-left: 8rem;
+height: 50vh;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+
+
+}
+
+.right {
+width: 50%;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
