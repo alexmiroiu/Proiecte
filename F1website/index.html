@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Saira:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
     <title>My F1 Website</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div id="logo">Logo here</div>
-        <nav class="navigation">
-            <ul class="menu-list">
-                <li>2021 F1 drivers</li>
-                <li>F1 Tracks</li>
-                <li>Current Season</li>
-            </ul>
-        </nav>
-
+      <div id="logo">
+          <img src="images/f1logo.png" alt="">
+      </div>
+      <nav>
+        <ul class="menu-list">
+          <li>2021 F1 drivers</li>
+          <li>F1 Tracks</li>
+          <li>Current Season</li>
+        </ul>
+      </nav>
     </header>
     <main>
-        <div class="current-standings">
-            <h1>Current driver standings</h1>
-        </div>
-
+      <div class="display">
+        <h1>Current driver standings</h1>
+        <ul></ul>
+      </div>
     </main>
-    <footer>
-
-    </footer>
-    
-</body>
+    <footer></footer>
+  </body>
 </html>
