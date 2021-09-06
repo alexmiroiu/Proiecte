@@ -1,50 +1,58 @@
-
-
-
-
 class Standings {
-    constructor(apiUrl, parentElement, title) {
-        this.url = apiUrl;
-        this.display = parentElement;
-        this.title = title;
+    constructor() {
+        this.url = 'https://ergast.com/api/f1/current/driverStandings.json';
+        this.display = document.querySelector('.display');
+        this.driverStandingsTemplate = document.getElementById('driver-standings');
+        this.driverElementTemplate = document.getElementById('driver');
+
     }
 
-    async render() {
+
+    async getData() {
         const data = await fetch(this.url);
         console.log('data recieved')
         const jsonData = await data.json();
         const season = jsonData.MRData.StandingsTable.StandingsLists[0].season;
         const currentRound = jsonData.MRData.StandingsTable.StandingsLists[0].round;
         const driverList = jsonData.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-        console.log(driverList);
+        this.driversArray = [];
         driverList.forEach(driver => {
-            console.log('done')
-            let driverElement = document.createElement('li');
-            driverElement.classList.add('driverItem');
-            driverElement.innerHTML = `
-            <div>${driver.position}</div>
-            <div>${driver.Driver.givenName} ${driver.Driver.familyName}</div>
-            <div>${driver.points}</div>`;
-            driverElement.style.visibility = 'hidden';
-            this.display.appendChild(driverElement);
+            let driverObj = {
+                position: driver.position,
+                lastName: driver.Driver.familyName,
+                firstName: driver.Driver.givenName,
+                points: driver.points
 
-            setTimeout(() => {
-            driverElement.style.visibility = 'visible';
-
-            }, 1000);
-
+            }
+            this.driversArray.push(driverObj);
         });
+        return [season, currentRound];
     }
 
+    async renderDrivers() {
+        const driversData = await this.getData();
+        if(!this.driversArray){
+            console.log('no drivers found')
+        } else {
+            const driverStandings = document.importNode(this.driverStandingsTemplate.content, true);
+            this.display.appendChild(driverStandings);
+            
+        }
+    }
 
 }
 
 
 
-const displayTitle = document.querySelector('.display h1');
-const displayList = document.querySelector('.display ul');
-let currentStandings = new Standings('https://ergast.com/api/f1/current/driverStandings.json', displayList, displayTitle);
 
-currentStandings.render();
+let currentStandings = new Standings();
+currentStandings.renderDrivers();
+
+
+
+
+// currentStandings.render();
 // driverStandings.renderData();
-
+// document.querySelector('#logo').addEventListener('click', () => {
+//     currentStandings.driversArray[0].classList.add('yellow');
+// })

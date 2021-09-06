@@ -8,7 +8,7 @@
   margin: 0;
   font-family: "Saira", sans-serif;
 }
-
+/**************** static elements *************/
 html {
   font-size: 62.5%;
   /* solutie pentru setarea background-ului centrat, scalabil */
@@ -88,15 +88,15 @@ main {
 
 }
 
-.display h1 {
+.standings-title h1 {
     font-size: 3rem;
     font-weight: 200;
 }
-.display ul{
+.standings-list ul{
     width: 70%;
 }
 
-.driverItem {
+.driver-item {
     display: flex;
     justify-content: space-around;
     color: white;
@@ -105,24 +105,24 @@ main {
     transition: all .5s;
     cursor: default;
 }
-.driverItem:hover {
+.driver-item:hover {
     font-size: 2.5rem;
 }
 
-.driverItem div {
+.driver-item div {
     display: flex;
     width: 20%;
 }
 
-.driverItem div:nth-child(2) {
+.driver-item div:nth-child(2) {
     width: 40%;
 }
 
-.driverItem div:nth-child(3) {
+.driver-item div:nth-child(3) {
     justify-content: center;
 }
 
-.driverItem div:first-child {
+.driver-item div:first-child {
     text-align: end;
 }
 

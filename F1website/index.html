@@ -15,9 +15,22 @@
     <title>My F1 Website</title>
   </head>
   <body>
+    <!-- template-uri pentru randarea listei de piloti -->
+    <template id="driver-standings">
+      <h1 class="standings-title">Current driver standings</h1>
+      <ul class="standings-list"></ul>
+    </template>
+    <template id="driver">
+      <div class="driver-item">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </template>
+    <!-- ////////////////////////////////////////// -->
     <header>
       <div id="logo">
-          <img src="images/f1logo.png" alt="">
+        <img src="images/f1logo.png" alt="" />
       </div>
       <nav>
         <ul class="menu-list">
@@ -28,10 +41,7 @@
       </nav>
     </header>
     <main>
-      <div class="display">
-        <h1>Current driver standings</h1>
-        <ul></ul>
-      </div>
+      <div class="display"></div>
     </main>
     <footer></footer>
   </body>
