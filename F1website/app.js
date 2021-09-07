@@ -34,8 +34,20 @@ class Standings {
         if(!this.driversArray){
             console.log('no drivers found')
         } else {
+            console.log(this.driversArray);
             const driverStandings = document.importNode(this.driverStandingsTemplate.content, true);
+            console.log(driverStandings)
+            let driverList = driverStandings.querySelector('.standings-list');
             this.display.appendChild(driverStandings);
+            this.driversArray.forEach(driver => {
+                const driverElement = document.importNode(this.driverElementTemplate.content, true);
+                driverElement.innerHTML = `      
+                <div>${driver.position}</div>
+                <div>${driver.firstName} ${driver.lastName}</div>
+                <div>${driver.points}</div>
+                `;
+                driverList.appendChild(driverElement);
+            })
             
         }
     }
