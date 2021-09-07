@@ -1,3 +1,29 @@
+class App {
+    constructor() {
+        
+        this.display = document.querySelector('.display');
+        
+        
+        const currentStandings = new Standings();
+        const standingsBtn = document.querySelector('.standings-btn');
+        standingsBtn.addEventListener('click', () => {
+            currentStandings.renderDrivers();
+
+        });
+    }
+
+    clearDisplay() {
+        let displayElements = this.display.children;
+        console.log(displayElements);
+        Array.from(displayElements).forEach(element => element.remove())
+    }
+
+    showLoadingSpinner() {
+
+    }
+}
+
+
 class Standings {
     constructor() {
         this.url = 'https://ergast.com/api/f1/current/driverStandings.json';
@@ -10,7 +36,6 @@ class Standings {
 
     async getData() {
         const data = await fetch(this.url);
-        console.log('data recieved')
         const jsonData = await data.json();
         const season = jsonData.MRData.StandingsTable.StandingsLists[0].season;
         const currentRound = jsonData.MRData.StandingsTable.StandingsLists[0].round;
@@ -34,18 +59,21 @@ class Standings {
         if(!this.driversArray){
             console.log('no drivers found')
         } else {
-            console.log(this.driversArray);
             const driverStandings = document.importNode(this.driverStandingsTemplate.content, true);
-            console.log(driverStandings)
-            let driverList = driverStandings.querySelector('.standings-list');
+            const driverList = driverStandings.querySelector('.standings-list');
+            const currentSeason = driverStandings.querySelector('.standings-season');
+            currentSeason.textContent = `Current season: ${driversData[0]}`;
+            const currentRound = driverStandings.querySelector('.standings-round')
+            currentRound.textContent = `Current concluded rounds: ${driversData[1]}`;
             this.display.appendChild(driverStandings);
             this.driversArray.forEach(driver => {
                 const driverElement = document.importNode(this.driverElementTemplate.content, true);
-                driverElement.innerHTML = `      
-                <div>${driver.position}</div>
-                <div>${driver.firstName} ${driver.lastName}</div>
-                <div>${driver.points}</div>
-                `;
+                const driverPosElement = driverElement.querySelector('.driver-item__pos')
+                const driverNameElement = driverElement.querySelector('.driver-item__name')
+                const driverPointsElement = driverElement.querySelector('.driver-item__points')
+                driverPosElement.textContent = driver.position;
+                driverNameElement.textContent = `${driver.firstName} ${driver.lastName}`;
+                driverPointsElement.textContent = driver.points;
                 driverList.appendChild(driverElement);
             })
             
@@ -56,15 +84,5 @@ class Standings {
 
 
 
+new App();
 
-let currentStandings = new Standings();
-currentStandings.renderDrivers();
-
-
-
-
-// currentStandings.render();
-// driverStandings.renderData();
-// document.querySelector('#logo').addEventListener('click', () => {
-//     currentStandings.driversArray[0].classList.add('yellow');
-// })

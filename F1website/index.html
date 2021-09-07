@@ -18,10 +18,17 @@
     <!-- template-uri pentru randarea listei de piloti -->
     <template id="driver-standings">
       <h1 class="standings-title">Current driver standings</h1>
+      <div class="standings-info">
+        <p class="standings-season"></p>
+        <p class="standings-round"></p>
+      </div>
       <ul class="standings-list"></ul>
     </template>
     <template id="driver">
       <div class="driver-item">
+        <div class="driver-item__pos"></div>
+        <div class="driver-item__name"></div>
+        <div class="driver-item__points"></div>
       </div>
     </template>
     <!-- ////////////////////////////////////////// -->
@@ -31,9 +38,9 @@
       </div>
       <nav>
         <ul class="menu-list">
-          <li>2021 F1 drivers</li>
-          <li>F1 Tracks</li>
-          <li>Current Season</li>
+          <li class="standings-btn">Standings</li>
+          <li class="tracks-btn">F1 Tracks</li>
+          <li >Current Season</li>
         </ul>
       </nav>
     </header>

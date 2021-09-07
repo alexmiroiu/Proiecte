@@ -53,6 +53,7 @@ nav {
     align-items: center;
     width: 60%;
     margin-top: 3rem;
+    cursor: default;
     
 }
 
@@ -74,6 +75,10 @@ nav {
     
 }
 
+.menu-list li {
+    cursor: pointer;
+}
+
 main {
   grid-column: 2/3;
   grid-row: 2/3;
@@ -88,12 +93,30 @@ main {
 
 }
 
-.standings-title h1 {
+.standings-title{
     font-size: 3rem;
     font-weight: 200;
+    margin-bottom: 1rem;
 }
-.standings-list ul{
+
+.standings-info {
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    border: 2px solid red;
+    border-radius: 5px;
+    padding: 0 1rem;
+}
+
+.standings-list {
     width: 70%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+    border-radius: 5px;
+    align-items: center;
 }
 
 .driver-item {
@@ -101,29 +124,34 @@ main {
     justify-content: space-around;
     color: white;
     font-size: 2rem;
-    margin: 1rem 0;
+    margin: .5rem 0;
     transition: all .5s;
     cursor: default;
-}
-.driver-item:hover {
-    font-size: 2.5rem;
+    width: 80%;
+    border-bottom: 1px solid red;
 }
 
 .driver-item div {
     display: flex;
+    transition: all .3s;
+
+}
+
+.driver-item__name {
+    width: 40%;
+}
+.driver-item__name:hover {
+    transform: translateX(1.2rem) scale(1.1);
+}
+
+.driver-item__points {
+    justify-content: center;
     width: 20%;
 }
 
-.driver-item div:nth-child(2) {
-    width: 40%;
-}
-
-.driver-item div:nth-child(3) {
+.driver-item__pos {
     justify-content: center;
-}
-
-.driver-item div:first-child {
-    text-align: end;
+    width: 20%;
 }
 
 .yellow {
