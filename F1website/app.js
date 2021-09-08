@@ -13,7 +13,7 @@ class App {
         });
 
         const schedule = new Calendar();
-        schedule.getData();
+        schedule.render()
     }
 
     clearDisplay() {
@@ -110,26 +110,45 @@ class Calendar {
     constructor() {
         this.display = document.querySelector('.display');
         this.url = 'https://ergast.com/api/f1/current.json';
+        this.pageLimit = 20;
     }
 
     async getData() {
         const data = await fetch(this.url);
         const parsedData = await data.json();
         const racesData = parsedData.MRData.RaceTable.Races;
-        this.allRaces = [];
+        const allRaces = [];
         racesData.forEach(race => {
             const raceItem = {
                 name: race.raceName,
                 roundNumber: race.round,
                 country: race.Circuit.Location.country,
-                date: race.date
+                date: race.date,
+                info: race.url
             }
-            this.allRaces.push(raceItem);
+            allRaces.push(raceItem);
         })
-        console.log(this.allRaces)
-
-
+        return allRaces;
     }
+
+    async getPages() {
+        let racesList = await this.getData();
+        let racesPaginated = [];
+        while(racesList.length) {
+            const arr = racesList.splice(0,this.pageLimit);
+            racesPaginated.push(arr);
+        }
+        return racesPaginated;
+    }
+
+    async render(button){
+        const races = await this.getPages();
+        
+        if(!button) {
+
+        } 
+    }
+
 }
 
 

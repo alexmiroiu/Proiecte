@@ -41,6 +41,25 @@
         </div>
     </template>
     <!-- ////////////////////////////////////////////////// -->
+    <!-- template pentru Calendar -->
+    <template class="calendar">
+        <h1 class="calendar-title">2021 Race calendar</h1>
+        <div class="calendar-list">
+            <button class="calendar-btn-prev">Previous</button>
+            <ul class="calendar-list"></ul>
+            <button class="calendar-btn-next">Next</button>
+        </div>
+    </template>
+    <template class="calendar-item">
+        <div class="race-item">
+            <div class="race-name"></div>
+            <div class="race-round"></div>
+            <div class="race-country"></div>
+            <div class="race-date"></div>
+            <div class="race-info"></div>
+        </div>
+    </template>
+    <!-- ///////////////////////////////////////////////// -->
     <header>
       <div id="logo">
         <img src="images/f1logo.png" alt="" />
@@ -48,7 +67,7 @@
       <nav>
         <ul class="menu-list">
           <li class="standings-btn">Standings</li>
-          <li class="tracks-btn">F1 Tracks</li>
+          <li class="tracks-btn">Race Calendar</li>
           <li >Current Season</li>
         </ul>
       </nav>
