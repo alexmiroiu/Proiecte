@@ -11,6 +11,9 @@ class App {
             currentStandings.renderDrivers();
 
         });
+
+        const schedule = new Calendar();
+        schedule.getData();
     }
 
     clearDisplay() {
@@ -101,6 +104,32 @@ class Standings {
         }
     }
 
+}
+
+class Calendar {
+    constructor() {
+        this.display = document.querySelector('.display');
+        this.url = 'https://ergast.com/api/f1/current.json';
+    }
+
+    async getData() {
+        const data = await fetch(this.url);
+        const parsedData = await data.json();
+        const racesData = parsedData.MRData.RaceTable.Races;
+        this.allRaces = [];
+        racesData.forEach(race => {
+            const raceItem = {
+                name: race.raceName,
+                roundNumber: race.round,
+                country: race.Circuit.Location.country,
+                date: race.date
+            }
+            this.allRaces.push(raceItem);
+        })
+        console.log(this.allRaces)
+
+
+    }
 }
 
 
