@@ -6,6 +6,7 @@ class App {
 
 
         standingsBtn.addEventListener('click', () => {
+            this.clearDisplay()
             const currentStandings = new Standings();
             currentStandings.renderDrivers();
 
@@ -75,7 +76,7 @@ class Standings {
     }
 
     async renderDrivers() {
-        if (!this.display.innerHTML == "") {
+        if (!this.display.innerHTML === "") {
             return;
         } else {
             const loadingElement = new Spinner();
