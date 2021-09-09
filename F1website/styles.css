@@ -153,3 +153,14 @@ main {
     justify-content: center;
     width: 20%;
 }
+
+.race-item {
+    display: flex;
+
+}
+
+.calendar-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,19 +1,22 @@
 class App {
     constructor() {
-
         this.display = document.querySelector('.display');
-
-
-        const currentStandings = new Standings();
-        console.dir(currentStandings.display)
         const standingsBtn = document.querySelector('.standings-btn');
+        const calendarBtn = document.querySelector('.tracks-btn');
+
+
         standingsBtn.addEventListener('click', () => {
+            const currentStandings = new Standings();
             currentStandings.renderDrivers();
 
         });
 
-        const schedule = new Calendar();
-        schedule.render()
+        calendarBtn.addEventListener('click', (e) => {
+            const schedule = new Calendar();
+            console.log(e.target.textContent)
+            schedule.render(e.target.textContent)
+
+        })
     }
 
     clearDisplay() {
@@ -110,7 +113,10 @@ class Calendar {
     constructor() {
         this.display = document.querySelector('.display');
         this.url = 'https://ergast.com/api/f1/current.json';
+        this.calendarTemplate = document.querySelector('.calendar');
+        this.calendarItemTemplate = document.querySelector('.calendar-item');
         this.pageLimit = 20;
+        this.currentPage = 0;
     }
 
     async getData() {
@@ -141,12 +147,24 @@ class Calendar {
         return racesPaginated;
     }
 
-    async render(button){
+    async render(buttonText){
         const races = await this.getPages();
-        
-        if(!button) {
+        const calendarElements = document.importNode(this.calendarTemplate.content, true);
+        const raceListElement = calendarElements.querySelector('.calendar-list')
+        this.display.appendChild(calendarElements);
+        if(buttonText === 'Race Calendar') {
+            races[0].forEach(race => {
+                const raceElement = document.importNode(this.calendarItemTemplate.content, true);
+                raceElement.querySelector('.race-name').textContent = race.name;
+                raceElement.querySelector('.race-round').textContent = race.roundNumber;
+                raceElement.querySelector('.race-country').textContent = race.country;
+                raceElement.querySelector('.race-date').textContent = race.date;
+                raceElement.querySelector('.race-info').textContent = race.info;
+                raceListElement.appendChild(raceElement);
+            })
 
-        } 
+        }
+
     }
 
 }
