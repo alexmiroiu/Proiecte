@@ -1,10 +1,10 @@
 class App {
+    
     constructor() {
         this.display = document.querySelector('.display');
         const standingsBtn = document.querySelector('.standings-btn');
         const calendarBtn = document.querySelector('.tracks-btn');
-
-
+        
         standingsBtn.addEventListener('click', () => {
             this.clearDisplay()
             const currentStandings = new Standings();
@@ -12,12 +12,18 @@ class App {
 
         });
 
+        const schedule = new Calendar();
         calendarBtn.addEventListener('click', (e) => {
-            const schedule = new Calendar();
-            console.log(e.target.textContent)
-            schedule.render(e.target.textContent)
-
+            schedule.render(e.target.textContent);
         })
+        this.display.addEventListener('click', (e) => {
+            if(e.target.textContent === 'Previous' || e.target.textContent === 'Previous') {
+                schedule.render(e.target.textContent);
+            }
+            
+        })
+
+
     }
 
     clearDisplay() {
@@ -153,6 +159,7 @@ class Calendar {
         const calendarElements = document.importNode(this.calendarTemplate.content, true);
         const raceListElement = calendarElements.querySelector('.calendar-list')
         this.display.appendChild(calendarElements);
+        // console.log(races[0], races[1]);
         if(buttonText === 'Race Calendar') {
             races[0].forEach(race => {
                 const raceElement = document.importNode(this.calendarItemTemplate.content, true);
@@ -164,6 +171,38 @@ class Calendar {
                 raceListElement.appendChild(raceElement);
             })
 
+        } 
+        if (buttonText === 'Previous') {
+            if(this.currentPage === 0) {
+                return;
+            } else {
+                this.currentPage--;
+                races[0].forEach(race => {
+                    const raceElement = document.importNode(this.calendarItemTemplate.content, true);
+                    raceElement.querySelector('.race-name').textContent = race.name;
+                    raceElement.querySelector('.race-round').textContent = race.roundNumber;
+                    raceElement.querySelector('.race-country').textContent = race.country;
+                    raceElement.querySelector('.race-date').textContent = race.date;
+                    raceElement.querySelector('.race-info').textContent = race.info;
+                    raceListElement.appendChild(raceElement);
+                })
+            }
+        }
+        if(buttonText === 'Next') {
+            if(this.currentPage === 1) {
+                return;
+            } else {
+                this.currentPage++;
+                races[1].forEach(race => {
+                    const raceElement = document.importNode(this.calendarItemTemplate.content, true);
+                    raceElement.querySelector('.race-name').textContent = race.name;
+                    raceElement.querySelector('.race-round').textContent = race.roundNumber;
+                    raceElement.querySelector('.race-country').textContent = race.country;
+                    raceElement.querySelector('.race-date').textContent = race.date;
+                    raceElement.querySelector('.race-info').textContent = race.info;
+                    raceListElement.appendChild(raceElement);
+                })
+            }
         }
 
     }
