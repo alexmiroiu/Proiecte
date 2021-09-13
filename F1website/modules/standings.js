@@ -12,11 +12,12 @@ export class Standings {
 
 
     async getData() {
-        const data = await fetch(this.url);
-        const jsonData = await data.json();
-        const season = jsonData.MRData.StandingsTable.StandingsLists[0].season;
-        const currentRound = jsonData.MRData.StandingsTable.StandingsLists[0].round;
-        const driverList = jsonData.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+        if(sessionStorage.getItem('standingsData')) {
+            console.log('got the data from ss')
+            const ssStandingsData = JSON.parse(sessionStorage.getItem('standingsData'));
+            const season = ssStandingsData.MRData.StandingsTable.StandingsLists[0].season;
+        const currentRound = ssStandingsData.MRData.StandingsTable.StandingsLists[0].round;
+        const driverList = ssStandingsData.MRData.StandingsTable.StandingsLists[0].DriverStandings;
         this.driversArray = [];
         driverList.forEach(driver => {
             let driverObj = {
@@ -28,7 +29,30 @@ export class Standings {
             }
             this.driversArray.push(driverObj);
         });
+
         return [season, currentRound];
+
+        } else {
+            const data = await fetch(this.url);
+            console.log('called the api')
+            const jsonData = await data.json();
+            sessionStorage.setItem('standingsData', JSON.stringify(jsonData));
+            const season = jsonData.MRData.StandingsTable.StandingsLists[0].season;
+            const currentRound = jsonData.MRData.StandingsTable.StandingsLists[0].round;
+            const driverList = jsonData.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+            this.driversArray = [];
+            driverList.forEach(driver => {
+                let driverObj = {
+                    position: driver.position,
+                    lastName: driver.Driver.familyName,
+                    firstName: driver.Driver.givenName,
+                    points: driver.points
+    
+                }
+                this.driversArray.push(driverObj);
+            });
+            return [season, currentRound];
+        }
     }
 
     async renderDrivers() {
