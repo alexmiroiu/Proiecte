@@ -35,18 +35,13 @@ class App {
         calendarBtn.addEventListener('click', (e) => {
             display.clear();
             schedule.render(e.target.textContent);
-
-            
         })
         this.display.addEventListener('click', (e) => {
             if ((e.target.textContent === 'Previous' || e.target.textContent === 'Next') && schedule.active === true) {
                 console.log(schedule.currentPage)
                 schedule.render(e.target.textContent);
             }
-
         })
-
-
     }
 
 

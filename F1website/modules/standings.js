@@ -1,4 +1,6 @@
-import { Spinner } from './spinner.js'
+import {
+    Spinner
+} from './spinner.js'
 
 export class Standings {
     constructor() {
@@ -9,28 +11,26 @@ export class Standings {
 
     }
 
-
-
     async getData() {
-        if(sessionStorage.getItem('standingsData')) {
+        if (sessionStorage.getItem('standingsData')) {
             console.log('got the data from ss')
             const ssStandingsData = JSON.parse(sessionStorage.getItem('standingsData'));
             const season = ssStandingsData.MRData.StandingsTable.StandingsLists[0].season;
-        const currentRound = ssStandingsData.MRData.StandingsTable.StandingsLists[0].round;
-        const driverList = ssStandingsData.MRData.StandingsTable.StandingsLists[0].DriverStandings;
-        this.driversArray = [];
-        driverList.forEach(driver => {
-            let driverObj = {
-                position: driver.position,
-                lastName: driver.Driver.familyName,
-                firstName: driver.Driver.givenName,
-                points: driver.points
+            const currentRound = ssStandingsData.MRData.StandingsTable.StandingsLists[0].round;
+            const driverList = ssStandingsData.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+            this.driversArray = [];
+            driverList.forEach(driver => {
+                let driverObj = {
+                    position: driver.position,
+                    lastName: driver.Driver.familyName,
+                    firstName: driver.Driver.givenName,
+                    points: driver.points
 
-            }
-            this.driversArray.push(driverObj);
-        });
+                }
+                this.driversArray.push(driverObj);
+            });
 
-        return [season, currentRound];
+            return [season, currentRound];
 
         } else {
             const data = await fetch(this.url);
@@ -47,7 +47,7 @@ export class Standings {
                     lastName: driver.Driver.familyName,
                     firstName: driver.Driver.givenName,
                     points: driver.points
-    
+
                 }
                 this.driversArray.push(driverObj);
             });

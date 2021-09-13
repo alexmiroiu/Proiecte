@@ -14,22 +14,42 @@ export class Calendar {
     }
 
     async getData() {
-        const data = await fetch(this.url);
-        const parsedData = await data.json();
-        const racesData = parsedData.MRData.RaceTable.Races;
-        const allRaces = [];
-        this.active = true;
-        racesData.forEach(race => {
-            const raceItem = {
-                name: race.raceName,
-                roundNumber: race.round,
-                country: race.Circuit.Location.country,
-                date: race.date,
-                info: race.url
-            }
-            allRaces.push(raceItem);
-        })
-        return allRaces;
+        if(sessionStorage.getItem('calendarData')) {
+            const parsedData = JSON.parse(sessionStorage.getItem('calendarData'));
+            const racesData = parsedData.MRData.RaceTable.Races;
+            const allRaces = [];
+            this.active = true;
+            racesData.forEach(race => {
+                const raceItem = {
+                    name: race.raceName,
+                    roundNumber: race.round,
+                    country: race.Circuit.Location.country,
+                    date: race.date,
+                    info: race.url
+                }
+                allRaces.push(raceItem);
+            })
+            return allRaces;
+        } else {
+            const data = await fetch(this.url);
+            const parsedData = await data.json();
+            sessionStorage.setItem('calendarData', JSON.stringify(parsedData));
+            console.log('got the data from api and stored it to ss');
+            const racesData = parsedData.MRData.RaceTable.Races;
+            const allRaces = [];
+            this.active = true;
+            racesData.forEach(race => {
+                const raceItem = {
+                    name: race.raceName,
+                    roundNumber: race.round,
+                    country: race.Circuit.Location.country,
+                    date: race.date,
+                    info: race.url
+                }
+                allRaces.push(raceItem);
+            })
+            return allRaces;
+        }
     }
 
     async getPages() {
