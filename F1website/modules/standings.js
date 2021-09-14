@@ -8,6 +8,7 @@ export class Standings {
         this.display = document.querySelector('.display');
         this.driverStandingsTemplate = document.getElementById('driver-standings');
         this.driverElementTemplate = document.getElementById('driver');
+        this.driverListHeaderTemplate = document.getElementById('standings-header');
 
     }
 
@@ -71,8 +72,10 @@ export class Standings {
                 const currentSeason = driverStandings.querySelector('.standings-season');
                 currentSeason.textContent = `Current season: ${driversData[0]}`;
                 const currentRound = driverStandings.querySelector('.standings-round')
-                currentRound.textContent = `Current concluded rounds: ${driversData[1]}`;
+                currentRound.textContent = `Concluded rounds: ${driversData[1]}`;
                 this.display.appendChild(driverStandings);
+                const driverListHeader = document.importNode(this.driverListHeaderTemplate.content, true);
+                driverList.appendChild(driverListHeader);
                 this.driversArray.forEach(driver => {
                     const driverElement = document.importNode(this.driverElementTemplate.content, true);
                     const driverPosElement = driverElement.querySelector('.driver-item__pos')

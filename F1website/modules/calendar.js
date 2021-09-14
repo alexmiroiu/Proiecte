@@ -8,6 +8,7 @@ export class Calendar {
         this.url = 'https://ergast.com/api/f1/current.json';
         this.calendarTemplate = document.querySelector('.calendar');
         this.calendarItemTemplate = document.querySelector('.calendar-item');
+        this.calendarHeaderTemplate = document.getElementById('calendar-header');
         this.pageLimit = 20;
         this.currentPage = 0;
         this.active = false;
@@ -59,6 +60,7 @@ export class Calendar {
             const arr = racesList.splice(0, this.pageLimit);
             racesPaginated.push(arr);
         }
+        this.numberOfPages = racesPaginated.length;
         return racesPaginated;
     }
 
@@ -76,6 +78,10 @@ export class Calendar {
             const races = await this.getPages();
             display.clear()
             this.renderList();
+            const calendarHeader = document.importNode(this.calendarHeaderTemplate.content, true);
+            this.raceListElement.appendChild(calendarHeader);
+            document.querySelector('.calendar-total-pg').textContent = this.numberOfPages;
+            document.querySelector('.calendar-current-pg').textContent = this.currentPage + 1;
             races[0].forEach(race => {
                 const raceElement = document.importNode(this.calendarItemTemplate.content, true);
                 raceElement.querySelector('.race-name').textContent = race.name;
@@ -96,6 +102,10 @@ export class Calendar {
                 display.clear();
                 this.renderList();
                 this.currentPage--;
+                const calendarHeader = document.importNode(this.calendarHeaderTemplate.content, true);
+                this.raceListElement.appendChild(calendarHeader);
+                document.querySelector('.calendar-total-pg').textContent = this.numberOfPages;
+                document.querySelector('.calendar-current-pg').textContent = this.currentPage + 1;
                 races[0].forEach(race => {
                     const raceElement = document.importNode(this.calendarItemTemplate.content, true);
                     raceElement.querySelector('.race-name').textContent = race.name;
@@ -115,6 +125,10 @@ export class Calendar {
                 display.clear();
                 this.renderList();
                 this.currentPage++;
+                const calendarHeader = document.importNode(this.calendarHeaderTemplate.content, true);
+                this.raceListElement.appendChild(calendarHeader);
+                document.querySelector('.calendar-total-pg').textContent = this.numberOfPages;
+                document.querySelector('.calendar-current-pg').textContent = this.currentPage + 1;
                 races[1].forEach(race => {
                     const raceElement = document.importNode(this.calendarItemTemplate.content, true);
                     raceElement.querySelector('.race-name').textContent = race.name;

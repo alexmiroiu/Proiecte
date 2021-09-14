@@ -1,5 +1,9 @@
 :root {
-  --background: #ff0000;
+  --text: #141313;
+  --gradient-top: rgba(255, 255, 255, 0.9);
+  --gradient-bottom: rgba(234, 233, 255, 0.9);
+  --border-color: #BBBBBB;
+  --light-grey: #DDDDDD;
 }
 
 * {
@@ -16,11 +20,11 @@ html {
 }
 
 body {
-  color: white;
+  color: var(--text);
   z-index: -2;
   display: grid;
   grid-template-columns: 1fr 80% 1fr;
-  grid-template-rows: 6vh 80vh 10vh;
+  grid-template-rows: 5rem 90vh calc(100vh - (90vh + 5rem));
   background: url(images/bg.jpg) no-repeat center center fixed;
   background-size: cover;
   width: 100%;
@@ -34,7 +38,7 @@ body::after {
   top: 0;
   width: 100%;
   min-height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(1, 5, 61, 0.7)) no-repeat center center fixed;
+  background: linear-gradient(var(--gradient-top), var(--gradient-bottom)) no-repeat center center fixed;
   background-size: cover;
   z-index: -1;
 }
@@ -42,40 +46,30 @@ body::after {
 header {
   display: flex;
   font-size: 2rem;
-  grid-column: 2/3;
+  grid-column: 1/4;
   grid-row: 1/2;
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  border: 2px solid red;
-  border-radius: 20px;
-  margin-top: -3rem;
-  height: 100%;
+  border-bottom: 1px solid red;
+  box-shadow:
+  0 7px 7px -10px rgba(0, 0, 0, 0.99);
+  height: 5rem;
 }
 
-footer {
-    display: flex;
-    grid-column: 1/4;
-    grid-row: 3/4;
-    width: 100%;
-    height: 100%;
-    font-size: 3rem;
-    justify-content: center;
-    align-items: center;
-}
+
 
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60%;
-    margin-top: 3rem;
     cursor: default;
+    height: 100%;
     
 }
 
 #logo {
-    margin-top: 3rem;
     cursor: pointer;
 }
 
@@ -89,6 +83,7 @@ nav {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     list-style: none;
     height: 100%;
     
@@ -96,20 +91,22 @@ nav {
 
 .menu-list li {
     cursor: pointer;
-    height: 100%;
 }
 
 main {
   grid-column: 2/3;
   grid-row: 2/3;
-  margin-top: 10rem;
+  margin-top: 7vh;
+  /* overflow: hidden; */
+
 }
 
 .display {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: center;
+    height: 100%;
 
 }
 
@@ -118,14 +115,29 @@ main {
 }
 .standings-btn:hover .standings-dropdown-wrapper{
     transform: translateY(1rem);
-    opacity: 1;
+    height: 100%;
+    display: block;
 }
 
 .standings-dropdown-wrapper {
     position: absolute;
     top: 3rem;
     transition: all .3s;
-    opacity: 0;
+    display: none;
+    background-color: red;
+    height: 100%;
+}
+
+footer {
+    font-weight: 200;
+    display: flex;
+    grid-column: 1/4;
+    grid-row: 3/4;
+    width: 100%;
+    height: 100%;
+    font-size: 3rem;
+    justify-content: center;
+    align-items: flex-end;
 }
 
 
@@ -140,45 +152,76 @@ main {
     width: 55%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 2rem;
-    margin-bottom: 2rem;
-    border: 2px solid red;
     border-radius: 5px;
     padding: 0 1rem;
+    height: 7%;
 }
 
 .standings-list {
     width: 70%;
     display: flex;
     flex-direction: column;
-    border: 2px solid red;
     border-radius: 5px;
     align-items: center;
+    animation: fadeInDown .5s;
+}
+
+.standings-header {
+    display: flex;
+    justify-content: space-around;
+    color: var(--text);
+    font-size: 1.7rem;
+    transition: all .5s;
+    cursor: default;
+    width: 80%;
+    background-color: var(--light-grey);
+    /* border-bottom: 1px solid var(--border-color); */
+    border-right: 1px solid var(--border-color);
+}
+
+.standings-header div {
+    display: flex;
+}
+
+.standings-header__pos {
+    justify-content: center;
+    width: 20%;
+}
+.standings-header__name {
+    width: 40%;
+    justify-content: center;
+}
+
+.standings-header__points {
+    justify-content: center;
+    width: 20%;
 }
 
 .driver-item {
     display: flex;
     justify-content: space-around;
-    color: white;
-    font-size: 2rem;
-    margin: .5rem 0;
+    color: var(--text);
+    font-size: 1.6rem;
     transition: all .5s;
     cursor: default;
     width: 80%;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
 }
+
 
 .driver-item div {
     display: flex;
-    transition: all .3s;
-
 }
 
+.driver-item__pos {
+    justify-content: center;
+    width: 20%;
+}
 .driver-item__name {
     width: 40%;
-}
-.driver-item__name:hover {
-    transform: translateX(1.2rem) scale(1.1);
 }
 
 .driver-item__points {
@@ -186,41 +229,157 @@ main {
     width: 20%;
 }
 
-.driver-item__pos {
-    justify-content: center;
-    width: 20%;
-}
 /* --------------------------------------------------------------------------------------------------------- */
 
 /* -------------------------------------- CALENDAR ------------------------------------------- */
+.calendar-title {
+    font-size: 3rem;
+    font-weight: 200;
+    margin-bottom: 1rem;
+}
 
-.race-item {
+.calendar-display {
+    display: flex;
+    position: relative;
+    width: 85%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.calendar-header {
     display: flex;
     justify-content: space-between;
-    color: white;
-    font-size: 1.6rem;
-    margin: .5rem 0;
+    color: var(--text);
+    font-size: 1.7rem;
     transition: all .5s;
     cursor: default;
-    width: 80%;
-    border-bottom: 1px solid red;
+    width: 100%;
+    background-color: var(--light-grey);
+    border-right: 1px solid var(--border-color);
+}
+
+.calendar-header__round {
+    display: flex;
+    width: 10%;
+    justify-content: center;
+}
+.calendar-header__name {
+    width: 35%;
+}
+.calendar-header__country {
+    width: 20%;
+}
+.calendar-header__date {
+    width: 17%;
+}
+.calendar-header__info {
+    width: 25%;
+    text-align: center;
 }
 
 .calendar-list {
     display: flex;
     width: 100%;
-    height: 80vh;
+    height: 95%;
     flex-direction: column;
-    border: 2px solid red;
     padding: 3rem 0;
     border-radius: 5px;
     align-items: center;
+    animation: fadeInDown .5s;
 }
 
-.calendar-display {
+.calendar-controls {
+    font-size: 1.5rem;
     display: flex;
-    width: 85%;
-    height: 100%;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.btn {
+    background-color: transparent;
+    color: var(--text);
+    border: 1px solid red;
+    width: 15%;
+    border-radius: 3px;
+}
+
+.btn:hover {
+    background-color: red;
+    color: white;
+}
+.btn:active {
+    transform: translateY(1px);
+}
+
+
+.race-item {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text);
+    font-size: 1.6rem;
+    transition: all .5s;
+    cursor: default;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+.race-item div {
+    display: flex;
+}
+
+.race-name {
+    width: 35%;
+}
+
+.race-round {
+    width: 10%;
     justify-content: center;
-    align-items: center;
+}
+
+.race-country {
+    width: 20%;
+}   
+
+.race-date {
+    width: 17%;
+}
+
+.race-info {
+    width: 25%;
+    text-decoration: none;
+    text-align: center;
+    
+}
+
+.race-info, .race-info:visited {
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------           ANIMATIONS            ------------------------------- */
+
+
+@keyframes fadeInDown {
+    0%{
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+    50% {
+
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
