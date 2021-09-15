@@ -9,7 +9,7 @@ export class Standings {
         this.driverStandingsTemplate = document.getElementById('driver-standings');
         this.driverElementTemplate = document.getElementById('driver');
         this.driverListHeaderTemplate = document.getElementById('standings-header');
-
+        
     }
 
     async getData() {

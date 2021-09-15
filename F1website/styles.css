@@ -2,8 +2,8 @@
   --text: #141313;
   --gradient-top: rgba(255, 255, 255, 0.9);
   --gradient-bottom: rgba(234, 233, 255, 0.9);
-  --border-color: #BBBBBB;
-  --light-grey: #DDDDDD;
+  --border-color: #bbbbbb;
+  --light-grey: #dddddd;
 }
 
 * {
@@ -16,7 +16,6 @@
 html {
   font-size: 62.5%;
   /* solutie pentru setarea background-ului centrat, scalabil */
-
 }
 
 body {
@@ -38,7 +37,8 @@ body::after {
   top: 0;
   width: 100%;
   min-height: 100%;
-  background: linear-gradient(var(--gradient-top), var(--gradient-bottom)) no-repeat center center fixed;
+  background: linear-gradient(var(--gradient-top), var(--gradient-bottom))
+    no-repeat center center fixed;
   background-size: cover;
   z-index: -1;
 }
@@ -52,45 +52,94 @@ header {
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid red;
-  box-shadow:
-  0 7px 7px -10px rgba(0, 0, 0, 0.99);
+  box-shadow: 0 7px 7px -10px rgba(0, 0, 0, 0.99);
   height: 5rem;
 }
 
-
-
 nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-    cursor: default;
-    height: 100%;
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  cursor: default;
+  height: 100%;
 }
 
 #logo {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #logo img {
-    width: 11.2rem;
-    height: 4rem;
+  width: 11.2rem;
+  height: 4rem;
 }
 
-
 .menu-list {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    height: 100%;
-    
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  height: 100%;
 }
 
 .menu-list li {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.standings-wrapper {
+  position: relative;
+  width: 20%;
+  height: 100%;
+}
+.standings-btn {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.standings-dropdown-wrapper {
+    display: none;
+    width: 100%;
+}
+
+.standings-wrapper:hover .standings-dropdown-wrapper {
+    position: absolute;
+    display: block;
+    background-color: transparent;
+    left: 0;
+    top: 100%;
+    padding-top: 1rem;
+}
+
+
+
+
+.dropdown-btn {
+    position: relative;
+  animation: fadeInDown 0.5s ease-out;
+  overflow: hidden;
+  margin-bottom: .5rem;
+}
+.dropdown-btn::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    background-color: rgb(255, 0, 0);
+    transition: right .3s;
+}
+
+
+.dropdown-btn:hover::after{
+    right: -97%;
+}
+
+.standings-constructors {
+  animation: fadeInDown 0.5s ease-out;
 }
 
 main {
@@ -98,288 +147,254 @@ main {
   grid-row: 2/3;
   margin-top: 7vh;
   /* overflow: hidden; */
-
 }
 
 .display {
-    display: flex;
-    flex-direction: column;
-    justify-content:flex-start;
-    align-items: center;
-    height: 100%;
-
-}
-
-.standings-btn {
-    position: relative;
-}
-.standings-btn:hover .standings-dropdown-wrapper{
-    transform: translateY(1rem);
-    height: 100%;
-    display: block;
-}
-
-.standings-dropdown-wrapper {
-    position: absolute;
-    top: 3rem;
-    transition: all .3s;
-    display: none;
-    background-color: red;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
 }
 
 footer {
-    font-weight: 200;
-    display: flex;
-    grid-column: 1/4;
-    grid-row: 3/4;
-    width: 100%;
-    height: 100%;
-    font-size: 3rem;
-    justify-content: center;
-    align-items: flex-end;
+  font-weight: 200;
+  display: flex;
+  grid-column: 1/4;
+  grid-row: 3/4;
+  width: 100%;
+  height: 100%;
+  font-size: 3rem;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-
 /* -------------------------------------- STANDINGS ------------------------------------------- */
-.standings-title{
-    font-size: 3rem;
-    font-weight: 200;
-    margin-bottom: 1rem;
+.standings-title {
+  font-size: 3rem;
+  font-weight: 200;
+  margin-bottom: 1rem;
 }
 
 .standings-info {
-    width: 55%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 2rem;
-    border-radius: 5px;
-    padding: 0 1rem;
-    height: 7%;
+  width: 55%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  border-radius: 5px;
+  padding: 0 1rem;
+  height: 7%;
 }
 
 .standings-list {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    align-items: center;
-    animation: fadeInDown .5s;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  align-items: center;
+  animation: fadeInDown 0.5s;
 }
 
 .standings-header {
-    display: flex;
-    justify-content: space-around;
-    color: var(--text);
-    font-size: 1.7rem;
-    transition: all .5s;
-    cursor: default;
-    width: 80%;
-    background-color: var(--light-grey);
-    /* border-bottom: 1px solid var(--border-color); */
-    border-right: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-around;
+  color: var(--text);
+  font-size: 1.7rem;
+  transition: all 0.5s;
+  cursor: default;
+  width: 80%;
+  background-color: var(--light-grey);
+  /* border-bottom: 1px solid var(--border-color); */
+  border-right: 1px solid var(--border-color);
 }
 
 .standings-header div {
-    display: flex;
+  display: flex;
 }
 
 .standings-header__pos {
-    justify-content: center;
-    width: 20%;
+  justify-content: center;
+  width: 20%;
 }
 .standings-header__name {
-    width: 40%;
-    justify-content: center;
+  width: 40%;
+  justify-content: center;
 }
 
 .standings-header__points {
-    justify-content: center;
-    width: 20%;
+  justify-content: center;
+  width: 20%;
 }
 
 .driver-item {
-    display: flex;
-    justify-content: space-around;
-    color: var(--text);
-    font-size: 1.6rem;
-    transition: all .5s;
-    cursor: default;
-    width: 80%;
-    border-bottom: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-around;
+  color: var(--text);
+  font-size: 1.6rem;
+  transition: all 0.5s;
+  cursor: default;
+  width: 80%;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
 }
 
-
 .driver-item div {
-    display: flex;
+  display: flex;
 }
 
 .driver-item__pos {
-    justify-content: center;
-    width: 20%;
+  justify-content: center;
+  width: 20%;
 }
 .driver-item__name {
-    width: 40%;
+  width: 40%;
 }
 
 .driver-item__points {
-    justify-content: center;
-    width: 20%;
+  justify-content: center;
+  width: 20%;
 }
 
 /* --------------------------------------------------------------------------------------------------------- */
 
 /* -------------------------------------- CALENDAR ------------------------------------------- */
 .calendar-title {
-    font-size: 3rem;
-    font-weight: 200;
-    margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 200;
+  margin-bottom: 1rem;
 }
 
 .calendar-display {
-    display: flex;
-    position: relative;
-    width: 85%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  position: relative;
+  width: 85%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .calendar-header {
-    display: flex;
-    justify-content: space-between;
-    color: var(--text);
-    font-size: 1.7rem;
-    transition: all .5s;
-    cursor: default;
-    width: 100%;
-    background-color: var(--light-grey);
-    border-right: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  color: var(--text);
+  font-size: 1.7rem;
+  transition: all 0.5s;
+  cursor: default;
+  width: 100%;
+  background-color: var(--light-grey);
+  border-right: 1px solid var(--border-color);
 }
 
 .calendar-header__round {
-    display: flex;
-    width: 10%;
-    justify-content: center;
+  display: flex;
+  width: 10%;
+  justify-content: center;
 }
 .calendar-header__name {
-    width: 35%;
+  width: 35%;
 }
 .calendar-header__country {
-    width: 20%;
+  width: 20%;
 }
 .calendar-header__date {
-    width: 17%;
+  width: 17%;
 }
 .calendar-header__info {
-    width: 25%;
-    text-align: center;
+  width: 25%;
+  text-align: center;
 }
 
 .calendar-list {
-    display: flex;
-    width: 100%;
-    height: 95%;
-    flex-direction: column;
-    padding: 3rem 0;
-    border-radius: 5px;
-    align-items: center;
-    animation: fadeInDown .5s;
+  display: flex;
+  width: 100%;
+  height: 95%;
+  flex-direction: column;
+  padding: 3rem 0;
+  border-radius: 5px;
+  align-items: center;
+  animation: fadeInDown 0.5s;
 }
 
 .calendar-controls {
-    font-size: 1.5rem;
-    display: flex;
-    width: 80%;
-    justify-content: space-between;
+  font-size: 1.5rem;
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
 }
 
 .btn {
-    background-color: transparent;
-    color: var(--text);
-    border: 1px solid red;
-    width: 15%;
-    border-radius: 3px;
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid red;
+  width: 15%;
+  border-radius: 3px;
 }
 
 .btn:hover {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 .btn:active {
-    transform: translateY(1px);
+  transform: translateY(1px);
 }
 
-
 .race-item {
-    display: flex;
-    justify-content: space-between;
-    color: var(--text);
-    font-size: 1.6rem;
-    transition: all .5s;
-    cursor: default;
-    width: 100%;
-    border-bottom: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  color: var(--text);
+  font-size: 1.6rem;
+  transition: all 0.5s;
+  cursor: default;
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
 }
 
 .race-item div {
-    display: flex;
+  display: flex;
 }
 
 .race-name {
-    width: 35%;
+  width: 35%;
 }
 
 .race-round {
-    width: 10%;
-    justify-content: center;
+  width: 10%;
+  justify-content: center;
 }
 
 .race-country {
-    width: 20%;
-}   
+  width: 20%;
+}
 
 .race-date {
-    width: 17%;
+  width: 17%;
 }
 
 .race-info {
-    width: 25%;
-    text-decoration: none;
-    text-align: center;
-    
+  width: 25%;
+  text-decoration: none;
+  text-align: center;
 }
 
-.race-info, .race-info:visited {
-    color: red;
+.race-info,
+.race-info:visited {
+  color: red;
 }
-
-
-
-
-
-
-
-
-
 
 /* ---------------------------           ANIMATIONS            ------------------------------- */
 
-
 @keyframes fadeInDown {
-    0%{
-        opacity: 0;
-        transform: translateY(-1rem);
-    }
-    50% {
-
-    }
-    100%{
-        opacity: 1;
-        transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  50% {
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

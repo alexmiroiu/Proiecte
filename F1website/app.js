@@ -16,7 +16,7 @@ class App {
     constructor() {
         this.homeBtn = document.getElementById('logo');
         this.display = document.querySelector('.display');
-        const standingsBtn = document.querySelector('.standings-btn');
+        const driverStandingsBtn = document.querySelector('.standings-drivers');
         const calendarBtn = document.querySelector('.tracks-btn');
         const display = new Display();
 
@@ -24,7 +24,7 @@ class App {
             display.clear();
         })
 
-        standingsBtn.addEventListener('click', () => {
+        driverStandingsBtn.addEventListener('click', () => {
             display.clear();
             const currentStandings = new Standings();
             currentStandings.renderDrivers();
