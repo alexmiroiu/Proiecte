@@ -10,6 +10,9 @@ import {
 import {
     Display
 } from './modules/display.js';
+import {
+    LastRaceResults
+} from './modules/lastRace.js';
 
 class App {
 
@@ -19,9 +22,16 @@ class App {
         const driverStandingsBtn = document.querySelector('.standings-drivers');
         const calendarBtn = document.querySelector('.tracks-btn');
         const display = new Display();
+        const lastRace = new LastRaceResults();
+
+        window.addEventListener('load', () => {
+            lastRace.render();
+        })
 
         this.homeBtn.addEventListener('click', () => {
             display.clear();
+            lastRace.render();
+
         })
 
         driverStandingsBtn.addEventListener('click', () => {
