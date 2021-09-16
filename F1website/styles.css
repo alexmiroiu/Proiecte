@@ -269,7 +269,7 @@ footer {
 /* --------------------------------------------------------------------------------------------------------- */
 
 
-/* -------------------------------------- STANDINGS ------------------------------------------- */
+/* -------------------------------------- DRIVERS STANDINGS ------------------------------------------- */
 .standings-title {
   font-size: 3rem;
   font-weight: 200;
@@ -356,6 +356,82 @@ footer {
 }
 
 /* --------------------------------------------------------------------------------------------------------- */
+/* -------------------------------------- CONSTRUCTORS STANDINGS ------------------------------------------- */
+
+.constructors-title {
+font-size: 3rem;
+  font-weight: 200;
+  margin-bottom: 1rem;
+}
+
+.cStandings-info {
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2rem;
+    padding: 0 1rem;
+    height: 7%;
+}
+
+.cStandings-list {
+    width: 70%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  align-items: center;
+  animation: fadeInDown 0.5s;
+}
+
+.constructors-header {
+    display: flex;
+    justify-content: space-around;
+    color: var(--text);
+    font-size: 1.7rem;
+    font-weight: 500;
+    transition: all 0.5s;
+    cursor: default;
+    width: 100%;
+    background-color: var(--light-grey);
+    border-right: 1px solid var(--border-color);
+}
+
+.constructor-item {
+    display: flex;
+    justify-content: space-around;
+    color: var(--text);
+    font-size: 1.6rem;
+    transition: all 0.5s;
+    cursor: default;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+.cPos {
+    width: 10%;
+    text-align: center;
+}
+
+.cName {
+    width: 20%;
+}
+.cNationality {
+    width: 20%;
+}
+
+.cPoints {
+    width: 10%;
+}
+
+.cWins {
+    width: 10%;
+    text-align: center;
+}
+
+
+/* --------------------------------------------------------------------------------------------------------- */
+
 
 /* -------------------------------------- CALENDAR ------------------------------------------- */
 .calendar-title {

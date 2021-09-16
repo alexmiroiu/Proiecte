@@ -49,8 +49,8 @@ export class CStandings {
         const standingsData = await this.getData();
         this.display.innerHTML = '';
         const standingsElements = document.importNode(this.constructorStandingsElementsTemplate.content, true);
-        standingsElements.querySelector('.cStandings-season').textContent = standingsData.season;
-        standingsElements.querySelector('.cStandings-round').textContent = standingsData.round;
+        standingsElements.querySelector('.cStandings-season').textContent += standingsData.season;
+        standingsElements.querySelector('.cStandings-round').textContent += standingsData.round;
         const standingsList = standingsElements.querySelector('.cStandings-list');
         const constructorsHeader = document.importNode(this.constructorHeaderTemplate.content, true);
         standingsList.appendChild(constructorsHeader);
