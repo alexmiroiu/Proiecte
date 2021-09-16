@@ -10,6 +10,9 @@ import {
 import {
     LastRaceResults
 } from './modules/lastRace.js';
+import {
+    CStandings
+} from './modules/cStandings.js';
 
 class App {
 
@@ -17,11 +20,19 @@ class App {
         this.homeBtn = document.getElementById('logo');
         this.display = document.querySelector('.display');
         const driverStandingsBtn = document.querySelector('.standings-drivers');
+        const constructorsStandingsBtn = document.querySelector('.standings-constructors');
         const calendarBtn = document.querySelector('.tracks-btn');
         const lastRace = new LastRaceResults();
 
         window.addEventListener('load', () => {
             lastRace.render();
+        })
+
+        constructorsStandingsBtn.addEventListener('click', () => {
+            this.display.innerHTML = '';
+            const constructors = new CStandings();
+
+            constructors.render()
         })
 
         this.homeBtn.addEventListener('click', () => {

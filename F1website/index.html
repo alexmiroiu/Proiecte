@@ -51,7 +51,7 @@
  <!-- --------------------------------------------------------------------------------------------------------------- -->
     </template>
     
-    <!-- template-uri pentru randarea listei de piloti -->
+    <!-- template-uri pentru randarea clasamentului pentru piloti -->
     <template id="driver-standings">
       <h1 class="standings-title">Current driver standings</h1>
       <div class="standings-info">
@@ -75,6 +75,34 @@
       </div>
     </template>
     <!-- ////////////////////////////////////////// -->
+    <!-- template-uri pentru randarea clasamentului pentru echipe -->
+    <template id="constructors-standings">
+      <h1 class="constructors-title">Current Constructors standings</h1>
+      <div class="cStandings-info">
+        <p class="cStandings-season"></p>
+        <p class="cStandings-round"></p>
+      </div>
+      <ul class="cStandings-list"></ul>
+    </template>
+    <template id="constructor">
+      <div class="constructor-item">
+        <div class="constructor-item__pos cPos"></div>
+        <div class="constructor-item__name cName"></div>
+        <div class="constructor-item__nationality cNationality"></div>
+        <div class="constructor-item__points cPoints"></div>
+        <div class="constructor-item__wins cWins"></div>
+      </div>
+    </template>
+    <template id="constructors-header">
+      <div class="constructors-header">
+        <div class="constructors-header__pos cPos">Position</div>
+        <div class="constructors-header__name cName">Driver Name</div>
+        <div class="constructors-header__nationality cNationality">Nationality</div>
+        <div class="constructors-header__points cPoints">Points</div>
+        <div class="constructors-header__wins cWins">Wins</div>
+      </div>
+    </template>
+    <!-- ////////////////////////////////////////////////// -->
     <!-- template pentru spinner -->
     <template class="loading-spinner">
         <div class="spinner">
@@ -128,7 +156,7 @@
             </div>
           </div>
           <li class="tracks-btn">Race Calendar</li>
-          <li >Current Season</li>
+          <li >Search Drivers</li>
         </ul>
       </nav>
     </header>
