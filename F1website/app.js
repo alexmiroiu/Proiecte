@@ -8,9 +8,6 @@ import {
     Calendar
 } from './modules/calendar.js';
 import {
-    Display
-} from './modules/display.js';
-import {
     LastRaceResults
 } from './modules/lastRace.js';
 
@@ -21,7 +18,6 @@ class App {
         this.display = document.querySelector('.display');
         const driverStandingsBtn = document.querySelector('.standings-drivers');
         const calendarBtn = document.querySelector('.tracks-btn');
-        const display = new Display();
         const lastRace = new LastRaceResults();
 
         window.addEventListener('load', () => {
@@ -29,13 +25,13 @@ class App {
         })
 
         this.homeBtn.addEventListener('click', () => {
-            display.clear();
+            this.display.innerHTML = '';
             lastRace.render();
 
         })
 
         driverStandingsBtn.addEventListener('click', () => {
-            display.clear();
+            this.display.innerHTML = '';
             const currentStandings = new Standings();
             currentStandings.renderDrivers();
 
@@ -43,7 +39,7 @@ class App {
 
         const schedule = new Calendar();
         calendarBtn.addEventListener('click', (e) => {
-            display.clear();
+            this.display.innerHTML = '';
             schedule.render(e.target.textContent);
         })
         this.display.addEventListener('click', (e) => {

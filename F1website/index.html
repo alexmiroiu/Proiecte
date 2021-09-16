@@ -20,22 +20,35 @@
     <title>My F1 Website</title>
   </head>
   <body>
+
+    <!-- ----------------------------- template-uri pentru rezultatele ultimei curse ----------------------- -->
     <template id="last-race-info">
       <h1 class="lr-title">Last Race Results</h1>
-      <h2 class="lr-gp-name"></h2>
-      <h2 class="lr-circuit-name"></h2>
-      <h2 class="lr-round-number"></h2>
+      <p class="lr-round-number">Round number: </p>
+      <p class="lr-gp-name"></p>
       <ul class="lr-standings"></ul>
     </template>
     <template id="lr-driver-item">
       <div class="lr-driver-item">
-        <div class="lr-driver-item__pos"></div>
-        <div class="lr-driver-item__name"></div>
-        <div class="lr-driver-item__car-number"></div>
-        <div class="lr-driver-item__team"></div>
-        <div class="lr-driver-item__status"></div>
-        <div class="lr-driver-item__points"></div>
+        <div class="lr-driver-item__pos lr-pos"></div>
+        <div class="lr-driver-item__name lr-name"></div>
+        <div class="lr-driver-item__car-number lr-car-number"></div>
+        <div class="lr-driver-item__team lr-team"></div>
+        <div class="lr-driver-item__status lr-status"></div>
+        <div class="lr-driver-item__points lr-points"></div>
       </div>
+    </template>
+    <template id="lr-header">
+      <div class="lr-header">
+        <div class="lr-header__pos lr-pos">Position</div>
+        <div class="lr-header__name lr-name">Driver Name</div>
+        <div class="lr-header__car-number lr-car-number">Car No</div>
+        <div class="lr-header__team lr-team">Team</div>
+        <div class="lr-header__status lr-status">Finished Status</div>
+        <div class="lr-header__points lr-points">Points</div>
+      </div>
+    </template>
+ <!-- --------------------------------------------------------------------------------------------------------------- -->
     </template>
     
     <!-- template-uri pentru randarea listei de piloti -->

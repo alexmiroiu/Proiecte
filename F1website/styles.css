@@ -168,6 +168,90 @@ footer {
   justify-content: center;
   align-items: flex-end;
 }
+/* -------------------------------------- LastRaceInfo ------------------------------------------- */
+
+.lr-standings {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: center;
+    animation: fadeInDown 0.5s;
+}
+
+.lr-title {
+    font-size: 3rem;
+    font-weight: 200;
+    margin-bottom: 1rem;
+    animation: fadeInDown 0.5s;
+}
+
+.lr-round-number {
+    font-weight: bold;
+    font-size: 1.6rem;
+    animation: fadeInDown 0.5s;
+}
+.lr-gp-name {
+    display: flex;
+    width: 60%;
+    font-size: 2rem;
+    font-weight: 600;
+    justify-content: center;
+    animation: fadeInDown 0.5s;
+    margin: 2rem 0;
+}
+
+.lr-header {
+    display: flex;
+    justify-content: space-between;
+  color: var(--text);
+  font-size: 1.7rem;
+  font-weight: 500;
+  transition: all 0.5s;
+  cursor: default;
+  width: 100%;
+  background-color: var(--light-grey);
+  /* border-bottom: 1px solid var(--border-color); */
+  border-right: 1px solid var(--border-color);
+}
+
+.lr-driver-item {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text);
+    font-size: 1.6rem;
+    transition: all 0.5s;
+    cursor: default;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+.lr-pos {
+    width: 5%;
+    text-align: center;
+}
+.lr-name {
+    display: flex;
+    width: 15%;
+}
+.lr-car-number {
+    width: 5%;
+    text-align: center;
+
+}
+.lr-team {
+    width: 15%;
+}
+.lr-status {
+    width: 15%;
+}
+.lr-points {
+    width: 5%;
+    text-align: center;
+}
+ 
+/* --------------------------------------------------------------------------------------------------------- */
+
 
 /* -------------------------------------- STANDINGS ------------------------------------------- */
 .standings-title {
@@ -182,7 +266,6 @@ footer {
   justify-content: space-between;
   align-items: center;
   font-size: 2rem;
-  border-radius: 5px;
   padding: 0 1rem;
   height: 7%;
 }
@@ -201,6 +284,7 @@ footer {
   justify-content: space-around;
   color: var(--text);
   font-size: 1.7rem;
+  font-weight: 500;
   transition: all 0.5s;
   cursor: default;
   width: 80%;
@@ -219,7 +303,6 @@ footer {
 }
 .standings-header__name {
   width: 40%;
-  justify-content: center;
 }
 
 .standings-header__points {
@@ -280,6 +363,7 @@ footer {
   justify-content: space-between;
   color: var(--text);
   font-size: 1.7rem;
+  font-weight: 500;
   transition: all 0.5s;
   cursor: default;
   width: 100%;

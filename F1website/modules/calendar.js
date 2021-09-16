@@ -1,5 +1,4 @@
 import { Spinner } from './spinner.js';
-import { Display } from './display.js';
 
 
 export class Calendar {
@@ -72,11 +71,10 @@ export class Calendar {
 
     async render(buttonText) {
         const loadingSpinner = new Spinner();
-        const display = new Display();
         if (buttonText === 'Race Calendar') {
             loadingSpinner.create(this.display);
             const races = await this.getPages();
-            display.clear()
+            this.display.innerHTML = '';
             this.renderList();
             const calendarHeader = document.importNode(this.calendarHeaderTemplate.content, true);
             this.raceListElement.appendChild(calendarHeader);
@@ -99,7 +97,7 @@ export class Calendar {
                 return;
             } else {
                 const races = await this.getPages();
-                display.clear();
+                this.display.innerHTML = '';
                 this.renderList();
                 this.currentPage--;
                 const calendarHeader = document.importNode(this.calendarHeaderTemplate.content, true);
@@ -122,7 +120,8 @@ export class Calendar {
                 return;
             } else {
                 const races = await this.getPages();
-                display.clear();
+            this.display.innerHTML = '';
+
                 this.renderList();
                 this.currentPage++;
                 const calendarHeader = document.importNode(this.calendarHeaderTemplate.content, true);
