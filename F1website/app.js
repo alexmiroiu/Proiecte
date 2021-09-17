@@ -14,8 +14,8 @@ import {
     CStandings
 } from './modules/cStandings.js';
 import {
-    SearchDrivers
-} from './modules/searchDrivers.js';
+    DriversDetails
+} from './modules/driversDetails.js';
 
 class App {
 
@@ -40,8 +40,8 @@ class App {
         })
 
         searchDriversBtn.addEventListener('click', () => {
-            const searchDrivers = new SearchDrivers();
-            searchDrivers.getData()
+            const searchDrivers = new DriversDetails();
+            searchDrivers.getDrivers()
         })
 
         this.homeBtn.addEventListener('click', () => {
