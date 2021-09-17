@@ -13,6 +13,9 @@ import {
 import {
     CStandings
 } from './modules/cStandings.js';
+import {
+    SearchDrivers
+} from './modules/searchDrivers.js';
 
 class App {
 
@@ -22,6 +25,7 @@ class App {
         const driverStandingsBtn = document.querySelector('.standings-drivers');
         const constructorsStandingsBtn = document.querySelector('.standings-constructors');
         const calendarBtn = document.querySelector('.tracks-btn');
+        const searchDriversBtn = document.querySelector('.search-drivers-btn');
         const lastRace = new LastRaceResults();
 
         window.addEventListener('load', () => {
@@ -33,6 +37,11 @@ class App {
             const constructors = new CStandings();
 
             constructors.render()
+        })
+
+        searchDriversBtn.addEventListener('click', () => {
+            const searchDrivers = new SearchDrivers();
+            searchDrivers.getData()
         })
 
         this.homeBtn.addEventListener('click', () => {

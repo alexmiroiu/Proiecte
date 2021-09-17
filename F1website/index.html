@@ -77,7 +77,7 @@
     <!-- ////////////////////////////////////////// -->
     <!-- template-uri pentru randarea clasamentului pentru echipe -->
     <template id="constructors-standings">
-      <h1 class="constructors-title">Current Constructors standings</h1>
+      <h1 class="constructors-title">Current constructors standings</h1>
       <div class="cStandings-info">
         <p class="cStandings-season">Current Season: </p>
         <p class="cStandings-round">Concluded Rounds: </p>
@@ -141,6 +141,23 @@
           <div class="calendar-header__info">Race Info</div>
         </div>
     </template>
+    <template id="searchDrivers">
+      <div class="searchDrivers-title"></div>
+      <div class="searchDrivers-description"></div>
+      <div class="searchDrivers-wrapper">
+        <input type="text" class="searchDrivers-search-bar">
+        <button class="searchDrivers-search-btn"></button>
+      </div>
+      <ul class="searchDrivers-list"></ul>
+    </template>
+    <template id="sd-item">
+      <div class="sd-item">
+        <div class="sd-item__name"></div>
+        <div class="sd-item__nationality"></div>
+        <div class="sd-item__date-ob"></div>
+        <div class="sd-item__info"></div>
+      </div>
+    </template>
     <!-- ///////////////////////////////////////////////// -->
     <header>
       <div id="logo">
@@ -156,7 +173,7 @@
             </div>
           </div>
           <li class="tracks-btn">Race Calendar</li>
-          <li >Search Drivers</li>
+          <li class="search-drivers-btn">Search Drivers</li>
         </ul>
       </nav>
     </header>
