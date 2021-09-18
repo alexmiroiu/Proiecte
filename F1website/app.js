@@ -41,7 +41,7 @@ class App {
 
         searchDriversBtn.addEventListener('click', () => {
             const searchDrivers = new DriversDetails();
-            searchDrivers.getDrivers()
+            searchDrivers.render()
         })
 
         this.homeBtn.addEventListener('click', () => {

@@ -141,6 +141,19 @@
           <div class="calendar-header__info">Race Info</div>
         </div>
     </template>
+    <!-- template pentru driverList -->
+    <template id="drivers-list">
+        <h1 class="drivers-list-title">Current F1 drivers</h1>
+        <p class="drivers-list-description"></p>
+        <ul class="drivers-list"></ul>
+    </template>
+    <template id="dl-driver-item">
+        <div class="dl-driver-item">
+          <div class="dl-driver-item__name"></div>
+          <div class="dl-driver-item__number"></div>
+        </div>
+
+    </template>
 
     <!-- ///////////////////////////////////////////////// -->
     <header>
@@ -157,7 +170,7 @@
             </div>
           </div>
           <li class="tracks-btn">Race Calendar</li>
-          <li class="search-drivers-btn">Search Drivers</li>
+          <li class="search-drivers-btn">Drivers Details</li>
         </ul>
       </nav>
     </header>
