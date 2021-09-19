@@ -23,7 +23,8 @@ export class DriversDetails {
         const driversList = [];
         filteredData.forEach(driver => {
             const driverElement = {
-                name: `${driver.givenName} ${driver.familyName}`,
+                givenName: driver.givenName,
+                familyName: driver.familyName,
                 number: driver.permanentNumber,
                 id: driver.driverId,
                 code: driver.code
@@ -45,7 +46,8 @@ export class DriversDetails {
         driverItems.forEach(driver => {
             const driverItemContainer = document.importNode(this.driverItemTemplate.content, true);
             const driverItem = driverItemContainer.querySelector('.dl-driver-item');
-            driverItem.querySelector('.dl-driver-item__name').textContent = driver.name;
+            driverItem.querySelector('.dl-driver-item__given-name').textContent = driver.givenName;
+            driverItem.querySelector('.dl-driver-item__family-name').textContent = driver.familyName;
             driverItem.querySelector('.dl-driver-item__number').textContent = driver.number;
             driverItem.querySelector('.dl-driver-item__helmet').src = `./images/drivers/${driver.id}Helmet.png`;
             driverItem.addEventListener('click', () => {
