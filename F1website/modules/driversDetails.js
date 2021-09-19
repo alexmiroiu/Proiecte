@@ -47,9 +47,10 @@ export class DriversDetails {
             const driverItem = driverItemContainer.querySelector('.dl-driver-item');
             driverItem.querySelector('.dl-driver-item__name').textContent = driver.name;
             driverItem.querySelector('.dl-driver-item__number').textContent = driver.number;
+            driverItem.querySelector('.dl-driver-item__helmet').src = `./images/drivers/${driver.id}Helmet.png`;
             driverItem.addEventListener('click', () => {
                 const driverProfile = new DriverProfile(driver.id);
-                driverProfile.getBasicInfo();
+                driverProfile.renderDriver();
             })
             driversList.appendChild(driverItem);
 

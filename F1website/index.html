@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Saira:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="spinner.css" />
 
@@ -149,10 +150,29 @@
     </template>
     <template id="dl-driver-item">
         <div class="dl-driver-item">
-          <div class="dl-driver-item__name"></div>
-          <div class="dl-driver-item__number"></div>
+          <img class="dl-driver-item__helmet" src="" alt="helmet">
+          <div class="dl-driver-item__name-wrapper">
+            <div class="dl-driver-item__name"></div>
+            <div class="dl-driver-item__number"></div>
+          </div>
         </div>
-
+    </template>
+    <template id="driver-profile">
+      <h1 class="driver-profile__title"></h1>
+      <p class="driver-profile__dob"></p>
+      <p class="driver-profile__nationality"></p>
+      <div class="driver-profile-container">
+        <img src="" alt="photo" class="driver-profile__photo">
+        <div class="driver-profile-info-wrapper">
+          <p class="driver-profile__team"></p>
+          <p class="driver-profile__championships"></p>
+          <p class="driver-profile__races"></p>
+          <p class="driver-profile__wins"></p>
+          <p class="driver-profile__podiums"></p>
+          <p class="driver-profile__best"></p>
+          <p class="driver-profile__best-finish-times"></p>
+        </div>
+      </div>
     </template>
 
     <!-- ///////////////////////////////////////////////// -->

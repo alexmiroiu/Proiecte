@@ -40,6 +40,7 @@ class App {
         })
 
         searchDriversBtn.addEventListener('click', () => {
+            this.display.innerHTML = '';
             const searchDrivers = new DriversDetails();
             searchDrivers.render()
         })
