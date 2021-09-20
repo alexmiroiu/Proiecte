@@ -84,17 +84,19 @@ export class DriverProfile {
         this.display.innerHTML = '';
         const profileElements = document.importNode(this.driverProfileTemplate.content, true);
         profileElements.querySelector('.driver-profile__title').textContent = driverData.name;
-        profileElements.querySelector('.driver-profile__dob').textContent = driverData.dob;
-        profileElements.querySelector('.driver-profile__nationality').textContent = driverData.nationality;
+        profileElements.querySelector('.driver-profile__dob').textContent += driverData.dob;
+        profileElements.querySelector('.driver-profile__nationality').textContent += driverData.nationality;
         profileElements.querySelector('.driver-profile__photo').src = `./images/drivers/${this.driverId}.jpg`;
-        profileElements.querySelector('.driver-profile__team').textContent = driverData.team;
-        profileElements.querySelector('.driver-profile__championships').textContent = driverData.championshipWins;
-        profileElements.querySelector('.driver-profile__races').textContent = driverData.totalRaces;
-        profileElements.querySelector('.driver-profile__wins').textContent = driverData.raceWins;
-        profileElements.querySelector('.driver-profile__podiums').textContent = driverData.podiums;
-        profileElements.querySelector('.driver-profile__best').textContent = driverData.bestFinish;
-        profileElements.querySelector('.driver-profile__best-finish-times').textContent = driverData.bestFinishNumberOfTimes;
-        
+        profileElements.querySelector('.driver-profile__team').textContent += driverData.team;
+        profileElements.querySelector('.driver-profile__championships').textContent += driverData.championshipWins;
+        profileElements.querySelector('.driver-profile__races').textContent += driverData.totalRaces;
+        profileElements.querySelector('.driver-profile__wins').textContent += driverData.raceWins;
+        profileElements.querySelector('.driver-profile__podiums').textContent += driverData.podiums;
+        if(driverData.bestFinishNumberOfTimes === '1') {
+        profileElements.querySelector('.driver-profile__best').textContent += `${driverData.bestFinish} (${driverData.bestFinishNumberOfTimes} time) `;
+        } else {
+        profileElements.querySelector('.driver-profile__best').textContent += `${driverData.bestFinish} (${driverData.bestFinishNumberOfTimes} times) `;
+        }
         this.display.appendChild(profileElements);
     }
 }
