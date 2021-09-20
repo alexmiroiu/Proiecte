@@ -12,6 +12,9 @@ export class DriverProfile {
     }   
 
     async getDriverData() {
+        if(sessionStorage.getItem(`${this.driverId}Profile`)) {
+           return JSON.parse(sessionStorage.getItem(`${this.driverId}Profile`)) 
+        }
         //fetching all info needed to construct the driver profile
         const rawData = await Promise.all([
             fetch(`https://ergast.com/api/f1/drivers/${this.driverId}.json`),
@@ -70,7 +73,7 @@ export class DriverProfile {
             bestFinish,
             bestFinishNumberOfTimes
         }
-
+        sessionStorage.setItem(`${this.driverId}Profile`, JSON.stringify(basicInfo));
         console.log(basicInfo);
         return basicInfo;
 

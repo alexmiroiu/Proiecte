@@ -592,8 +592,8 @@ footer {
 }
 
 .dl-driver-item:hover {
-    border-bottom: 3px solid red;
-  border-right: 3px solid red;
+    border-bottom: 2px solid red;
+  border-right: 2px solid red;
 }
 
 .dl-driver-item__helmet {
@@ -629,6 +629,11 @@ footer {
   font-size: 2rem;
   font-family: "Saira Stencil One", cursive;
   text-align: end;
+}
+
+/* -------------------------------------- Drivers Details ------------------------------------------------- */
+.driver-profile-container {
+  display: flex;
 }
 
 /* ---------------------------           ANIMATIONS            ------------------------------- */

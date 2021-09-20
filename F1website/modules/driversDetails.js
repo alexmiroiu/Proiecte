@@ -17,22 +17,28 @@ export class DriversDetails {
     }
 
     async getDrivers() {
-        const rawData = await fetch(this.driversApiUrl);
-        const jsonData = await rawData.json();
-        const filteredData = jsonData.MRData.DriverTable.Drivers;
-        const driversList = [];
-        filteredData.forEach(driver => {
-            const driverElement = {
-                givenName: driver.givenName,
-                familyName: driver.familyName,
-                number: driver.permanentNumber,
-                id: driver.driverId,
-                code: driver.code
-            }
-            driversList.push(driverElement);
-        });
-        console.log(driversList)
-        return driversList;
+        if(sessionStorage.getItem('driversDetails')) {
+            return JSON.parse(sessionStorage.getItem('driversDetails')); 
+        } else {
+            const rawData = await fetch(this.driversApiUrl);
+            const jsonData = await rawData.json();
+            const filteredData = jsonData.MRData.DriverTable.Drivers;
+            const driversList = [];
+            filteredData.forEach(driver => {
+                const driverElement = {
+                    givenName: driver.givenName,
+                    familyName: driver.familyName,
+                    number: driver.permanentNumber,
+                    id: driver.driverId,
+                    code: driver.code
+                }
+                driversList.push(driverElement);
+            });
+            sessionStorage.setItem('driversDetails', JSON.stringify(driversList));
+            console.log(driversList)
+            return driversList;
+        }
+
     }
 
     async render() {
