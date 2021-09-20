@@ -84,6 +84,15 @@ export class DriverProfile {
         const loadingSpinner = new Spinner();
         loadingSpinner.create(this.display);
         const driverData = await this.getDriverData();
+        if(driverData.bestFinish === '1') {
+            driverData.bestFinish = '1st';
+        } else if(driverData.bestFinish === '2') {
+            driverData.bestFinish = '2nd';
+        } else if(driverData.bestFinish === '3') {
+            driverData.bestFinish = '3d';
+        } else {
+            driverData.bestFinish += 'th';
+        }
         this.display.innerHTML = '';
         const profileElements = document.importNode(this.driverProfileTemplate.content, true);
         profileElements.querySelector('.driver-profile__title').textContent = driverData.name;
