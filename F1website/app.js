@@ -16,6 +16,9 @@ import {
 import {
     DriversDetails
 } from './modules/driversDetails.js';
+import {
+    Modal
+} from './modules/modal.js';
 
 class App {
 
@@ -29,6 +32,8 @@ class App {
         const lastRace = new LastRaceResults();
 
         window.addEventListener('load', () => {
+            const modal = new Modal();
+            modal.render();
             lastRace.render();
         })
 

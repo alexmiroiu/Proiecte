@@ -190,6 +190,28 @@ footer {
   justify-content: center;
   align-items: flex-end;
 }
+
+/* -------------------------------------- Modal ------------------------------------------- */
+.modal-container {
+  position: absolute;
+  z-index: 5;
+  background-color: rgba(128, 128, 128, 0.9);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: honeydew;
+  width: 30vw;
+  height: 25vh;
+  z-index: 5;
+  left: 0;
+  bottom: 0;
+}
+
 /* -------------------------------------- LastRaceInfo ------------------------------------------- */
 
 .lr-standings {
@@ -703,6 +725,8 @@ max-width: 30rem;
   border-bottom: 1px solid red;
   border-right: 1px solid red;
 }
+
+
 
 /* ---------------------------           ANIMATIONS            ------------------------------- */
 
