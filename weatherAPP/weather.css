@@ -26,6 +26,7 @@ body {
 .container {
     background-color: transparent;
     width: 40%;
+    min-width: 42rem;
     height: 30%;
     position: relative;
     border-radius: 10px;
@@ -62,6 +63,7 @@ label {
 #search-bar {
     font-size: 2rem;
     width: 70%;
+    min-width: 20rem;
     padding-left: .7rem;
     font-family: inherit;
     height: 4rem;
@@ -79,6 +81,7 @@ button {
     border-radius: 5px;
     border: 1px solid black;
     width: 25%;
+    min-width: 7rem;
     font-weight: 700;
     font-size: 1.7rem;
     background-color: #232931;
