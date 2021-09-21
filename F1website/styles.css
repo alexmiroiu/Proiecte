@@ -199,6 +199,7 @@ footer {
   align-items: center;
   animation: fadeInDown 0.5s;
     min-width: 71rem;
+    overflow-y: auto;
 }
 
 .lr-title {
@@ -656,17 +657,19 @@ footer {
 .driver-profile__title {
   font-size: 3rem;
   font-weight: 200;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
   animation: fadeInDown 0.5s;
 }
 
 .driver-profile__dob {
   font-size: 1.7rem;
-  margin: 1rem 0;
+  font-weight: 500;
+  margin: .5rem 0;
 }
 
 .driver-profile__nationality {
   font-size: 1.7rem;
+  font-weight: 500;
   margin: 1rem 0;
 }
 
@@ -677,10 +680,12 @@ footer {
 }
 
 .driver-profile__photo {
-height: 100%;
+height: auto;
 /* border-radius: 50%; */
 border: 3px solid red;
-width: 50%;
+width: auto;
+max-height: 30rem;
+max-width: 30rem;
 }
 
 .driver-profile-info-wrapper {
@@ -688,7 +693,15 @@ width: 50%;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  width: 50%;
+  min-width: 20rem;
   font-size: 1.5rem;
+}
+
+.profile-item {
+  text-align: center;
+  border-bottom: 1px solid red;
+  border-right: 1px solid red;
 }
 
 /* ---------------------------           ANIMATIONS            ------------------------------- */
