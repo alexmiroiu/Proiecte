@@ -60,7 +60,7 @@ header {
   grid-column: 1/4;
   grid-row: 1/2;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid red;
   box-shadow: 0 7px 7px -10px rgba(0, 0, 0, 0.99);
@@ -90,7 +90,7 @@ nav {
 .menu-list {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   list-style: none;
   height: 100%;
@@ -163,7 +163,7 @@ nav {
 }
 
 main {
-  grid-column: 2/3;
+  grid-column: 1/4;
   grid-row: 2/3;
   margin-top: 7vh;
   height: 70vh;
@@ -198,8 +198,7 @@ footer {
   width: 90%;
   align-items: center;
   animation: fadeInDown 0.5s;
-  overflow: auto;
-
+    min-width: 71rem;
 }
 
 .lr-title {
@@ -252,26 +251,26 @@ footer {
 }
 
 .lr-pos {
-  width: 5%;
+  width: 15%;
   text-align: center;
 }
 .lr-name {
   display: flex;
   min-width: 20rem;
-  width: 15%;
+  width: 20%;
 }
 .lr-car-number {
-  width: 5%;
+  width: 15%;
   text-align: center;
 }
 .lr-team {
-  width: 15%;
+  width: 25%;
 }
 .lr-status {
   width: 15%;
 }
 .lr-points {
-  width: 5%;
+  width: 10%;
   text-align: center;
 }
 
@@ -286,6 +285,7 @@ footer {
 
 .standings-info {
   width: 55%;
+  min-width: 45rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -296,6 +296,7 @@ footer {
 
 .standings-list {
   width: 70%;
+  min-width: 71rem;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -376,6 +377,7 @@ footer {
 
 .cStandings-info {
   width: 55%;
+  min-width: 45rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -391,6 +393,8 @@ footer {
   border-radius: 5px;
   align-items: center;
   animation: fadeInDown 0.5s;
+  overflow-y: auto;
+  min-width: 61rem;
 }
 
 .constructors-header {
@@ -419,19 +423,19 @@ footer {
 }
 
 .cPos {
-  width: 10%;
+  width: 20%;
   text-align: center;
 }
 
 .cName {
-  width: 20%;
+  width: 30%;
 }
 .cNationality {
-  width: 20%;
+  width: 25%;
 }
 
 .cPoints {
-  width: 10%;
+  width: 15%;
 }
 
 .cWins {
@@ -498,7 +502,7 @@ footer {
   padding: rem 0;
   border-radius: 5px;
   align-items: center;
-  overflow-y: scroll;
+  overflow-y: auto;
   animation: fadeInDown 0.5s;
 }
 
@@ -700,4 +704,13 @@ width: 50%;
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ---------------------------           MEDIA QUERIES            ------------------------------- */
+
+@media screen and (max-height: 70rem) {
+    footer {
+        height: fit-content;
+        font-size: 1.5rem;
+    }
 }
