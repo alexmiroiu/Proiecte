@@ -1,8 +1,14 @@
+import React from 'react';
+import { Fragment } from 'react';
 import './App.css';
+import ImageUpload from './components/newFoodForm/ImageUpload';
 
-function App() {
+const App = () => {
   return (
-    <div></div>
+    <Fragment>
+      <h1>hello</h1>
+      <ImageUpload />
+    </Fragment>
   );
 }
 
