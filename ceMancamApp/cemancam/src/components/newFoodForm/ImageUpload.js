@@ -1,15 +1,17 @@
 import React from "react";
 import { Fragment, useState } from "react";
+import styles from './ImageUpload.module.css'
 
-const ImageUpload = () => {
+const ImageUpload = (props) => {
     const [newImage, setNewImage] = useState();
-    const [displayedImage, setDisplayedImage] = useState();
+    const [imgUrl, setImgUrl] = useState("");
 
     const getImage = event => {
         setNewImage(event.target.files[0]);
     }
 
-    const uploadImage = async () => {
+    const uploadImage = async (event) => {
+        event.preventDefault();
         const data = new FormData();
         data.append('file', newImage);
         data.append('upload_preset', 'axmimages');
@@ -18,17 +20,18 @@ const ImageUpload = () => {
             method: 'POST',
             body: data
         })
-
         const response = await request.json();
-        console.log(response)
-        setDisplayedImage(response.secure_url);
+        console.log(response);
+        setImgUrl(response.secure_url)
+        console.log(imgUrl)
+        props.saveImgUrl(imgUrl);
     }
 
     return (
         <Fragment>
         <input type='file'  onChange={getImage}/>
         <button onClick={uploadImage}>Upload Image</button>
-        <img src={displayedImage} alt='upload'/>
+        {imgUrl && <img src={imgUrl} alt='upload'/>}
         </Fragment>
     );
 }

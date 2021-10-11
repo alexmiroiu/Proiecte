@@ -1,7 +1,7 @@
 import React from 'react';
 import { Fragment } from 'react';
 import './App.css';
-import AddFoodForm from './components/newFoodForm/AddFoodForm';
+import AddFoodForm from './components/NewFoodForm/AddFoodForm';
 
 
 const App = () => {
