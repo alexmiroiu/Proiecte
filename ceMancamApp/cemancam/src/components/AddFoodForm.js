@@ -57,7 +57,11 @@ const AddFoodForm = () => {
         });
         const response = await request.json();
         console.log(response);
-
+        setFoodName('');
+        setTime('');
+        setRecipe('');
+        setImgUrl('')
+        setNewImage('');
 
     }
 
@@ -71,7 +75,7 @@ const AddFoodForm = () => {
             <label htmlFor="time">Durata</label>
             <input type="text" id="time" name="time" value={time} onChange={getTime} />
             <label htmlFor="recipe">Ingrediente si reteta</label>
-            <textarea type="text" id="recipe" name="recipe" onChange={getRecipe}/>
+            <textarea type="text" id="recipe" name="recipe" value={recipe} onChange={getRecipe}/>
             <input type='file'  onChange={getImage}/>
             <button onClick={uploadImage}>Upload Image</button>
             {imgUrl && <img src={imgUrl} alt='upload'/>}
