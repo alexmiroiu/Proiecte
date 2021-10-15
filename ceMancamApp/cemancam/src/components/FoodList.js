@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import FoodItem from "./FoodItem";
 
 const FoodList = () => {
     const [foodList, setFoodList] = useState()
@@ -21,20 +22,16 @@ const FoodList = () => {
         setFoodList(listOfFoods);
     }
     
-    let renderedItems;
     useEffect(() => {
         getFoods();
-        console.log('rendered');
-        console.log(foodList);
-        renderedItems = foodList.map(dish => <li>
-            <p>{dish.name}</p>
-        </li>)
+        // console.log('rendered');
+        // console.log(foodList);
     },[])
 
     return (
         <Fragment>
         <h3>List of foods here</h3>
-        {/* <p>{foodList}</p> */}
+        {foodList && foodList.map(item => <FoodItem name={item.name} time={item.time} recipe={item.recipe} image={item.image} key={item.id}></FoodItem>)}
         </Fragment>
     );
 }
