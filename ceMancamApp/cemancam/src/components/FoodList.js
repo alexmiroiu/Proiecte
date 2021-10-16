@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import FoodItem from "./FoodItem";
 
 const FoodList = () => {
-    const [foodList, setFoodList] = useState()
+    const [foodList, setFoodList] = useState([])
 
     const getFoods = async () => {
         const request = await fetch('https://cemancam-14798-default-rtdb.europe-west1.firebasedatabase.app/recipes.json');
@@ -31,7 +31,7 @@ const FoodList = () => {
     return (
         <Fragment>
         <h3>List of foods here</h3>
-        {foodList && foodList.map(item => <FoodItem name={item.name} time={item.time} recipe={item.recipe} image={item.image} key={item.id}></FoodItem>)}
+        {foodList.map(item => <FoodItem name={item.name} time={item.time} recipe={item.recipe} image={item.image} key={item.id}></FoodItem>)}
         </Fragment>
     );
 }
