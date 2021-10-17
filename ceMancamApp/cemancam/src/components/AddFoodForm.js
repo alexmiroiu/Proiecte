@@ -5,6 +5,7 @@ const AddFoodForm = () => {
     const [foodName, setFoodName] = useState('');
     const [time, setTime] = useState('');
     const [recipe, setRecipe] = useState('');
+    const [type, setType] = useState('Selecteaza');
     const [newImage, setNewImage] = useState();
     const [imgUrl, setImgUrl] = useState("");
 
@@ -17,6 +18,10 @@ const AddFoodForm = () => {
 
     const getRecipe = (event) => {
         setRecipe(event.target.value);
+    }
+
+    const getType = event => {
+        setType(event.target.value);
     }
 
     const getImage = event => {
@@ -43,6 +48,7 @@ const AddFoodForm = () => {
         name: foodName,
         time: time,
         recipe: recipe,
+        type: type,
         img: imgUrl
     }
 
@@ -60,22 +66,31 @@ const AddFoodForm = () => {
         setFoodName('');
         setTime('');
         setRecipe('');
-        setImgUrl('')
+        setType('');
+        setImgUrl('');
         setNewImage('');
 
     }
-
+    console.log('rendered addfoodform')
     
     return (
         <Fragment>
         <h1>Adauga ce ai gatit</h1>
         <form className={styles.form}>
-            <label htmlFor="foodName">Nume mancare</label>
+            <label htmlFor="foodName">Nume preparat</label>
             <input type="text" id="foodName" name="foodName" value={foodName} onChange={getFoodName}/>
             <label htmlFor="time">Durata</label>
             <input type="text" id="time" name="time" value={time} onChange={getTime} />
             <label htmlFor="recipe">Ingrediente si reteta</label>
             <textarea type="text" id="recipe" name="recipe" value={recipe} onChange={getRecipe}/>
+            <label htmlFor="type">Tipul mancarii</label>
+            <select name="type" id="type" onChange={getType} value={type}>
+                <option hidden value='Selecteaza'>--selecteaza un fel--</option>
+                <option value="Aperitiv">Aperitiv</option>
+                <option value="Fel principal">Fel principal</option>
+                <option value="Desert">Desert</option>
+                <option value="Gustare">Gustare</option>
+            </select>
             <input type='file'  onChange={getImage}/>
             <button onClick={uploadImage}>Upload Image</button>
             {imgUrl && <img src={imgUrl} alt='upload'/>}

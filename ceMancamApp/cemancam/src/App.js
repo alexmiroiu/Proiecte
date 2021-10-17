@@ -8,21 +8,21 @@ import Header from './components/Header';
 
 
 const App = () => {
-  const[display, setDisplay] = useState(false);
+  const[display, setDisplay] = useState('list');
 
   useEffect(() => {
 
   },[]);
 
   const changeToList = () => {
-    setDisplay(true);
+    setDisplay('list');
   }
   const changeToForm = () => {
-    setDisplay(false);
+    setDisplay('form');
   }
 
-  let displayedContent = '';
-  display ? displayedContent = <FoodList /> : displayedContent = <AddFoodForm /> ;
+  let displayedContent;
+  display === 'list' ? displayedContent = <FoodList /> : displayedContent = <AddFoodForm /> ;
   return (
     <Fragment>
       <Header renderList={changeToList} renderForm={changeToForm}/>
