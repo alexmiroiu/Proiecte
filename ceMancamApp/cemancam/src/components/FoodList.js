@@ -11,7 +11,6 @@ const FoodList = () => {
     const getFoods = async () => {
         try {
             const request = await fetch('https://cemancam-14798-default-rtdb.europe-west1.firebasedatabase.app/recipes.json');
-            console.log(request);
             const response = await request.json();
             if(!response) {
                 throw new Error('Something went wrong!');
@@ -45,7 +44,6 @@ const FoodList = () => {
 
     useEffect(() => {
         getFoods();
-        console.log('rendered');
         // console.log(foodList);
     },[])
 

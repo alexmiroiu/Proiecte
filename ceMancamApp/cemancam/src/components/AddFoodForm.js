@@ -33,15 +33,20 @@ const AddFoodForm = () => {
         const data = new FormData();
         data.append('file', newImage);
         data.append('upload_preset', 'axmimages');
-
-        const request = await fetch('https://api.cloudinary.com/v1_1/axmwebsitesro/image/upload', {
-            method: 'POST',
-            body: data
-        })
-        const response = await request.json();
-        console.log(response);
-        setImgUrl(response.secure_url)
-        console.log(imgUrl)
+        try {
+            const request = await fetch('https://api.cloudinary.com/v1_1/axmwebsitesro/image/upload', {
+                method: 'POST',
+                body: data
+            })
+            console.log(request);
+            if(!request.ok) {
+                throw new Error('Image did not upload!')
+            }
+            const response = await request.json();
+            setImgUrl(response.secure_url);
+        } catch(err) {
+            console.log(err)
+        }
     }
     
     const foodItem = {
