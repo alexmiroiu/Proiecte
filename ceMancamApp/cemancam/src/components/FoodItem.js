@@ -4,7 +4,7 @@ import styles from './FoodItem.module.css';
 const FoodItem = (props) => {
     return (
         <div className={styles.foodItem}>
-            <div>
+            <div className={styles.titleWrapper}>
                 <div className={styles.titleContainer}>
                     <h2>{props.name}</h2>
                     <p>{props.type}</p>

@@ -10,9 +10,13 @@
 }
 
 .foodItem div {
+    margin: .3rem 0;
+}
+
+.titleWrapper {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    align-items: center;
 }
 
 .titleContainer {

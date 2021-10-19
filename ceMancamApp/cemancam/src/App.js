@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Fragment } from 'react';
-import './App.css';
+import styles from './App.module.css';
 import AddFoodForm from './components/AddFoodForm';
 import FoodList from './components/FoodList';
 import Header from './components/Header';
@@ -26,9 +26,9 @@ const App = () => {
   return (
     <Fragment>
       <Header renderList={changeToList} renderForm={changeToForm}/>
+      <div className={styles.main}>
       {displayedContent}
-      {/* <FoodList />
-      <AddFoodForm /> */}
+      </div>
     </Fragment>
   );
 }

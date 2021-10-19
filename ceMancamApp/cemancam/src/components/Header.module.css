@@ -1,6 +1,7 @@
 .header {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     background-color: var(--header-background);
     height: 7vh;
     width: 100vw;
@@ -11,4 +12,18 @@
     font-family: 'Kaushan Script', cursive;
     font-size: 2.5rem;
     color: white;
+}
+
+.header ul {
+    display: flex;
+    list-style: none;
+}
+
+.header li {
+    color: white;
+    height: 50%;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: .5rem;
+    border-radius: 5px;
+    font-size: 1.4rem;
 }

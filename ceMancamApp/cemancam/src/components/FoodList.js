@@ -57,7 +57,7 @@ const FoodList = () => {
                 <option value="Desert">Desert</option>
                 <option value="Gustare">Gustare</option>
         </select>
-        <label htmlFor="search">Cauta preparatul</label>
+        <label htmlFor="search">Cauta un preparat</label>
         <input type="text" name="search" value={searchPhrase} onChange={search} />
         {error && <p>{error}</p>}
         {selectedType === 'Toate' && foodList.filter(item => item.name.toLowerCase().includes(searchPhrase.toLowerCase())).map(item => <FoodItem name={item.name} time={item.time} recipe={item.recipe} type={item.type} image={item.image} key={item.id}></FoodItem>)}
