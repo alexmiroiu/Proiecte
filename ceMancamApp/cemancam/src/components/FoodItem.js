@@ -5,12 +5,16 @@ const FoodItem = (props) => {
     return (
         <div className={styles.foodItem}>
             <div>
-            <h2>{props.name}</h2>
-            <p>{props.time} min</p>
+                <div className={styles.titleContainer}>
+                    <h2>{props.name}</h2>
+                    <p>{props.type}</p>
+                </div>
+                <p>{props.time} min</p>
             </div>
-            <h3>{props.type}</h3>
-            <h3>Reteta</h3>
-            <p>{props.recipe}</p>
+            <div className={styles.recipe}>
+                <h3>Reteta</h3>
+                <p>{props.recipe}</p>
+            </div>
             <img src={props.image} alt='food item' />
         </div>
     )

@@ -1,7 +1,38 @@
 .foodItem {
     display: flex;
     flex-direction: column;
-    margin: .5rem;
+    margin: 1rem;
     overflow: hidden;
-    background-color: #FBF6F0;
+    background-color: var(--main-background);
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.foodItem div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.titleContainer h2 {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 2.5rem;
+}
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+}
+
+.foodItem img {
+    width: 100%;
+    height: 30rem;
+    object-fit: cover;
+    object-position: center;
 }

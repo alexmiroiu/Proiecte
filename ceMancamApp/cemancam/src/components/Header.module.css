@@ -1,7 +1,14 @@
 .header {
     display: flex;
     justify-content: space-around;
-    background-color: red;
+    background-color: var(--header-background);
     height: 7vh;
     width: 100vw;
+    position: fixed;
+}
+
+.header p {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 2.5rem;
+    color: white;
 }

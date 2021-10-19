@@ -1,20 +1,27 @@
-/* color palette:
-#FBF6F0 - card background color,
-#F9F3DF - cream,
-#CDF2CA - cream darker, 
-#022C43 - dark blue,
-#053F5E - lighter blue
-#115173 - even lighter blue */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-html {
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: var(--text);
+}
+
+html {  
   font-size: 10px;
+  --main-background: #FDF6F0;
+  --border-color: #FCD8D4;  
+  --text: #0A1D37;
+  --header-background: #521168;
 }
 
 body {
   font-size: 1.6rem;
-  font-family: 'Quicksand', sans-serif;
-  background-color: #F9F3DF;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: var(--main-background);
+  margin: 0;
+  padding: 0;
 }
 
