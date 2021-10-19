@@ -1,8 +1,20 @@
+/* color palette:
+#FBF6F0 - card background color,
+#F9F3DF - cream,
+#CDF2CA - cream darker, 
+#022C43 - dark blue,
+#053F5E - lighter blue
+#115173 - even lighter blue */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+html {
+  font-size: 10px;
+}
+
 body {
-
+  font-size: 1.6rem;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #F9F3DF;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

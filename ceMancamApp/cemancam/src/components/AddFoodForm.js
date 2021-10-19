@@ -84,8 +84,8 @@ const AddFoodForm = () => {
         <form className={styles.form}>
             <label htmlFor="foodName">Nume preparat</label>
             <input type="text" id="foodName" name="foodName" value={foodName} onChange={getFoodName}/>
-            <label htmlFor="time">Durata</label>
-            <input type="text" id="time" name="time" value={time} onChange={getTime} />
+            <label htmlFor="time">Durata (in minute)</label>
+            <input type="number" id="time" name="time" value={time} onChange={getTime} />
             <label htmlFor="recipe">Ingrediente si reteta</label>
             <textarea type="text" id="recipe" name="recipe" value={recipe} onChange={getRecipe}/>
             <label htmlFor="type">Tipul mancarii</label>

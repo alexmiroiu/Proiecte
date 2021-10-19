@@ -1,0 +1,7 @@
+.foodItem {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+    overflow: hidden;
+    background-color: #FBF6F0;
+}
