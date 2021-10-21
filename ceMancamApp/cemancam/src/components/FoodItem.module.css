@@ -1,6 +1,7 @@
 .foodItem {
     display: flex;
     flex-direction: column;
+    width: 95%;
     margin: 1rem;
     overflow: hidden;
     background-color: var(--main-background);
@@ -10,7 +11,7 @@
 }
 
 .foodItem div {
-    margin: .3rem 0;
+    /* margin: .3rem 0; */
 }
 
 .titleWrapper {
