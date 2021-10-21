@@ -8,6 +8,7 @@ const AddFoodForm = () => {
     const [type, setType] = useState('Selecteaza');
     const [newImage, setNewImage] = useState();
     const [imgUrl, setImgUrl] = useState("");
+    const [formValid, setFormValid] = useState(false);
 
     const getFoodName = (event) => {
         setFoodName(event.target.value);
@@ -76,7 +77,7 @@ const AddFoodForm = () => {
         setNewImage('');
 
     }
-    console.log('rendered addfoodform')
+    console.log('rendered addfoodform');
     
     return (
         <Fragment>
@@ -88,7 +89,6 @@ const AddFoodForm = () => {
             <input type="number" id="time" name="time" value={time} onChange={getTime} className={styles.input}/>
             <label htmlFor="recipe">Ingrediente si reteta</label>
             <textarea type="text" name="recipe" value={recipe} rows={10} onChange={getRecipe} className={styles.description}/>
-            <label htmlFor="type">Tipul preparatului</label>
             <select name="type" id="type" onChange={getType} value={type} className={styles.select}>
                 <option hidden value='Selecteaza'>--selecteaza felul preparatului--</option>
                 <option value="Aperitiv">Aperitiv</option>
@@ -97,12 +97,12 @@ const AddFoodForm = () => {
                 <option value="Gustare">Gustare</option>
             </select>
             <div className={styles.fileSelectWrapper}>
-            <label htmlFor='fileSelect'>Selecteaza un fisier</label>
-            <input type='file' id="fileSelect" name="fileSelect" hidden onChange={getImage} className={styles.fileSelectInput}/>
+            <label htmlFor='fileSelect' className={newImage ? styles.fileSelectActive : styles.fileSelect}>{newImage ? newImage.name : 'Selecteaza o imagine'} </label>
+            <input type='file' id="fileSelect" name="fileSelect" hidden onChange={getImage} />
             </div>
-            <button onClick={uploadImage}>Upload Image</button>
+            <button onClick={uploadImage} className={styles.uploadBtn}>Upload Image</button>
             {imgUrl && <img src={imgUrl} alt='upload'/>}
-            <button onClick={storeRecipe}>Adauga</button>
+            <button onClick={storeRecipe} className={styles.submitBtn}>Adauga</button>
         </form>
         </Fragment>
     )

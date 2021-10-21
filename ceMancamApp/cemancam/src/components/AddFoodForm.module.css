@@ -1,4 +1,5 @@
 .form{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,6 +23,13 @@ label {
     padding: .5rem 1rem;
     border: 1px solid var(--border-color);
     border-radius: 5px;
+    transition: border .4s;
+}
+
+.input:hover,
+.input:focus {
+    outline: none;
+    border: 1px solid var(--header-background);
 }
 
 .description {
@@ -31,6 +39,14 @@ label {
     padding: 1.5rem 1rem;
     border: 1px solid var(--border-color);
     border-radius: 5px;
+    transition: border .4s;
+    margin-bottom: 1rem;
+}
+
+.description:hover,
+.description:focus {
+    outline: none;
+    border: 1px solid var(--header-background);
 }
 
 .select {
@@ -42,6 +58,8 @@ label {
     border: 1px solid var(--border-color);
     border-radius: 5px;
     margin-bottom: 2rem;
+    transition: border .4s;
+    margin: 1rem 0;
 }
 
 .select:hover,
@@ -51,8 +69,35 @@ label {
 }
 
 .fileSelectWrapper {
-    margin: 0 0 1rem;
+    position: relative;
+    width: 60%;
+    margin: 1rem 0;
+    text-align: center;
 }
-.fileSelectInput {
-    z-index: 50;
+.fileSelect {
+    display: inline-block;
+    width: 100%;
+    background-color: var(--header-background);
+    color: white;
+    padding: .5rem 1rem;
+    border: 1px solid var(--header-background);
+    transition: background-color .2s;
+    border-radius: 5px;
+}
+.fileSelect:active {
+    background-color: var(--lighter-blue);
+}
+.fileSelectActive {
+    display: inline-block;
+    width: 100%;
+    background-color: var(--lighter-blue);
+    color: var(--lighter-text);
+    padding: .5rem 1rem;
+    border: 1px solid var(--header-background);
+    transition: background-color .2s;
+    border-radius: 5px;
+}
+
+.uploadBtn {
+    margin: 1rem 0;
 }

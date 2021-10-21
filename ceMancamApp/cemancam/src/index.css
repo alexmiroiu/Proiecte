@@ -14,7 +14,9 @@ html {
   --main-background: #FDF6F0;
   --border-color: #FCD8D4;  
   --text: #0A1D37;
-  --header-background: #521168;
+  --header-background: #04009A;
+  --lighter-blue: #77ACF1;
+  --lighter-text: #FFF5B7;
 }
 
 body {
