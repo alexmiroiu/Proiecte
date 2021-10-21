@@ -83,20 +83,23 @@ const AddFoodForm = () => {
         <h1>Adauga ce ai gatit</h1>
         <form className={styles.form}>
             <label htmlFor="foodName">Nume preparat</label>
-            <input type="text" id="foodName" name="foodName" value={foodName} onChange={getFoodName}/>
+            <input type="text" id="foodName" name="foodName" value={foodName} onChange={getFoodName} className={styles.input}/>
             <label htmlFor="time">Durata (in minute)</label>
-            <input type="number" id="time" name="time" value={time} onChange={getTime} />
+            <input type="number" id="time" name="time" value={time} onChange={getTime} className={styles.input}/>
             <label htmlFor="recipe">Ingrediente si reteta</label>
-            <textarea type="text" id="recipe" name="recipe" value={recipe} onChange={getRecipe}/>
-            <label htmlFor="type">Tipul mancarii</label>
-            <select name="type" id="type" onChange={getType} value={type}>
-                <option hidden value='Selecteaza'>--selecteaza un fel--</option>
+            <textarea type="text" name="recipe" value={recipe} rows={10} onChange={getRecipe} className={styles.description}/>
+            <label htmlFor="type">Tipul preparatului</label>
+            <select name="type" id="type" onChange={getType} value={type} className={styles.select}>
+                <option hidden value='Selecteaza'>--selecteaza felul preparatului--</option>
                 <option value="Aperitiv">Aperitiv</option>
                 <option value="Fel principal">Fel principal</option>
                 <option value="Desert">Desert</option>
                 <option value="Gustare">Gustare</option>
             </select>
-            <input type='file'  onChange={getImage}/>
+            <div className={styles.fileSelectWrapper}>
+            <label htmlFor='fileSelect'>Selecteaza un fisier</label>
+            <input type='file' id="fileSelect" name="fileSelect" hidden onChange={getImage} className={styles.fileSelectInput}/>
+            </div>
             <button onClick={uploadImage}>Upload Image</button>
             {imgUrl && <img src={imgUrl} alt='upload'/>}
             <button onClick={storeRecipe}>Adauga</button>
