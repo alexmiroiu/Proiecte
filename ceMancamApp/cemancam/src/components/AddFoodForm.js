@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react"
 import styles from './AddFoodForm.module.css';
+import LoadingSpinner from "./UI/LoadingSpinner";
 
 const AddFoodForm = () => {
     const [foodName, setFoodName] = useState('');
@@ -8,6 +9,7 @@ const AddFoodForm = () => {
     const [type, setType] = useState('Selecteaza');
     const [newImage, setNewImage] = useState();
     const [imgUrl, setImgUrl] = useState("");
+    const [imgIsLoading, setImgIsLoading] = useState(false)
     const [formValid, setFormValid] = useState(false);
 
     const getFoodName = (event) => {
@@ -31,6 +33,7 @@ const AddFoodForm = () => {
 
     const uploadImage = async (event) => {
         event.preventDefault();
+        setImgIsLoading(true);
         const data = new FormData();
         data.append('file', newImage);
         data.append('upload_preset', 'axmimages');
@@ -44,9 +47,11 @@ const AddFoodForm = () => {
                 throw new Error('Image did not upload!')
             }
             const response = await request.json();
+            setImgIsLoading(false);
             setImgUrl(response.secure_url);
         } catch(err) {
             console.log(err)
+            setImgIsLoading(false);
         }
     }
     
@@ -100,9 +105,10 @@ const AddFoodForm = () => {
             <label htmlFor='fileSelect' className={newImage ? styles.fileSelectActive : styles.fileSelect}>{newImage ? newImage.name : 'Selecteaza o imagine'} </label>
             <input type='file' id="fileSelect" name="fileSelect" hidden onChange={getImage} />
             </div>
-            <button onClick={uploadImage} className={styles.uploadBtn}>Upload Image</button>
+            <button onClick={uploadImage} className={styles.uploadBtn}>Adauga imaginea</button>
             {imgUrl && <img src={imgUrl} alt='upload'/>}
-            <button onClick={storeRecipe} className={styles.submitBtn}>Adauga</button>
+            {imgIsLoading && <LoadingSpinner />}
+            <button onClick={storeRecipe} className={styles.submitBtn}>Finalizeaza</button>
         </form>
         </Fragment>
     )

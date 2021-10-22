@@ -81,7 +81,6 @@ label {
     color: white;
     padding: .5rem 1rem;
     border: 1px solid var(--header-background);
-    transition: background-color .2s;
     border-radius: 5px;
 }
 .fileSelect:active {
@@ -99,5 +98,35 @@ label {
 }
 
 .uploadBtn {
+    font-family: inherit;
+    font-size: 1.6rem;
     margin: 1rem 0;
+    display: inline-block;
+    width: 60%;
+    background-color: var(--header-background);
+    color: white;
+    padding: .5rem 1rem;
+    border: 1px solid var(--header-background);
+    border-radius: 5px;
+}
+
+.uploadBtn:active {
+    background-color: var(--lighter-blue);
+}
+
+.submitBtn {
+    font-family: inherit;
+    font-size: 1.6rem;
+    margin: 1rem 0;
+    display: inline-block;
+    width: 60%;
+    background-color: var(--header-background);
+    color: white;
+    padding: .5rem 1rem;
+    border: 1px solid var(--header-background);
+    border-radius: 5px;
+}
+
+.submitBtn:active {
+    background-color: var(--lighter-blue);
 }
