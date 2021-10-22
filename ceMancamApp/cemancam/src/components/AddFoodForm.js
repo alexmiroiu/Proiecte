@@ -4,6 +4,8 @@ import LoadingSpinner from "./UI/LoadingSpinner";
 
 const AddFoodForm = () => {
     const [foodName, setFoodName] = useState('');
+    const [foodNameIsValid, setFoodNameIsValid] = useState(false);
+    const [foodNameTouched, setFoodNameTouched] = useState(false);
     const [time, setTime] = useState('');
     const [recipe, setRecipe] = useState('');
     const [type, setType] = useState('Selecteaza');
@@ -15,6 +17,16 @@ const AddFoodForm = () => {
     const getFoodName = (event) => {
         setFoodName(event.target.value);
     }
+
+    const checkNameValidity = () => {
+        setFoodNameTouched(true);
+        if(foodName.length > 3) {
+            setFoodNameIsValid(true);
+        } else {
+            setFoodNameIsValid(false);
+        }
+    }
+
     const getTime = (event) => {
         setTime(event.target.value);
     } 
@@ -30,6 +42,10 @@ const AddFoodForm = () => {
     const getImage = event => {
         setNewImage(event.target.files[0]);
     }
+
+    const errorVisible = `${styles.errorMessage}`;
+    const errorHidden = `${styles.errorMessage} ${styles.errorHidden}`;
+    const invalidInput = `${styles.input} ${styles.inputError}`
 
     const uploadImage = async (event) => {
         event.preventDefault();
@@ -89,7 +105,8 @@ const AddFoodForm = () => {
         <h1>Adauga ce ai gatit</h1>
         <form className={styles.form}>
             <label htmlFor="foodName">Nume preparat</label>
-            <input type="text" id="foodName" name="foodName" value={foodName} onChange={getFoodName} className={styles.input}/>
+            <input type="text" required id="foodName" name="foodName" value={foodName} onChange={getFoodName} onBlur={checkNameValidity} className={!foodNameIsValid && foodNameTouched ? invalidInput : styles.input}/>
+            <p className={!foodNameIsValid && foodNameTouched ? errorVisible : errorHidden}>Introdu numele preparatului</p>
             <label htmlFor="time">Durata (in minute)</label>
             <input type="number" id="time" name="time" value={time} onChange={getTime} className={styles.input}/>
             <label htmlFor="recipe">Ingrediente si reteta</label>
