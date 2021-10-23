@@ -26,9 +26,9 @@ const App = () => {
   return (
     <Fragment>
       <Header renderList={changeToList} renderForm={changeToForm}/>
-      <div className={styles.main}>
+
       {displayedContent}
-      </div>
+
     </Fragment>
   );
 }

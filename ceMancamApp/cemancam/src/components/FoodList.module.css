@@ -1,4 +1,5 @@
 .foodList {
+    margin-top: 7vh;
     display: flex;
     flex-direction: column;
     width: 100vw;
