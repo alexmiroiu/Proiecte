@@ -6,12 +6,12 @@ const Backdrop = () => {
     return <div className={styles.backdrop}></div>;
 }
 
-const Modal = () => {
+const Modal = (props) => {
     return (
         <div className={styles.errorModal}>
-            {/* <h3>{props.errorMessage}</h3> */}
-            <h3>Error message here</h3>
-            <button>Close</button>
+            <h3>{props.errorMessage}</h3>
+            <p className={styles.errorDescription}>{props.errorDescription}</p>
+            <button className={styles.modalBtn} onClick={props.clickAction}>Close</button>
         </div>
     )
 }
@@ -22,7 +22,7 @@ const ErrorModal = (props) => {
     return (
         <Fragment>
             {ReactDOM.createPortal(<Backdrop />, teleportTarget)}
-            {ReactDOM.createPortal(<Modal />, teleportTarget)}
+            {ReactDOM.createPortal(<Modal errorMessage={props.message} errorDescription={props.description} clickAction={props.closeModal}/>, teleportTarget)}
         </Fragment>
     );
 }

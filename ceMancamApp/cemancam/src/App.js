@@ -28,7 +28,6 @@ const App = () => {
     <Fragment>
       <Header renderList={changeToList} renderForm={changeToForm}/>
       {displayedContent}
-      <ErrorModal />
     </Fragment>
   );
 }

@@ -2,6 +2,7 @@ import { Fragment, useState } from "react"
 import styles from './AddFoodForm.module.css';
 import LoadingSpinner from "./UI/LoadingSpinner";
 import placeholderImg from '../assets/placeholder.png';
+import ErrorModal from "./Modals/ErrorModal";
 
 const AddFoodForm = () => {
     const [foodName, setFoodName] = useState('');
@@ -20,6 +21,7 @@ const AddFoodForm = () => {
     const [imgUrl, setImgUrl] = useState("");
     const [imgIsLoading, setImgIsLoading] = useState(false)
     const [formValid, setFormValid] = useState(false);
+    const [showError, setShowError] = useState(false);
 
 
 // SETTING VALUES TO STATE
@@ -146,11 +148,15 @@ const AddFoodForm = () => {
             setImgUrl('');
             setNewImage('');
         } else {
-            return;
+            setShowError(true);
         }
 
-
     }
+        
+    const closeErrorModal = () => {
+        setShowError(false);
+    }
+
     console.log('rendered addfoodform');
     
     return (
@@ -182,8 +188,9 @@ const AddFoodForm = () => {
             {!imgUrl && !imgIsLoading && <img src={placeholderImg} alt='upload'/>}
             {imgIsLoading && <LoadingSpinner />}
             </div>
-            <button onClick={storeRecipe} className={styles.submitBtn}>Finalizeaza</button>
+            <button onClick={storeRecipe} className={styles.submitBtn} >Finalizeaza</button>
         </form>
+        {showError && <ErrorModal message={'The error title'} description={'The description'} closeModal={closeErrorModal}></ErrorModal>}
         </Fragment>
     )
 

@@ -12,9 +12,21 @@
 .errorModal {
     position: fixed;
     z-index: 10;
-    width: 50vw;
-    height: 30vh;
+    left: 20%;
+    top: 40vh;
+    width: 60%;
+    height: 15vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+
+.errorDescription {
+    width: 80%;
+    text-align: center;
 }
