@@ -1,11 +1,11 @@
 .header {
+    position: fixed;
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: var(--header-background);
     height: 7vh;
     width: 100vw;
-    position: fixed;
     z-index: 1;
 }
 

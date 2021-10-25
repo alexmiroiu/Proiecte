@@ -4,6 +4,7 @@ import styles from './App.module.css';
 import AddFoodForm from './components/AddFoodForm';
 import FoodList from './components/FoodList';
 import Header from './components/Header';
+import ErrorModal from './components/Modals/ErrorModal';
 
 
 
@@ -26,9 +27,8 @@ const App = () => {
   return (
     <Fragment>
       <Header renderList={changeToList} renderForm={changeToForm}/>
-
       {displayedContent}
-
+      <ErrorModal />
     </Fragment>
   );
 }
