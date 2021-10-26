@@ -11,7 +11,7 @@ const Modal = (props) => {
         <div className={styles.errorModal}>
             <h3>{props.errorMessage}</h3>
             <p className={styles.errorDescription}>{props.errorDescription}</p>
-            <button className={styles.modalBtn} onClick={props.clickAction}>Close</button>
+            <button className={styles.modalBtn} onClick={props.clickAction}>Inchide</button>
         </div>
     )
 }

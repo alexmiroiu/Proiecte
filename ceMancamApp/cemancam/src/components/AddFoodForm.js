@@ -190,7 +190,7 @@ const AddFoodForm = () => {
             </div>
             <button onClick={storeRecipe} className={styles.submitBtn} >Finalizeaza</button>
         </form>
-        {showError && <ErrorModal message={'The error title'} description={'The description'} closeModal={closeErrorModal}></ErrorModal>}
+        {showError && <ErrorModal message={'Eroare'} description={'Nu ai introdus corect datele!'} closeModal={closeErrorModal}></ErrorModal>}
         </Fragment>
     )
 
