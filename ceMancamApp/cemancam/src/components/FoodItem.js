@@ -2,6 +2,18 @@ import React from "react";
 import styles from './FoodItem.module.css';
 
 const FoodItem = (props) => {
+    const shortRecipe = () => {
+        let maxLength = 20;
+        let shortenedRecipe = props.recipe.slice(0, maxLength);
+        if(shortenedRecipe.charAt(maxLength-1) !== '.' ||
+        shortenedRecipe.charAt(maxLength-1) !== ',' ||
+        shortenedRecipe.charAt(maxLength-1) !== ' ' ) {
+            return shortenedRecipe;
+        } 
+
+    }
+
+
     return (
         <div className={styles.foodItem}>
             <div className={styles.titleWrapper}>
