@@ -3,13 +3,14 @@ import styles from './FoodItem.module.css';
 
 const FoodItem = (props) => {
     const shortRecipe = () => {
-        let maxLength = 20;
+        let maxLength = 10;
         let shortenedRecipe = props.recipe.slice(0, maxLength);
-        if(shortenedRecipe.charAt(maxLength-1) !== '.' ||
-        shortenedRecipe.charAt(maxLength-1) !== ',' ||
-        shortenedRecipe.charAt(maxLength-1) !== ' ' ) {
-            return shortenedRecipe;
+        while(shortenedRecipe.charAt(maxLength-1) === '.' ||
+        shortenedRecipe.charAt(maxLength-1) === ',' ) {
+            maxLength++;
+            shortenedRecipe = props.recipe.slice(0, maxLength);
         } 
+        return shortenedRecipe;
 
     }
 
@@ -25,7 +26,7 @@ const FoodItem = (props) => {
             </div>
             <div className={styles.recipe}>
                 <h3>Reteta</h3>
-                <p>{props.recipe}</p>
+                <p>{shortRecipe()}</p>
             </div>
             <img src={props.image} alt='food item' />
         </div>
