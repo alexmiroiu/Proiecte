@@ -41,3 +41,14 @@
     object-fit: cover;
     object-position: center;
 }
+
+.itemMenu {
+    width: 100%;
+    display: flex;
+    justify-content: stretch;
+
+}
+
+.menuBtn {
+    flex-basis: 100%;
+}

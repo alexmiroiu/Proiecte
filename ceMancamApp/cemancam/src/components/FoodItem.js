@@ -6,11 +6,14 @@ const FoodItem = (props) => {
         let maxLength = 10;
         let shortenedRecipe = props.recipe.slice(0, maxLength);
         while(shortenedRecipe.charAt(maxLength-1) === '.' ||
-        shortenedRecipe.charAt(maxLength-1) === ',' ) {
+        shortenedRecipe.charAt(maxLength-1) === ',' || (/[a-zA-Z]/).test(shortenedRecipe.charAt(maxLength-1))) {
+            if(maxLength === 15) {
+                break;
+            }
             maxLength++;
             shortenedRecipe = props.recipe.slice(0, maxLength);
         } 
-        return shortenedRecipe;
+        return shortenedRecipe + '...';
 
     }
 
@@ -29,6 +32,11 @@ const FoodItem = (props) => {
                 <p>{shortRecipe()}</p>
             </div>
             <img src={props.image} alt='food item' />
+            <div className={styles.itemMenu}>
+                <button className={`${styles.menuBtn}  ${styles.detailsBtn}`}>Detalii</button>
+                <button className={`${styles.menuBtn}  ${styles.editBtn}`}>Editeaza</button>
+                <button className={`${styles.menuBtn}  ${styles.deleteBtn}`}>Sterge</button>
+            </div>
         </div>
     )
 }
