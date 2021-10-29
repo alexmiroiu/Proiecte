@@ -24,7 +24,7 @@ const FoodModal = (props) => {
     return (
         <Fragment>
             {ReactDOM.createPortal(<Backdrop />, teleportTarget)}
-            {ReactDOM.createPortal(<Modal />, teleportTarget)}
+            {ReactDOM.createPortal(<Modal name={props.foodDetails.name} time={props.foodDetails.time} recipe={props.foodDetails.recipe} type={props.foodDetails.type}/>, teleportTarget)}
         </Fragment>
     );
 }

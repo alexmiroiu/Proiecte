@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from './FoodItem.module.css';
+import FoodModal from "./Modals/FoodModal";
 
 const FoodItem = (props) => {
+    const [itemModal, setItemModal] = useState(false);
+
+
     const shortRecipe = () => {
         let maxLength = 10;
         let shortenedRecipe = props.recipe.slice(0, maxLength);
@@ -26,6 +30,10 @@ const FoodItem = (props) => {
         type: props.type,
         imageUrl: props.image
     }
+
+    const modalHandler = () => {
+        setItemModal(true);
+    }
     
 
 
@@ -44,10 +52,11 @@ const FoodItem = (props) => {
             </div>
             <img src={props.image} alt='food item' />
             <div className={styles.itemMenu}>
-                <button className={`${styles.menuBtn}  ${styles.detailsBtn}`}>Detalii</button>
+                <button className={`${styles.menuBtn}  ${styles.detailsBtn}`} onClick={modalHandler}>Detalii</button>
                 <button className={`${styles.menuBtn}  ${styles.editBtn}`}>Editeaza</button>
                 <button className={`${styles.menuBtn}  ${styles.deleteBtn}`}>Sterge</button>
             </div>
+            {itemModal && <FoodModal foodDetails={foodDetails}/>}
         </div>
     )
 }
