@@ -60,9 +60,9 @@ const FoodList = () => {
         <label htmlFor="search">Cauta un preparat</label>
         <input type="text" name="search" value={searchPhrase} onChange={search} className={styles.search}/>
         {error && <p>{error}</p>}
-        {selectedType === 'Toate' && foodList.filter(item => item.name.toLowerCase().includes(searchPhrase.toLowerCase())).map(item => <FoodItem name={item.name} time={item.time} recipe={item.recipe} type={item.type} image={item.image} key={item.id}></FoodItem>)}
+        {selectedType === 'Toate' && foodList.filter(item => item.name.toLowerCase().includes(searchPhrase.toLowerCase())).map(item => <FoodItem name={item.name} time={item.time} recipe={item.recipe} type={item.type} image={item.image} key={item.id} itemId={item.id}></FoodItem>)}
         {selectedType && foodList.filter(item => item.type === selectedType && item.name.toLowerCase().includes(searchPhrase.toLowerCase()))
-                                 .map(item => <FoodItem name={item.name} time={item.time} recipe={item.recipe} type={item.type} image={item.image} key={item.id}></FoodItem>)}
+                                 .map(item => <FoodItem name={item.name} time={item.time} recipe={item.recipe} type={item.type} image={item.image} key={item.id} itemId={item.id}></FoodItem>)}
         </div>
     );
 }

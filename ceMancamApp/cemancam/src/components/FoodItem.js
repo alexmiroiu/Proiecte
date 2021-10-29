@@ -16,6 +16,17 @@ const FoodItem = (props) => {
         return shortenedRecipe + '...';
 
     }
+    
+
+    const foodDetails = {
+        id: props.itemId,
+        name: props.name, 
+        time: props.time,
+        recipe: props.recipe,
+        type: props.type,
+        imageUrl: props.image
+    }
+    
 
 
     return (
