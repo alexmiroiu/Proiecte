@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styles from './FoodItem.module.css';
+import DeleteItemModal from "./Modals/DeleteItemModal";
 import FoodModal from "./Modals/FoodModal";
 
 const FoodItem = (props) => {
     const [itemModal, setItemModal] = useState(false);
+    const [deleteItem, setDeleteItem] = useState(false);
 
 
     const shortRecipe = () => {
@@ -20,6 +22,15 @@ const FoodItem = (props) => {
         return shortenedRecipe + '...';
 
     }
+
+    const deleteModalHandler = () => {
+        setDeleteItem(true);
+    }
+
+    const cancelDelete = () => {
+        setDeleteItem(false);
+    }
+
     
 
     const foodDetails = {
@@ -37,7 +48,6 @@ const FoodItem = (props) => {
 
     const closeModal = () => {
         setItemModal(false);
-        console.log('triggered')
     }
     
 
@@ -59,9 +69,10 @@ const FoodItem = (props) => {
             <div className={styles.itemMenu}>
                 <button className={`${styles.menuBtn}  ${styles.detailsBtn}`} onClick={modalHandler}>Detalii</button>
                 <button className={`${styles.menuBtn}  ${styles.editBtn}`}>Editeaza</button>
-                <button className={`${styles.menuBtn}  ${styles.deleteBtn}`}>Sterge</button>
+                <button className={`${styles.menuBtn}  ${styles.deleteBtn}`} onClick={deleteModalHandler}>Sterge</button>
             </div>
             {itemModal && <FoodModal clickAction={closeModal} foodDetails={foodDetails}/>}
+            {deleteItem && <DeleteItemModal showDeleteModal={deleteModalHandler} removeDeleteModal={cancelDelete} id={props.itemId}/>}
         </div>
     )
 }

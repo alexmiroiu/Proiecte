@@ -13,6 +13,7 @@ const Modal = (props) => {
             <p className={styles.errorDescription}>{props.time}</p>
             <p className={styles.errorDescription}>{props.recipe}</p>
             <p className={styles.errorDescription}>{props.type}</p>
+            <img src={props.image} alt='food item' />
             <button className={styles.modalBtn} onClick={props.clickAction}>Inchide</button>
         </div>
     )
@@ -24,7 +25,7 @@ const FoodModal = (props) => {
     return (
         <Fragment>
             {ReactDOM.createPortal(<Backdrop />, teleportTarget)}
-            {ReactDOM.createPortal(<Modal name={props.foodDetails.name} time={props.foodDetails.time} recipe={props.foodDetails.recipe} type={props.foodDetails.type} clickAction={props.clickAction}/>, teleportTarget)}
+            {ReactDOM.createPortal(<Modal name={props.foodDetails.name} time={props.foodDetails.time} recipe={props.foodDetails.recipe} type={props.foodDetails.type} image={props.foodDetails.imageUrl} clickAction={props.clickAction}/>, teleportTarget)}
         </Fragment>
     );
 }
