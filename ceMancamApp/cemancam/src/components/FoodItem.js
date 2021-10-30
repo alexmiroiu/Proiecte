@@ -34,6 +34,11 @@ const FoodItem = (props) => {
     const modalHandler = () => {
         setItemModal(true);
     }
+
+    const closeModal = () => {
+        setItemModal(false);
+        console.log('triggered')
+    }
     
 
 
@@ -56,7 +61,7 @@ const FoodItem = (props) => {
                 <button className={`${styles.menuBtn}  ${styles.editBtn}`}>Editeaza</button>
                 <button className={`${styles.menuBtn}  ${styles.deleteBtn}`}>Sterge</button>
             </div>
-            {itemModal && <FoodModal foodDetails={foodDetails}/>}
+            {itemModal && <FoodModal clickAction={closeModal} foodDetails={foodDetails}/>}
         </div>
     )
 }
