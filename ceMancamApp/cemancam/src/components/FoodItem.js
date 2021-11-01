@@ -50,6 +50,9 @@ const FoodItem = (props) => {
         setItemModal(false);
     }
     
+    const forceRender = () => {
+        props.reRender();
+    }
 
 
     return (
@@ -68,7 +71,7 @@ const FoodItem = (props) => {
             <img src={props.image} alt='food item' />
             <div className={styles.itemMenu}>
                 <button className={`${styles.menuBtn}  ${styles.detailsBtn}`} onClick={modalHandler}>Detalii</button>
-                <button className={`${styles.menuBtn}  ${styles.editBtn}`}>Editeaza</button>
+                <button className={`${styles.menuBtn}  ${styles.editBtn}`} onClick={forceRender}>Editeaza</button>
                 <button className={`${styles.menuBtn}  ${styles.deleteBtn}`} onClick={deleteModalHandler}>Sterge</button>
             </div>
             {itemModal && <FoodModal clickAction={closeModal} foodDetails={foodDetails}/>}

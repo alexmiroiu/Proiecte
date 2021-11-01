@@ -7,6 +7,7 @@ const FoodList = () => {
     const [selectedType, setSelectedType] = useState('Toate');
     const [searchPhrase, setSearchPhrase] = useState('');
     const [error, setError] = useState(null);
+    const [forceRender, setForceRender] = useState(false);
 
     const getFoods = async () => {
         try {
@@ -28,10 +29,17 @@ const FoodList = () => {
                 listOfFoods.push(food);
             }
             setFoodList(listOfFoods);
+            console.log('called this')
 
         } catch(error) {
             setError(error.message);
         }
+    }
+
+    console.log(forceRender)
+
+    const reRenderHandler = () => {
+        setForceRender(true);
     }
 
     const getSelectedType = (event) => {
@@ -44,8 +52,8 @@ const FoodList = () => {
 
     useEffect(() => {
         getFoods();
-        // console.log(foodList);
     },[])
+
 
     return (
         <div className={styles.foodList}>
@@ -60,7 +68,7 @@ const FoodList = () => {
         <label htmlFor="search">Cauta un preparat</label>
         <input type="text" name="search" value={searchPhrase} onChange={search} className={styles.search}/>
         {error && <p>{error}</p>}
-        {selectedType === 'Toate' && foodList.filter(item => item.name.toLowerCase().includes(searchPhrase.toLowerCase())).map(item => <FoodItem name={item.name} time={item.time} recipe={item.recipe} type={item.type} image={item.image} key={item.id} itemId={item.id}></FoodItem>)}
+        {selectedType === 'Toate' && foodList.filter(item => item.name.toLowerCase().includes(searchPhrase.toLowerCase())).map(item => <FoodItem name={item.name} time={item.time} recipe={item.recipe} type={item.type} image={item.image} key={item.id} itemId={item.id} reRender={reRenderHandler}></FoodItem>)}
         {selectedType && foodList.filter(item => item.type === selectedType && item.name.toLowerCase().includes(searchPhrase.toLowerCase()))
                                  .map(item => <FoodItem name={item.name} time={item.time} recipe={item.recipe} type={item.type} image={item.image} key={item.id} itemId={item.id}></FoodItem>)}
         </div>
