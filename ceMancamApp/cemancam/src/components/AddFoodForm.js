@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import styles from './AddFoodForm.module.css';
 import LoadingSpinner from "./UI/LoadingSpinner";
 import placeholderImg from '../assets/placeholder.png';
@@ -81,19 +81,16 @@ const AddFoodForm = () => {
             setTypeIsValid(false);
         }
     }
-    
-    const checkFormValidity = () => {
-        console.log(foodNameIsValid);
-        console.log(timeIsValid);
-        console.log(recipeIsValid);
-        console.log(typeIsValid);
+    useEffect(() => {
+
         if(foodNameIsValid && timeIsValid && recipeIsValid && typeIsValid) {
-            setFormValid(true)
+            setFormValid(true);
         } else {
-            setFormValid(false)
+            setFormValid(false);
         }
         console.log(formValid)
-    }
+    },[foodNameIsValid, timeIsValid, recipeIsValid, typeIsValid, formValid])
+
 
     const errorVisible = `${styles.errorMessage}`;
     const errorHidden = `${styles.errorMessage} ${styles.errorHidden}`;
@@ -135,7 +132,6 @@ const AddFoodForm = () => {
 
     const storeRecipe = async (event) => {
         event.preventDefault();
-        checkFormValidity();
         if(formValid) {
             const request = await fetch('https://cemancam-14798-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', {
                 method: 'POST',
@@ -152,6 +148,14 @@ const AddFoodForm = () => {
             setType('');
             setImgUrl('');
             setNewImage('');
+            setFoodNameIsValid(false);
+            setFoodNameTouched(false);
+            setTimeIsValid(false);
+            setTimeTouched(false);
+            setTypeIsValid(false);
+            setTypeIsTouched(false);
+            setRecipeIsValid(false);
+            setRecipeTouched(false);
         } else {
             setShowError(true);
         }
