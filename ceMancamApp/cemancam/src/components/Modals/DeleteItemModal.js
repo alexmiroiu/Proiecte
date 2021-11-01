@@ -14,7 +14,7 @@ const Modal = (props) => {
         const response = await request.json();
         console.log(response);
         props.removeModal();
-
+        props.reRenderList();
     }
 
     return (
@@ -32,7 +32,7 @@ const DeleteItemModal = (props) => {
     return (
         <Fragment>
             {ReactDOM.createPortal(<Backdrop />, teleportTarget)}
-            {ReactDOM.createPortal(<Modal showModal={props.showDeleteModal} removeModal={props.removeDeleteModal} id={props.id}/>, teleportTarget)}
+            {ReactDOM.createPortal(<Modal showModal={props.showDeleteModal} removeModal={props.removeDeleteModal} id={props.id} reRenderList={props.reRenderList}/>, teleportTarget)}
         </Fragment>
     );
 }

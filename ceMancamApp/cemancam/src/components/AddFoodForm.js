@@ -83,11 +83,16 @@ const AddFoodForm = () => {
     }
     
     const checkFormValidity = () => {
+        console.log(foodNameIsValid);
+        console.log(timeIsValid);
+        console.log(recipeIsValid);
+        console.log(typeIsValid);
         if(foodNameIsValid && timeIsValid && recipeIsValid && typeIsValid) {
             setFormValid(true)
         } else {
             setFormValid(false)
         }
+        console.log(formValid)
     }
 
     const errorVisible = `${styles.errorMessage}`;

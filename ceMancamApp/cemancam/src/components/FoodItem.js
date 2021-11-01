@@ -75,7 +75,7 @@ const FoodItem = (props) => {
                 <button className={`${styles.menuBtn}  ${styles.deleteBtn}`} onClick={deleteModalHandler}>Sterge</button>
             </div>
             {itemModal && <FoodModal clickAction={closeModal} foodDetails={foodDetails}/>}
-            {deleteItem && <DeleteItemModal showDeleteModal={deleteModalHandler} removeDeleteModal={cancelDelete} id={props.itemId}/>}
+            {deleteItem && <DeleteItemModal showDeleteModal={deleteModalHandler} removeDeleteModal={cancelDelete} id={props.itemId} reRenderList={props.renderList}/>}
         </div>
     )
 }
