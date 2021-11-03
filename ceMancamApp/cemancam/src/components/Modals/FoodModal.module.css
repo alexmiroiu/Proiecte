@@ -23,3 +23,12 @@
     background-color: white;
     border-radius: 10px;
 }
+
+.timeWrapper {
+    display: flex;
+    background-color: black;
+
+}
+
+.timeWrapper img{
+}

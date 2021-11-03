@@ -1,16 +1,22 @@
 import React, { Fragment } from "react";
 import ReactDOM  from "react-dom";
 import styles from './FoodModal.module.css';
+import clock from '../../assets/clock.svg';
 
 const Backdrop = () => {
     return <div className={styles.backdrop}></div>;
 }
 
 const Modal = (props) => {
+
+
     return (
         <div className={styles.foodModal}>
             <h3>{props.name}</h3>
-            <p className={styles.errorDescription}>{props.time}</p>
+            <div className={styles.timeWrapper}>
+            <img src={clock} alt='clock' />
+            <p className={styles.errorDescription}>{props.time} min</p>
+            </div>
             <p className={styles.errorDescription}>{props.recipe}</p>
             <p className={styles.errorDescription}>{props.type}</p>
             <img src={props.image} alt='food item' />
