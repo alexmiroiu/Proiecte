@@ -54,18 +54,10 @@ const FoodItem = (props) => {
 
     return (
         <div className={styles.foodItem}>
-            <div className={styles.titleWrapper}>
-                <div className={styles.titleContainer}>
-                    <h2>{props.name}</h2>
-                    <p>{props.type}</p>
-                </div>
-                <p>{props.time} min</p>
-            </div>
-            <div className={styles.recipe}>
-                <h3>Reteta</h3>
-                <p>{shortRecipe()}</p>
-            </div>
             <img src={props.image} alt='food item' />
+            <div className={styles.titleContainer}>
+                <h2>{props.name}</h2>
+            </div>
             <div className={styles.itemMenu}>
                 <button className={`${styles.menuBtn}  ${styles.detailsBtn}`} onClick={modalHandler}>Detalii</button>
                 <button className={`${styles.menuBtn}  ${styles.deleteBtn}`} onClick={deleteModalHandler}>Sterge</button>
