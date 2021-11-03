@@ -12,14 +12,19 @@ const Modal = (props) => {
 
     return (
         <div className={styles.foodModal}>
-            <h3>{props.name}</h3>
-            <div className={styles.timeWrapper}>
-            <img src={clock} alt='clock' />
-            <p className={styles.errorDescription}>{props.time} min</p>
+            <div className={styles.imageWrapper}>
+                <img src={props.image} alt='food item' className={styles.mainImage}/>
+                <div className={styles.timeWrapper}>
+                    <img src={clock} alt='clock' className={styles.icon}/>
+                    <p className={styles.time}>{props.time} min</p>
+                </div>
+                <p className={styles.type}>{props.type}</p>
             </div>
-            <p className={styles.errorDescription}>{props.recipe}</p>
-            <p className={styles.errorDescription}>{props.type}</p>
-            <img src={props.image} alt='food item' />
+            <h3>{props.name}</h3>
+            <div className={styles.recipeWrapper}>
+                <h4>Reteta</h4>
+                <p className={styles.errorDescription}>{props.recipe}</p>
+            </div>
             <button className={styles.modalBtn} onClick={props.clickAction}>Inchide</button>
         </div>
     )
