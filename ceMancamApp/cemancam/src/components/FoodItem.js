@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from './FoodItem.module.css';
 import DeleteItemModal from "./Modals/DeleteItemModal";
 import FoodModal from "./Modals/FoodModal";
+import ModalHelper from "../store/modal-helper";
 
 const FoodItem = (props) => {
+    const ctx = useContext(ModalHelper);
     const [itemModal, setItemModal] = useState(false);
     const [deleteItem, setDeleteItem] = useState(false);
 
@@ -44,6 +46,7 @@ const FoodItem = (props) => {
 
     const modalHandler = () => {
         setItemModal(true);
+        ctx.setModalOn();
     }
 
     const closeModal = () => {

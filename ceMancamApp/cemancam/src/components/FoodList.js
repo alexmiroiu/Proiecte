@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import FoodItem from "./FoodItem";
 import styles from "./FoodList.module.css";
+import ModalHelper from "../store/modal-helper";
 
 const FoodList = () => {
+    const ctx = useContext(ModalHelper);
     const [foodList, setFoodList] = useState([]);
     const [selectedType, setSelectedType] = useState('Toate');
     const [searchPhrase, setSearchPhrase] = useState('');
@@ -53,7 +55,7 @@ const FoodList = () => {
 
 
     return (
-        <div className={styles.foodList}>
+        <div className={styles.foodList} className={ctx.modalDisplayed ? styles.modalIsDisplayed : ''}>
         <label htmlFor="foodType">Selecteaza dupa felul preparatului: </label>
         <select name="foodType" onChange={getSelectedType} value={selectedType} className={styles.select}>
                 <option value='Toate'>Toate</option>

@@ -36,3 +36,8 @@
     outline: none;
     border: 1px solid var(--header-background);
 }
+
+.modalIsDisplayed {
+    position: fixed;
+    overflow: hidden;
+}
