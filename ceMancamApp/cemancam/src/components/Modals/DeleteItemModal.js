@@ -20,8 +20,10 @@ const Modal = (props) => {
     return (
         <div className={styles.errorModal}>
             <h3>Esti sigur ca vrei sa stergi acest preparat?</h3>
-            <button className={styles.modalBtn} onClick={deleteItem}>Da</button>
-            <button className={styles.modalBtn} onClick={props.removeModal}>Anuleaza</button>
+            <div className={styles.buttonWrapper}>
+                <button className={styles.modalBtn} onClick={deleteItem}>Da</button>
+                <button className={styles.modalBtn} onClick={props.removeModal}>Anuleaza</button>
+            </div>
         </div>
     )
 }

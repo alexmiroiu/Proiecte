@@ -23,7 +23,7 @@
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
-    animation: slideDown .5s ease-out;
+    animation: slideDown .3s ease-out;
 }
 
 .imageWrapper {
@@ -122,8 +122,8 @@
 
 @keyframes slideDown {
     0% {
-        opacity: 0;
-        transform: translateY(-5rem);
+        opacity: .9;
+        transform: translateY(-2rem);
     }
     100% {
         opacity: 1;

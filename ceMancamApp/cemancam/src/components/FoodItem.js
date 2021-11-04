@@ -51,6 +51,7 @@ const FoodItem = (props) => {
 
     const closeModal = () => {
         setItemModal(false);
+        ctx.setModalOff();
     }
     
 

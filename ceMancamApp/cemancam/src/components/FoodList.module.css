@@ -40,4 +40,6 @@
 .modalIsDisplayed {
     position: fixed;
     overflow: hidden;
+    top: 7vh;
+    left: 0;
 }

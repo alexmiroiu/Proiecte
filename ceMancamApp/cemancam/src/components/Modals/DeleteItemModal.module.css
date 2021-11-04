@@ -12,22 +12,36 @@
 .errorModal {
     position: fixed;
     z-index: 10;
-    left: 20%;
-    top: 40vh;
-    width: 60%;
-    height: 15vh;
+    left: 10%;
+    top: 55vh;
+    width: 80%;
+    height: 25vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     background-color: white;
     border-radius: 10px;
+    overflow: hidden;
+    animation: slideDown .3s ease-out;
 }
 
 .errorModal h3 {
     font-size: 2.3rem;
+    text-align: center;
+    flex-basis: 60%;
+    padding-top: 3rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
+.buttonWrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    flex-basis: 40%;
+
+}
 
 
 .errorDescription {
@@ -40,7 +54,8 @@
     font-size: 1.6rem;
     margin: 1rem 0;
     display: inline-block;
-    width: 60%;
+    height: fit-content;
+    width: 40%;
     background-color: var(--header-background);
     color: white;
     padding: .5rem 1rem;
@@ -50,4 +65,15 @@
 
 .modalBtn:active {
     background-color: var(--lighter-blue);
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: .9;
+        transform: translateY(-2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

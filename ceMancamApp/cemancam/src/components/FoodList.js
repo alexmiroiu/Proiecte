@@ -55,7 +55,7 @@ const FoodList = () => {
 
 
     return (
-        <div className={styles.foodList} className={ctx.modalDisplayed ? styles.modalIsDisplayed : ''}>
+        <div className={ctx.modalDisplayed ? `${styles.modalIsDisplayed} ${styles.foodList}` : `${styles.foodList}`}>
         <label htmlFor="foodType">Selecteaza dupa felul preparatului: </label>
         <select name="foodType" onChange={getSelectedType} value={selectedType} className={styles.select}>
                 <option value='Toate'>Toate</option>
