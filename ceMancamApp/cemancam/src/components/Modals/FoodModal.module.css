@@ -13,9 +13,9 @@
     position: fixed;
     z-index: 10;
     left: 3%;
-    top: 5vh;
+    top: 2vh;
     width: 94%;
-    height: 90vh;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -23,6 +23,7 @@
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
+    animation: slideDown .5s ease-out;
 }
 
 .imageWrapper {
@@ -116,4 +117,16 @@
 
 .modalBtn:active {
     background-color: var(--lighter-blue);
+}
+
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-5rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
