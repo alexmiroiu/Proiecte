@@ -11,7 +11,6 @@
 .modalIsDisplayed {
     position: fixed;
     overflow: hidden;
-    top: 0;
     left: 0;
 }
 
@@ -95,6 +94,10 @@ label {
 
 .fileSelectWrapper {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     width: 90%;
     margin: .5rem 0;
     padding: 1rem 0;
@@ -170,4 +173,10 @@ label {
 
 .inputError {
     border: 1px solid red;
+}
+
+.spinner {
+    width: 60%;
+    height: 15rem;
+
 }

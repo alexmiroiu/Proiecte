@@ -175,7 +175,7 @@ const AddFoodForm = () => {
     return (
         <Fragment>
         <h1>Adauga ce ai gatit</h1>
-        <form className={`${styles.form} ${styles.modalIsDisplayed}`}>
+        <form className={ctx.modalDisplayed ? `${styles.form} ${styles.modalIsDisplayed}` : `${styles.form}`}>
             <label htmlFor="foodName">Nume preparat</label>
             <input type="text" required id="foodName" name="foodName" value={foodName} onChange={getFoodName} onBlur={checkNameValidity} className={!foodNameIsValid && foodNameTouched ? invalidInput : styles.input}/>
             <p className={!foodNameIsValid && foodNameTouched ? errorVisible : errorHidden}>Introdu un nume valid !</p>
@@ -194,12 +194,12 @@ const AddFoodForm = () => {
             </select>
             <p className={!typeIsValid && typeIsTouched ? errorVisible : errorHidden}>Selecteaza tipul preparatului!</p>
             <div className={styles.fileSelectWrapper}>
-            <label htmlFor='fileSelect' className={newImage ? styles.fileSelectActive : styles.fileSelect}>{newImage ? newImage.name : 'Selecteaza o imagine'} </label>
-            <input type='file' id="fileSelect" name="fileSelect" hidden onChange={getImage} />
-            <button onClick={uploadImage} className={styles.uploadBtn}>Adauga imaginea</button>
-            {imgUrl && <img src={imgUrl} alt='upload'/>}
-            {!imgUrl && !imgIsLoading && <img src={placeholderImg} alt='upload'/>}
-            {imgIsLoading && <LoadingSpinner />}
+                <label htmlFor='fileSelect' className={newImage ? styles.fileSelectActive : styles.fileSelect}>{newImage ? newImage.name : 'Selecteaza o imagine'} </label>
+                <input type='file' id="fileSelect" name="fileSelect" hidden onChange={getImage} />
+                <button onClick={uploadImage} className={styles.uploadBtn}>Adauga imaginea</button>
+                {imgUrl && <img src={imgUrl} alt='upload'/>}
+                {!imgUrl && !imgIsLoading && <img src={placeholderImg} alt='upload'/>}
+                {imgIsLoading && <LoadingSpinner className={styles.spinner}/>}
             </div>
             <button onClick={storeRecipe} className={styles.submitBtn} >Finalizeaza</button>
         </form>
