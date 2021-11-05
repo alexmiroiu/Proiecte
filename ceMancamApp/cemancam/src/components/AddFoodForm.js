@@ -1,10 +1,12 @@
-import { Fragment, useEffect, useState } from "react"
+import { Fragment, useContext, useEffect, useState } from "react"
 import styles from './AddFoodForm.module.css';
 import LoadingSpinner from "./UI/LoadingSpinner";
 import placeholderImg from '../assets/placeholder.png';
 import ErrorModal from "./Modals/ErrorModal";
+import ModalHelper from "../store/modal-helper";
 
 const AddFoodForm = () => {
+    const ctx = useContext(ModalHelper);
     const [foodName, setFoodName] = useState('');
     const [foodNameIsValid, setFoodNameIsValid] = useState(false);
     const [foodNameTouched, setFoodNameTouched] = useState(false);
@@ -158,12 +160,14 @@ const AddFoodForm = () => {
             setRecipeTouched(false);
         } else {
             setShowError(true);
+            ctx.setModalOn();
         }
 
     }
         
     const closeErrorModal = () => {
         setShowError(false);
+        ctx.setModalOff();
     }
 
     console.log('rendered addfoodform');
@@ -171,7 +175,7 @@ const AddFoodForm = () => {
     return (
         <Fragment>
         <h1>Adauga ce ai gatit</h1>
-        <form className={styles.form}>
+        <form className={`${styles.form} ${styles.modalIsDisplayed}`}>
             <label htmlFor="foodName">Nume preparat</label>
             <input type="text" required id="foodName" name="foodName" value={foodName} onChange={getFoodName} onBlur={checkNameValidity} className={!foodNameIsValid && foodNameTouched ? invalidInput : styles.input}/>
             <p className={!foodNameIsValid && foodNameTouched ? errorVisible : errorHidden}>Introdu un nume valid !</p>

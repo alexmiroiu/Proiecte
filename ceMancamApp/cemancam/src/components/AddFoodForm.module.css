@@ -8,6 +8,13 @@
 
 }
 
+.modalIsDisplayed {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
 h1 {
     margin-top: 7vh;
     padding: 1rem 0;

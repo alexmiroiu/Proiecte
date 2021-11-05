@@ -27,10 +27,12 @@ const FoodItem = (props) => {
 
     const deleteModalHandler = () => {
         setDeleteItem(true);
+        ctx.setModalOn();
     }
 
     const cancelDelete = () => {
         setDeleteItem(false);
+        ctx.setModalOff();
     }
 
     

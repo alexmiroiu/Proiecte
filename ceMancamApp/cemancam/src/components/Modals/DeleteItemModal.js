@@ -7,7 +7,6 @@ const Backdrop = () => {
 }
 
 const Modal = (props) => {
-
     const deleteItem = async () => {
         const url = `https://cemancam-14798-default-rtdb.europe-west1.firebasedatabase.app/recipes/${props.id}.json`
         const request = await fetch(url, {method: 'DELETE'});
