@@ -3,13 +3,13 @@ import styles from './Header.module.css';
 
 const Header = (props) => {
     return (
-        <nav className={styles.header}>
+        <div className={styles.header}>
             <p>ce mancam?</p>
             <ul>
                 <li onClick={props.renderList}>Lista preparate</li>
                 <li onClick={props.renderForm}>Adauga ce ai gatit</li>
             </ul>
-        </nav>
+        </div>
     )
 }
 
