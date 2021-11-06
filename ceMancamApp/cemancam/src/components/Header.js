@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from './Header.module.css';
 
 const Header = (props) => {
+
+
+
     return (
-        <div className={styles.header}>
+        <nav className={styles.header}>
             <p>ce mancam?</p>
-            <ul>
-                <li onClick={props.renderList}>Lista preparate</li>
-                <li onClick={props.renderForm}>Adauga ce ai gatit</li>
-            </ul>
-        </div>
+            <div className={styles.menuToggle}>
+              <input type="checkbox" onChange={props.menuStatus} checked={props.menuIsDisplayed}/>
+                <span></span>
+                <span></span>
+                <span></span>
+              <ul className={styles.menu}>
+                <li><button onClick={props.renderList}>Lista preparate</button></li>
+                <li><button onClick={props.renderForm}>Adauga ce ai gatit</button></li>
+              </ul>
+           </div>
+        </nav>
     )
 }
 

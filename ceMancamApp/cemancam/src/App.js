@@ -10,13 +10,22 @@ import ModalHelper from './store/modal-helper';
 const App = () => {
   const [display, setDisplay] = useState('list');
   const [modalIsDisplayed, setModalIsDisplayed] = useState(false);
+  const [menuIsDisplayed, setMenuIsDisplayed] = useState(false);
   
   const changeToList = () => {
     setDisplay('list');
+    setTimeout(() => {
+      setMenuIsDisplayed(false);
+
+    }, 200)
   }
 
   const changeToForm = () => {
     setDisplay('form');
+    setTimeout(() => {
+      setMenuIsDisplayed(false);
+
+    }, 200)
   }
 
   const modalIsOn = () => {
@@ -24,6 +33,10 @@ const App = () => {
   }
   const modalIsOff = () => {
     setModalIsDisplayed(false)
+  }
+
+  const setMenuStatus = (event) => {
+    setMenuIsDisplayed(event.target.checked);
   }
 
   let displayedContent;
@@ -34,7 +47,7 @@ const App = () => {
         setModalOn: modalIsOn,
         setModalOff: modalIsOff
     }}>
-      <Header renderList={changeToList} renderForm={changeToForm}/>
+      <Header renderList={changeToList} renderForm={changeToForm} menuStatus={setMenuStatus} menuIsDisplayed={menuIsDisplayed}/>
       {displayedContent}
       </ModalHelper.Provider>
   );
