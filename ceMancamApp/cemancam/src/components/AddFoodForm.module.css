@@ -15,6 +15,7 @@
 }
 
 h1 {
+    font-weight: 600;
     margin-top: 7vh;
     padding: 1rem 0;
     text-align: center;

@@ -15,7 +15,7 @@ const Header = (props) => {
                 <span></span>
               <ul className={styles.menu}>
                 <li><button onClick={props.renderList}>Lista preparate</button></li>
-                <li><button onClick={props.renderForm}>Adauga ce ai gatit</button></li>
+                <li><button onClick={props.renderForm}>Adauga un preparat</button></li>
               </ul>
            </div>
         </nav>

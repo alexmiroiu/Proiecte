@@ -101,8 +101,7 @@
   width: 90vw;
   height: 110vh;
   box-shadow: 0 0 10px #85888C;
-  padding: 50px;
-  padding-top: 125px;
+  padding: 20rem 5rem 30rem;
   background-color: var(--main-background);
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
@@ -110,15 +109,35 @@
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .menu li
 {
   padding: 10px 0;
   transition-delay: 2s;
+  margin-bottom: 3rem;
 }
 
 .menuToggle input:checked ~ ul
 {
   transform: none;
+}
+
+.menu button {
+    border-style: none;
+    background: none;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 2.5rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    color: var(--text);
+}
+
+.menu button:hover,
+.menu button:active {
+    color: var(--lighter-blue);
+    background-color: none;
+    outline: none;
 }

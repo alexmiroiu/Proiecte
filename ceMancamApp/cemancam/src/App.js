@@ -17,7 +17,7 @@ const App = () => {
     setTimeout(() => {
       setMenuIsDisplayed(false);
 
-    }, 200)
+    }, 150)
   }
 
   const changeToForm = () => {
@@ -25,7 +25,7 @@ const App = () => {
     setTimeout(() => {
       setMenuIsDisplayed(false);
 
-    }, 200)
+    }, 150)
   }
 
   const modalIsOn = () => {
