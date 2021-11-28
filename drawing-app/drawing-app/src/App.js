@@ -1,12 +1,9 @@
-import { Fragment } from 'react';
 import './App.css';
-import Canvas from './components/Canvas';
+
+import Main from './components/Main';
 
 function App() {
-  return <Fragment> 
-    <h1>Welcome</h1>
-    <Canvas></Canvas>
-    </Fragment>
+  return <Main></Main>
 }
 
 export default App;

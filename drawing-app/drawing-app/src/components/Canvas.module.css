@@ -1,4 +1,12 @@
 .canvasItem {
-
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    background-color: white;
+    border-radius: 5px;
     border: 2px solid black;
+}
+
+.button {
+    width: 10%;
 }
