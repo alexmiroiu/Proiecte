@@ -8,5 +8,8 @@
 }
 
 .button {
-    width: 10%;
+    position: absolute;
+    top: 62%;
+    width: 10rem;
 }
+

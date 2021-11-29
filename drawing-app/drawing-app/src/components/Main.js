@@ -22,7 +22,7 @@ const Main = () => {
 
 
     return <Fragment> 
-    <h1>Welcome</h1>
+    <h1>Go ahead and draw anything you like</h1>
     <Canvas brushColor={selectedColor} brushSize={brushSize}></Canvas>
     <div>
       <Controls onColorChange={changeColor} color={selectedColor} onSizeChange={changeBrushSize} size={brushSize}/>
