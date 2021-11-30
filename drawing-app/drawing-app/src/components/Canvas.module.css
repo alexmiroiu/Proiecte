@@ -4,12 +4,30 @@
     top: 10%;
     background-color: white;
     border-radius: 5px;
-    border: 2px solid black;
+    border: 2px solid #344CB7;
 }
 
 .button {
+    background-color: #EBE645;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000957;
     position: absolute;
     top: 62%;
     width: 10rem;
+    border: none;
+    height: 2.5rem;
+    border-radius: 10px;
+    transition: all .2s ease-out;
+
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button:active {
+    transform: translateY(-1px);
+    background-color: #d6d13f;
 }
 

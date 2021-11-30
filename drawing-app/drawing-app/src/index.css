@@ -1,3 +1,9 @@
+/* darkBlue: #000957;
+lighterBlue: #344CB7;
+evenLighterBlue: #577BC1;
+happyYellow: #EBE645; */
+
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -35,7 +41,7 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  background-color: burlywood;
+  background-color: #000957;
 }
 
 #root {

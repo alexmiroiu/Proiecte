@@ -44,15 +44,18 @@ const Canvas = (props) => {
     const clearCanvas = () => {
         const context = canvasRef.current.getContext('2d');
         context.clearRect(0,0, windowWidth*80/100, windowHeight*50/100);
+        setIsDrawing(false);
     }
 
 
     const startDrawing = ({nativeEvent}) => {
-        console.log(nativeEvent)
+        // console.log(nativeEvent)
         const {offsetX, offsetY} = nativeEvent;
-        contextRef.current.beginPath();
-        contextRef.current.moveTo(offsetX, offsetY);
         setIsDrawing(true);
+        contextRef.current.beginPath();
+        contextRef.current.stroke();
+        contextRef.current.moveTo(offsetX, offsetY);
+        
         
     }
 
@@ -61,11 +64,20 @@ const Canvas = (props) => {
             return;
         }
         const {offsetX, offsetY} = nativeEvent;
+        const {clientX, clientY} = nativeEvent;
         contextRef.current.lineTo(offsetX, offsetY);
         contextRef.current.stroke();
+        if(offsetX > canvasRef.current.width || offsetY > canvasRef.current.height || offsetX < 0 || offsetY < 0) {
+            // contextRef.current.closePath();
+            setIsDrawing(false)
+        }
+        // console.log(offsetX,offsetY, clientX, clientY);
+        // console.log(canvasRef.current.width, window.innerWidth)
+
     }
 
     const finishDrawing = () => {
+        contextRef.current.stroke();
         contextRef.current.closePath();
         setIsDrawing(false);
     }
@@ -74,7 +86,7 @@ const Canvas = (props) => {
 return( 
         <Fragment>
             <canvas className={classes.canvasItem} ref={canvasRef} onMouseDown={startDrawing} onMouseUp={finishDrawing} onMouseMove={draw}></canvas>;
-            <button className={classes.button} onClick={clearCanvas}>Clear drawing board</button>
+            <button className={classes.button} onClick={clearCanvas}>Clear board</button>
         </Fragment>)
 }
 

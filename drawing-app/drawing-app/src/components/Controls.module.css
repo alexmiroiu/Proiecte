@@ -1,8 +1,10 @@
 .controls {
-    height: 30vh;
+    height: 33vh;
     display: flex;
+    flex-direction: column;
     width: 100vw;
     justify-content: space-around;
+    align-items: center;
     padding-bottom: 10rem;
 }
 
@@ -14,6 +16,7 @@
     align-items: center;
 }
 
+
 .rangeWrapper {
     position: relative;
     width: 30%;
@@ -23,15 +26,55 @@
     align-items: center;
 }
 
+label {
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
 .rangeWrapper span {
     position: absolute;
-    top: -1.5rem;
+    bottom: -3rem;
+    font-size: 2rem;
+    color: #EBE645;
 }
 
 .colorInput {
-    margin-bottom: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 5rem;
+    height: 5rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
+.colorInput::-webkit-color-swatch {
+    border-radius: 10px;
+    border: none;
+}
+
+
 .rangeInput {
-    margin-bottom: 1rem;
+    -webkit-appearance: none;
+    width: 70%;
+    background: #030d3b;
+    outline: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+    
+}
+
+.rangeInput::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #EBE645;
+    cursor: pointer;
+    border: 1px solid #030d3b;
+    box-shadow: -500px 0 0 494px #EBE645;
+
 }
