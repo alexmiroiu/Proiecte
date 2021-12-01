@@ -1,4 +1,4 @@
-#Simple drawing app
+# Simple drawing app
 
 This is my first participation to the weekly project challenge on [DevJam](https://devjam.vercel.app/).
 
