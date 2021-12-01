@@ -64,22 +64,23 @@ const Canvas = (props) => {
             return;
         }
         const {offsetX, offsetY} = nativeEvent;
-        const {clientX, clientY} = nativeEvent;
         contextRef.current.lineTo(offsetX, offsetY);
         contextRef.current.stroke();
         if(offsetX > canvasRef.current.width || offsetY > canvasRef.current.height || offsetX < 0 || offsetY < 0) {
             // contextRef.current.closePath();
             setIsDrawing(false)
         }
-        // console.log(offsetX,offsetY, clientX, clientY);
-        // console.log(canvasRef.current.width, window.innerWidth)
+
 
     }
 
     const finishDrawing = () => {
-        contextRef.current.stroke();
-        contextRef.current.closePath();
-        setIsDrawing(false);
+        if(isDrawing) {
+            contextRef.current.stroke();
+            contextRef.current.closePath();
+            setIsDrawing(false);
+
+        }
     }
 
 
