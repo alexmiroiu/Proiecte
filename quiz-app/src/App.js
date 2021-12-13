@@ -16,6 +16,7 @@ function App() {
 
   return <Routes>
     <Route path='/' element={<Welcome />} />
+    <Route path='html' element={<Quiz />} />
   </Routes>
 }
 

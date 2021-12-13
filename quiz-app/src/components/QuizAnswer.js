@@ -1,9 +1,9 @@
 import styles from "QuizAnswer.module.css";
 
-const QuizAnswer = () => {
+const QuizAnswer = (props) => {
     return <div className={styles.quizAnswer}>
         <p>number</p>
-        <p>answer text</p>
+        <p>props.text</p>
     </div>
 }
 
