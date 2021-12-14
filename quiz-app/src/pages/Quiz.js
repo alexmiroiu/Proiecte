@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { useSelector } from 'react-redux';
 
 import styles from './Quiz.module.css';
@@ -6,16 +6,32 @@ import QuizAnswer from "../components/QuizAnswer";
 
 
 const Quiz = () => {
-    const questionsList = useSelector((state) => state.questions );
-    const currentScore = useSelector(state => state.score)
-    console.log(questionsList)
+    const questionsList = useSelector((state) => state.html.questions);
+    const currentScore = useSelector(state => state.info.score);
+    const timerStarted = useSelector(state => state.info.timerStarted);
+
+    const [elapsedTime, setElapsedTime] = useState(0);
     const [questionNumber, setQuestionNumber] = useState(0);
+    
     const currentQuestion = questionsList[questionNumber];
-    console.log(currentQuestion.answers);
 
     const changeQuestionNumber = () => {
         setQuestionNumber(questionNumber + 1)
     }
+
+    useEffect(() => {
+        let interval = null;
+
+        if(timerStarted) {
+            interval = setInterval(() => {
+                setElapsedTime(elapsedTime => elapsedTime + 1);
+              }, 1000);
+        }else {
+            clearInterval(interval);
+
+        }
+        
+        }, [timerStarted])
 
     return <Fragment>
                 <h2>Quiz name here</h2>
@@ -27,6 +43,10 @@ const Quiz = () => {
                         <div className={styles.score}>
                             <h3>Score</h3>
                             <p>{currentScore}</p>
+                        </div>
+                        <div className={styles.elapsedTime}>
+                            <h3>Elapsed time</h3>
+                            <p>{elapsedTime}</p>
                         </div>
                     </div>
                     <h2>{currentQuestion.questionText}</h2>

@@ -92,27 +92,41 @@ const htmlQuizQuestions = [
         ]
     }
 
-]
+];
+
+
 
 const htmlQuizSlice = createSlice({
     name: 'html',
     initialState: {
         quizName: 'HTML Quiz',
-        questions: htmlQuizQuestions,
-        score: 0
+        questions: htmlQuizQuestions
     },
     reducers: {
-        increase(state) {
-            state.score = state.score + 100;
-        }
+        
     }
 });
 
+const infoSlice = createSlice({
+    name: 'info',
+    initialState: {
+        timerStarted: true,
+        score: 0,
+    },
+    reducers: {
+        increase(state) {
+            state.score = state.score + 10;
+        },
+
+    }
+})
+
 
 const store = configureStore({
-    reducer: htmlQuizSlice.reducer
+    reducer: {html: htmlQuizSlice.reducer, info: infoSlice.reducer}
 });
 
 export const htmlQuizActions = htmlQuizSlice.actions;
+export const infoActions = infoSlice.actions;
 
 export default store;

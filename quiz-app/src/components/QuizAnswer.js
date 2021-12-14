@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import styles from "./QuizAnswer.module.css";
 
-import { htmlQuizActions } from "../store";
+import { infoActions } from "../store";
 
 const QuizAnswer = (props) => {
     const dispatch = useDispatch();
@@ -9,7 +9,7 @@ const QuizAnswer = (props) => {
     const chooseAnswerHandler = () => {
         props.changeQuestion();
         if(isValid) {
-            dispatch(htmlQuizActions.increase())
+            dispatch(infoActions.increase());
         }
     }
 
