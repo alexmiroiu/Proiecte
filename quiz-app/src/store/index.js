@@ -94,10 +94,193 @@ const htmlQuizQuestions = [
 
 ];
 
+const javascriptQuizQuestions = [
+    {
+        questionText: 'Which of the following is correct about features of JavaScript?',
+        answers: [
+            {answerText: 'JavaScript is is complementary to and integrated with HTML.', isCorrect: false},
+            {answerText: 'JavaScript is open and cross-platform.', isCorrect: false},
+            {answerText: 'Both of the above.', isCorrect: true},
+            {answerText: 'All of the above.', isCorrect: false}
+        ]
+    },
+    {
+        questionText: 'Which of the following is correct about JavaScript?',
+        answers: [
+            {answerText: 'JavaScript is a lightweight, interpreted programming language.', isCorrect: false},
+            {answerText: 'JavaScript has object-oriented capabilities that allows you to build interactivity into otherwise static HTML pages.', isCorrect: false},
+            {answerText: 'The general-purpose core of the language has been embedded in Netscape, Internet Explorer, and other web browsers.', isCorrect: false},
+            {answerText: 'All of the above.', isCorrect: true}
+        ]
+    },
+    {
+        questionText: 'Which built-in method returns the characters in a string beginning at the specified location?',
+        answers: [
+            {answerText: 'substr()', isCorrect: true},
+            {answerText: 'getSubstring()', isCorrect: false},
+            {answerText: 'slice()', isCorrect: false},
+            {answerText: 'None of the above.', isCorrect: false}
+        ]
+    },
+    {
+        questionText: 'Which of the following function of Array object returns a string representing the array and its elements?',
+        answers: [
+            {answerText: 'toSource()', isCorrect: false},
+            {answerText: 'sort()', isCorrect: false},
+            {answerText: 'splice()', isCorrect: false},
+            {answerText: 'toString()', isCorrect: true}
+        ]
+    },
+    {
+        questionText: 'Which built-in method removes the last element from an array and returns that element?',
+        answers: [
+            {answerText: 'last()', isCorrect: false},
+            {answerText: 'get()', isCorrect: false},
+            {answerText: 'pop()', isCorrect: true},
+            {answerText: 'None of the above.', isCorrect: false}
+        ]
+    },
+    {
+        questionText: 'Which of the following is true about variable naming conventions in JavaScript?',
+        answers: [
+            {answerText: 'You should not use any of the JavaScript reserved keyword as variable name.', isCorrect: false},
+            {answerText: 'JavaScript variable names should not start with a numeral (0-9).', isCorrect: false},
+            {answerText: 'Both of the above.', isCorrect: true},
+            {answerText: 'None of the above.', isCorrect: false}
+        ]
+    },
+    {
+        questionText: 'Which built-in method calls a function for each element in the array?',
+        answers: [
+            {answerText: 'while()', isCorrect: false},
+            {answerText: 'loop()', isCorrect: false},
+            {answerText: 'forEach()', isCorrect: false},
+            {answerText: 'None of the above.', isCorrect: false}
+        ]
+    },
+    {
+        questionText: 'Which of the following function of Array object adds and/or removes elements from an array?',
+        answers: [
+            {answerText: 'toSource()', isCorrect: false},
+            {answerText: 'sort()', isCorrect: false},
+            {answerText: 'splice()', isCorrect: false},
+            {answerText: 'unshift()', isCorrect: true}
+        ]
+    },
+    {
+        questionText: 'Which of the following is the correct syntax to print a page using JavaScript?',
+        answers: [
+            {answerText: 'window.print();', isCorrect: true},
+            {answerText: 'browser.print();', isCorrect: false},
+            {answerText: 'navigator.print();', isCorrect: false},
+            {answerText: 'document.print();', isCorrect: false}
+        ]
+    },
+    {
+        questionText: 'Which of the following is an advantage of using JavaScript?',
+        answers: [
+            {answerText: 'Less server interaction', isCorrect: false},
+            {answerText: 'Immediate feedback to the visitors', isCorrect: false},
+            {answerText: 'Increased interactivity', isCorrect: false},
+            {answerText: 'All of the above.', isCorrect: true}
+        ]
+    },
+];
+
+const reactQuizQuestions = [
+    {
+        questionText: 'Which of the following are the advantages of React.js?',
+        answers: [
+            {answerText: 'React.js can increase the application\'s performance with Virtual DOM.', isCorrect: false},
+            {answerText: 'React.js is easy to integrate with other frameworks such as Angular, BackboneJS since it is only a view library.', isCorrect: false},
+            {answerText: 'React.js can render both on client and server side.', isCorrect: false},
+            {answerText: 'All of the above', isCorrect: true}
+        ]
+    },
+    {
+        questionText: 'Everything in react is a?',
+        answers: [
+            {answerText: 'Module', isCorrect: true},
+            {answerText: 'Package', isCorrect: false},
+            {answerText: 'Class', isCorrect: false},
+            {answerText: 'Component', isCorrect: true}
+        ]
+    },
+    {
+        questionText: 'Which operator can be used to conditionally render a React component?',
+        answers: [
+            {answerText: 'key', isCorrect: false},
+            {answerText: 'id', isCorrect: true},
+            {answerText: 'index', isCorrect: false},
+            {answerText: 'data', isCorrect: false}
+        ]
+    },
+    {
+        questionText: 'To develop and run React code, Node.js is required.',
+        answers: [
+            {answerText: 'true', isCorrect: true},
+            {answerText: 'false', isCorrect: false}
+        ]
+    },
+    {
+        questionText: 'What is the children prop?',
+        answers: [
+            {answerText: 'A property that lets you set an object as a property', isCorrect: false},
+            {answerText: 'A property that lets you nest components in other components', isCorrect: true},
+            {answerText: 'A property that lets you pass data to child components', isCorrect: false},
+            {answerText: 'A property that adds child values to state', isCorrect: true}
+        ]
+    },
+    {
+        questionText: 'What tool does React use to compile JSX?',
+        answers: [
+            {answerText: 'JSX Compiler', isCorrect: false},
+            {answerText: 'React Router', isCorrect: false},
+            {answerText: 'Babel', isCorrect: false},
+            {answerText: 'ReactDOM', isCorrect: true}
+        ]
+    },
+    {
+        questionText: 'What are the two ways data is processed in React?',
+        answers: [
+            {answerText: 'state & props', isCorrect: true},
+            {answerText: 'services & components', isCorrect: false},
+            {answerText: 'state & services', isCorrect: false},
+            {answerText: 'props & components', isCorrect: false}
+        ]
+    },
+    {
+        questionText: 'What is a common use case for ref?',
+        answers: [
+            {answerText: 'To directly access a DOM node', isCorrect: false},
+            {answerText: 'To refer to a function', isCorrect: false},
+            {answerText: 'To bind the function', isCorrect: false},
+            {answerText: 'To refer to another JavaScript file', isCorrect: true}
+        ]
+    },
+    {
+        questionText: 'React can only render elements in the root document element,',
+        answers: [
+            {answerText: 'False', isCorrect: true},
+            {answerText: 'True', isCorrect: false}
+        ]
+    },
+    {
+        questionText: 'Which of the following is NOT a rule for React Hooks?',
+        answers: [
+            {answerText: 'Hooks can be called in Class or Function components', isCorrect: true},
+            {answerText: 'Hooks cannot be conditional', isCorrect: false},
+            {answerText: 'Hooks can only be called inside React Function components', isCorrect: false},
+            {answerText: 'Hooks can only be called at the top level of a component', isCorrect: false}
+        ]
+    },
+]
 
 
-const htmlQuizSlice = createSlice({
-    name: 'html',
+
+
+const quiz = createSlice({
+    name: 'quiz',
     initialState: {
         quizName: 'HTML Quiz',
         questions: htmlQuizQuestions
@@ -123,10 +306,10 @@ const infoSlice = createSlice({
 
 
 const store = configureStore({
-    reducer: {html: htmlQuizSlice.reducer, info: infoSlice.reducer}
+    reducer: {html: quiz.reducer, info: infoSlice.reducer}
 });
 
-export const htmlQuizActions = htmlQuizSlice.actions;
+export const htmlQuizActions = quiz.actions;
 export const infoActions = infoSlice.actions;
 
 export default store;
