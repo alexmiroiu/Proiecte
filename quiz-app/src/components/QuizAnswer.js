@@ -8,7 +8,9 @@ const QuizAnswer = (props) => {
     const isValid = props.isCorrect;
     const chooseAnswerHandler = () => {
         props.changeQuestion();
-        dispatch(htmlQuizActions.increase())
+        if(isValid) {
+            dispatch(htmlQuizActions.increase())
+        }
     }
 
     return <div className={styles.quizAnswer} onClick={chooseAnswerHandler}>
