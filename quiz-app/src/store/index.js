@@ -95,14 +95,15 @@ const htmlQuizQuestions = [
 ]
 
 const htmlQuizSlice = createSlice({
-    name: 'quiz',
-    initialState: {questions: htmlQuizQuestions},
+    name: 'html',
+    initialState: {
+        quizName: 'HTML Quiz',
+        questions: htmlQuizQuestions,
+        score: 0
+    },
     reducers: {
-        startQuiz(state) {
-            state.quizStarted = true;
-        },
-        endQuiz(state) {
-            state.quizStarted = false;
+        increase(state) {
+            state.score = state.score + 100;
         }
     }
 });

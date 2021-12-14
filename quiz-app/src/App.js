@@ -5,6 +5,7 @@ import styles from './App.module.css';
 
 import { quizActions } from './store/index';
 import Welcome from './pages/Welcome';
+import Quiz from './pages/Quiz';
 
 function App() {
   // const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function App() {
 
   return <Routes>
     <Route path='/' element={<Welcome />} />
-    <Route path='html' element={<Quiz />} />
+    <Route path='/quiz' element={<Quiz />} />
   </Routes>
 }
 
