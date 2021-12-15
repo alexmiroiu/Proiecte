@@ -6,7 +6,7 @@ import QuizAnswer from "../components/QuizAnswer";
 
 
 const Quiz = () => {
-    const questionsList = useSelector((state) => state.html.questions);
+    const questionsList = useSelector((state) => state.quiz.activeQuiz);
     const currentScore = useSelector(state => state.info.score);
     const timerStarted = useSelector(state => state.info.timerStarted);
 

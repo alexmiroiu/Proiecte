@@ -282,11 +282,21 @@ const reactQuizQuestions = [
 const quiz = createSlice({
     name: 'quiz',
     initialState: {
+        quizOptions: [htmlQuizQuestions, javascriptQuizQuestions, reactQuizQuestions],
         quizName: 'HTML Quiz',
-        questions: htmlQuizQuestions
+        activeQuiz: null
     },
     reducers: {
-        
+        setHTML(state) {
+            state.activeQuiz = state.quizOptions[0];
+        },
+        setJS(state) {
+            state.activeQuiz = state.quizOptions[1];
+        },
+        setReact(state) {
+            state.activeQuiz = state.quizOptions[2];
+        },
+
     }
 });
 
@@ -306,10 +316,10 @@ const infoSlice = createSlice({
 
 
 const store = configureStore({
-    reducer: {html: quiz.reducer, info: infoSlice.reducer}
+    reducer: {quiz: quiz.reducer, info: infoSlice.reducer}
 });
 
-export const htmlQuizActions = quiz.actions;
+export const quizActions = quiz.actions;
 export const infoActions = infoSlice.actions;
 
 export default store;
