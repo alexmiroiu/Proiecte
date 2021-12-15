@@ -1,28 +1,33 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { Fragment } from "react";
 import styles from './Welcome.module.css';
 import { quizActions } from "../store";
+import { infoActions } from "../store";
 import { useNavigate } from "react-router-dom";
 
 
 const Welcome = () => {
     const dispatch = useDispatch();
+    const quizIsActive = useSelector(state => state.info.quizActive);
 
     let navigate = useNavigate();
 
     const setToHtmlHandler = () => {
         dispatch(quizActions.setHTML())
+        dispatch(infoActions.startQuiz())
         navigate('/quiz');
     }
 
     const setToJSHandler = () => {
         dispatch(quizActions.setJS());
+        dispatch(infoActions.startQuiz())
         navigate('/quiz');
     }
 
     const setToReactHandler = () => {
         dispatch(quizActions.setReact());
+        dispatch(infoActions.startQuiz());
         navigate('/quiz')
     }
 

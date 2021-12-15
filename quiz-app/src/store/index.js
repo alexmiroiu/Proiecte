@@ -304,13 +304,28 @@ const infoSlice = createSlice({
     name: 'info',
     initialState: {
         timerStarted: true,
+        quizActive: false,
+        currentQuestion: 0,
+        correctAnswers: 0,
         score: 0,
+        totalTimeElapsed: null
     },
     reducers: {
-        increase(state) {
-            state.score = state.score + 10;
+        updateScore(state) {
+            state.score = Math.floor((state.correctAnswers / state.currentQuestion) * 100);
         },
-
+        updateCorrectAnswers(state) {
+            state.correctAnswers++;
+        },
+        updateQuestionNumber(state) {
+            state.currentQuestion++;
+        },
+        startQuiz(state) {
+            state.quizActive = true;
+        },
+        stopQuiz(state) {
+            state.quizActive = false;
+        }
     }
 })
 
