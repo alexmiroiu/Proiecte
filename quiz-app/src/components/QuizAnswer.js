@@ -1,10 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styles from "./QuizAnswer.module.css";
 
 import { infoActions } from "../store";
 
 const QuizAnswer = (props) => {
-    const questionNumber = useSelector(state => state.info.currentQuestion)
     const dispatch = useDispatch();
     const isValid = props.isCorrect;
     const chooseAnswerHandler = () => {
@@ -12,8 +11,10 @@ const QuizAnswer = (props) => {
         if(isValid) {
             dispatch(infoActions.updateCorrectAnswers());
             dispatch(infoActions.updateScore());
+            dispatch(infoActions.updateQuestionsCompleted())
         } else {
             dispatch(infoActions.updateScore());
+            dispatch(infoActions.updateQuestionsCompleted())
         }
 
     }

@@ -12,25 +12,31 @@ function App() {
   const [elapsedTime, setElapsedTime] = useState(0);
   const timerStarted = useSelector(state => state.info.timerStarted);
 
-
   useEffect(() => {
     let interval = null;
 
     if(timerStarted) {
+      console.log(timerStarted)
         interval = setInterval(() => {
             setElapsedTime(elapsedTime => elapsedTime + 1);
           }, 1000);
-    }else {
+    }else if(!timerStarted){
         clearInterval(interval);
-
+        console.log('interval cleared')
     }
+
+    return () => clearInterval(interval);
     
-    }, [timerStarted])
+    }, [timerStarted]);
+
+    const resetElapsedTime = () => {
+      setElapsedTime(0);
+    }
 
 
   return <Routes>
     <Route path='/' element={<Welcome />} />
-    <Route path='/quiz' element={<Quiz elapsedTime={elapsedTime} />} />
+    <Route path='/quiz' element={<Quiz elapsedTime={elapsedTime} resetTimer={resetElapsedTime}/>} />
     <Route path='/results' element={<QuizAnswer />} />
   </Routes>
 }

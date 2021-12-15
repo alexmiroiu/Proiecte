@@ -207,10 +207,10 @@ const reactQuizQuestions = [
         ]
     },
     {
-        questionText: 'Which operator can be used to conditionally render a React component?',
+        questionText: 'When rendering a list using the JavaScript map() method, what is required for each element rendered?',
         answers: [
-            {answerText: 'key', isCorrect: false},
-            {answerText: 'id', isCorrect: true},
+            {answerText: 'key', isCorrect: true},
+            {answerText: 'id', isCorrect: false},
             {answerText: 'index', isCorrect: false},
             {answerText: 'data', isCorrect: false}
         ]
@@ -283,19 +283,26 @@ const quiz = createSlice({
     name: 'quiz',
     initialState: {
         quizOptions: [htmlQuizQuestions, javascriptQuizQuestions, reactQuizQuestions],
-        quizName: 'HTML Quiz',
+        quizName: '',
         activeQuiz: null
     },
     reducers: {
         setHTML(state) {
             state.activeQuiz = state.quizOptions[0];
+            state.quizName = 'HTML Quiz';
         },
         setJS(state) {
             state.activeQuiz = state.quizOptions[1];
+            state.quizName = 'JavaScript Quiz';
         },
         setReact(state) {
             state.activeQuiz = state.quizOptions[2];
+            state.quizName = 'React Quiz';
         },
+        reset(state) {
+            state.activeQuiz = null;
+            state.quizName = '';
+        }
 
     }
 });
@@ -303,9 +310,9 @@ const quiz = createSlice({
 const infoSlice = createSlice({
     name: 'info',
     initialState: {
-        timerStarted: true,
-        quizActive: false,
+        timerStarted: false,
         currentQuestion: 0,
+        questionsCompleted: 0,
         correctAnswers: 0,
         score: 0,
         totalTimeElapsed: null
@@ -320,12 +327,24 @@ const infoSlice = createSlice({
         updateQuestionNumber(state) {
             state.currentQuestion++;
         },
-        startQuiz(state) {
-            state.quizActive = true;
+        updateQuestionsCompleted(state) {
+            state.questionsCompleted++;
         },
-        stopQuiz(state) {
-            state.quizActive = false;
+        startTimer(state) {
+            state.timerStarted = true;
+        },
+        stopTimer(state) {
+            state.timerStarted = false;
+        },
+        reset(state) {
+            state.timerStarted = false;
+            state.currentQuestion = 0;
+            state.questionsCompleted = 0;
+            state.correctAnswers = 0;
+            state.score = 0;
+            state.totalTimeElapsed = null;
         }
+
     }
 })
 

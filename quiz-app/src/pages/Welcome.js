@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { Fragment } from "react";
 import styles from './Welcome.module.css';
@@ -9,31 +9,31 @@ import { useNavigate } from "react-router-dom";
 
 const Welcome = () => {
     const dispatch = useDispatch();
-    const quizIsActive = useSelector(state => state.info.quizActive);
 
     let navigate = useNavigate();
 
     const setToHtmlHandler = () => {
         dispatch(quizActions.setHTML())
-        dispatch(infoActions.startQuiz())
+        dispatch(infoActions.startTimer())
         navigate('/quiz');
     }
 
     const setToJSHandler = () => {
         dispatch(quizActions.setJS());
-        dispatch(infoActions.startQuiz())
+        dispatch(infoActions.startTimer())
         navigate('/quiz');
     }
 
     const setToReactHandler = () => {
         dispatch(quizActions.setReact());
-        dispatch(infoActions.startQuiz());
+        dispatch(infoActions.startTimer());
         navigate('/quiz')
     }
 
     return (
         <Fragment>
-            <h1>Choose the quiz you are interested in</h1>
+            <h1 className={styles.mainTitle}>The basic webdev quiz</h1>
+            <h2 className={styles.secondaryTitle}>Choose a quiz and test your knowledge!</h2>
             <div className={styles.buttonWrapper}>
                 <button onClick={ setToHtmlHandler }>HTML</button>
                 <button onClick={ setToJSHandler }>Javascript</button>
