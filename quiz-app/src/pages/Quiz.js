@@ -44,32 +44,36 @@ const Quiz = (props) => {
 
     
     return <Fragment>
-            {questionNumber < 10 && <div>
-                <h2>{quizName}</h2>
-                <div>
-                    <div className={styles.infoWrapper}>
-                        <div className={styles.questionNumber}>
-                            <h3>Question <span>{questionNumber +1}</span> of <span>{questionsList.length}</span></h3>
-                        </div>
-                        <div className={styles.score}>
-                            <h3>Score</h3>
-                            {questionNumber > 0 && <p>You are {currentScore}% correct so far</p>}
-                            {questionNumber === 0 && <p>0%</p>}
-                        </div>
-                        <div className={styles.elapsedTime}>
-                            <h3>Elapsed time</h3>
-                            <p>{elapsedMinutes} minutes {elapsedSeconds} seconds</p>
-                        </div>
+            {questionNumber < 10 && 
+        <div className={styles.quizWrapper}>
+            <h2>{quizName}</h2>
+            <div className={styles.mainQuiz}>
+                <div className={styles.infoWrapper}>
+                    <div className={`${styles.questionNumber} ${styles.infoSection}`}>
+                        <p>Question {questionNumber +1} of {questionsList.length}</p>
                     </div>
+                    <div className={`${styles.score} ${styles.infoSection}`}>
+                        <p>Score: </p>
+                            {questionNumber > 0 && <p>{currentScore}% correct</p>}
+                            {questionNumber === 0 && <p>0%</p>}
+                    </div>
+                    <div className={`${styles.elapsedTime} ${styles.infoSection}`}>
+                        <p>Elapsed time:</p>
+                        <p>{elapsedMinutes} m {elapsedSeconds} s</p>
+                    </div>
+                </div>
+                <div className={styles.questionWrapper}>
                     <h2>{currentQuestion.questionText}</h2>
                     {currentQuestion.answers.map(answer => <QuizAnswer text={answer.answerText} isCorrect={answer.isCorrect} changeQuestion={changeQuestionNumber} />)}
                 </div>
-            </div>}
-            {questionNumber > 9 && <div>
-                results here
-                <p>{currentScore}% right</p>
+            </div>
+        </div>}
+            {questionNumber > 9 && 
+            <div className={styles.resultsWrapper}>
+                <h1>Your results</h1>
+                <p>You were {currentScore}% correct.</p>
                 <p>You got {correctAnswers} answers right </p>
-                <p>{elapsedMinutes} minutes and {elapsedSeconds} seconds</p>
+                <p>You completed the test in {elapsedMinutes} minutes and {elapsedSeconds} seconds.</p>
             </div>}
             <Link to='/' onClick={() => {dispatch(infoActions.reset()); dispatch(quizActions.reset()); props.resetTimer()}}> HOME </Link>
 

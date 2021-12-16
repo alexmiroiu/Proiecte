@@ -31,7 +31,7 @@ const QuizAnswer = (props) => {
 
     }
 
-    return <div className={`${styles.quizAnswer} ${isValid ? styles.correctAnswer : styles.wrongAnswer}`} onClick={chooseAnswerHandler}>
+    return <div className={`${styles.quizAnswer} ${isValid && answered && styles.correctAnswer} ${!isValid && answered && styles.wrongAnswer}`} onClick={chooseAnswerHandler}>
         <p>{props.text}</p>
     </div>
 }
