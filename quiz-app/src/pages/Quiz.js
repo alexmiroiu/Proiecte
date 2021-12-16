@@ -32,6 +32,7 @@ const Quiz = (props) => {
 
     if(elapsedTime < 60) {
         elapsedSeconds = elapsedTime;
+        elapsedMinutes = 0;
     }
 
     

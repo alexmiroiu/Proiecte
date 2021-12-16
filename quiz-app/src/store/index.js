@@ -154,7 +154,7 @@ const javascriptQuizQuestions = [
         answers: [
             {answerText: 'while()', isCorrect: false},
             {answerText: 'loop()', isCorrect: false},
-            {answerText: 'forEach()', isCorrect: false},
+            {answerText: 'forEach()', isCorrect: true},
             {answerText: 'None of the above.', isCorrect: false}
         ]
     },
