@@ -50,7 +50,6 @@ const Welcome = () => {
                 <div className={styles.card}>
                     <img src={reactImage} alt="react logo" />
                     <button onClick={ setToReactHandler }>React</button>
-
                 </div>
             </div>
         </Fragment>
