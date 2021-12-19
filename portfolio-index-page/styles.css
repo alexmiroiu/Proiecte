@@ -38,16 +38,40 @@ main {
     height: 200vh;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+}
+
+header {
+    height: 5vh;
 }
 
 .intro {
-    height: 60vh;
+    position: relative;
+    display: flex;
+    height: 95vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#profilePhoto {
+    height: 10rem;
+    border-radius: 10%;
+}
+
+#webDevPhoto {
+    height: 30rem;
+}
+
+
+.proiecte {
+    position: relative;
+    display: grid;
+}
+
+.card {
+    width: 20rem;
 }
 
 .despre {
-
-}
-
-.proiecte {
     
 }
