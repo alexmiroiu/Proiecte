@@ -33,12 +33,24 @@
     overflow-wrap: break-word;
   }
 
+:root {
+    --background-color: #0A1931;
+    --color2: #185ADB;
+    --color3: #FFC947;
+    --color4: #FEDDBE;
+}
+
+body {
+    background-color: var(--background-color);
+    color: white;
+}
 
 main {
     height: 200vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
 }
 
 header {
@@ -66,10 +78,51 @@ header {
 .proiecte {
     position: relative;
     display: grid;
+    width: 90%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 5rem;
+    justify-items: center;
+    
+}
+
+@media (max-width: 850px) {
+    .proiecte {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 570px) {
+    .proiecte {
+        grid-template-columns: auto;
+    }
 }
 
 .card {
     width: 20rem;
+    height: 20rem;
+    overflow: hidden;
+    border-radius: 5px;
+box-shadow:
+  0px 8px 19px -3px rgba(0, 0, 0, 0.6)
+;
+
+  
+  
+
+}
+
+.image-holder {
+    overflow: hidden;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    width: 100%;
+    height: 35%;
+}
+
+.image-holder img {
+    object-fit: cover;
 }
 
 .despre {
