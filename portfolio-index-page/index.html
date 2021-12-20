@@ -4,12 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Alex's portfolio</title>
   </head>
@@ -21,7 +18,10 @@
       </header>
       <main>
         <section class="intro">
-          <img src="./assets/profile.jpg" alt="profile photo" id="profilePhoto">
+          <div class="imageWrapper">
+            <img src="./assets/profile.jpg" alt="profile photo" id="profilePhoto">
+
+          </div>
           <article>          
             <p>Salut, numele meu este</p>
             <h1>Alexandru Miroiu</h1>
@@ -33,9 +33,11 @@
             <div class="image-holder">
               <img src="./assets/weatherApp.jpg" alt="weather app project" class="weatherApp">
             </div>
-            <h3>Titlu aici</h3>
-            <p>scurta descriere</p>
-            <p>tehnologii</p>
+            <div class="card-info">
+              <h3>Weather app</h3>
+              <p>scurta descriere</p>
+              <p>tehnologii</p>
+            </div>
 
           </article>
           <article class="card">
