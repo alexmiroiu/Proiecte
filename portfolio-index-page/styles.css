@@ -62,8 +62,16 @@ header {
     position: relative;
     display: flex;
     height: 95vh;
+    width: 100vw;
     justify-content: center;
     align-items: center;
+    gap: 12%;
+}
+
+.intro_image-container {
+    width: 40%;
+    display: flex;
+    justify-content: center;
 }
 
 .imageWrapper {
@@ -72,11 +80,36 @@ header {
     width: 25rem;
     border-radius: 50%;
 }
-
 #profilePhoto {
     height: 35rem;
     object-fit: cover;
 }
+
+.intro_info {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    height: 100%;
+    width: 40%;
+}
+
+.intro_name  {
+    font-size: 2.5rem;
+}
+
+.intro_info_title {
+    font-weight: bold;
+    font-size: 4.5rem;
+}
+
+.intro_desc {
+
+}
+
+
+
 
 #webDevPhoto {
     height: 30rem;
