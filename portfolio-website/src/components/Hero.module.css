@@ -1,0 +1,49 @@
+.hero {
+    position: relative;
+    display: flex;
+    height: 95vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    gap: 12%;
+    overflow: hidden;
+}
+
+.profilePicContainer {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.imageWrapper {
+    overflow: hidden;
+    height: 25rem;
+    width: 25rem;
+    border-radius: 50%;
+}
+
+.profilePic {
+    height: 35rem;
+    object-fit: cover;
+}
+
+.heroInfo {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    height: 100%;
+    width: 40%;
+}
+
+.heroName {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.heroTitle {
+    font-weight: 900;
+    font-size: 4.5rem;
+}
+

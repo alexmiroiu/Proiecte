@@ -4,6 +4,7 @@
     --color3: #FFC947;
     --color4: #FEDDBE;
     --main-font: 'Sora', sans-serif;
+    --dark-text-color: #020122;
 }
 
 *, *::before, *::after {
@@ -21,6 +22,7 @@
   
   body{
     font-family: var(--main-font);
+    color: var(--dark-text-color);
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
