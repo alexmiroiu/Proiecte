@@ -5,26 +5,26 @@
     width: 100vw;
     justify-content: center;
     align-items: center;
-    gap: 12%;
     overflow: hidden;
 }
 
+
 .profilePicContainer {
-    width: 40%;
-    display: flex;
-    justify-content: center;
+width: 40%;
+display: flex;
+justify-content: center;
 }
 
 .imageWrapper {
-    overflow: hidden;
-    height: 25rem;
-    width: 25rem;
-    border-radius: 50%;
+overflow: hidden;
+height: 25rem;
+width: 25rem;
+border-radius: 50%;
 }
 
 .profilePic {
-    height: 35rem;
-    object-fit: cover;
+height: 35rem;
+object-fit: cover;
 }
 
 .heroInfo {
@@ -35,6 +35,7 @@
     gap: 2rem;
     height: 100%;
     width: 40%;
+    margin-left: 15vw;
 }
 
 .heroName {
