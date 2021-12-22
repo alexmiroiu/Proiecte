@@ -1,7 +1,7 @@
 import classes from './About.module.css';
 
 const About = () => {
-    return <section className={}>
+    return <section className={classes.about}>
         
     </section>
 }

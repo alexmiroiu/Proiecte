@@ -2,11 +2,11 @@
 
 :root {
   --background-color: #0A1931;
-  --color2: #185ADB;
+  --color2: rgb(24, 90, 219);
   --color3: #FFC947;
   --color4: #FEDDBE;
   --main-font: 'Sora', sans-serif;
-  --dark-text-color: #020122;
+  --dark-text-color: #110B11;
 }
 
 *, *::before, *::after {

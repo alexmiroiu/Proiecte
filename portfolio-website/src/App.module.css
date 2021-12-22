@@ -1,5 +1,8 @@
 .main {
-    display: flex;
-    flex-direction: column;
     height: 300vh;
+}
+
+.outerWrapper {
+    width: 100vw;
+    padding: 0 5rem 0 5rem;
 }

@@ -2,10 +2,11 @@
     position: relative;
     display: flex;
     height: 95vh;
-    width: 100vw;
+    width: 100%;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    gap: 3rem;
 }
 
 
@@ -35,7 +36,6 @@ object-fit: cover;
     gap: 2rem;
     height: 100%;
     width: 40%;
-    margin-left: 15vw;
 }
 
 .heroName {
@@ -46,5 +46,20 @@ object-fit: cover;
 .heroTitle {
     font-weight: 900;
     font-size: 4.5rem;
+    color: var(--color2);
 }
 
+.scroll {
+    width: 4rem;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+
+
+}
+
+.scroll img {
+    margin-bottom: 3rem;
+
+}

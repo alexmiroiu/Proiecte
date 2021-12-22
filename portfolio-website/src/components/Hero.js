@@ -1,5 +1,6 @@
 import classes from './Hero.module.css';
 import profilePic from '../assets/profile.jpg';
+import scrollIcon from '../assets/icons/scrollBlue.png';
 
 const Hero = () => {
     return <section className={classes.hero}>
@@ -7,6 +8,10 @@ const Hero = () => {
             <div className={classes.imageWrapper}>
                 <img src={profilePic} alt="profile" />
             </div>
+        </div>
+
+        <div className={classes.scroll}>
+            <img src={scrollIcon} alt='scroll' />
         </div>
 
         <article className={classes.heroInfo}>
