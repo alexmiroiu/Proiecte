@@ -1,7 +1,44 @@
 .about {
     position: relative;
     display: flex;
+    flex-direction: column;
     height: 100vh;
-    background-color: red;
+    background-color: lightblue;
     width: 100%;
+}
+
+.info {
+    position: relative;
+    height: 50%;
+    width: 100%;
+    background-color: lightgreen;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3% 0 3% 3%;
+
+}
+
+.info h2 {
+    position: relative;
+
+    font-size: 2.5rem;
+}
+
+.details {
+    position: relative;
+    width: 57%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+.skills {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+
 }
