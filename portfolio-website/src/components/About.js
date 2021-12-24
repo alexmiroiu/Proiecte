@@ -1,4 +1,13 @@
 import classes from './About.module.css';
+import html from '../assets/icons/html5.svg';
+import css from '../assets/icons/css.svg';
+import firebase from '../assets/icons/firebase.svg';
+import git from '../assets/icons/git.svg';
+import javascript from '../assets/icons/javascript.svg';
+import react from '../assets/icons/react.svg';
+import redux from '../assets/icons/redux.svg';
+import rest from '../assets/icons/rest-api.svg';
+import sass from '../assets/icons/sass.svg';
 
 const About = () => {
     return <section className={classes.about}>
@@ -14,11 +23,42 @@ const About = () => {
         <div className={classes.skills}>
             <h2>Skills</h2>
             <div className={classes.skillBox}>
-                <div>item1</div>
-                <div>item2</div>
-                <div>item3</div>
-                <div>item4</div>
-                <div>item5</div>
+                <div className={classes.logoWrapper}>
+                    <p className={classes.skillTitle}>HTML</p>
+                    <img src={html} alt="html" />
+                </div>
+                <div className={classes.logoWrapper}>
+                    <p className={classes.skillTitle}>CSS</p>
+                    <img src={css} alt="css" />
+                </div>
+                <div className={classes.logoWrapper}>
+                    <p className={classes.skillTitle}>SASS</p>
+                    <img src={sass} alt="sass" />
+                </div>
+                <div className={classes.logoWrapper}>
+                    <p className={classes.skillTitle}>JAVASCRIPT ES6</p>
+                    <img src={javascript} alt="javascript" />
+                </div>
+                <div className={classes.logoWrapper}>
+                    <p className={classes.skillTitle}>REACT</p>
+                    <img src={react} alt="react" />
+                </div>
+                <div className={classes.logoWrapper}>
+                    <p className={classes.skillTitle}>REDUX</p>
+                    <img src={redux} alt="redux" />
+                </div>
+                <div className={classes.logoWrapper}>
+                    <p className={classes.skillTitle}>FIREBASE</p>
+                    <img src={firebase} alt="firebase" />
+                </div>
+                <div className={classes.logoWrapper}>
+                    <p className={classes.skillTitle}>GIT</p>
+                    <img src={git} alt="git" />
+                </div>
+                <div className={classes.logoWrapper}>
+                    <p className={classes.skillTitle}>REST APIS</p>
+                    <img src={rest} alt="rest" />
+                </div>
             </div>
         </div>
     </section>

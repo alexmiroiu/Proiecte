@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: lightblue;
+    background-color: paleturquoise;
     width: 100%;
 }
 
@@ -11,7 +11,7 @@
     position: relative;
     height: 50%;
     width: 100%;
-    background-color: lightgreen;
+    background-color: peachpuff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -21,7 +21,6 @@
 
 .info h2 {
     position: relative;
-
     font-size: 2.5rem;
 }
 
@@ -37,8 +36,44 @@
 .skills {
     position: relative;
     display: flex;
+    width: 100%;
+    height: 50%;
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
+    padding: 3% 3% 3% 0;
 
+}
+
+.skills h2 {
+    position: relative;
+    font-size: 2.5rem;
+}
+
+.skillBox {
+    position: relative;
+    display: grid;
+    height: 85%;
+    width: 57%;
+    justify-content: space-around;
+    align-content: center;
+    grid-template-columns: repeat(auto-fill, 8rem);
+    grid-template-rows: repeat(auto-fill, 8rem);
+    gap: 1rem;
+}
+
+.logoWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills img {
+    width: 60%;
+}
+
+.skillTitle {
+    font-size: .8rem;
 }

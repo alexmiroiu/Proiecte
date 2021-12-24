@@ -2,6 +2,7 @@ import classes from './App.module.css';
 import About from './components/About';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Projects from './components/Projects';
 
 function App() {
   return <main className={classes.main}>
@@ -9,6 +10,7 @@ function App() {
     <div className={classes.outerWrapper}>
     <Hero />
     <About />
+    <Projects />
 
     </div>
   </main>

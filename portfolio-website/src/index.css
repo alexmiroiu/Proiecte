@@ -24,6 +24,7 @@ html, body {
 
 body{
   font-family: var(--main-font);
+  font-size: 15px;
   color: var(--dark-text-color);
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
