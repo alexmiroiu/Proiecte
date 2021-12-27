@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 
 :root {
   --background-color: #0A1931;
   --color2: rgb(24, 90, 219);
   --color3: #FFC947;
   --color4: #FEDDBE;
-  --main-font: 'Sora', sans-serif;
+  --main-font: 'Lato', sans-serif;
+  --mono-font: 'Inconsolata', monospace;
   --dark-text-color: #110B11;
 }
 
@@ -19,12 +22,12 @@
 
 html, body {
   height: 100%;
-  font-size: 16px;
+  font-size: 10px;
 }
 
 body{
   font-family: var(--main-font);
-  font-size: 15px;
+  font-size: 1.5rem;
   color: var(--dark-text-color);
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;

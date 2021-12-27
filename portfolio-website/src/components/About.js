@@ -24,39 +24,39 @@ const About = () => {
             <h2>Skills</h2>
             <div className={classes.skillBox}>
                 <div className={classes.logoWrapper}>
-                    <p className={classes.skillTitle}>HTML</p>
+                    <p className={classes.skillTitle}>Html</p>
                     <img src={html} alt="html" />
                 </div>
                 <div className={classes.logoWrapper}>
-                    <p className={classes.skillTitle}>CSS</p>
+                    <p className={classes.skillTitle}>Css</p>
                     <img src={css} alt="css" />
                 </div>
                 <div className={classes.logoWrapper}>
-                    <p className={classes.skillTitle}>SASS</p>
+                    <p className={classes.skillTitle}>Sass</p>
                     <img src={sass} alt="sass" />
                 </div>
                 <div className={classes.logoWrapper}>
-                    <p className={classes.skillTitle}>JAVASCRIPT ES6</p>
+                    <p className={classes.skillTitle}>Javascript ES6</p>
                     <img src={javascript} alt="javascript" />
                 </div>
                 <div className={classes.logoWrapper}>
-                    <p className={classes.skillTitle}>REACT</p>
+                    <p className={classes.skillTitle}>React</p>
                     <img src={react} alt="react" />
                 </div>
                 <div className={classes.logoWrapper}>
-                    <p className={classes.skillTitle}>REDUX</p>
+                    <p className={classes.skillTitle}>Redux</p>
                     <img src={redux} alt="redux" />
                 </div>
                 <div className={classes.logoWrapper}>
-                    <p className={classes.skillTitle}>FIREBASE</p>
+                    <p className={classes.skillTitle}>Firebase</p>
                     <img src={firebase} alt="firebase" />
                 </div>
                 <div className={classes.logoWrapper}>
-                    <p className={classes.skillTitle}>GIT</p>
+                    <p className={classes.skillTitle}>Git</p>
                     <img src={git} alt="git" />
                 </div>
                 <div className={classes.logoWrapper}>
-                    <p className={classes.skillTitle}>REST APIS</p>
+                    <p className={classes.skillTitle}>Rest API</p>
                     <img src={rest} alt="rest" />
                 </div>
             </div>

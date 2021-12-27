@@ -1,8 +1,10 @@
+
 .hero {
     position: relative;
     display: flex;
     height: 95vh;
     width: 100%;
+    max-width: 100rem;
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
@@ -11,21 +13,48 @@
 
 
 .profilePicContainer {
-width: 40%;
-display: flex;
-justify-content: center;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    min-width: 40rem;
 }
 
 .imageWrapper {
-overflow: hidden;
-height: 25rem;
-width: 25rem;
-border-radius: 50%;
+    position: relative;
+    height: 40rem;
+    width: 40rem;
 }
 
-.profilePic {
-height: 35rem;
-object-fit: cover;
+.imageWrapper img {
+    position: relative;
+    height: 40rem;
+    width: 40rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.imageWrapper::after {
+    content: '';
+    position: absolute;
+    background: rgb(0, 204, 255);
+    height: 40rem;
+    width: 40rem;
+    top: 0;
+    left: 1.5rem;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.imageWrapper::before {
+    content: '';
+    position: absolute;
+    background: rgb(0, 247, 255);
+    height: 40rem;
+    width: 40rem;
+    top: 0;
+    left: 3rem;
+    border-radius: 50%;
+    z-index: -1;
 }
 
 .heroInfo {
@@ -39,14 +68,18 @@ object-fit: cover;
 }
 
 .heroName {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 4rem;
+    font-weight: 900;
 }
 
 .heroTitle {
     font-weight: 900;
-    font-size: 4.5rem;
+    font-size: 7rem;
     color: var(--color2);
+}
+
+.heroDescription {
+    font-weight: 500;
 }
 
 .scroll {
@@ -56,13 +89,14 @@ object-fit: cover;
     align-items: flex-end;
     height: 100%;
     width: 5%;
+    margin-bottom: 5rem;
 
 
 }
 
 .scroll img {
     margin-bottom: 3rem;
-    width: 3rem;
+    width: 4rem;
 
 
 }
