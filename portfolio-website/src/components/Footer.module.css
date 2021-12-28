@@ -1,0 +1,17 @@
+.footer {
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer img {
+    width: 1.5rem;
+    margin-right: 1rem;
+}
+
+.footer p {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
