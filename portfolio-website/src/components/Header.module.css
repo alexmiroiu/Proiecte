@@ -11,10 +11,9 @@
 
 }
 
-.logoHolder {
-    display: flex;
-    height: 80%;
-    
+.logo {
+    width: 5rem;
+    height: 5rem;
 }
 
 .mainNav {

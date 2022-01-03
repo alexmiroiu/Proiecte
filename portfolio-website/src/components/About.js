@@ -1,13 +1,13 @@
 import classes from './About.module.css';
-import html from '../assets/icons/html5.svg';
-import css from '../assets/icons/css.svg';
-import firebase from '../assets/icons/firebase.svg';
-import git from '../assets/icons/git.svg';
-import javascript from '../assets/icons/javascript.svg';
-import react from '../assets/icons/react.svg';
-import redux from '../assets/icons/redux.svg';
-import rest from '../assets/icons/rest-api.svg';
-import sass from '../assets/icons/sass.svg';
+import SvgCss from './iconComponents/Css';
+import SvgFirebase from './iconComponents/Firebase';
+import SvgGit from './iconComponents/Git';
+import SvgJavascript from './iconComponents/Javascript';
+import SvgReact from './iconComponents/ReactLogo';
+import SvgRedux from './iconComponents/Redux';
+import SvgRestApi from './iconComponents/RestApi';
+import SvgSass from './iconComponents/Sass';
+import SvgHtml5 from './iconComponents/Html5';
 
 const About = () => {
     return <section className={classes.about}>
@@ -25,39 +25,39 @@ const About = () => {
             <div className={classes.skillBox}>
                 <div className={classes.logoWrapper}>
                     <p className={classes.skillTitle}>Html</p>
-                    <img src={html} alt="html" />
+                    <SvgHtml5 size='7.2rem'/>
                 </div>
                 <div className={classes.logoWrapper}>
                     <p className={classes.skillTitle}>Css</p>
-                    <img src={css} alt="css" />
+                    <SvgCss size='7.2rem'/>
                 </div>
                 <div className={classes.logoWrapper}>
                     <p className={classes.skillTitle}>Sass</p>
-                    <img src={sass} alt="sass" />
+                    <SvgSass />
                 </div>
                 <div className={classes.logoWrapper}>
                     <p className={classes.skillTitle}>Javascript ES6</p>
-                    <img src={javascript} alt="javascript" />
+                    <SvgJavascript />
                 </div>
                 <div className={classes.logoWrapper}>
                     <p className={classes.skillTitle}>React</p>
-                    <img src={react} alt="react" />
+                    <SvgReact />
                 </div>
                 <div className={classes.logoWrapper}>
                     <p className={classes.skillTitle}>Redux</p>
-                    <img src={redux} alt="redux" />
+                    <SvgRedux />
                 </div>
                 <div className={classes.logoWrapper}>
                     <p className={classes.skillTitle}>Firebase</p>
-                    <img src={firebase} alt="firebase" />
+                    <SvgFirebase />
                 </div>
                 <div className={classes.logoWrapper}>
                     <p className={classes.skillTitle}>Git</p>
-                    <img src={git} alt="git" />
+                    <SvgGit />
                 </div>
                 <div className={classes.logoWrapper}>
                     <p className={classes.skillTitle}>Rest API</p>
-                    <img src={rest} alt="rest" />
+                    <SvgRestApi />
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import classes from './Hero.module.css';
 import profilePic from '../assets/profile.jpg';
-import scrollIcon from '../assets/icons/scrollBlue.png';
+import scrollIcon from '../assets/scrollBlue.png';
 
 const Hero = () => {
     return <section className={classes.hero}>

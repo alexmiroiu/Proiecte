@@ -1,16 +1,22 @@
+import { useContext } from 'react';
+
 import classes from './ProjectItem.module.css';
-import folderIcon from '../assets/icons/folder.svg';
-import githubIcon from '../assets/icons/githubLogo.svg';
-import linkIcon from '../assets/icons/link.svg';
+import SvgFolder from './iconComponents/Folder';
+import SvgGithubLogo from './iconComponents/GithubLogo';
+import SvgLink from './iconComponents/Link';
+
+import Theme from '../store/theme';
 
 const ProjectItem = (props) => {
+const ctx = useContext(Theme);
+
  return <div className={classes.project}>
      <div className={classes.upperWrapper}>
         <div className={classes.header}>
-            <img src={folderIcon} alt="folder" />
+            <SvgFolder />
             <div className={classes.iconSet}>
-                <img src={githubIcon} alt='github' />
-                <img src={linkIcon} alt='external link' />
+                <SvgGithubLogo className={classes.github}/>
+                {ctx.darkMode && <SvgLink />}
             </div>
         </div>
         <div className={classes.body}>
