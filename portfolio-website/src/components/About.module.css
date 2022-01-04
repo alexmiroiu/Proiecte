@@ -28,7 +28,7 @@
 .info h2::after {
     content: '';
     position: absolute;
-    background: var(--color2);
+    background: linear-gradient(to right, var(--color2) 0%, transparent) ;
     top: 50%;
     right: -25rem;
     height: .1rem;
@@ -67,7 +67,7 @@
 .skills h2::after {
     content: '';
     position: absolute;
-    background: var(--color2);
+    background: linear-gradient(to left, var(--color2) 0%, transparent) ;
     top: 50%;
     left: -25rem;
     height: .1rem;

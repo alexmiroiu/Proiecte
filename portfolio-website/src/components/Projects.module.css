@@ -10,6 +10,37 @@
 
 }
 
+
+
+.projectsContainer h2 {
+    position: relative;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    width: fit-content;
+}
+
+.projectsContainer h2::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to right, var(--color2) 0%, transparent);
+    top: 50%;
+    right: -25rem;
+    height: .1rem;
+    width: 20rem;
+    border-radius: 10px;
+}
+.projectsContainer h2::before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to left, var(--color2) 0%, transparent);
+    top: 50%;
+    left: -25rem;
+    height: .1rem;
+    width: 20rem;
+    border-radius: 10px;
+}
+
 .easy {
     position: relative;
     display: flex;
@@ -21,33 +52,12 @@
     margin-bottom: 4rem;
 }
 
-.easy h2 {
+.easy > h3 {
     position: relative;
-    font-size: 4rem;
-    text-align: center;
-    margin-bottom: 4rem;
-    width: fit-content;
-}
-
-.easy h2::after {
-    content: '';
-    position: absolute;
-    background: var(--color2);
-    top: 50%;
-    right: -25rem;
-    height: .1rem;
-    width: 20rem;
-    border-radius: 10px;
-}
-.easy h2::before {
-    content: '';
-    position: absolute;
-    background: var(--color2);
-    top: 50%;
-    left: -25rem;
-    height: .1rem;
-    width: 20rem;
-    border-radius: 10px;
+    font-family: var(--mono-font);
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
 }
 
 .projectsBox {
@@ -70,31 +80,11 @@
     margin-bottom: 4rem;
 }
 
-.intermediate h2 {
+.intermediate > h3 {
     position: relative;
-    font-size: 4rem;
-    text-align: center;
-    margin-bottom: 4rem;
-    width: fit-content;
+    font-family: var(--mono-font);
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
 }
 
-.intermediate h2::after {
-    content: '';
-    position: absolute;
-    background: var(--color2);
-    top: 50%;
-    right: -20rem;
-    height: .1rem;
-    width: 15rem;
-    border-radius: 10px;
-}
-.intermediate h2::before {
-    content: '';
-    position: absolute;
-    background: var(--color2);
-    top: 50%;
-    left: -20rem;
-    height: .1rem;
-    width: 15rem;
-    border-radius: 10px;
-}

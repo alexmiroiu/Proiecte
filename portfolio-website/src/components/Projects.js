@@ -67,18 +67,18 @@ const Projects = () => {
     
 
     return <div className={classes.projectsContainer}>
+        <h2>Proiecte</h2>
         <div className={classes.easy}>
-            <h2>Primele proiecte</h2>
+            <h3>am inceput cu lucruri simple...</h3>
             <div className={classes.projectsBox}>
                 {easyProjectsList.map(project => <ProjectItem title={project.title} description={project.description} technologies={project.technologies} />)}
-
             </div>
         </div>
         <div className={classes.intermediate}>
-            <h2>Proiecte de dificultate medie</h2>
+            <h3>si am crescut dificultatea pe parcurs...</h3>
             <div className={classes.projectsBox}>
                 {intermediateProjects.map(project => <ProjectItem title={project.title} description={project.description} technologies={project.technologies} />)}
-                </div>
+            </div>
         </div>
     </div>
 }

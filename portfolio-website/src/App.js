@@ -24,7 +24,7 @@ function App() {
   }}>
     <main className={classes.main}>
       <Header />
-      <div className={classes.outerWrapper}>
+      <div className={`${classes.outerWrapper} ${darkMode ? classes.dark : ''}`}>
       <Hero />
       <About />
       <Projects />

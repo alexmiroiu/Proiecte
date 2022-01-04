@@ -3,6 +3,8 @@ import Theme from '../store/theme';
 
 import classes from './Header.module.css';
 import SvgLogo from './iconComponents/Logo';
+import SvgSun from './iconComponents/Sun';
+import SvgMoon from './iconComponents/Moon';
 
 const Header = () => {
     const ctx = useContext(Theme);
@@ -16,7 +18,14 @@ const Header = () => {
                 <li className={classes.navItem}>Proiecte</li>
                 <li className={classes.navItem}>contact</li>
                 <li className={classes.navItem}>CV</li>
-                <button onClick={ctx.changeTheme}>Press me</button>
+                <li>
+                    <input type="checkbox" className={classes.checkbox} id='checkbox' onChange={ctx.changeTheme}/>
+                    <label htmlFor='checkbox' className={classes.label}>
+                        <SvgMoon />
+                        <SvgSun />
+                        <div className={classes.ball}></div>
+                    </label>
+                </li>
             </ul>
         </nav>
     </div>
