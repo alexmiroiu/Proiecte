@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRef } from 'react';
 
 import classes from './App.module.css';
 import About from './components/About';
@@ -18,16 +19,30 @@ function App() {
     
   }
 
+  const heroComponentRef = useRef();
+  const aboutComponentRef = useRef();
+  const projectsComponentRef = useRef();
+
+  const navigateToHero = () => {
+    heroComponentRef.current.goToHero();
+  }
+  const navigateToAbout = () => {
+    aboutComponentRef.current.goToAbout();
+  }
+  const navigateToProjects = () => {
+    projectsComponentRef.current.goToProjects();
+  }
+
   return(<Theme.Provider value={{
     darkMode: darkMode,
     changeTheme: toggleTheme
   }}>
     <main className={classes.main}>
-      <Header />
+      <Header logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects}/>
       <div className={`${classes.outerWrapper} ${darkMode ? classes.dark : ''}`}>
-      <Hero />
-      <About />
-      <Projects />
+      <Hero ref={heroComponentRef}/>
+      <About ref={aboutComponentRef}/>
+      <Projects ref={projectsComponentRef}/>
       <Contact />
       <Footer />
 

@@ -1,3 +1,6 @@
+import React from 'react';
+import { useRef, useImperativeHandle } from 'react';
+
 import classes from './Projects.module.css';
 import ProjectItem from './ProjectItem';
 
@@ -63,10 +66,20 @@ const intermediateProjects = [
     
 ]
 
-const Projects = () => {
-    
+const Projects = React.forwardRef((props, ref) => {
+    const projectsRef = useRef();
 
-    return <div className={classes.projectsContainer}>
+    const navigate = () => {
+        projectsRef.current.scrollIntoView({behavior: 'smooth'});
+    };
+
+    useImperativeHandle(ref, () => {
+        return {
+            goToProjects: navigate
+        };
+    });
+    
+    return <div className={classes.projectsContainer} ref={projectsRef}>
         <h2>Proiecte</h2>
         <div className={classes.easy}>
             <h3>am inceput cu lucruri simple...</h3>
@@ -81,6 +94,6 @@ const Projects = () => {
             </div>
         </div>
     </div>
-}
+});
 
 export default Projects;

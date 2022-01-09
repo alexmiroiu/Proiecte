@@ -1,12 +1,27 @@
+import React from 'react';
+import { useRef, useImperativeHandle } from 'react';
+
 import classes from './Hero.module.css';
 import profilePic from '../assets/profile.jpg';
 import scrollIcon from '../assets/scrollBlue.png';
 
-const Hero = () => {
-    return <section className={classes.hero}>
+const Hero = React.forwardRef((props, ref) => {
+    const heroRef = useRef();
+
+    const navigate = () => {
+        heroRef.current.scrollIntoView({behavior: 'smooth'});
+    };
+
+    useImperativeHandle(ref, () => {
+        return {
+            goToHero: navigate
+        };
+    });
+
+    return <section className={classes.hero} ref={heroRef}>
         <div className={classes.profilePicContainer}>
             <div className={classes.imageWrapper}>
-                <img src={profilePic} alt="profile" />
+                <img src={profilePic} alt="profile" className={classes.profileImg}/>
             </div>
         </div>
 
@@ -25,6 +40,6 @@ const Hero = () => {
         </article>
 
     </section>
-}
+})
 
 export default Hero;

@@ -1,3 +1,6 @@
+import React from 'react';
+import { useRef, useImperativeHandle } from 'react';
+
 import classes from './About.module.css';
 import SvgCss from './iconComponents/Css';
 import SvgFirebase from './iconComponents/Firebase';
@@ -9,8 +12,21 @@ import SvgRestApi from './iconComponents/RestApi';
 import SvgSass from './iconComponents/Sass';
 import SvgHtml5 from './iconComponents/Html5';
 
-const About = () => {
-    return <section className={classes.about}>
+const About = React.forwardRef((props, ref) => {
+    const aboutRef = useRef();
+
+    const navigate = () => {
+        aboutRef.current.scrollIntoView({behavior: 'smooth'});
+    };
+
+    useImperativeHandle(ref, () => {
+        return {
+            goToAbout: navigate
+        };
+    });
+
+
+    return <section className={classes.about} ref={aboutRef}>
         <div className={classes.info}>
             <h2>Despre mine</h2>
             <div className={classes.details}>
@@ -62,6 +78,6 @@ const About = () => {
             </div>
         </div>
     </section>
-}
+});
 
 export default About;

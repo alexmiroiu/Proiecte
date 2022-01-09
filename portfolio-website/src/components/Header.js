@@ -6,16 +6,16 @@ import SvgLogo from './iconComponents/Logo';
 import SvgSun from './iconComponents/Sun';
 import SvgMoon from './iconComponents/Moon';
 
-const Header = () => {
+const Header = (props) => {
     const ctx = useContext(Theme);
-
+    
 
     return <div className={classes.header}>
-            <SvgLogo className={classes.logo}/>
+                <SvgLogo className={classes.logo} onClick={props.logoClick}/>
         <nav className={classes.mainNav}>
             <ul className={classes.menuItems}>
-                <li className={classes.navItem}>Despre mine</li>
-                <li className={classes.navItem}>Proiecte</li>
+                <li onClick={props.aboutClick} className={classes.navItem}>Despre mine</li>
+                <li onClick={props.projectsClick} className={classes.navItem}>Proiecte</li>
                 <li className={classes.navItem}>contact</li>
                 <li className={classes.navItem}>CV</li>
                 <li>

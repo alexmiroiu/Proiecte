@@ -7,7 +7,6 @@
     max-width: 100rem;
     justify-content: space-between;
     align-items: center;
-    overflow: hidden;
     gap: 3rem;
 }
 
@@ -56,6 +55,7 @@
     border-radius: 50%;
     z-index: -1;
 }
+
 
 .heroInfo {
     display: flex;
