@@ -16,12 +16,12 @@ function App() {
 
   const toggleTheme = () => {
     setDarkMode(previousState => !previousState);
-    
   }
 
   const heroComponentRef = useRef();
   const aboutComponentRef = useRef();
   const projectsComponentRef = useRef();
+  const contactComponentRef = useRef();
 
   const navigateToHero = () => {
     heroComponentRef.current.goToHero();
@@ -32,18 +32,21 @@ function App() {
   const navigateToProjects = () => {
     projectsComponentRef.current.goToProjects();
   }
+  const navigateToContact = () => {
+    contactComponentRef.current.goToContact();
+  }
 
   return(<Theme.Provider value={{
     darkMode: darkMode,
     changeTheme: toggleTheme
   }}>
     <main className={classes.main}>
-      <Header logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects}/>
+      <Header logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects} contactClick={navigateToContact}/>
       <div className={`${classes.outerWrapper} ${darkMode ? classes.dark : ''}`}>
       <Hero ref={heroComponentRef}/>
       <About ref={aboutComponentRef}/>
       <Projects ref={projectsComponentRef}/>
-      <Contact />
+      <Contact ref={contactComponentRef}/>
       <Footer />
 
       </div>

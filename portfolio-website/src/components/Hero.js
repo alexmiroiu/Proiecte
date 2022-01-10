@@ -3,6 +3,7 @@ import { useRef, useImperativeHandle } from 'react';
 
 import classes from './Hero.module.css';
 import profilePic from '../assets/profile.jpg';
+import SvgDownIcon from './iconComponents/DownIcon';
 import scrollIcon from '../assets/scrollBlue.png';
 
 const Hero = React.forwardRef((props, ref) => {
@@ -26,7 +27,7 @@ const Hero = React.forwardRef((props, ref) => {
         </div>
 
         <div className={classes.scroll}>
-            <img src={scrollIcon} alt='scroll' />
+            <SvgDownIcon className={classes.scrollIcon}/>
         </div>
 
         <article className={classes.heroInfo}>

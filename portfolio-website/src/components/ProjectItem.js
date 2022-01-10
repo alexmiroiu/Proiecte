@@ -16,7 +16,7 @@ const ctx = useContext(Theme);
             <SvgFolder />
             <div className={classes.iconSet}>
                 <SvgGithubLogo className={classes.github}/>
-                <SvgLink />
+                <SvgLink className={classes.link}/>
             </div>
         </div>
         <div className={classes.body}>

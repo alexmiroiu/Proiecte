@@ -10,10 +10,31 @@
 .contactTitle {
     font-size: 4rem;
     margin-bottom: 4rem;
+    font-weight: 900;
 }
 
 .contactDescription {
     width: 50rem;
     margin-bottom: 4rem;
     text-align: center;
+}
+
+.emailBtn, .emailBtn:visited {
+    font-family: var(--mono-font);
+    font-weight: 600;
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--dark-text-color);
+    border: 1px solid var(--dark-text-color);
+    border-radius: 5px;
+    width: 18rem;
+    height: 3rem;
+    transition: .2s background-color;
+}
+
+.emailBtn:hover {
+    background-color: var(--antique-white);
 }

@@ -1,8 +1,7 @@
-
 .hero {
     position: relative;
     display: flex;
-    height: 95vh;
+    height: 100vh;
     width: 100%;
     max-width: 100rem;
     justify-content: space-between;
@@ -35,7 +34,7 @@
 .imageWrapper::after {
     content: '';
     position: absolute;
-    background: rgb(0, 204, 255);
+    background: var(--neon-blue);
     height: 40rem;
     width: 40rem;
     top: 0;
@@ -47,7 +46,7 @@
 .imageWrapper::before {
     content: '';
     position: absolute;
-    background: rgb(0, 247, 255);
+    background: var(--lavender-blue);
     height: 40rem;
     width: 40rem;
     top: 0;
@@ -75,7 +74,7 @@
 .heroTitle {
     font-weight: 900;
     font-size: 7rem;
-    color: var(--color2);
+    color: var(--neon-blue);
 }
 
 .heroDescription {
@@ -94,9 +93,8 @@
 
 }
 
-.scroll img {
+.scrollIcon {
     margin-bottom: 3rem;
-    width: 4rem;
 
 
 }
