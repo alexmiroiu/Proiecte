@@ -4,8 +4,8 @@ const SvgDownIcon = (props) => (
   <svg
     className="downIcon_svg__svg-icon"
     style={{
-      width: "4rem",
-      height: "4rem",
+      width: "5rem",
+      height: "5rem",
       verticalAlign: "middle",
       fill: "var(--neon-blue)",
       overflow: "hidden",

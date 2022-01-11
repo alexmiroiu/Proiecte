@@ -28,6 +28,7 @@ const About = React.forwardRef((props, ref) => {
 
     return <section className={classes.about} ref={aboutRef}>
         <div className={classes.info}>
+            <p className={classes.preTitle1}>Cateva cuvinte<span></span></p>
             <h2>Despre mine</h2>
             <div className={classes.details}>
                 <p>Dictum sit amet justo donec enim. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Suspendisse sed nisi lacus sed viverra tellus. Mattis pellentesque id nibh tortor id aliquet. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. Volutpat consequat mauris nunc congue nisi vitae. </p>
@@ -37,7 +38,8 @@ const About = React.forwardRef((props, ref) => {
             </div>
         </div>
         <div className={classes.skills}>
-            <h2>Skills</h2>
+            <p className={classes.preTitle2}>Stiu sa lucrez cu urmatoarele<span></span></p>
+            <h2>Tehnologii web</h2>
             <div className={classes.skillBox}>
                 <div className={classes.logoWrapper}>
                     <p className={classes.skillTitle}>Html</p>

@@ -8,6 +8,7 @@
   --neon-blue: #5e79fd ;
   --lavender-blue: #c2c9fe ;
   --light-blue: #f1f2f6;
+  --linen: #F8EFE6;
   --antique-white: #ffecd6;
   --main-font: 'Lato', sans-serif;
   --mono-font: 'Inconsolata', monospace;
@@ -20,12 +21,13 @@
 
 *{
   margin: 0;
+  padding: 0;
 }
 
 html, body {
-  height: 100%;
   font-size: 10px;
 }
+
 
 body{
   font-family: var(--main-font);
@@ -38,7 +40,7 @@ body{
 
 img, picture, video, canvas, svg {
   display: block;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 input, button, textarea, select {

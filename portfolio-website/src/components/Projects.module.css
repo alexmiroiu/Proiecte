@@ -10,7 +10,6 @@
 
 }
 
-
 .projectsContainer h2 {
     position: relative;
     font-size: 4rem;
@@ -18,27 +17,6 @@
     margin-bottom: 4rem;
     width: fit-content;
     font-weight: 900;
-}
-
-.projectsContainer h2::after {
-    content: '';
-    position: absolute;
-    background: linear-gradient(to right, var(--neon-blue) 0%, transparent);
-    top: 50%;
-    right: -25rem;
-    height: .1rem;
-    width: 20rem;
-    border-radius: 10px;
-}
-.projectsContainer h2::before {
-    content: '';
-    position: absolute;
-    background: linear-gradient(to left, var(--neon-blue) 0%, transparent);
-    top: 50%;
-    left: -25rem;
-    height: .1rem;
-    width: 20rem;
-    border-radius: 10px;
 }
 
 .easy {
@@ -58,6 +36,29 @@
     font-weight: 600;
     font-size: 1.6rem;
     margin-bottom: 2rem;
+    width: fit-content;
+}
+
+.preTitleLine {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to left, var(--lavender-blue) 0%, transparent);
+    top: 50%;
+    left: -25rem;
+    height: .1rem;
+    width: 20rem;
+    border-radius: 10px;
+}
+
+.postTitleLine {
+    content: '';
+    position: absolute;
+    background: linear-gradient(to right, var(--lavender-blue) 0%, transparent);
+    top: 50%;
+    right: -25rem;
+    height: .1rem;
+    width: 20rem;
+    border-radius: 10px;
 }
 
 .projectsBox {
@@ -86,5 +87,11 @@
     font-weight: 600;
     font-size: 1.6rem;
     margin-bottom: 2rem;
+}
+
+@media (min-width: 580px) and (max-width: 769px) {
+    .projectsBox {
+        grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    }
 }
 

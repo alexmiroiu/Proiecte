@@ -23,6 +23,9 @@ const Hero = React.forwardRef((props, ref) => {
         <div className={classes.profilePicContainer}>
             <div className={classes.imageWrapper}>
                 <img src={profilePic} alt="profile" className={classes.profileImg}/>
+                <div className={classes.ring1}></div>
+                <div className={classes.ring2}></div>
+                <div className={classes.ring3}></div>
             </div>
         </div>
 
@@ -31,7 +34,10 @@ const Hero = React.forwardRef((props, ref) => {
         </div>
 
         <article className={classes.heroInfo}>
-            <p className={classes.heroName}>Alex Miroiu,</p>
+            <div>
+                <p className={classes.heroHello}>Salut, ma numesc</p>
+                <p className={classes.heroName}>Alex Miroiu.</p>
+            </div>
             <div className={classes.heroTitle}>
                 <p>front-end</p>
                 <p>web</p>

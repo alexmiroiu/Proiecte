@@ -40,9 +40,9 @@ function App() {
     darkMode: darkMode,
     changeTheme: toggleTheme
   }}>
-    <main className={classes.main}>
+    <main className={`${classes.main} ${darkMode ? classes.dark : ''}`}>
       <Header logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects} contactClick={navigateToContact}/>
-      <div className={`${classes.outerWrapper} ${darkMode ? classes.dark : ''}`}>
+      <div className={`${classes.outerWrapper} `}>
       <Hero ref={heroComponentRef}/>
       <About ref={aboutComponentRef}/>
       <Projects ref={projectsComponentRef}/>

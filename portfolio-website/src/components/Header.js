@@ -8,11 +8,14 @@ import SvgMoon from './iconComponents/Moon';
 
 const Header = (props) => {
     const ctx = useContext(Theme);
+    const dark = ctx.darkMode;
+    const windowWidth = window.innerWidth;
+    console.log(windowWidth)
     
 
-    return <div className={classes.header}>
+    return <div className={`${classes.header} ${dark ? classes.headerDark : classes.headerLight}`}>
                 <SvgLogo className={classes.logo} onClick={props.logoClick}/>
-        <nav className={classes.mainNav}>
+        <nav className={`${classes.mainNav} ${dark ? classes.mainNavDark : classes.mainNavLight}`}>
             <ul className={classes.menuItems}>
                 <li onClick={props.aboutClick} className={classes.navItem}>Despre mine</li>
                 <li onClick={props.projectsClick} className={classes.navItem}>Proiecte</li>

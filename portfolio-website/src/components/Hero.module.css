@@ -29,9 +29,10 @@
     width: 40rem;
     object-fit: cover;
     border-radius: 50%;
+    z-index: 4;
 }
 
-.imageWrapper::after {
+.ring1 {
     content: '';
     position: absolute;
     background: var(--neon-blue);
@@ -40,10 +41,10 @@
     top: 0;
     left: 1.5rem;
     border-radius: 50%;
-    z-index: -1;
+    z-index: 3;
 }
 
-.imageWrapper::before {
+.ring2 {
     content: '';
     position: absolute;
     background: var(--lavender-blue);
@@ -52,7 +53,19 @@
     top: 0;
     left: 3rem;
     border-radius: 50%;
-    z-index: -1;
+    z-index: 2;
+}
+
+.ring3 {
+    content: '';
+    position: absolute;
+    background: #dadefa;
+    height: 40rem;
+    width: 40rem;
+    top: 0;
+    left: 4.5rem;
+    border-radius: 50%;
+    z-index: 1;
 }
 
 
@@ -64,6 +77,12 @@
     gap: 2rem;
     height: 100%;
     width: 40%;
+}
+
+.heroHello {
+    font-family: var(--mono-font);
+    font-size: 1.6rem;
+    font-weight: 600;
 }
 
 .heroName {
@@ -89,12 +108,121 @@
     height: 100%;
     width: 5%;
     margin-bottom: 5rem;
-
-
 }
 
 .scrollIcon {
     margin-bottom: 3rem;
+}
 
+@media (min-width: 580px) and (max-width: 1000px) {
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        max-width: 85rem;
+        align-items: center;
+    }
 
+    .profilePicContainer {
+        width: 80%;
+    }
+
+    .heroInfo {
+        width: 80%;
+        height: 40%;
+        align-items: center;
+    }
+    .heroInfo p {
+        text-align: center;
+    }
+
+    .heroTitle {
+        font-size: 6rem;
+
+    }
+
+    .heroTitle p:first-child {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .heroTitle p:nth-child(2) {
+        display: inline;
+        width: fit-content;
+        margin-right: 2rem;
+    }
+    .heroTitle p:nth-child(3) {
+        display: inline;
+        width: fit-content;
+    }
+    .scroll {
+        position: absolute;
+    }
+}
+
+@media (max-width: 580px) and (max-height: 1000px) {
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 90rem;
+    }
+
+    .profilePicContainer {
+        width: 80%;
+    }
+
+    .imageWrapper {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .imageWrapper img {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .ring1 {
+        width: 30rem;
+        height: 30rem;
+    }
+    .ring2 {
+        width: 30rem;
+        height: 30rem;
+    }
+    .ring3 {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    .heroInfo {
+        width: 80%;
+        height: 40%;
+        align-items: center;
+    }
+    .heroInfo p {
+        text-align: center;
+    }
+
+    .heroTitle {
+        font-size: 6rem;
+
+    }
+
+    .heroTitle p:first-child {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .heroTitle p:nth-child(2) {
+        display: inline;
+        width: fit-content;
+        margin-right: 2rem;
+    }
+    .heroTitle p:nth-child(3) {
+        display: inline;
+        width: fit-content;
+    }
+    .scroll {
+        position: absolute;
+    }
 }

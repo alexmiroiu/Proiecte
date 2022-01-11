@@ -82,13 +82,13 @@ const Projects = React.forwardRef((props, ref) => {
     return <div className={classes.projectsContainer} ref={projectsRef}>
         <h2>Proiecte</h2>
         <div className={classes.easy}>
-            <h3>am inceput cu lucruri simple...</h3>
+            <h3><span className={classes.preTitleLine}></span>dificultate redusa<span className={classes.postTitleLine}></span></h3>
             <div className={classes.projectsBox}>
                 {easyProjectsList.map(project => <ProjectItem title={project.title} description={project.description} technologies={project.technologies} />)}
             </div>
         </div>
         <div className={classes.intermediate}>
-            <h3>si am crescut dificultatea pe parcurs...</h3>
+            <h3><span className={classes.preTitleLine}></span>dificultate medie<span className={classes.postTitleLine}></span></h3>
             <div className={classes.projectsBox}>
                 {intermediateProjects.map(project => <ProjectItem title={project.title} description={project.description} technologies={project.technologies} />)}
             </div>
