@@ -38,3 +38,30 @@
 .emailBtn:hover {
     background-color: var(--antique-white);
 }
+
+@media (min-width: 400px) and (max-width: 580px) and (max-height: 1000px) {
+
+    .contactDescription {
+        max-width: 30rem;
+    }
+    .contactTitle {
+        font-size: 3rem;
+    }
+    .contactWrapper {
+        margin-bottom: 14rem;
+    }
+}
+
+@media (max-width: 399px) and (max-height: 900px) {
+
+    .contactDescription {
+        max-width: 25rem;
+    }
+    .contactTitle {
+        font-size: 3rem;
+    }
+    .contactWrapper {
+        margin-bottom: 10rem;
+    }
+
+}

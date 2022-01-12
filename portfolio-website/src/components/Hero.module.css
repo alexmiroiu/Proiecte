@@ -117,81 +117,47 @@
 @media (min-width: 580px) and (max-width: 1000px) {
     .hero {
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         max-width: 85rem;
         align-items: center;
+        min-height: 100rem;
     }
-
     .profilePicContainer {
-        width: 80%;
-    }
-
-    .heroInfo {
-        width: 80%;
-        height: 40%;
-        align-items: center;
-    }
-    .heroInfo p {
-        text-align: center;
-    }
-
-    .heroTitle {
-        font-size: 6rem;
-
-    }
-
-    .heroTitle p:first-child {
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
-    .heroTitle p:nth-child(2) {
-        display: inline;
-        width: fit-content;
-        margin-right: 2rem;
-    }
-    .heroTitle p:nth-child(3) {
-        display: inline;
-        width: fit-content;
-    }
-    .scroll {
-        position: absolute;
-    }
-}
-
-@media (max-width: 580px) and (max-height: 1000px) {
-    .hero {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 90rem;
-    }
-
-    .profilePicContainer {
-        width: 80%;
+        width: 20rem;
+        min-width: none;
+        margin-top: 10rem;
     }
 
     .imageWrapper {
-        width: 30rem;
-        height: 30rem;
+        width: 20rem;
+        height: 20rem;
     }
 
     .imageWrapper img {
-        width: 30rem;
-        height: 30rem;
+        width: 20rem;
+        height: 20rem;
     }
 
     .ring1 {
-        width: 30rem;
-        height: 30rem;
+        width: 20rem;
+        height: 20rem;
+        left: 1rem;
     }
     .ring2 {
-        width: 30rem;
-        height: 30rem;
+        width: 20rem;
+        height: 20rem;
+        left: 2rem;
+
     }
     .ring3 {
-        width: 30rem;
-        height: 30rem;
+        width: 20rem;
+        height: 20rem;
+        left: 3rem;
+    }
+
+
+    .profilePicContainer {
+        width: 80%;
     }
 
     .heroInfo {
@@ -224,5 +190,186 @@
     }
     .scroll {
         position: absolute;
+        bottom: 2rem;
+        height: 5rem;
+        margin-bottom: 10rem;
     }
+}
+
+@media (min-width: 400px) and (max-width: 580px) and (max-height: 1000px) {
+    .hero {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+        min-height: 80rem;
+    }
+
+    .profilePicContainer {
+        width: 20rem;
+        min-width: none;
+        margin-top: 5rem;
+    }
+
+    .imageWrapper {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .imageWrapper img {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .ring1 {
+        width: 20rem;
+        height: 20rem;
+        left: 1rem;
+    }
+    .ring2 {
+        width: 20rem;
+        height: 20rem;
+        left: 2rem;
+
+    }
+    .ring3 {
+        width: 20rem;
+        height: 20rem;
+        left: 3rem;
+    }
+
+    .heroInfo {
+        width: 80%;
+        height: fit-content;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+    .heroInfo p {
+        text-align: center;
+    }
+
+    .heroName {
+        font-size: 3rem;
+    }
+
+    .heroTitle {
+        font-size: 4rem;
+
+    }
+
+    .heroTitle p:first-child {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .heroTitle p:nth-child(2) {
+        display: inline;
+        width: fit-content;
+        margin-right: 1.5rem;
+    }
+    .heroTitle p:nth-child(3) {
+        display: inline;
+        width: fit-content;
+    }
+    .scroll {
+        height: 3rem;
+        width: 3rem;
+        position: absolute;
+        bottom: 0rem;
+        margin-bottom: 10rem;
+    }
+    .scrollIcon {
+        margin-bottom: 0;
+    }
+
+}
+
+@media (max-width: 399px) and (max-height: 900px) {
+    .hero {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+        min-height: 80rem;
+    }
+
+    .profilePicContainer {
+        width: 20rem;
+        margin-top: 5rem;
+        min-width: 10rem;
+    }
+
+    .imageWrapper {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .imageWrapper img {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .ring1 {
+        width: 20rem;
+        height: 20rem;
+        left: 1rem;
+    }
+    .ring2 {
+        width: 20rem;
+        height: 20rem;
+        left: 2rem;
+
+    }
+    .ring3 {
+        width: 20rem;
+        height: 20rem;
+        left: 3rem;
+    }
+
+    .heroInfo {
+        width: 80%;
+        height: fit-content;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+    .heroInfo p {
+        text-align: center;
+    }
+
+    .heroName {
+        font-size: 3rem;
+    }
+
+    .heroTitle {
+        font-size: 4rem;
+
+    }
+
+    .heroTitle p:first-child {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .heroTitle p:nth-child(2) {
+        display: inline;
+        width: fit-content;
+        margin-right: 1.5rem;
+    }
+    .heroTitle p:nth-child(3) {
+        display: inline;
+        width: fit-content;
+    }
+    .scroll {
+        height: 3rem;
+        width: 3rem;
+        position: absolute;
+        bottom: 0rem;
+        margin-bottom: 2rem;
+    }
+    .scrollIcon {
+        margin-bottom: 0;
+    }
+
 }
