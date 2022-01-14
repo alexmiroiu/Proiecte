@@ -1,13 +1,17 @@
 import React from 'react';
-import { useRef, useImperativeHandle } from 'react';
+import { useRef, useImperativeHandle, useContext } from 'react';
 
 import classes from './Hero.module.css';
 import profilePic from '../assets/profile.jpg';
 import SvgDownIcon from './iconComponents/DownIcon';
 import scrollIcon from '../assets/scrollBlue.png';
+import Theme from '../store/theme';
 
 const Hero = React.forwardRef((props, ref) => {
     const heroRef = useRef();
+    const ctx = useContext(Theme);
+
+    const dark = ctx.darkMode;
 
     const navigate = () => {
         heroRef.current.scrollIntoView({behavior: 'smooth'});
@@ -19,13 +23,13 @@ const Hero = React.forwardRef((props, ref) => {
         };
     });
 
-    return <section className={classes.hero} ref={heroRef}>
+    return <section className={`${classes.hero} ${dark ? classes.heroTextDark : classes.heroTextLight}`} ref={heroRef}>
         <div className={classes.profilePicContainer}>
             <div className={classes.imageWrapper}>
                 <img src={profilePic} alt="profile" className={classes.profileImg}/>
-                <div className={classes.ring1}></div>
-                <div className={classes.ring2}></div>
-                <div className={classes.ring3}></div>
+                <div className={`${classes.ring1} ${dark ? classes.ring1Dark : classes.ring1Light}`}></div>
+                <div className={`${classes.ring2} ${dark ? classes.ring2Dark : classes.ring2Light}`}></div>
+                <div className={`${classes.ring3} ${dark ? classes.ring3Dark : classes.ring3Light}`}></div>
             </div>
         </div>
 

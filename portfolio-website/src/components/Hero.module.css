@@ -9,6 +9,14 @@
     gap: 3rem;
 }
 
+.heroTextLight {
+    color: var(--dark-text-color);
+}
+
+.heroTextDark {
+    color: var(--cultured);
+}
+
 
 .profilePicContainer {
     width: 40%;
@@ -35,13 +43,21 @@
 .ring1 {
     content: '';
     position: absolute;
-    background: var(--neon-blue);
+
     height: 40rem;
     width: 40rem;
     top: 0;
     left: 1.5rem;
     border-radius: 50%;
     z-index: 3;
+}
+
+.ring1Light {
+    background: var(--lavender-blue);
+}
+
+.ring1Dark {
+    background: #06060E;
 }
 
 .ring2 {
@@ -56,6 +72,14 @@
     z-index: 2;
 }
 
+.ring2Light {
+    background: #DADEFA;
+}
+
+.ring2Dark {
+    background: #0C0C1D;
+}
+
 .ring3 {
     content: '';
     position: absolute;
@@ -66,6 +90,13 @@
     left: 4.5rem;
     border-radius: 50%;
     z-index: 1;
+}
+.ring3Light {
+    background: #e9edfd;
+}
+
+.ring3Dark {
+    background: #10142a;
 }
 
 

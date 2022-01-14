@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRef, useImperativeHandle } from 'react';
+import { useRef, useImperativeHandle, useContext } from 'react';
 
 import classes from './About.module.css';
 import SvgCss from './iconComponents/Css';
@@ -12,8 +12,13 @@ import SvgRestApi from './iconComponents/RestApi';
 import SvgSass from './iconComponents/Sass';
 import SvgHtml5 from './iconComponents/Html5';
 
+import Theme from '../store/theme';
+
 const About = React.forwardRef((props, ref) => {
     const aboutRef = useRef();
+    const ctx = useContext(Theme);
+
+    const dark = ctx.darkMode;
 
     const navigate = () => {
         aboutRef.current.scrollIntoView({behavior: 'smooth'});
@@ -26,7 +31,7 @@ const About = React.forwardRef((props, ref) => {
     });
 
 
-    return <section className={classes.about} ref={aboutRef}>
+    return <section className={`${classes.about} ${dark ? classes.aboutTextDark : classes.aboutTextLight}`} ref={aboutRef}>
         <div className={classes.info}>
             <p className={classes.preTitle1}>Cateva cuvinte<span></span></p>
             <h2>Despre mine</h2>

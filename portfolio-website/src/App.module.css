@@ -17,7 +17,7 @@
 }
 
 .dark {
-    background: var(--dark-blue);
+    background: var(--oxford-blue);
 }
 
 @media (min-width: 580px) and (max-width: 769px) {

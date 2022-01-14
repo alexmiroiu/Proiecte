@@ -4,10 +4,12 @@
 
 :root {
   --dark-blue: #0b0c1e;
-  --midnight-blue: #201467;
+  --oxford-blue: #141834;
+  --space-cadet-dark: #181e3f;
+  --space-cadet-light: #1c234a;
   --neon-blue: #5e79fd ;
   --lavender-blue: #c2c9fe ;
-  --light-blue: #f1f2f6;
+  --cultured: #f1f2f6;
   --linen: #F8EFE6;
   --antique-white: #ffecd6;
   --main-font: 'Lato', sans-serif;

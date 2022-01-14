@@ -13,10 +13,10 @@
 .headerLight {
     background-color: hsla(0, 0%, 100%, 0.6);
     box-shadow:
-    0px 0.1px 0.8px rgba(0, 0, 0, 0.125),
-    0px 0.4px 2.7px rgba(0, 0, 0, 0.185),
-    0px 2px 12px rgba(0, 0, 0, 0.31)
+    0px 0px 3.8px -5px rgba(0, 0, 0, 0.15),
+    0px 0px 30px -5px rgba(0, 0, 0, 0.3)
   ;
+  
 
 }
 

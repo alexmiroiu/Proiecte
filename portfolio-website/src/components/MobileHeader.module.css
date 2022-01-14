@@ -8,13 +8,23 @@
     padding-left: 3rem;
     background-color: white;
     box-shadow:
-    0px 0.1px 0.8px rgba(0, 0, 0, 0.125),
-    0px 0.4px 2.7px rgba(0, 0, 0, 0.185),
-    0px 2px 12px rgba(0, 0, 0, 0.31)
-  ;
-  
+    0px 0px 3.8px -5px rgba(0, 0, 0, 0.15),
+    0px 0px 30px -5px rgba(0, 0, 0, 0.3);
     z-index: 5;
 }
+
+.lightHeader {
+    background-color: white;
+    box-shadow:
+    0px 0px 3.8px -5px rgba(0, 0, 0, 0.15),
+    0px 0px 30px -5px rgba(0, 0, 0, 0.3);
+}
+.darkHeader {
+    background-color: var(--oxford-blue);
+    box-shadow: 0px 10px 15px -8px rgba(0, 0, 0, 0.54);
+
+}
+
 
 .logo {
     width: 5rem;
@@ -40,10 +50,17 @@
     display: block;
     width: 100%;
     height: .5rem;
-    background-color: black;
     margin: .6rem 0;
     transition: .2s;
     border-radius: 5px;
+}
+
+.barLight {
+    background-color: var(--cultured);
+}
+
+.barDark {
+    background-color: black;
 }
 
 .activeBar1 {
@@ -65,9 +82,16 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.342);
     z-index: 5;
     transition: .2s;
+}
+
+.backDropLight {
+    background-color: rgba(255, 255, 255, 0.342);
+}
+
+.backDropDark {
+    background-color: rgba(0, 0, 0, 0.287);
 }
 
 .mobileMenu {
@@ -80,7 +104,6 @@
     left: 100%;
     width: 70%;
     height: 110vh;
-    background-color: white;
     z-index: 6;
     transition: .2s;
     box-shadow:
@@ -90,7 +113,17 @@
     font-family: var(--mono-font);
     font-weight: 600;
     font-size: 1.8rem;
+}
 
+
+.mobileMenuLight {
+    background-color: white;
+    color: var(--dark-text-color);
+}
+
+.mobileMenuDark {
+    background-color: var(--space-cadet-dark);
+    color: var(--cultured);
 }
 
 .menuItems {
@@ -115,9 +148,14 @@
     cursor: pointer;
 }
 
-.navItem:active {
+.navItemLight:active {
     background-color: var(--antique-white);
     color: var(--dark-blue);
+}
+
+.navItemDark:active {
+    background-color: var(--dark-blue);
+    color: var(--antique-white);
 }
 
 .menuActive {
@@ -132,15 +170,28 @@
     text-align: center;
     height: 5rem;
     width: 14rem;
-    border: 1px solid var(--dark-text-color);
     border-radius: 5px;
     transition: .2s all;
     cursor: pointer;
 }
 
-.navBtn:active {
+.navBtnLight {
+    border: 1px solid var(--dark-text-color);
+
+}
+
+.navBtnDark {
+    border: 1px solid var(--cultured);
+
+}
+
+.navBtnLight:active {
     background-color: var(--antique-white);
     color: var(--dark-blue);
+}
+.navBtnDark:active {
+    background-color: var(--dark-blue);
+    color: var(--antique-white);
 }
 
 .modeSwitcher {
@@ -174,6 +225,7 @@
     cursor: pointer;
     padding: 4px;
 }
+
 
 .ball {
     width: 22px;
