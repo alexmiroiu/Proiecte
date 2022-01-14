@@ -53,7 +53,7 @@ function App() {
   }}>
     <main className={`${classes.main} ${darkMode ? classes.dark : ''}`}>
       {(width > 799) && <Header logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects} contactClick={navigateToContact}/>}
-      {(width < 800) && <MobileHeader />}
+      {(width < 800) && <MobileHeader logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects} contactClick={navigateToContact}/>}
       <div className={`${classes.outerWrapper} `}>
       <Hero ref={heroComponentRef}/>
       <About ref={aboutComponentRef}/>

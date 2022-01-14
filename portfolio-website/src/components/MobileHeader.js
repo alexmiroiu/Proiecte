@@ -8,17 +8,31 @@ import Theme from "../store/theme";
 const MobileHeader = (props) => {
   const [active, setActive] = useState(false);
   const ctx = useContext(Theme);
-  console.log(active);
 
 
   const changeButtonState = () => {
     setActive(prevState => !prevState)
   }
 
+  const aboutClickHandler = () => {
+    props.aboutClick();
+    setActive(prevState => !prevState);
+  }
+
+  const projectsClickHandler = () => {
+    props.projectsClick();
+    setActive(prevState => !prevState);
+  }
+
+  const contactClickHandler = () => {
+    props.contactClick();
+    setActive(prevState => !prevState);
+  }
+
     return (
         <Fragment>
         <nav className={classes.header}>
-          <SvgLogo className={classes.logo}/>
+          <SvgLogo className={classes.logo} onClick={props.logoClick}/>
         </nav>
           <button className={classes.hamburger} onClick={changeButtonState}>
             <div className={`${classes.bar1} ${active ? classes.activeBar1 : ''}`}></div>
@@ -26,19 +40,19 @@ const MobileHeader = (props) => {
             <div className={`${classes.bar3} ${active ? classes.activeBar3 : ''}`}></div>
           </button>
         <div className={`${classes.mobileMenu} ${active ? classes.menuActive : ''}`}>
+          <div className={`${classes.modeSwitcher} ${active ? classes.visible : ''}`}>
+            <input type="checkbox" className={classes.checkbox} id='checkbox' onChange={ctx.changeTheme}/>
+            <label htmlFor='checkbox' className={classes.label}>
+              <SvgMoon />
+              <SvgSun />
+              <div className={classes.ball}></div>
+            </label>
+          </div>
           <ul className={classes.menuItems}>
-          <li onClick={props.aboutClick} className={classes.navItem}>Despre mine</li>
-                <li onClick={props.projectsClick} className={classes.navItem}>Proiecte</li>
-                <li onClick={props.contactClick} className={classes.navItem}>Contact</li>
-                <li className={classes.navBtn}>CV</li>
-                <li>
-                    <input type="checkbox" className={classes.checkbox} id='checkbox' onChange={ctx.changeTheme}/>
-                    <label htmlFor='checkbox' className={classes.label}>
-                        <SvgMoon />
-                        <SvgSun />
-                        <div className={classes.ball}></div>
-                    </label>
-                    </li>
+            <li onClick={aboutClickHandler} className={classes.navItem}>Despre mine</li>
+            <li onClick={projectsClickHandler} className={classes.navItem}>Proiecte</li>
+            <li onClick={contactClickHandler} className={classes.navItem}>Contact</li>
+            <li className={classes.navBtn}>Descarca CV</li>
           </ul>
         </div>
         {active && <div className={classes.backDrop} onClick={changeButtonState}></div>}
