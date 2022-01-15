@@ -9,14 +9,15 @@ import Theme from '../store/theme';
 
 const ProjectItem = (props) => {
 const ctx = useContext(Theme);
+const dark = ctx.darkMode;
 
- return <div className={classes.project}>
+ return <div className={`${classes.project} ${dark ? classes.projectDark : classes.projectLight}`}>
      <div className={classes.upperWrapper}>
         <div className={classes.header}>
-            <SvgFolder />
+            <SvgFolder fill={dark ? 'var(--antique-white)' : ''}/>
             <div className={classes.iconSet}>
-                <SvgGithubLogo className={classes.github}/>
-                <SvgLink className={classes.link}/>
+                <SvgGithubLogo className={`${classes.github} ${dark ? classes.githubDark : classes.githubLight}`}/>
+                <SvgLink className={`${classes.link} ${dark ? classes.linkDark : classes.linkLight}`}/>
             </div>
         </div>
         <div className={classes.body}>
@@ -25,7 +26,7 @@ const ctx = useContext(Theme);
         </div>
      </div>
     <div className={classes.footer}>
-         {props.technologies.map(item => <p>{item}</p>)}
+         {props.technologies.map(item => <p className={`${dark ? classes.techDark : classes.techLight}`}>{item}</p>)}
     </div>
  </div>
 }

@@ -5,13 +5,21 @@
     justify-content: space-between;
     padding: 2rem;
     height: 30rem;
-    background-color: var(--lavender-blue);
     border-radius: 5px;
     box-shadow: 0px 8px 11px -7px rgba(0, 0, 0, 0.3);
     transition: all .1s ease-in;
     cursor: pointer;
 
 }
+
+.projectLight {
+    background-color: var(--lavender-blue);
+}
+
+.projectDark {
+    background-color: var(--space-cadet-lightest);
+}
+
 
 .project:hover {
     transform: translateY(-5px);
@@ -22,20 +30,40 @@
     transition: .2s fill;
 }
 
-.github:hover{
+.githubDark {
+    fill: var(--cultured);
+}
+.githubLight {
+    fill: var(--dark-text-color);
+}
+
+.githubDark:hover{
+    fill: var(--neon-blue);
+}
+.githubLight:hover{
     fill: var(--antique-white);
 }
 
 .link {
     transition: .2s fill;
 }
+.linkDark {
+    fill: var(--cultured);
+}
+.linkLight {
+    fill: var(--dark-text-color);
+}
 
-.link:hover {
+.linkLight:hover {
     fill: var(--antique-white);
+}
+.linkDark:hover{
+    fill: var(--neon-blue);
 }
 
 .projectTitle {
     font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
 .header {
@@ -59,3 +87,16 @@
     gap: 1rem;
     font-family: var(--mono-font);
 }
+
+.techDark, .techLight {
+    transition: color .2s;
+}
+
+.techDark:hover {
+    color: var(--neon-blue);
+}
+
+.techLight:hover {
+    color: var(--antique-white);
+}
+

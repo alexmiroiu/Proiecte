@@ -7,6 +7,14 @@
 
 }
 
+.contactWrapperDark {
+    color: var(--cultured);
+}
+
+.contactWrapperLight{
+    color: var(--dark-text-color);
+}
+
 .contactTitle {
     font-size: 4rem;
     margin-bottom: 4rem;
@@ -27,17 +35,28 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: var(--dark-text-color);
-    border: 1px solid var(--dark-text-color);
     border-radius: 5px;
     width: 18rem;
-    height: 3rem;
+    height: 4rem;
     transition: .2s background-color;
 }
 
-.emailBtn:hover {
+
+.emailBtnLight {
+    color: var(--dark-text-color);
+    border: 1px solid var(--dark-text-color);
+}
+.emailBtnLight:hover {
     background-color: var(--antique-white);
 }
+.emailBtnDark {
+    color: var(--cultured);
+    border: 1px solid var(--cultured);
+}
+.emailBtnDark:hover {
+    background-color: var(--space-cadet-lightest);
+}
+
 
 @media (min-width: 400px) and (max-width: 580px) and (max-height: 1000px) {
 

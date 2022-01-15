@@ -6,9 +6,23 @@
     align-items: center;
 }
 
-.footer img {
-    width: 1.5rem;
+.footerLight {
+    color: var(--dark-text-color);
+}
+
+.footerDark {
+    color: var(--cultured);
+}
+
+.copyright {
     margin-right: 1rem;
+}
+
+.copyrightLight {
+    fill: var(--dark-text-color);
+}
+.copyrightDark {
+    fill: var(--cultured);
 }
 
 .footer p {

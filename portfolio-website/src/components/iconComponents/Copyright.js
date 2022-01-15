@@ -5,11 +5,12 @@ const SvgCopyright = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 276.715 276.715"
     style={{
-      enableBackground: "new 0 0 276.715 276.715",
+      enableBackground: "new 0 0 276.715 276.715"
     }}
     xmlSpace="preserve"
     width="1em"
     height="1em"
+    fill="black"
     {...props}
   >
     <path d="M138.357 0C62.066 0 0 62.066 0 138.357s62.066 138.357 138.357 138.357 138.357-62.066 138.357-138.357S214.648 0 138.357 0zm0 258.715C71.992 258.715 18 204.723 18 138.357S71.992 18 138.357 18s120.357 53.992 120.357 120.357-53.991 120.358-120.357 120.358z" />

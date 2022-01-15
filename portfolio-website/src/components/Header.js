@@ -20,7 +20,7 @@ const Header = (props) => {
                 <li onClick={props.aboutClick} className={classes.navItem}>Despre mine</li>
                 <li onClick={props.projectsClick} className={classes.navItem}>Proiecte</li>
                 <li onClick={props.contactClick} className={classes.navItem}>Contact</li>
-                <li className={classes.navBtn}>CV</li>
+                <li className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`}>CV</li>
                 <li>
                     <input type="checkbox" className={classes.checkbox} id='checkbox' onChange={ctx.changeTheme}/>
                     <label htmlFor='checkbox' className={classes.label}>

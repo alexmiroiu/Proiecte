@@ -10,6 +10,13 @@
 
 }
 
+.projectsContLight {
+    color: var(--dark-text-color);
+}
+.projectsContDark {
+    color: var(--cultured);
+}
+
 .projectsContainer h2 {
     position: relative;
     font-size: 4rem;

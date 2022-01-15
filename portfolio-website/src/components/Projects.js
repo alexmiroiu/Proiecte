@@ -1,8 +1,10 @@
 import React from 'react';
-import { useRef, useImperativeHandle } from 'react';
+import { useRef, useImperativeHandle, useContext } from 'react';
 
 import classes from './Projects.module.css';
 import ProjectItem from './ProjectItem';
+
+import Theme from '../store/theme';
 
 const easyProjectsList = [
     {
@@ -68,6 +70,9 @@ const intermediateProjects = [
 
 const Projects = React.forwardRef((props, ref) => {
     const projectsRef = useRef();
+    const ctx = useContext(Theme);
+
+    const dark = ctx.darkMode;
 
     const navigate = () => {
         projectsRef.current.scrollIntoView({behavior: 'smooth'});
@@ -79,7 +84,7 @@ const Projects = React.forwardRef((props, ref) => {
         };
     });
     
-    return <div className={classes.projectsContainer} ref={projectsRef}>
+    return <div className={`${classes.projectsContainer} ${dark ? classes.projectsContDark : classes.projectsContLight}`} ref={projectsRef}>
         <h2>Proiecte</h2>
         <div className={classes.easy}>
             <h3><span className={classes.preTitleLine}></span>Dificultate redusa<span className={classes.postTitleLine}></span></h3>

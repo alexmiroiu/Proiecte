@@ -1,7 +1,7 @@
 .header {
     position: fixed;
     backdrop-filter: blur(20px);
-    height: 5rem;
+    height: 7rem;
     width: 100vw;
     padding: 0 5rem 0;
     display: flex;
@@ -21,7 +21,7 @@
 }
 
 .headerDark {
-    background-color: var(--dark-blue);
+    background-color: var(--oxford-blue);
     box-shadow: 0px 10px 15px -8px rgba(0, 0, 0, 0.54);
 }
 
@@ -74,17 +74,26 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 3rem;
-    width: 7rem;
-    border: 1px solid var(--dark-text-color);
+    height: 4rem;
+    width: 8rem;
     border-radius: 5px;
     transition: .2s all;
     cursor: pointer;
 }
 
-.navBtn:hover {
+.navBtnLight {
+    border: 1px solid var(--dark-text-color);
+}
+
+.navBtnDark {
+    border: 1px solid var(--cultured);
+}
+
+.navBtnLight:hover {
     background-color: var(--antique-white);
-    color: var(--dark-blue);
+}
+.navBtnDark:hover {
+    background-color: var(--space-cadet-lightest);
 }
 
 .checkbox {
