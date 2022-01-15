@@ -22,7 +22,7 @@ const Header = (props) => {
                 <li onClick={props.contactClick} className={classes.navItem}>Contact</li>
                 <li className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`}>CV</li>
                 <li>
-                    <input type="checkbox" className={classes.checkbox} id='checkbox' onChange={ctx.changeTheme}/>
+                    <input type="checkbox" className={classes.checkbox} id='checkbox' checked={dark} onChange={ctx.changeTheme}/>
                     <label htmlFor='checkbox' className={classes.label}>
                         <SvgMoon />
                         <SvgSun />

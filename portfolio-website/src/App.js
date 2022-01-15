@@ -14,7 +14,6 @@ import Theme from './store/theme';
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
-  console.log(width)
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,9 +23,29 @@ function App() {
     window.addEventListener('resize', handleResize)
   })
 
+  useEffect(() => {
+    if(!localStorage.getItem('darkMode')) {
+      localStorage.setItem('darkMode', 'off');
+    } else if(localStorage.getItem('darkMode')) {
+      const storedValue = localStorage.getItem('darkMode');
+      if(storedValue === 'off') {
+        setDarkMode(false);
+      } else if(storedValue === 'on') {
+        setDarkMode(true);
+      }
+    }
+  },[])
+
 
   const toggleTheme = () => {
+    const storedValue = localStorage.getItem('darkMode');
+    if(storedValue === 'off') {
+      localStorage.setItem('darkMode', 'on');
+    } else if(storedValue === 'on') {
+      localStorage.setItem('darkMode', 'off');
+    }
     setDarkMode(previousState => !previousState);
+    
   }
 
   const heroComponentRef = useRef();

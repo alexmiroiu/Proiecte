@@ -42,7 +42,7 @@ const MobileHeader = (props) => {
           </button>
         <div className={`${classes.mobileMenu} ${active ? classes.menuActive : ''} ${dark ? classes.mobileMenuDark : classes.mobileMenuLight}`}>
           <div className={`${classes.modeSwitcher} ${active ? classes.visible : ''}`}>
-            <input type="checkbox" className={classes.checkbox} id='checkbox' onChange={ctx.changeTheme}/>
+            <input type="checkbox" className={classes.checkbox} id='checkbox' checked={dark} onChange={ctx.changeTheme}/>
             <label htmlFor='checkbox' className={classes.label}>
               <SvgMoon />
               <SvgSun />
