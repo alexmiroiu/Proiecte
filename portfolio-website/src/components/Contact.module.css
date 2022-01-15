@@ -11,6 +11,10 @@
     color: var(--cultured);
 }
 
+.contactWrapperDark h2 {
+    color: var(--antique-white);
+}
+
 .contactWrapperLight{
     color: var(--dark-text-color);
 }

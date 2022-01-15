@@ -34,18 +34,19 @@ const Hero = React.forwardRef((props, ref) => {
         </div>
 
         <div className={classes.scroll}>
-            <SvgDownIcon className={classes.scrollIcon}/>
+            <SvgDownIcon className={`${dark ? classes.scrollIconDark : classes.scrollIconLight}`}/>
         </div>
 
         <article className={classes.heroInfo}>
             <div>
                 <p className={classes.heroHello}>Salut, ma numesc</p>
-                <p className={classes.heroName}>Alex Miroiu.</p>
+                <p className={`${classes.heroName} ${dark ? classes.heroNameDark : classes.heroNameLight}`}>Alex Miroiu</p>
+                <p className={classes.heroHello}>si sunt un</p>
             </div>
             <div className={classes.heroTitle}>
                 <p>front-end</p>
                 <p>web</p>
-                <p>developer</p>
+                <p>developer.</p>
             </div>
             <p className={classes.heroDescription}>La momentul actual programarea web a devenit pasiunea mea si urmaresc o schimbare de cariera in acest domeniu. Obiectivul meu este sa creez sau sa contribui la crearea de aplicatii web moderne, cu tehnologii curente care sa fie folosite de cat mai multi utilizatori.</p>
         </article>

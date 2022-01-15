@@ -7,7 +7,6 @@ const SvgDownIcon = (props) => (
       width: "5rem",
       height: "5rem",
       verticalAlign: "middle",
-      fill: "var(--neon-blue)",
       overflow: "hidden",
     }}
     viewBox="0 0 1024 1024"

@@ -17,6 +17,10 @@
     color: var(--cultured);
 }
 
+.aboutTextDark h2 {
+    color: var(--antique-white);
+}
+
 .info {
     position: relative;
     height: 50%;
@@ -35,10 +39,11 @@
     width: fit-content;
 }
 
-.preTitle1 span{
+
+.afterSpan1{
     content: '';
     position: absolute;
-    background: linear-gradient(to right, var(--lavender-blue) 0%, transparent) ;
+    background: var(--lavender-blue) ;
     top: 50%;
     right: -25rem;
     height: .1rem;
@@ -84,10 +89,10 @@
     width: fit-content;
 }
 
-.preTitle2 span{
+.beforeSpan2{
     content: '';
     position: absolute;
-    background: linear-gradient(to left, var(--lavender-blue) 0%, transparent) ;
+    background: var(--lavender-blue) ;
     top: 50%;
     left: -25rem;
     height: .1rem;
@@ -183,7 +188,9 @@
     }
 }
 
-@media (min-width: 400px) and (max-width: 580px) and (max-height: 1000px) {
+  
+
+@media (min-width: 501px) and (max-width: 580px) and (max-height: 1000px) {
 
     .about {
         height: fit-content;
@@ -231,14 +238,142 @@
         align-self: center;
     }
 
-    .preTitle1 span {
-        display: none;
+    .beforeSpan1 {
+        content: '';
+        position: absolute;
+        background: var(--lavender-blue) ;
+        top: 50%;
+        left: -9rem;
+        height: .1rem;
+        width: 7rem;
     }
 
-    .preTitle2 span {
-        display: none;
+    .afterSpan1 {
+        content: '';
+        position: absolute;
+        background: var(--lavender-blue) ;
+        top: 50%;
+        right: -9rem;
+        height: .1rem;
+        width: 7rem;
+        border-radius: 10px;
+    }
+
+    .beforeSpan2 {
+        content: '';
+        position: absolute;
+        background: var(--lavender-blue) ;
+        top: 50%;
+        left: -9rem;
+        height: .1rem;
+        width: 7rem;
+    }
+
+    .afterSpan2 {
+        content: '';
+        position: absolute;
+        background: var(--lavender-blue) ;
+        top: 50%;
+        right: -9rem;
+        height: .1rem;
+        width: 7rem;
+        border-radius: 10px;
     }
 }
+
+
+@media (min-width: 400px) and (max-width: 500px) and (max-height: 1000px) {
+
+    .about {
+        height: fit-content;
+        min-height: 80rem;
+    }
+    .details {
+        width: 100%;
+    }
+
+    .skillBox {
+        width: 100%;
+    }
+
+    .info {
+        height: fit-content;
+        margin-bottom: 4rem;
+        padding: 0 3% 3% 3%;
+    }
+
+    .info h2 {
+        margin-bottom: 2rem;
+        font-size: 3rem;
+        align-self: center;
+    }
+
+    .preTitle1 {
+        align-self: center;
+    }
+
+
+    .skills {
+        padding: 0 3% 3% 3%;
+        height: fit-content;
+    }
+
+    .skillBox {
+        height: fit-content;
+    }
+    .skills h2 {
+        margin-bottom: 2rem;
+        font-size: 3rem;
+        align-self: center;
+    }
+    .preTitle2 {
+        align-self: center;
+    }
+
+    .beforeSpan1 {
+        content: '';
+        position: absolute;
+        background: var(--lavender-blue) ;
+        top: 50%;
+        left: -9rem;
+        height: .1rem;
+        width: 7rem;
+    }
+
+    .afterSpan1 {
+        content: '';
+        position: absolute;
+        background: var(--lavender-blue) ;
+        top: 50%;
+        right: -9rem;
+        height: .1rem;
+        width: 7rem;
+        border-radius: 10px;
+    }
+
+    .beforeSpan2 {
+        content: '';
+        position: absolute;
+        background: var(--lavender-blue) ;
+        top: 50%;
+        left: -6rem;
+        height: .1rem;
+        width: 4rem;
+    }
+
+    .afterSpan2 {
+        content: '';
+        position: absolute;
+        background: var(--lavender-blue) ;
+        top: 50%;
+        right: -6rem;
+        height: .1rem;
+        width: 4rem;
+        border-radius: 10px;
+    }
+}
+
+
 
 @media (max-width: 399px) and (max-height: 900px) {
 

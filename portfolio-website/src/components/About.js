@@ -33,7 +33,7 @@ const About = React.forwardRef((props, ref) => {
 
     return <section className={`${classes.about} ${dark ? classes.aboutTextDark : classes.aboutTextLight}`} ref={aboutRef}>
         <div className={classes.info}>
-            <p className={classes.preTitle1}>Cateva cuvinte<span></span></p>
+            <p className={classes.preTitle1}><span className={classes.beforeSpan1}></span>Cateva cuvinte<span className={classes.afterSpan1}></span></p>
             <h2>Despre mine</h2>
             <div className={classes.details}>
                 <p>Dictum sit amet justo donec enim. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar. Suspendisse sed nisi lacus sed viverra tellus. Mattis pellentesque id nibh tortor id aliquet. Sed egestas egestas fringilla phasellus faucibus scelerisque eleifend donec pretium. Nisl rhoncus mattis rhoncus urna neque viverra justo nec ultrices. Volutpat consequat mauris nunc congue nisi vitae. </p>
@@ -43,7 +43,7 @@ const About = React.forwardRef((props, ref) => {
             </div>
         </div>
         <div className={classes.skills}>
-            <p className={classes.preTitle2}>Stiu sa lucrez cu urmatoarele<span></span></p>
+            <p className={classes.preTitle2}><span className={classes.beforeSpan2}></span>Stiu sa lucrez cu urmatoarele<span className={classes.afterSpan2}></span></p>
             <h2>Tehnologii web</h2>
             <div className={classes.skillBox}>
                 <div className={classes.logoWrapper}>

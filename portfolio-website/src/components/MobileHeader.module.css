@@ -154,7 +154,7 @@
 }
 
 .navItemDark:active {
-    background-color: var(--dark-blue);
+    background-color: var(--space-cadet-lightest);
     color: var(--antique-white);
 }
 
@@ -190,7 +190,7 @@
     color: var(--dark-blue);
 }
 .navBtnDark:active {
-    background-color: var(--dark-blue);
+    background-color: var(--space-cadet-lightest);
     color: var(--antique-white);
 }
 

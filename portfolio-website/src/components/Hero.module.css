@@ -7,6 +7,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 3rem;
+    /* letter-spacing: .3px; */
 }
 
 .heroTextLight {
@@ -57,7 +58,7 @@
 }
 
 .ring1Dark {
-    background: #06060E;
+    background: #0c0c1a;
 }
 
 .ring2 {
@@ -77,7 +78,7 @@
 }
 
 .ring2Dark {
-    background: #0C0C1D;
+    background: #0f0f24;
 }
 
 .ring3 {
@@ -121,6 +122,14 @@
     font-weight: 900;
 }
 
+.heroNameLight {
+    color: var(--oxford-blue);
+}
+
+.heroNameDark {
+    color: var(--antique-white);
+}
+
 .heroTitle {
     font-weight: 900;
     font-size: 7rem;
@@ -141,8 +150,15 @@
     margin-bottom: 5rem;
 }
 
-.scrollIcon {
+.scrollIconDark {
     margin-bottom: 3rem;
+    fill: var(--antique-white);
+}
+
+.scrollIconLight {
+    margin-bottom: 3rem;
+    fill: var(--neon-blue);
+
 }
 
 @media (min-width: 580px) and (max-width: 1000px) {
