@@ -36,11 +36,10 @@ const About = React.forwardRef((props, ref) => {
             <p className={classes.preTitle1}><span className={classes.beforeSpan1}></span>Cateva cuvinte<span className={classes.afterSpan1}></span></p>
             <h2>Despre mine</h2>
             <div className={classes.details}>
-                <h4>Salut! Eu sunt Alex</h4>
-                <p>Inca de mic am fost pasionat de tehnologie, dar in special de calculatoare. Tin minte si acum emotia pe care o traiam la sfarsitul orelor de informatica, in scoala primara, atunci cand ora se termina si navigam prin MS-DOS cautand executabila jocului "Prehistorik". In liceu am luat contact cu programarea in C++, facand parte dintr-o clasa de profil "informatica-intensiv", insa maniera abstracta de predare a profesorului nu m-a convins sa continui mai departe in acest domeniu. Anii au trecut si datorita faptului ca sunt o fire deschisa si comunicativa am ajuns sa lucrez in domeniul vanzarilor de medicamente.</p>
-                <p>Am descoperit programarea web pe "Youtube" si am realizat ca mi-ar placea sa aprofundez, de aceea in 2019 m-am inscris la cursul de front-end web development al celor de la Link Academy. In paralel, din dorinta de a invata mai mult si mai repede, am recurs la carti ("Head First Javascript" si "Head First HTML and CSS"), cursuri pe platforma Udemy, freecodecamp.org si altele. </p>
-                <p>Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Nisi est sit amet facilisis magna etiam tempor.</p>
-                <p>Mauris pharetra et ultrices neque ornare aenean euismod elementum. Massa tincidunt dui ut ornare lectus sit amet. Et pharetra pharetra massa massa ultricies mi quis hendrerit. Massa ultricies mi quis hendrerit dolor magna eget. Convallis tellus id interdum velit laoreet id donec. Et pharetra pharetra massa massa ultricies mi. Dignissim diam quis enim lobortis scelerisque fermentum. Pellentesque massa placerat duis ultricies lacus sed.</p>
+                <p>Salut! Eu sunt Alex, un web developer la inceput de drum. Desi lucrez in domeniul vanzarilor de medicamente de mai bine de zece ani, in anul 2019 am inceput sa invat despre programarea web si la scurt timp am realizat ca vreau sa imi schimb cariera si domeniul de activitate.</p>
+                <p>Cu toate ca am acumulat majoritatea cunostintelor din carti, cursuri on-line si alte surse de pe internet, in 2020 am decis sa urmez cursul de front-end web development al celor de la Link Academy, pe care l-am absolvit in 2021.</p>
+                <p>Vara trecuta am inceput sa lucrez la mici proiecte personale din dorinta de a exersa si de a pune in aplicare ce am invatat, marea lor majoritate gasindu-se mai jos.</p>
+                <p>La momentul actual continui sa invat in fiecare zi si caut proiecte din ce in ce mai indraznete cu care sa imi pun la incercare cunostintele deoarece vreau sa ajung sa lucrez in domeniul programarii web. </p>
             </div>
         </div>
         <div className={classes.skills}>

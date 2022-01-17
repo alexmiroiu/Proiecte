@@ -161,6 +161,27 @@
 
 }
 
+@media (min-width: 1200px) and (max-height: 900px) {
+    .heroInfo {
+        gap: .5rem;
+    }
+
+    .heroTitle {
+        font-size: 6rem;
+    }
+
+    .scroll {
+        margin-bottom: 2rem;
+    }
+    .scrollIconDark {
+    margin-bottom: 0;
+    }
+
+    .scrollIconLight {
+    margin-bottom: 0;
+    }
+}
+
 @media (min-width: 580px) and (max-width: 1000px) {
     .hero {
         flex-direction: column;
