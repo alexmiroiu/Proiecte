@@ -9,61 +9,61 @@ import Theme from '../store/theme';
 const easyProjectsList = [
     {
         title: 'Calculator',
-        description: 'Un proiect facut cu html, css si javascript.',
-        githubLink: 'https://github.com/alexmiroiu',
-        projectLink: 'www.google.ro',
+        description: 'Un proiect facut cu html, css si javascript. Am incercat sa copiez calculatorul care se gaseste pe Iphone.',
+        githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/calculator',
+        projectLink: 'https://alexmiroiu.github.io/calculator/',
         technologies: ['Html', 'Css', 'Javascript']
 },
     {
         title: 'Contact Form',
-        description: 'Un formular de contact pe care mi-am exersat cunostintele de html, css si js.',
-        githubLink: 'https://github.com/alexmiroiu',
-        projectLink: 'www.google.ro',
+        description: 'Un simplu formular de contact pe care am exersat validarea campurilor.',
+        githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/contactForm',
+        projectLink: 'https://alexmiroiu.github.io/contactForm/',
         technologies: ['Html', 'Css', 'Javascript']
 },
     {
         title: 'Weather App',
-        description: 'O aplicatie care indica vremea in orasul ales de tine.',
-        githubLink: 'https://github.com/alexmiroiu',
-        projectLink: 'www.google.ro',
-        technologies: ['Html', 'Css', 'Javascript']
+        description: 'O aplicatie care indica vremea in orasul ales de tine. Este primul proiect in care am folosit fetch Api.',
+        githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/weatherAPP',
+        projectLink: 'https://alexmiroiu.github.io/weatherAPP/',
+        technologies: ['Html', 'Css', 'Javascript', 'Rest API']
 }];
 
 const intermediateProjects = [
-    {
-        title: 'JS Maze',
-        description: 'Un proiect facut cu html, css si javascript.',
-        githubLink: 'https://github.com/alexmiroiu',
-        projectLink: 'www.google.ro',
-        technologies: ['Html', 'Css', 'Javascript']
+{
+    title: 'JS Maze',
+    description: 'Un joc in care se manevreaza caracterul prin intermediul sagetilor de la tastatura.',
+    githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/JSMaze',
+    projectLink: 'https://alexmiroiu.github.io/JSmaze/',
+    technologies: ['Html', 'Css', 'Javascript']
 },
 {
     title: 'F1 Website',
-    description: 'Un proiect facut cu html, css si javascript.',
-    githubLink: 'https://github.com/alexmiroiu',
-    projectLink: 'www.google.ro',
-    technologies: ['Html', 'Css', 'Javascript']
+    description: 'Un website care afiseaza informatii curente despre campionatul de Formula 1.',
+    githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/F1website',
+    projectLink: 'https://alexmiroiu.github.io/F1Website/',
+    technologies: ['Html', 'Css', 'Javascript', 'Rest API']
 },
 {
     title: 'Drawing App',
-    description: 'Proiectul a fost realizat in react, folosind canvas API.',
-    githubLink: 'https://github.com/alexmiroiu',
-    projectLink: 'www.google.ro',
-    technologies: ['Html', 'Css', 'Javascript']
+    description: 'O aplicatie in care se poate desena folosind cursorul.',
+    githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/drawing-app/drawing-app',
+    projectLink: 'https://alexmiroiu.github.io/drawingApp/',
+    technologies: ['React', 'Canvas API']
 },
 {
     title: 'QuizApp',
-    description: 'Proiect realizat in react. Am folosit redux, pentru prima data.',
-    githubLink: 'https://github.com/alexmiroiu',
-    projectLink: 'www.google.ro',
-    technologies: ['Html', 'Css', 'Javascript']
+    description: 'O aplicatie in care se sustine un test, din diferite domenii, la final afisandu-se rezultatele.',
+    githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/quiz-app',
+    projectLink: 'https://alexmiroiu.github.io/quiz/',
+    technologies: ['React', 'Redux']
 },
 {
     title: 'CeMancam App',
-    description: 'Primul proiect pe care l-am facut in react.',
+    description: 'O aplicatie in care poti adauga preparate pe care le gatesti ca mai apoi sa le poti vizualiza.',
     githubLink: 'https://github.com/alexmiroiu',
-    projectLink: 'www.google.ro',
-    technologies: ['Html', 'Css', 'Javascript']
+    projectLink: 'https://www.google.ro',
+    technologies: ['React', 'Firebase']
 },
     
 ]
@@ -89,13 +89,13 @@ const Projects = React.forwardRef((props, ref) => {
         <div className={classes.easy}>
             <h3><span className={classes.preTitleLine}></span>Dificultate redusa<span className={classes.postTitleLine}></span></h3>
             <div className={classes.projectsBox}>
-                {easyProjectsList.map(project => <ProjectItem title={project.title} description={project.description} technologies={project.technologies} />)}
+                {easyProjectsList.map(project => <ProjectItem title={project.title} description={project.description} technologies={project.technologies} gitHubLink={project.githubLink} projectLink={project.projectLink}/>)}
             </div>
         </div>
         <div className={classes.intermediate}>
             <h3><span className={classes.preTitleLine}></span>Dificultate medie<span className={classes.postTitleLine}></span></h3>
             <div className={classes.projectsBox}>
-                {intermediateProjects.map(project => <ProjectItem title={project.title} description={project.description} technologies={project.technologies} />)}
+                {intermediateProjects.map(project => <ProjectItem title={project.title} description={project.description} technologies={project.technologies} gitHubLink={project.githubLink} projectLink={project.projectLink} />)}
             </div>
         </div>
     </div>

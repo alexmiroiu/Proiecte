@@ -41,7 +41,7 @@ const Hero = React.forwardRef((props, ref) => {
             <div>
                 <p className={classes.heroHello}>Salut, ma numesc</p>
                 <p className={`${classes.heroName} ${dark ? classes.heroNameDark : classes.heroNameLight}`}>Alex Miroiu</p>
-                <p className={classes.heroHello}>si sunt un</p>
+                <p className={classes.heroHello}>si sunt </p>
             </div>
             <div className={classes.heroTitle}>
                 <p>front-end</p>

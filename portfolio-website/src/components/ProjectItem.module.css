@@ -1,4 +1,8 @@
+.anchorWrapper {
+}
+
 .project {
+    text-decoration: none;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,10 +18,12 @@
 
 .projectLight {
     background-color: var(--lavender-blue);
+    color: var(--dark-text-color);
 }
 
 .projectDark {
     background-color: var(--space-cadet-lightest);
+    color: var(--cultured);
 }
 
 

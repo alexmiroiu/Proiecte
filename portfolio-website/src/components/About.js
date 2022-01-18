@@ -36,10 +36,10 @@ const About = React.forwardRef((props, ref) => {
             <p className={classes.preTitle1}><span className={classes.beforeSpan1}></span>Cateva cuvinte<span className={classes.afterSpan1}></span></p>
             <h2>Despre mine</h2>
             <div className={classes.details}>
-                <p>Salut! Eu sunt Alex, un web developer la inceput de drum. Desi lucrez in domeniul vanzarilor de medicamente de mai bine de zece ani, in anul 2019 am inceput sa invat despre programarea web si la scurt timp am realizat ca vreau sa imi schimb cariera si domeniul de activitate.</p>
-                <p>Cu toate ca am acumulat majoritatea cunostintelor din carti, cursuri on-line si alte surse de pe internet, in 2020 am decis sa urmez cursul de front-end web development al celor de la Link Academy, pe care l-am absolvit in 2021.</p>
-                <p>Vara trecuta am inceput sa lucrez la mici proiecte personale din dorinta de a exersa si de a pune in aplicare ce am invatat, marea lor majoritate gasindu-se mai jos.</p>
-                <p>La momentul actual continui sa invat in fiecare zi si caut proiecte din ce in ce mai indraznete cu care sa imi pun la incercare cunostintele deoarece vreau sa ajung sa lucrez in domeniul programarii web. </p>
+                <p>Salut! Eu sunt Alex, un web developer la inceput de drum. Desi lucrez in domeniul vanzarilor de medicamente de mai bine de zece ani, in anul 2019 am inceput sa invat despre programarea web si la scurt timp am realizat ca vreau o schimbare de cariera in acest domeniu.</p>
+                <p>Cu toate ca am acumulat majoritatea cunostintelor din carti, cursuri on-line si alte surse de pe internet, in 2019 am decis sa urmez cursul de front-end web development al celor de la Link Academy, pe care l-am absolvit in 2020. </p>
+                <p>Din dorinta de a exersa si de a pune in aplicare ce am invatat, vara trecuta am inceput sa lucrez la mici proiecte personale, lucru care m-a ajutat sa ma dezvolt mult mai accelerat. La momentul actual continui sa invat in fiecare zi si caut proiecte din ce in ce mai indraznete cu care sa imi pun la incercare cunostintele.</p>
+                <p> Urmatorul pas si obiectivul meu personal si profesional pe termen scurt este obtinerea unui job in domeniul programarii web, unde imi doresc sa gasesc oameni de la care sa invat cat mai mult posibil pentru a ajunge un programator capabil sa faca fata oricarui proiect. </p>
             </div>
         </div>
         <div className={classes.skills}>
