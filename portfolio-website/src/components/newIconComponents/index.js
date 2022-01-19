@@ -1,1 +1,1 @@
-export { default as DownIcon } from "./DownIcon";
+export { default as AmLogo } from "./AmLogo";

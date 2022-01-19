@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useContext } from "react";
 import classes from './MobileHeader.module.css';
-import SvgLogo from "./iconComponents/Logo";
+import SvgAmLogo from "./iconComponents/AmLogo";
 import SvgMoon from "./iconComponents/Moon";
 import SvgSun from "./iconComponents/Sun";
 import Theme from "../store/theme";
@@ -33,7 +33,7 @@ const MobileHeader = (props) => {
     return (
         <Fragment>
         <nav className={`${classes.header} ${dark ? classes.darkHeader : classes.lightHeader}`}>
-          <SvgLogo className={classes.logo} onClick={props.logoClick}/>
+          <SvgAmLogo className={classes.logo} onClick={props.logoClick}/>
         </nav>
           <button className={classes.hamburger} onClick={changeButtonState}>
             <div className={`${classes.bar1} ${active ? classes.activeBar1 : ''} ${dark ? classes.barLight : classes.barDark}`}></div>

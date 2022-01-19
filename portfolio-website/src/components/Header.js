@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import Theme from '../store/theme';
 
 import classes from './Header.module.css';
-import SvgLogo from './iconComponents/Logo';
+import SvgAmLogo from './iconComponents/AmLogo';
 import SvgSun from './iconComponents/Sun';
 import SvgMoon from './iconComponents/Moon';
 
@@ -14,7 +14,7 @@ const Header = (props) => {
     
 
     return <div className={`${classes.header} ${dark ? classes.headerDark : classes.headerLight}`}>
-                <SvgLogo className={classes.logo} onClick={props.logoClick}/>
+                <SvgAmLogo className={classes.logo} onClick={props.logoClick}/>
         <nav className={`${classes.mainNav} ${dark ? classes.mainNavDark : classes.mainNavLight}`}>
             <ul className={classes.menuItems}>
                 <li onClick={props.aboutClick} className={classes.navItem}>Despre mine</li>
