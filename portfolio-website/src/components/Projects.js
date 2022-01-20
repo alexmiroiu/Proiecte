@@ -59,7 +59,7 @@ const intermediateProjects = [
     technologies: ['React', 'Redux']
 },
 {
-    title: 'CeMancam App',
+    title: 'CeGatim App',
     description: 'O aplicatie in care poti adauga preparate pe care le gatesti ca mai apoi sa le poti vizualiza.',
     githubLink: 'https://github.com/alexmiroiu',
     projectLink: 'https://www.google.ro',

@@ -34,7 +34,7 @@
 .preTitle1 {
     position: relative;
     font-family: var(--mono-font);
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 600;
     width: fit-content;
 }
@@ -83,7 +83,7 @@
 
 .preTitle2 {
     font-family: var(--mono-font);
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 600;
     position: relative;
     width: fit-content;
@@ -141,6 +141,12 @@
 @media (min-height: 1000px) and (max-height: 1200px) and (min-width: 1100px) {
     .about {
         min-height: 130rem;
+    }
+}
+
+@media (min-width: 1001px) and (max-width: 1199px) and (min-height: 400px) and (max-height: 719px) {
+    .about h2 {
+        font-size: 3rem;
     }
 }
 

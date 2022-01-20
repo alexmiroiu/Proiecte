@@ -52,11 +52,11 @@
     height: .5rem;
     margin: .6rem 0;
     transition: .2s;
-    border-radius: 5px;
+    border-radius: 1px;
 }
 
 .barLight {
-    background-color: var(--cultured);
+    background-color: var(--antique-white);
 }
 
 .barDark {
@@ -169,7 +169,7 @@
     justify-content: center;
     text-align: center;
     height: 5rem;
-    width: 14rem;
+    width: 12rem;
     border-radius: 5px;
     transition: .2s all;
     text-decoration: none;

@@ -8,13 +8,13 @@
   --space-cadet-dark: #181e3f;
   --space-cadet-light: #1c234a;
   --space-cadet-lightest: #273268;
-  --neon-blue: #5e79fd ;
+  --neon-blue: rgb(94, 121, 253) ;
   --lavender-blue: #c2c9fe ;
   --cultured: #f1f2f6;
   --text-white: #a4accc;
   --linen: #F8EFE6;
   --antique-white: #ffecd6;
-  --main-font: 'Lato', sans-serif;
+  --main-font: 'Sora', sans-serif;
   --mono-font: 'Inconsolata', monospace;
   --dark-text-color: #110B11;
 }
@@ -30,6 +30,7 @@
 
 html, body {
   font-size: 10px;
+  overflow-x: hidden;
 }
 
 

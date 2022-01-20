@@ -3,7 +3,6 @@
     backdrop-filter: blur(20px);
     height: 7rem;
     width: 100vw;
-    padding: 0 5rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,10 +13,8 @@
     background-color: hsla(0, 0%, 100%, 0.6);
     box-shadow:
     0px 0px 3.8px -5px rgba(0, 0, 0, 0.15),
-    0px 0px 30px -5px rgba(0, 0, 0, 0.3)
-  ;
+    0px 0px 30px -5px rgba(0, 0, 0, 0.3);
   
-
 }
 
 .headerDark {
@@ -29,16 +26,18 @@
     width: 5rem;
     height: 5rem;
     cursor: pointer;
+    margin-left: 5rem;
 }
 
 .mainNav {
     font-family: var(--mono-font);
-    font-size: 1.6rem;
-    width: 45rem;
+    font-size: 1.7rem;
+    width: 55rem;
     height: 100%;
     display: flex;
     align-items: center;
     font-weight: 600;
+    margin-right: 5rem;
 }
 
 .mainNavLight {
@@ -132,4 +131,48 @@
 
 .checkbox:checked + .label .ball {
     transform: translate(2.4rem);
+}
+
+@media (min-width: 1001px) and (max-width: 1199px) and (min-height: 400px) and (max-height: 719px) {
+    .mainNav {
+        width: 45rem;
+        margin-right: 2.5rem;
+    }
+
+    .logo {
+        margin-left: 2.5rem;
+    }
+}
+
+@media (min-width: 1001px) and (max-width: 1199px) and (min-height: 720px) and (max-height: 850px) {
+    .mainNav {
+        width: 45rem;
+        margin-right: 2.5rem;
+    }
+
+    .logo {
+        margin-left: 2.5rem;
+    }
+}
+
+@media (min-width: 1200px) and (max-height: 900px) {
+    .mainNav {
+        width: 45rem;
+        margin-right: 2.5rem;
+    }
+
+    .logo {
+        margin-left: 2.5rem;
+    }
+}
+
+@media (min-width: 580px) and (max-width: 1000px) {
+    .mainNav {
+        width: 45rem;
+        margin-right: 2.5rem;
+    }
+
+    .logo {
+        margin-left: 2.5rem;
+    }
 }
