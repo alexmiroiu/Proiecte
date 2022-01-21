@@ -53,7 +53,7 @@ const MobileHeader = (props) => {
             <li onClick={aboutClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>Despre mine</li>
             <li onClick={projectsClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>Proiecte</li>
             <li onClick={contactClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>Contact</li>
-            <li><a className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} href='https://drive.google.com/file/d/15A5t0aIUqD6DX9T3qB7DnZnIRcIcW3gl/view?usp=sharing' without rel="noopener noreferrer" target="_blank">CV</a></li>
+            <li><a className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} href='https://drive.google.com/file/d/1zB3NZEAy5JIrxw4kCtbikCvHTALUFS51/view?usp=sharing' without rel="noopener noreferrer" target="_blank">CV</a></li>
           </ul>
         </div>
         {active && <div className={`${classes.backDrop} ${dark ? classes.backDropDark : classes.backDropLight}`} onClick={changeButtonState}></div>}
