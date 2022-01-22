@@ -3,7 +3,7 @@ import { useContext } from "react";
 import ReactDOM from 'react-dom';
 
 import SvgSorry from './iconComponents/Sorry';
-import Theme from "../store/theme";
+import GlobalState from "../store/store";
 
 import classes from './Modal.module.css';
 
@@ -12,7 +12,7 @@ const Backdrop = () => {
 }
 
 const ModalElement = (props) => {
-    const ctx = useContext(Theme);
+    const ctx = useContext(GlobalState);
 
 
     return <div className={classes.modal}>

@@ -3,11 +3,11 @@ import { useContext } from 'react';
 import { useRef, useImperativeHandle } from 'react';
 import classes from './Contact.module.css';
 
-import Theme from '../store/theme';
+import GlobalState from '../store/store';
 
 const Contact = React.forwardRef((props, ref) => {
     const contactRef = useRef();
-    const ctx = useContext(Theme);
+    const ctx = useContext(GlobalState);
 
     const dark = ctx.darkMode;
 

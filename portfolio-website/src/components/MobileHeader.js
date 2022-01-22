@@ -3,11 +3,11 @@ import classes from './MobileHeader.module.css';
 import SvgAmLogo from "./iconComponents/AmLogo";
 import SvgMoon from "./iconComponents/Moon";
 import SvgSun from "./iconComponents/Sun";
-import Theme from "../store/theme";
+import GlobalState from "../store/store";
 
 const MobileHeader = (props) => {
   const [active, setActive] = useState(false);
-  const ctx = useContext(Theme);
+  const ctx = useContext(GlobalState);
   const dark = ctx.darkMode;
 
 

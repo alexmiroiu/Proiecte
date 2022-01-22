@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import Theme from '../store/theme';
+import GlobalState from '../store/store';
 
 import classes from './Header.module.css';
 import SvgAmLogo from './iconComponents/AmLogo';
@@ -7,9 +7,8 @@ import SvgSun from './iconComponents/Sun';
 import SvgMoon from './iconComponents/Moon';
 
 const Header = (props) => {
-    const ctx = useContext(Theme);
+    const ctx = useContext(GlobalState);
     const dark = ctx.darkMode;
-    const windowWidth = window.innerWidth;
     
 
     return <div className={`${classes.header} ${dark ? classes.headerDark : classes.headerLight}`}>

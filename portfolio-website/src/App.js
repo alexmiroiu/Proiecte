@@ -9,7 +9,7 @@ import Hero from './components/Hero';
 import MobileHeader from './components/MobileHeader';
 import Modal from './components/Modal';
 import Projects from './components/Projects';
-import Theme from './store/theme';
+import GlobalState from './store/store';
 
 
 function App() {
@@ -92,7 +92,7 @@ function App() {
     contactComponentRef.current.goToContact();
   }
 
-  return(<Theme.Provider value={{
+  return(<GlobalState.Provider value={{
     darkMode: darkMode,
     changeTheme: toggleTheme,
     format: format,
@@ -113,7 +113,7 @@ function App() {
 
       </div>
     </main>
-  </Theme.Provider>
+  </GlobalState.Provider>
   );
 }
 

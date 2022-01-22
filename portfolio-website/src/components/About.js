@@ -12,11 +12,11 @@ import SvgRestApi from './iconComponents/RestApi';
 import SvgSass from './iconComponents/Sass';
 import SvgHtml5 from './iconComponents/Html5';
 
-import Theme from '../store/theme';
+import GlobalState from '../store/store';
 
 const About = React.forwardRef((props, ref) => {
     const aboutRef = useRef();
-    const ctx = useContext(Theme);
+    const ctx = useContext(GlobalState);
 
     const dark = ctx.darkMode;
 

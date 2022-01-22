@@ -5,10 +5,10 @@ import SvgFolder from './iconComponents/Folder';
 import SvgGithubLogo from './iconComponents/GithubLogo';
 import SvgLink from './iconComponents/Link';
 
-import Theme from '../store/theme';
+import GlobalState from '../store/store';
 
 const ProjectItem = (props) => {
-const ctx = useContext(Theme);
+const ctx = useContext(GlobalState);
 const dark = ctx.darkMode;
 const format = ctx.format;
 

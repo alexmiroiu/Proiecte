@@ -1,6 +1,6 @@
 import React from "react";
 
-const Theme = React.createContext({
+const GlobalState = React.createContext({
     darkMode: false,
     changeTheme: () => {},
     format: undefined,
@@ -9,4 +9,4 @@ const Theme = React.createContext({
     changeModalState: () => {}
 });
 
-export default Theme;
+export default GlobalState;

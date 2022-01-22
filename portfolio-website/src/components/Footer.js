@@ -1,13 +1,12 @@
 import { React } from 'react';
 import { useContext } from 'react';
 import classes from './Footer.module.css';
-import copyright from '../assets/icons/copyright.svg';
 import SvgCopyright from './iconComponents/Copyright';
 
-import Theme from '../store/theme';
+import GlobalState from '../store/store';
 
 const Footer = () => {
-    const ctx = useContext(Theme);
+    const ctx = useContext(GlobalState);
     const dark = ctx.darkMode;
 
     return <div className={`${classes.footer} ${dark ? classes.footerDark : classes.footerLight}`}>

@@ -4,12 +4,11 @@ import { useRef, useImperativeHandle, useContext } from 'react';
 import classes from './Hero.module.css';
 import profilePic from '../assets/profile.jpg';
 import SvgDownIcon from './iconComponents/DownIcon';
-import scrollIcon from '../assets/scrollBlue.png';
-import Theme from '../store/theme';
+import GlobalState from '../store/store';
 
 const Hero = React.forwardRef((props, ref) => {
     const heroRef = useRef();
-    const ctx = useContext(Theme);
+    const ctx = useContext(GlobalState);
 
     const dark = ctx.darkMode;
 

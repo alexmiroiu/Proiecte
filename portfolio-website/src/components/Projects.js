@@ -4,7 +4,7 @@ import { useRef, useImperativeHandle, useContext } from 'react';
 import classes from './Projects.module.css';
 import ProjectItem from './ProjectItem';
 
-import Theme from '../store/theme';
+import GlobalState from '../store/store';
 
 const easyProjectsList = [
     {
@@ -78,7 +78,7 @@ const intermediateProjects = [
 
 const Projects = React.forwardRef((props, ref) => {
     const projectsRef = useRef();
-    const ctx = useContext(Theme);
+    const ctx = useContext(GlobalState);
 
     const dark = ctx.darkMode;
 
