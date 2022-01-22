@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import MobileHeader from './components/MobileHeader';
+import Modal from './components/Modal';
 import Projects from './components/Projects';
 import Theme from './store/theme';
 
@@ -14,14 +15,36 @@ import Theme from './store/theme';
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const [format, setFormat] = useState();
+  const [formatMsg, setFormatMsg] = useState();
+  const [modal, setModal] = useState(false);
+
 
   useEffect(() => {
     const handleResize = () => {
-      setWidth(window.innerWidth)
+      setWidth(window.innerWidth);
     }
 
     window.addEventListener('resize', handleResize)
   })
+
+  useEffect(() => {
+    if(width > 768) {
+      setFormat('Desktop')
+    } else {
+      setFormat('Mobile')
+    }
+    // console.log(format)
+  },[width]);
+
+  useEffect(() => {
+    if(format === 'Desktop') {
+      setFormatMsg('Proiectul nu este disponibil in varianta desktop, acceseaza acest proiect pe telefonul mobil.')
+    } else if(format === 'Mobile') {
+      setFormatMsg('Acest proiect nu este disponibil pe telefonul mobil.')
+    }
+  },[format])
+
 
   useEffect(() => {
     if(!localStorage.getItem('darkMode')) {
@@ -45,7 +68,10 @@ function App() {
       localStorage.setItem('darkMode', 'off');
     }
     setDarkMode(previousState => !previousState);
-    
+  }
+
+  const modalStatusHandler = () => {
+    setModal(previousState => !previousState)
   }
 
   const heroComponentRef = useRef();
@@ -68,11 +94,16 @@ function App() {
 
   return(<Theme.Provider value={{
     darkMode: darkMode,
-    changeTheme: toggleTheme
+    changeTheme: toggleTheme,
+    format: format,
+    formatMessage: formatMsg,
+    modalIsActive: modal,
+    changeModalState: modalStatusHandler 
   }}>
     <main className={`${classes.main} ${darkMode ? classes.dark : ''}`}>
       {(width > 799) && <Header logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects} contactClick={navigateToContact}/>}
       {(width < 800) && <MobileHeader logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects} contactClick={navigateToContact}/>}
+      <Modal />
       <div className={`${classes.outerWrapper} `}>
       <Hero ref={heroComponentRef}/>
       <About ref={aboutComponentRef}/>

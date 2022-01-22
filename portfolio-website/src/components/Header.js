@@ -10,7 +10,6 @@ const Header = (props) => {
     const ctx = useContext(Theme);
     const dark = ctx.darkMode;
     const windowWidth = window.innerWidth;
-    console.log(windowWidth)
     
 
     return <div className={`${classes.header} ${dark ? classes.headerDark : classes.headerLight}`}>

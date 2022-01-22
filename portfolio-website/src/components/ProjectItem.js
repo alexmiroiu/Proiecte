@@ -10,8 +10,19 @@ import Theme from '../store/theme';
 const ProjectItem = (props) => {
 const ctx = useContext(Theme);
 const dark = ctx.darkMode;
+const format = ctx.format;
 
- return <a href={props.projectLink} target="_blank" rel="noreferrer noopener" className={`${classes.project} ${dark ? classes.projectDark : classes.projectLight}`}>
+let clickHandler = (e) => {
+    if(!props.projectFormat.includes('Mobile') & format === 'Mobile') {
+        e.preventDefault();
+        // de implementat afisarea modalului aici cu mesajul NU MERGE PE MOBILE
+    } else if (!props.projectFormat.includes('Desktop') & format === 'Desktop') {
+        e.preventDefault();
+        // de implementat afisarea modalului aici cu mesajul NU MERGE PE DESKTOP
+    }
+}
+
+ return <a href={props.projectLink} onClick={clickHandler} target="_blank" rel="noreferrer noopener" className={`${classes.project} ${dark ? classes.projectDark : classes.projectLight}`}>
      <div className={classes.upperWrapper}>
         <div className={classes.header}>
             <SvgFolder fill={dark ? 'var(--antique-white)' : ''}/>

@@ -1,1 +1,1 @@
-export { default as AmLogo } from "./AmLogo";
+export { default as Sorry } from "./Sorry";
