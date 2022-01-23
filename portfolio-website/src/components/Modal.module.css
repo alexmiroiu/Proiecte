@@ -1,22 +1,29 @@
 .backdrop {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.808);
+    backdrop-filter: blur(5px);
     z-index: 20;
+}
 
+.backdropLight {
+    background-color: #c8cdf95b;
+}
+
+.backdropDark {
+    background-color: rgba(87, 87, 87, 0.287);
 }
 
 .modal {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-    background: white;
+    padding: 2rem 6rem;
+    gap: 1.2rem;
     top: 30%;
     left: 0;
     right: 0;
@@ -27,16 +34,102 @@
     min-width: 30rem;
     z-index: 21;
     border-radius: 8px;
-    box-shadow:
-    0px 0.9px 2.3px rgba(0, 0, 0, 0.202),
-    0px 2.9px 7.8px rgba(0, 0, 0, 0.298),
-    0px 13px 35px rgba(0, 0, 0, 0.5)
-  ;
-  
-
 }
 
+.modalLight {
+    background: white;
+    box-shadow:
+    0px 0px 5.3px rgba(0, 0, 0, 0.25),
+    0px 0px 42px rgba(0, 0, 0, 0.5);
+}
+
+.modalDark {
+    background: var(--oxford-blue);
+    box-shadow:
+    0px 0px 5.3px rgba(0, 0, 0, 0.25),
+    0px 0px 42px rgba(0, 0, 0, 0.5);
+    color: var(--cultured);
+}
+
+
 .image {
-    width: 8rem;
-    height: 8rem;
+    width: 6rem;
+    height: 6rem;
+    fill: #F34F29;
+    margin-top: 1rem;
+}
+
+.modal h2 {
+    font-size: 2.5rem;
+}
+
+.modal p {
+    text-align: center;
+    font-weight: 500;
+}
+
+.modalBtn {
+    font-family: var(--mono-font);
+    font-size: 1.7rem;
+    color: var(--dark-text-color);
+    font-weight: 600;
+    border-radius: 5px;
+    outline: none;
+    width: 10rem;
+    height: 4rem;
+    background: inherit;
+    cursor: pointer;
+}
+
+.modalBtnDark {
+    border: 1px solid var(--cultured);
+    color: var(--cultured);
+}
+
+.modalBtnDark:active {
+    background: var(--space-cadet-lightest);
+}
+.modalBtnLight:active {
+    background: var(--antique-white);
+}
+
+.modalBtnLight {
+    border: 1px solid var(--dark-text-color);
+    
+}
+
+
+@media (hover:hover) {
+    .modalBtnLight:hover {
+        background: var(--antique-white);
+    }
+    .modalBtnDark:hover {
+        background: var(--space-cadet-lightest);
+    }
+    .backdrop {
+        animation: fadeIn .2s;
+    }
+    .modal{
+        animation: fadeInDown .2s;
+    }
+}
+
+@keyframes fadeInDown {
+    0%{
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }

@@ -1,1 +1,1 @@
-export { default as Sorry } from "./Sorry";
+export { default as NoFolder } from "./NoFolder";

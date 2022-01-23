@@ -17,7 +17,7 @@ function App() {
   const [width, setWidth] = useState(window.innerWidth);
   const [format, setFormat] = useState();
   const [formatMsg, setFormatMsg] = useState();
-  const [modal, setModal] = useState(false);
+  const [modalOn, setModal] = useState(false);
 
 
   useEffect(() => {
@@ -97,13 +97,13 @@ function App() {
     changeTheme: toggleTheme,
     format: format,
     formatMessage: formatMsg,
-    modalIsActive: modal,
+    modalIsActive: modalOn,
     changeModalState: modalStatusHandler 
   }}>
-    <main className={`${classes.main} ${darkMode ? classes.dark : ''}`}>
+    <main className={`${classes.main} ${darkMode ? classes.dark : ''} ${modalOn ? classes.modalOpen : ''}`}>
       {(width > 799) && <Header logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects} contactClick={navigateToContact}/>}
       {(width < 800) && <MobileHeader logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects} contactClick={navigateToContact}/>}
-      <Modal />
+      {modalOn && <Modal />}
       <div className={`${classes.outerWrapper} `}>
       <Hero ref={heroComponentRef}/>
       <About ref={aboutComponentRef}/>

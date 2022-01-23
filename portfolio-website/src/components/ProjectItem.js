@@ -15,10 +15,12 @@ const format = ctx.format;
 let clickHandler = (e) => {
     if(!props.projectFormat.includes('Mobile') & format === 'Mobile') {
         e.preventDefault();
-        // de implementat afisarea modalului aici cu mesajul NU MERGE PE MOBILE
+        ctx.changeModalState();
+        document.body.style.overflowY = 'hidden';
     } else if (!props.projectFormat.includes('Desktop') & format === 'Desktop') {
         e.preventDefault();
-        // de implementat afisarea modalului aici cu mesajul NU MERGE PE DESKTOP
+        ctx.changeModalState();
+        document.body.style.overflowY = 'hidden';
     }
 }
 

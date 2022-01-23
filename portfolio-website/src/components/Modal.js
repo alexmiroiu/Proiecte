@@ -2,24 +2,33 @@ import React, { Fragment }  from "react";
 import { useContext } from "react";
 import ReactDOM from 'react-dom';
 
-import SvgSorry from './iconComponents/Sorry';
+import SvgNoFolder from './iconComponents/NoFolder';
 import GlobalState from "../store/store";
 
 import classes from './Modal.module.css';
 
 const Backdrop = () => {
-    return <div className={classes.backdrop}></div>
+    const ctx = useContext(GlobalState);
+    const dark = ctx.darkMode;
+
+    return <div className={`${classes.backdrop} ${dark ? classes.backdropDark : classes.backdropLight}`}></div>
 }
 
 const ModalElement = (props) => {
     const ctx = useContext(GlobalState);
+    const dark = ctx.darkMode;
+
+    const closeModalHandler = () => {
+    ctx.changeModalState();
+    document.body.style.overflowY = 'unset';
+    }
 
 
-    return <div className={classes.modal}>
-            <SvgSorry className={classes.image}/>
+    return <div className={`${classes.modal} ${dark ? classes.modalDark : classes.modalLight}`}>
+            <SvgNoFolder className={classes.image}/>
             <h2>{props.messageTitle}</h2>
             <p>{ctx.formatMessage}</p>
-            <button>Inchide</button>
+            <button onClick={closeModalHandler} className={`${classes.modalBtn} ${dark ? classes.modalBtnDark : classes.modalBtnLight}`}>Inchide</button>
     </div>
 }
 
