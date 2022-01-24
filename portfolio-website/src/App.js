@@ -15,6 +15,7 @@ import GlobalState from './store/store';
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const [height, setHeight] = useState(window.innerHeight);
   const [format, setFormat] = useState();
   const [formatMsg, setFormatMsg] = useState();
   const [modalOn, setModal] = useState(false);
@@ -23,19 +24,22 @@ function App() {
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
+      setHeight(window.innerHeight);
     }
 
     window.addEventListener('resize', handleResize)
   })
 
+  console.log(height);
   useEffect(() => {
-    if(width > 768) {
+    if(width > 768 || height > 800) {
       setFormat('Desktop')
-    } else {
+    } 
+    if(width < 769 || height < 801) {
       setFormat('Mobile')
     }
-    // console.log(format)
-  },[width]);
+    console.log(format)
+  },[width, height]);
 
   useEffect(() => {
     if(format === 'Desktop') {
