@@ -30,7 +30,6 @@ function App() {
     window.addEventListener('resize', handleResize)
   })
 
-  console.log(height);
   useEffect(() => {
     if(width > 768 || height > 800) {
       setFormat('Desktop')
@@ -38,7 +37,6 @@ function App() {
     if(width < 769 || height < 801) {
       setFormat('Mobile')
     }
-    console.log(format)
   },[width, height]);
 
   useEffect(() => {

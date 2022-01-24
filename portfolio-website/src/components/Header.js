@@ -5,6 +5,7 @@ import classes from './Header.module.css';
 import SvgAmLogo from './iconComponents/AmLogo';
 import SvgSun from './iconComponents/Sun';
 import SvgMoon from './iconComponents/Moon';
+import roFlag from '../assets/icons/romania.png';
 
 const Header = (props) => {
     const ctx = useContext(GlobalState);
@@ -15,6 +16,7 @@ const Header = (props) => {
                 <SvgAmLogo className={classes.logo} onClick={props.logoClick}/>
         <nav className={`${classes.mainNav} ${dark ? classes.mainNavDark : classes.mainNavLight}`}>
             <ul className={classes.menuItems}>
+                <li className={classes.language}><img src={roFlag} className={classes.roFlag}></img></li>
                 <li onClick={props.aboutClick} className={classes.navItem}>Despre mine</li>
                 <li onClick={props.projectsClick} className={classes.navItem}>Proiecte</li>
                 <li onClick={props.contactClick} className={classes.navItem}>Contact</li>
