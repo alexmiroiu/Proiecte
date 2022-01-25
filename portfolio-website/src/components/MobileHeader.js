@@ -1,14 +1,20 @@
 import React, { Fragment, useState, useContext } from "react";
+
 import classes from './MobileHeader.module.css';
 import SvgAmLogo from "./iconComponents/AmLogo";
 import SvgMoon from "./iconComponents/Moon";
 import SvgSun from "./iconComponents/Sun";
+import roFlag from '../assets/icons/romania.png';
+import ukFlag from '../assets/icons/unitedKingdom.png';
+
 import GlobalState from "../store/store";
+
 
 const MobileHeader = (props) => {
   const [active, setActive] = useState(false);
   const ctx = useContext(GlobalState);
   const dark = ctx.darkMode;
+  const language = ctx.currentLanguage;
 
 
   const changeButtonState = () => {
@@ -54,6 +60,7 @@ const MobileHeader = (props) => {
             <li onClick={projectsClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>Proiecte</li>
             <li onClick={contactClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>Contact</li>
             <li><a className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} href='https://docdro.id/CKzTXXf' without rel="noopener noreferrer" target="_blank">CV</a></li>
+            <li className={classes.language} onClick={ctx.changeLanguage}><img src={language === 'eng' ? ukFlag : roFlag} className={classes.flag}></img></li>
           </ul>
         </div>
         {active && <div className={`${classes.backDrop} ${dark ? classes.backDropDark : classes.backDropLight}`} onClick={changeButtonState}></div>}
