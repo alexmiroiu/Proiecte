@@ -72,8 +72,8 @@
 .language {
     content: "";
     position: relative;
-    width: 3.4rem;
-    height: 3.4rem;
+    width: 3.6rem;
+    height: 3.6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,18 +82,21 @@
     /* border: 1px solid var(--dark-text-color); */
     transition: .7s;
     overflow: hidden;
-    -webkit-box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.35); 
-    box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.35);
+    -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.35); 
+    box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.35);
+    transition: .2s;
 }
 
-.roFlag {
-    width: 3rem;
-    height: 3rem;
+.flag {
+    width: 3.2rem;
+    height: 3.2rem;
     transition: 1s;
 }
 
-.roFlag:hover {
-    transform: translateX(5rem);
+.language:active {
+    -webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.35); 
+    box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.35);
+    transform: scale(0.95);
 }
 
 .navBtn {

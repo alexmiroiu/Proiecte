@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import GlobalState from '../store/store';
 
 import classes from './Header.module.css';
@@ -6,17 +6,22 @@ import SvgAmLogo from './iconComponents/AmLogo';
 import SvgSun from './iconComponents/Sun';
 import SvgMoon from './iconComponents/Moon';
 import roFlag from '../assets/icons/romania.png';
+import ukFlag from '../assets/icons/unitedKingdom.png';
 
 const Header = (props) => {
     const ctx = useContext(GlobalState);
     const dark = ctx.darkMode;
+    const language = ctx.currentLanguage;
+
+
+
     
 
     return <div className={`${classes.header} ${dark ? classes.headerDark : classes.headerLight}`}>
                 <SvgAmLogo className={classes.logo} onClick={props.logoClick}/>
         <nav className={`${classes.mainNav} ${dark ? classes.mainNavDark : classes.mainNavLight}`}>
             <ul className={classes.menuItems}>
-                <li className={classes.language}><img src={roFlag} className={classes.roFlag}></img></li>
+                <li className={classes.language} onClick={ctx.changeLanguage}><img src={language === 'eng' ? ukFlag : roFlag} className={classes.flag}></img></li>
                 <li onClick={props.aboutClick} className={classes.navItem}>Despre mine</li>
                 <li onClick={props.projectsClick} className={classes.navItem}>Proiecte</li>
                 <li onClick={props.contactClick} className={classes.navItem}>Contact</li>

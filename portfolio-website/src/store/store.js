@@ -6,7 +6,9 @@ const GlobalState = React.createContext({
     format: undefined,
     formatMessage: undefined,
     modal: false,
-    changeModalState: () => {}
+    changeModalState: () => {},
+    currentLanguage: 'ro',
+    changeLanguage: () => {}
 });
 
 export default GlobalState;

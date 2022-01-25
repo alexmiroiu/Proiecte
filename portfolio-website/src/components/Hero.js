@@ -9,8 +9,8 @@ import GlobalState from '../store/store';
 const Hero = React.forwardRef((props, ref) => {
     const heroRef = useRef();
     const ctx = useContext(GlobalState);
-
     const dark = ctx.darkMode;
+    const language = ctx.currentLanguage;
 
     const navigate = () => {
         heroRef.current.scrollIntoView({behavior: 'smooth'});
@@ -21,6 +21,13 @@ const Hero = React.forwardRef((props, ref) => {
             goToHero: navigate
         };
     });
+
+    const displayedText = {
+        hello1: {
+            ro: 'Salut, ma numesc',
+            eng: 'Hello, my name is'
+        }
+    }
 
     return <section className={`${classes.hero} ${dark ? classes.heroTextDark : classes.heroTextLight}`} ref={heroRef}>
         <div className={classes.profilePicContainer}>
@@ -38,7 +45,7 @@ const Hero = React.forwardRef((props, ref) => {
 
         <article className={classes.heroInfo}>
             <div>
-                <p className={classes.heroHello}>Salut, ma numesc</p>
+                <p className={classes.heroHello}>{language === 'ro' ? displayedText.hello1.ro : displayedText.hello1.eng}</p>
                 <p className={`${classes.heroName} ${dark ? classes.heroNameDark : classes.heroNameLight}`}>Alex Miroiu</p>
                 <p className={classes.heroHello}>si sunt </p>
             </div>

@@ -19,6 +19,7 @@ function App() {
   const [format, setFormat] = useState();
   const [formatMsg, setFormatMsg] = useState();
   const [modalOn, setModal] = useState(false);
+  const [lang, setLang] = useState('ro');
 
 
   useEffect(() => {
@@ -59,6 +60,16 @@ function App() {
         setDarkMode(true);
       }
     }
+    if(!localStorage.getItem('language')) {
+      localStorage.setItem('language', 'ro');
+    } else if (localStorage.getItem('language')) {
+      const storedLanguage = localStorage.getItem('language');
+      if(storedLanguage === 'ro') {
+        setLang('ro');
+      } else if(storedLanguage === 'eng') {
+        setLang('eng');
+      }
+    }
   },[])
 
 
@@ -71,6 +82,19 @@ function App() {
     }
     setDarkMode(previousState => !previousState);
   }
+
+  const toggleLanguage = () => {
+    if(lang === 'ro') {
+      setLang('eng');
+      localStorage.setItem('language', 'eng')
+    }
+    if(lang === 'eng') {
+      setLang('ro');
+      localStorage.setItem('language', 'ro')
+    }
+  }
+
+  console.log(lang)
 
   const modalStatusHandler = () => {
     setModal(previousState => !previousState)
@@ -100,7 +124,9 @@ function App() {
     format: format,
     formatMessage: formatMsg,
     modalIsActive: modalOn,
-    changeModalState: modalStatusHandler 
+    changeModalState: modalStatusHandler,
+    currentLanguage: lang,
+    changeLanguage: toggleLanguage
   }}>
     <main className={`${classes.main} ${darkMode ? classes.dark : ''} ${modalOn ? classes.modalOpen : ''}`}>
       {(width > 799) && <Header logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects} contactClick={navigateToContact}/>}
