@@ -9,7 +9,10 @@ import GlobalState from '../store/store';
 const easyProjectsList = [
     {
         title: 'Calculator',
-        description: 'Un proiect facut cu html, css si javascript. Am incercat sa copiez calculatorul care se gaseste pe Iphone.',
+        description: [
+            'Un proiect facut cu html, css si javascript. Am incercat sa copiez calculatorul care se gaseste pe Iphone.',
+            'The project was made using HTML, CSS and Javascript. I tried to replicate the calculator app found on the Iphone.'
+        ],
         githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/calculator',
         projectLink: 'https://alexmiroiu.github.io/calculator/',
         technologies: ['Html', 'Css', 'Javascript'],
@@ -17,7 +20,10 @@ const easyProjectsList = [
 },
     {
         title: 'Contact Form',
-        description: 'Un simplu formular de contact pe care am exersat validarea campurilor.',
+        description: [
+            'Un simplu formular de contact pe care am exersat validarea campurilor. Designul este facut de mine in intregime.',
+            'A simple contact form which I used to practice form validation on. The design is also 100% mine.'
+        ],
         githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/contactForm',
         projectLink: 'https://alexmiroiu.github.io/contactForm/',
         technologies: ['Html', 'Css', 'Javascript'],
@@ -25,7 +31,10 @@ const easyProjectsList = [
 },
     {
         title: 'Weather App',
-        description: 'O aplicatie care indica vremea in orasul ales de tine. Este primul proiect in care am folosit fetch Api.',
+        description: [
+            'O aplicatie care indica vremea in orasul ales de tine. Este primul proiect in care am folosit Javascript pentru a ma conecta la un API.',
+            'A simple weather app that shows the weather in the City you choose. It was the time I used Javascript to connect to an API.'
+        ],
         githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/weatherAPP',
         projectLink: 'https://alexmiroiu.github.io/weatherAPP/',
         technologies: ['Html', 'Css', 'Javascript', 'Rest API'],
@@ -35,7 +44,10 @@ const easyProjectsList = [
 const intermediateProjects = [
 {
     title: 'JS Maze',
-    description: 'Un joc in care se manevreaza caracterul prin intermediul sagetilor de la tastatura.',
+    description: [
+        'Este un joc in care utilizatorul trebuie sa manevreze caracterul prin intermediul sagetilor tastaturii pentru a rezolva labirintul',
+        'A game in which the user has to move the character around using the keyboard arrows keys in order to solve the maze.'
+],
     githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/JSMaze',
     projectLink: 'https://alexmiroiu.github.io/JSmaze/',
     technologies: ['Html', 'Css', 'Javascript'],
@@ -43,7 +55,10 @@ const intermediateProjects = [
 },
 {
     title: 'F1 Website',
-    description: 'Un website care afiseaza informatii curente despre campionatul de Formula 1.',
+    description: [
+        'Un website care afiseaza informatii curente despre campionatul de Formula 1.',
+        'A website that displays live and up to date information about the ongoing F1 championship as well as the currently active F1 drivers.'
+    ],
     githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/F1website',
     projectLink: 'https://alexmiroiu.github.io/F1Website/',
     technologies: ['Html', 'Css', 'Javascript', 'Rest API'],
@@ -51,7 +66,10 @@ const intermediateProjects = [
 },
 {
     title: 'Drawing App',
-    description: 'O aplicatie in care se poate desena folosind cursorul.',
+    description: [
+        'O aplicatie in care se poate desena folosind mouse-ul.',
+        'A web app in which the user can draw in a canvas using the mouse.'
+    ],
     githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/drawing-app/drawing-app',
     projectLink: 'https://alexmiroiu.github.io/drawingApp/',
     technologies: ['React', 'Canvas API'],
@@ -59,7 +77,10 @@ const intermediateProjects = [
 },
 {
     title: 'QuizApp',
-    description: 'O aplicatie in care se sustine un test, din diferite domenii, la final afisandu-se rezultatele.',
+    description: [
+        'Un website unde utilizatorul poate alege sa sustina unul din trei teste disponibile, la finalul caruia i se afiseaza rezultatul.',
+        'An app where the user can take a test choosing from 3 available variants.'
+    ],
     githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/quiz-app',
     projectLink: 'https://alexmiroiu.github.io/quiz/',
     technologies: ['React', 'Redux'],
@@ -67,7 +88,10 @@ const intermediateProjects = [
 },
 {
     title: 'CeGatim App',
-    description: 'O aplicatie in care poti adauga preparate pe care le gatesti ca mai apoi sa le poti vizualiza.',
+    description: [
+        'O aplicatie in care utilizatorul poate adauga mancarurile pe care le gateste intr-o baza de date pentru ca ulterior sa le poata vizualiza.',
+        'An app where the user can add dishes he/she cooks and then view them in a list.'
+    ],
     githubLink: 'https://github.com/alexmiroiu',
     projectLink: 'https://alexmiroiu.github.io/ceGatim/',
     technologies: ['React', 'Firebase'],
@@ -81,6 +105,7 @@ const Projects = React.forwardRef((props, ref) => {
     const ctx = useContext(GlobalState);
 
     const dark = ctx.darkMode;
+    const language = ctx.currentLanguage;
 
     const navigate = () => {
         projectsRef.current.scrollIntoView({behavior: 'smooth'});
@@ -91,19 +116,34 @@ const Projects = React.forwardRef((props, ref) => {
             goToProjects: navigate
         };
     });
+
+    const displayedText = {
+        title: {
+            ro: 'Proiecte',
+            eng: 'Projects'
+        },
+        difficulty1:{
+            ro: 'Dificultate redusa',
+            eng: 'Easy difficulty'
+        },
+        difficulty2:{
+            ro: 'Dificultate medie',
+            eng: 'Intermediate difficulty'
+        }
+    }
     
     return <div className={`${classes.projectsContainer} ${dark ? classes.projectsContDark : classes.projectsContLight}`} ref={projectsRef}>
-        <h2>Proiecte</h2>
+        <h2>{language === 'ro' ? displayedText.title.ro : displayedText.title.eng}</h2>
         <div className={classes.easy}>
-            <h3><span className={classes.preTitleLine}></span>Dificultate redusa<span className={classes.postTitleLine}></span></h3>
+            <h3><span className={classes.preTitleLine}></span>{language === 'ro' ? displayedText.difficulty1.ro : displayedText.difficulty1.eng}<span className={classes.postTitleLine}></span></h3>
             <div className={classes.projectsBox}>
-                {easyProjectsList.map(project => <ProjectItem title={project.title} description={project.description} technologies={project.technologies} gitHubLink={project.githubLink} projectLink={project.projectLink} projectFormat={project.format}/>)}
+                {easyProjectsList.map(project => <ProjectItem title={project.title} description={language === 'ro' ? project.description[0] : project.description[1]} technologies={project.technologies} gitHubLink={project.githubLink} projectLink={project.projectLink} projectFormat={project.format}/>)}
             </div>
         </div>
         <div className={classes.intermediate}>
-            <h3><span className={classes.preTitleLine}></span>Dificultate medie<span className={classes.postTitleLine}></span></h3>
+            <h3><span className={classes.preTitleLine}></span>{language === 'ro' ? displayedText.difficulty2.ro : displayedText.difficulty2.eng}<span className={classes.postTitleLine}></span></h3>
             <div className={classes.projectsBox}>
-                {intermediateProjects.map(project => <ProjectItem title={project.title} description={project.description} technologies={project.technologies} gitHubLink={project.githubLink} projectLink={project.projectLink} projectFormat={project.format}/>)}
+                {intermediateProjects.map(project => <ProjectItem title={project.title} description={language === 'ro' ? project.description[0] : project.description[1]} technologies={project.technologies} gitHubLink={project.githubLink} projectLink={project.projectLink} projectFormat={project.format}/>)}
             </div>
         </div>
     </div>

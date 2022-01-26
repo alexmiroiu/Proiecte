@@ -1,0 +1,80 @@
+######HERO
+
+Hello, my name is 
+
+Alex Miroiu
+
+and i'm a 
+
+front-end 
+web
+developer
+
+Web development is my passion and my new professional career focus. Contributing to the creation of modern web applications with the use of new technologies has become my drive. 
+
+
+#######ABOUT
+
+A few words
+
+About me
+
+Hi! I'm Alex, a junior front-end web developer currently focused on learning as much as I can. Even though I've been working as a sales representative in the Pharma industry for over 10 years, in 2019 I started learning web development and soon realised I want to change careers.
+
+Allthough I've accumulated most of my knowledge from books, on-line courses and different other sources from around the internet, in late 2019 I decided to enroll in Link Academy's front-end web development course, which I finished and graduated in late 2020.
+
+Last summer I started working on some personal projects because I felt I needed to practice the things that I learned. I then realised that it speeded up my learning process and to this day building projects is my preffered way of improving my skill set.
+
+The next step and also my personal and professional short term goal is to get a job as a web developer and hopefully find an environment that will help me learn and progress into a full stack role.
+
+Im proficient in these
+
+Web technologies
+
+####### PROJECTS
+
+Projects
+
+Easy difficulty
+
+Intermediate difficulty
+
+Calculator
+
+The project was made using HTML, CSS and Javascript. I tried to replicate the calculator app found on the Iphone.
+
+Contact Form 
+
+A simple contact form which I used to practice form validation on. The design is also 100% mine.
+
+Weather App
+
+A simple weather app that shows the weather in the City you choose. It was the time I used Javascript to connect to an API.
+
+JS Maze
+
+A game in which the user has to move the character around using the keyboard arrows keys in order to solve the maze.
+
+F1 Website
+
+A website that displays live and up to date information about the ongoing F1 championship as well as the currently active F1 drivers.
+
+Drawing App
+
+A web app in which the user can draw in a canvas using the mouse.
+
+Quiz App
+
+An app where the user can take a test choosing from 3 available variants. 
+
+CeGatim App
+
+An app where the user can add dishes he/she cooks and then view them in a list.
+
+
+######### Contact me!
+
+If you want to get in touch with me, you can do it via e-mail by pressing the button below. I will try my best to get back to you as fast as I can.
+
+E-mail me
+

@@ -36,6 +36,25 @@ const MobileHeader = (props) => {
     setActive(prevState => !prevState);
   }
 
+  const displayedText = {
+    about: {
+        ro: 'Despre mine',
+        eng: 'About'
+    },
+    projects: {
+        ro: 'Proiecte',
+        eng: 'Projects'
+    },
+    contact: {
+        ro: 'Contact',
+        eng: 'Contact'
+    },
+    button: {
+        ro: 'Vezi CV',
+        eng: 'Resume'
+    }
+}
+
     return (
         <Fragment>
         <nav className={`${classes.header} ${dark ? classes.darkHeader : classes.lightHeader}`}>
@@ -56,11 +75,11 @@ const MobileHeader = (props) => {
             </label>
           </div>
           <ul className={classes.menuItems}>
-            <li onClick={aboutClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>Despre mine</li>
-            <li onClick={projectsClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>Proiecte</li>
-            <li onClick={contactClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>Contact</li>
-            <li><a className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} href='https://docdro.id/CKzTXXf' without rel="noopener noreferrer" target="_blank">CV</a></li>
-            <li className={classes.language} onClick={ctx.changeLanguage}><img src={language === 'eng' ? ukFlag : roFlag} className={classes.flag}></img></li>
+            <li onClick={aboutClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>{language === 'ro' ? displayedText.about.ro : displayedText.about.eng}</li>
+            <li onClick={projectsClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>{language === 'ro' ? displayedText.projects.ro : displayedText.projects.eng}</li>
+            <li onClick={contactClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>{language === 'ro' ? displayedText.contact.ro : displayedText.contact.eng}</li>
+            <li><a className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} href='https://docdro.id/CKzTXXf' without rel="noopener noreferrer" target="_blank">{language === 'ro' ? displayedText.button.ro : displayedText.button.eng}</a></li>
+            <li className={`${classes.language} ${dark ? classes.languageDark : classes.languageLight}`} onClick={ctx.changeLanguage}><img src={language === 'eng' ? ukFlag : roFlag} className={classes.flag} alt=''></img></li>
           </ul>
         </div>
         {active && <div className={`${classes.backDrop} ${dark ? classes.backDropDark : classes.backDropLight}`} onClick={changeButtonState}></div>}

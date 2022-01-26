@@ -26,6 +26,14 @@ const Hero = React.forwardRef((props, ref) => {
         hello1: {
             ro: 'Salut, ma numesc',
             eng: 'Hello, my name is'
+        },
+        hello2: {
+            ro: 'si sunt',
+            eng: 'and I\'m a'
+        },
+        description: {
+            ro: 'La momentul actual programarea web a devenit pasiunea mea si urmaresc o schimbare de cariera in acest domeniu. Imi doresc sa creez sau sa contribui la crearea de aplicatii web moderne, cu tehnologii curente care sa fie folosite de cat mai multi utilizatori.',
+            eng: 'Web development is my passion and my new professional career focus. Contributing to the creation of modern web applications with the use of new technologies has become my drive.'
         }
     }
 
@@ -47,14 +55,14 @@ const Hero = React.forwardRef((props, ref) => {
             <div>
                 <p className={classes.heroHello}>{language === 'ro' ? displayedText.hello1.ro : displayedText.hello1.eng}</p>
                 <p className={`${classes.heroName} ${dark ? classes.heroNameDark : classes.heroNameLight}`}>Alex Miroiu</p>
-                <p className={classes.heroHello}>si sunt </p>
+                <p className={classes.heroHello}>{language === 'ro' ? displayedText.hello2.ro : displayedText.hello2.eng}</p>
             </div>
             <div className={classes.heroTitle}>
                 <p>front-end</p>
                 <p>web</p>
                 <p>developer.</p>
             </div>
-            <p className={classes.heroDescription}>La momentul actual programarea web a devenit pasiunea mea si urmaresc o schimbare de cariera in acest domeniu. Obiectivul meu este sa creez sau sa contribui la crearea de aplicatii web moderne, cu tehnologii curente care sa fie folosite de cat mai multi utilizatori.</p>
+            <p className={classes.heroDescription}>{language === 'ro' ? displayedText.description.ro : displayedText.description.eng}</p>
         </article>
 
     </section>

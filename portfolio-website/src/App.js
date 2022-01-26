@@ -21,6 +21,17 @@ function App() {
   const [modalOn, setModal] = useState(false);
   const [lang, setLang] = useState('ro');
 
+  const modalMsg = {
+    desktop: {
+      ro: 'Proiectul nu este disponibil in varianta desktop, incearca sa accesezi acest proiect pe telefonul mobil.',
+      eng: 'The project is not available on desktop, please try accessing it on a mobile phone.'
+    },
+    mobile: {
+      ro: 'Acest proiect nu este disponibil pe telefonul mobil, incearca sa accesezi acest proiect de pe un desktop PC sau un laptop.',
+      eng: 'The project is not available when viewing on a mobile phone, please try accessing it on a desktop PC or laptop.'
+    }
+
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -39,15 +50,6 @@ function App() {
       setFormat('Mobile')
     }
   },[width, height]);
-
-  useEffect(() => {
-    if(format === 'Desktop') {
-      setFormatMsg('Proiectul nu este disponibil in varianta desktop, acceseaza acest proiect pe telefonul mobil.')
-    } else if(format === 'Mobile') {
-      setFormatMsg('Acest proiect nu este disponibil pe telefonul mobil.')
-    }
-  },[format])
-
 
   useEffect(() => {
     if(!localStorage.getItem('darkMode')) {
@@ -72,6 +74,24 @@ function App() {
     }
   },[])
 
+  useEffect(() => {
+    if(format === 'Desktop') {
+      if(lang === 'ro'){
+        setFormatMsg(modalMsg.desktop.ro);
+      }
+      if(lang === 'eng'){
+        setFormatMsg(modalMsg.desktop.eng)
+      }
+    } else if(format === 'Mobile') {
+      if(lang === 'ro'){
+        setFormatMsg(modalMsg.mobile.ro);
+      }
+      if(lang === 'eng'){
+        setFormatMsg(modalMsg.mobile.eng)
+      }
+    }
+  },[format, lang, modalMsg.desktop.ro, modalMsg.desktop.eng, modalMsg.mobile.ro, modalMsg.mobile.eng])
+
 
   const toggleTheme = () => {
     const storedValue = localStorage.getItem('darkMode');
@@ -94,7 +114,6 @@ function App() {
     }
   }
 
-  console.log(lang)
 
   const modalStatusHandler = () => {
     setModal(previousState => !previousState)

@@ -215,14 +215,31 @@
     transition: .2s;
 }
 
+.languageLight {
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.35); 
+    box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.35);
+}
+
+.languageDark {
+    background-color: var(--antique-white);
+    -webkit-box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.55); 
+    box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.55);
+}
+
 .flag {
     width: 4.6rem;
     height: 4.6rem;
 }
 
-.language:active {
+.languageLight:active {
     -webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.35); 
     box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.35);
+    transform: scale(0.95);
+}
+.languageDark:active {
+    -webkit-box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.55); 
+    box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.55);
     transform: scale(0.95);
 }
 
@@ -268,6 +285,7 @@
     left: 2px;
     border-radius: 50px;
     transition: 0.3s linear;
+	box-shadow: inset 0 0 0.5em 0 rgba(0, 0, 0, 0.5);
 }
 
 .checkbox:checked + .label .ball {

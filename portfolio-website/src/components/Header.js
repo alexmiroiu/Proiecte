@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import GlobalState from '../store/store';
 
 import classes from './Header.module.css';
@@ -13,7 +13,24 @@ const Header = (props) => {
     const dark = ctx.darkMode;
     const language = ctx.currentLanguage;
 
-
+    const displayedText = {
+        about: {
+            ro: 'Despre mine',
+            eng: 'About'
+        },
+        projects: {
+            ro: 'Proiecte',
+            eng: 'Projects'
+        },
+        contact: {
+            ro: 'Contact',
+            eng: 'Contact'
+        },
+        button: {
+            ro: 'Vezi CV',
+            eng: 'Resume'
+        }
+    }
 
     
 
@@ -21,11 +38,11 @@ const Header = (props) => {
                 <SvgAmLogo className={classes.logo} onClick={props.logoClick}/>
         <nav className={`${classes.mainNav} ${dark ? classes.mainNavDark : classes.mainNavLight}`}>
             <ul className={classes.menuItems}>
-                <li className={classes.language} onClick={ctx.changeLanguage}><img src={language === 'eng' ? ukFlag : roFlag} className={classes.flag}></img></li>
-                <li onClick={props.aboutClick} className={classes.navItem}>Despre mine</li>
-                <li onClick={props.projectsClick} className={classes.navItem}>Proiecte</li>
-                <li onClick={props.contactClick} className={classes.navItem}>Contact</li>
-                <li><a className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} href='https://docdro.id/CKzTXXf' without rel="noopener noreferrer" target="_blank">CV</a></li>
+                <li className={`${classes.language} ${dark ? classes.languageDark : classes.languageLight}`} onClick={ctx.changeLanguage}><img src={language === 'eng' ? ukFlag : roFlag} className={classes.flag} alt=''></img></li>
+                <li onClick={props.aboutClick} className={classes.navItem}>{language === 'ro' ? displayedText.about.ro : displayedText.about.eng}</li>
+                <li onClick={props.projectsClick} className={classes.navItem}>{language === 'ro' ? displayedText.projects.ro : displayedText.projects.eng}</li>
+                <li onClick={props.contactClick} className={classes.navItem}>{language === 'ro' ? displayedText.contact.ro : displayedText.contact.eng}</li>
+                <li><a className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} href='https://docdro.id/CKzTXXf' without rel="noopener noreferrer" target="_blank">{language === 'ro' ? displayedText.button.ro : displayedText.button.eng}</a></li>
                 <li>
                     <input type="checkbox" className={classes.checkbox} id='checkbox' checked={dark} onChange={ctx.changeTheme}/>
                     <label htmlFor='checkbox' className={classes.label}>
