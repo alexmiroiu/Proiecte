@@ -148,18 +148,25 @@
     height: 100%;
     width: 5%;
     margin-bottom: 5rem;
+    
 }
 
 .scrollIconDark {
     margin-bottom: 3rem;
     fill: var(--antique-white);
+    animation: animateScroll 2000ms ease-out;
+    animation-iteration-count: infinite;
 }
 
 .scrollIconLight {
     margin-bottom: 3rem;
     fill: var(--neon-blue);
+    animation: animateScroll 2000ms ease-out;
+    animation-iteration-count: infinite;
 
 }
+
+
 
 
 
@@ -370,9 +377,12 @@
         position: absolute;
         bottom: 0rem;
         margin-bottom: 2rem;
+
     }
     .scrollIcon {
         margin-bottom: 0;
+        animation: animateScroll 1000ms;
+        animation-iteration-count: infinite;
     }
     .scrollIconDark {
         margin-bottom: 0;
@@ -477,5 +487,17 @@
     .scrollIconDark {
         margin-bottom: 1rem;
     }
+}
 
+
+@keyframes animateScroll {
+    from {
+        opacity: 1;
+        transform: translateY(-1.5rem);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(0);
+    }
 }

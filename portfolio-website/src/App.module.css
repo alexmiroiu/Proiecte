@@ -44,3 +44,26 @@
 .modalOpen {
     overflow: hidden;
 }
+
+::-webkit-scrollbar {
+width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--lavender-blue);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--neon-blue);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #798fff;
+}
+
+@supports (scrollbar-color: var(--neon-blue) var(--lavender-blue)) {
+    * {
+        scrollbar-color: var(--neon-blue) var(--lavender-blue);
+        scrollbar-width: thin;
+    }
+}
