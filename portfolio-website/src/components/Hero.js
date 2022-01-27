@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRef, useImperativeHandle, useContext } from 'react';
 
 import classes from './Hero.module.css';
@@ -7,6 +7,7 @@ import SvgDownIcon from './iconComponents/DownIcon';
 import GlobalState from '../store/store';
 
 const Hero = React.forwardRef((props, ref) => {
+    const [scrollVisible, setScrollVisible] = useState(true)
     const heroRef = useRef();
     const ctx = useContext(GlobalState);
     const dark = ctx.darkMode;
@@ -21,6 +22,24 @@ const Hero = React.forwardRef((props, ref) => {
             goToHero: navigate
         };
     });
+
+    const listenToScroll = () => {
+        let heightToHideFrom = 500;
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+
+        if(winScroll > heightToHideFrom) {
+            scrollVisible && setScrollVisible(false);
+        } else {
+            setScrollVisible(true);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', listenToScroll);
+        return () => {
+            window.removeEventListener('scroll', listenToScroll)
+        }
+    }, [])
 
     const displayedText = {
         hello1: {
@@ -48,7 +67,7 @@ const Hero = React.forwardRef((props, ref) => {
         </div>
 
         <div className={classes.scroll}>
-            <SvgDownIcon className={`${dark ? classes.scrollIconDark : classes.scrollIconLight}`}/>
+            {scrollVisible && <SvgDownIcon className={`${dark ? classes.scrollIconDark : classes.scrollIconLight}`}/>}
         </div>
 
         <article className={classes.heroInfo}>
