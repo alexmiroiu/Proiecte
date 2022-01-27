@@ -21,8 +21,8 @@ const easyProjectsList = [
     {
         title: 'Contact Form',
         description: [
-            'Un simplu formular de contact pe care am exersat validarea campurilor. Designul este facut de mine in intregime.',
-            'A simple contact form which I used to practice form validation on. The design is also 100% mine.'
+            'Un simplu formular de contact pe care am exersat validarea campurilor si CSS.',
+            'A simple contact form which I used to practice form validation on. I also focused on styling more than usual to practice CSS.'
         ],
         githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/contactForm',
         projectLink: 'https://alexmiroiu.github.io/contactForm/',

@@ -11,6 +11,7 @@ import SvgRedux from './iconComponents/Redux';
 import SvgRestApi from './iconComponents/RestApi';
 import SvgSass from './iconComponents/Sass';
 import SvgHtml5 from './iconComponents/Html5';
+import wavingHand from '../assets/wavingHand.png';
 
 import GlobalState from '../store/store';
 
@@ -40,22 +41,6 @@ const About = React.forwardRef((props, ref) => {
             ro: 'Despre mine',
             eng: 'About me'
         },
-        detailsP1: {
-            ro: 'Salut! Eu sunt Alex, un front-end web developer junior orientat catre a invata cat mai mult posibil. Desi lucrez in domeniul vanzarilor de medicamente de mai bine de zece ani, in anul 2019 am inceput sa invat despre programarea web si la scurt timp am realizat ca vreau o schimbare de cariera in acest domeniu.',
-            eng: 'Hi! I\'m Alex, a junior front-end web developer currently focused on learning as much as I can. Even though I\'ve been working as a sales representative in the Pharma industry for over 10 years, in 2019 I started learning web development and soon realised I want to change careers.'
-        },
-        detailsP2: {
-            ro: 'Cu toate ca am acumulat majoritatea cunostintelor din carti, cursuri on-line si alte surse de pe internet, in 2019 am decis sa urmez cursul de front-end web development al celor de la Link Academy, pe care l-am absolvit in 2020. ',
-            eng: 'Allthough I\'ve accumulated most of my knowledge from books, on-line courses and different other sources from around the internet, in late 2019 I decided to enroll in Link Academy\'s front-end web development course, which I finished and graduated in late 2020.'
-        },
-        detailsP3: {
-            ro: 'Din dorinta de a exersa si de a pune in aplicare ce am invatat, vara trecuta am inceput sa lucrez la mici proiecte personale, lucru care m-a ajutat sa ma dezvolt mult mai accelerat. La momentul actual continui sa invat in fiecare zi si caut proiecte din ce in ce mai indraznete cu care sa imi pun la incercare cunostintele.',
-            eng: 'Last summer I started working on some personal projects because I felt I needed to practice the things that I learned. I then realised that it speeded up my learning process and to this day building projects is my preffered way of improving my skill set.'
-        },
-        detailsP4: {
-            ro: 'Urmatorul pas si obiectivul meu personal si profesional pe termen scurt este obtinerea unui job in domeniul programarii web, unde imi doresc sa gasesc oameni de la care sa invat cat mai mult posibil pentru ca ulterior sa pot progresa catre un rol de full-stack. ',
-            eng: 'The next step and also my personal and professional short term goal is to get a job as a web developer and hopefully find an environment that will help me learn and progress into a full stack role.'
-        },
         preTitle2: {
             ro: 'Stiu sa lucrez cu urmatoarele',
             eng: 'Im proficient in the following'
@@ -71,10 +56,11 @@ const About = React.forwardRef((props, ref) => {
             <p className={classes.preTitle1}><span className={classes.beforeSpan1}></span>{language === 'ro' ? displayedText.preTitle1.ro : displayedText.preTitle1.eng}<span className={classes.afterSpan1}></span></p>
             <h2>{language === 'ro' ? displayedText.title1.ro : displayedText.title1.eng}</h2>
             <div className={classes.details}>
-                <p>{language === 'ro' ? displayedText.detailsP1.ro : displayedText.detailsP1.eng}</p>
-                <p>{language === 'ro' ? displayedText.detailsP2.ro : displayedText.detailsP2.eng}</p>
-                <p>{language === 'ro' ? displayedText.detailsP3.ro : displayedText.detailsP3.eng}</p>
-                <p>{language === 'ro' ? displayedText.detailsP4.ro : displayedText.detailsP4.eng}</p>
+                {language === 'ro' ? <p>Salut! <span><img src={wavingHand} alt='waving hand'></img></span> Eu sunt Alex!</p> : <p>Hi!  <span><img src={wavingHand} alt='waving hand'></img></span> I'm Alex! </p>}
+                {language === 'ro' ? <p>Desi lucrez in domeniul vanzarilor de medicamente de zece ani, in anul 2019 am inceput sa invat despre programarea web iar la scurt timp am realizat ca vreau o schimbare de cariera si <span className={dark ? classes.highlightedDark : classes.highlightedLight}>vreau sa devin un web developer.</span></p> : <p>Even though I've been working as a sales representative in the Pharma industry for the past 10 years, in 2019 I started learning web development and soon realised that I want to change careers and <span className={dark ? classes.highlightedDark : classes.highlightedLight}>become a web developer.</span></p>}
+                {language === 'ro' ? <p>Cu toate ca am acumulat majoritatea cunostintelor din carti, cursuri on-line si alte surse de pe internet, in 2019 am decis sa urmez <span className={dark ? classes.highlightedDark : classes.highlightedLight}>cursul de front-end web development al celor de la Link Academy</span>, pe care l-am absolvit in 2020.</p> : <p>Although I've accumulated most of my knowledge from books, on-line courses and different other sources from around the internet, in late 2019 I decided to enroll in <span className={dark ? classes.highlightedDark : classes.highlightedLight}>Link Academy's front-end web development course</span>, which I finished and graduated in late 2020.</p>}
+                {language === 'ro' ? <p>Din dorinta de a exersa si de a pune in aplicare ce am invatat, vara trecuta am inceput sa lucrez la mici proiecte personale, lucru care m-a ajutat sa ma dezvolt mult mai accelerat. La momentul actual continui sa invat in fiecare zi si caut proiecte din ce in ce mai indraznete cu care sa imi pun la incercare cunostintele.</p> : <p>Last summer I started working on some personal projects because I felt I needed to practice the things that I learned. I then realised that it speeded up my learning process and to this day building projects is my preffered way of improving my skill set.</p>}
+                {language === 'ro' ? <p>Urmatorul pas si obiectivul meu personal si profesional pe termen scurt este <span className={dark ? classes.highlightedDark : classes.highlightedLight}>obtinerea unui job in domeniul programarii web</span>, unde imi doresc sa gasesc oameni de la care sa invat cat mai mult posibil pentru ca ulterior sa pot progresa catre un rol de full-stack. </p> : <p>The next step and also my personal and professional short term goal is to <span className={dark ? classes.highlightedDark : classes.highlightedLight}>get a job as a web developer</span> and hopefully find an environment that will help me learn and progress into a full stack role.</p>}
             </div>
         </div>
         <div className={classes.skills}>

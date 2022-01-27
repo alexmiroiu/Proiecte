@@ -69,6 +69,26 @@
     gap: 1rem;
 }
 
+.details img {
+    display: inline-block;
+    width: 2rem;
+    margin: 0 .2rem;
+}
+
+.details p {
+    /* letter-spacing: normal; */
+}
+
+.highlightedLight {
+    color: var(--neon-blue);
+    font-weight: 500;
+}
+
+.highlightedDark {
+    color: var(--lavender-blue);
+    font-weight: 500;
+}
+
 .skills {
     position: relative;
     display: flex;
