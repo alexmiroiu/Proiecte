@@ -47,8 +47,10 @@ h1 {
     position: relative;
     background-color: var(--form-bg);
     height: 60%;
-    width: 25%;
-    min-width: 40rem;
+    min-height: 450px;
+    width: 35%;
+    min-width: 30rem;
+    max-width: 50rem;
     font-size: 2rem;
     display: flex;
     justify-content: center;
@@ -149,6 +151,7 @@ form p {
     margin: .2rem 0 -2rem;
     justify-self: center;
     font-weight: bold;
+    text-align: center;
 }
 
 .form-message {
@@ -343,4 +346,22 @@ button:hover::before {
     } 100%, 0% {
       transform: scale(1.0); 
     } 
+  }
+
+  @media (max-width: 768px) and (max-height: 900px) {
+    h1 {
+        font-size: 2.5rem;
+        color: var(--text);
+        margin: 2rem auto 3rem;
+        text-align: center;
+    }
+  }
+
+  @media (min-width: 768px) and (max-height: 800px) {
+    h1 {
+        font-size: 2.5rem;
+        color: var(--text);
+        margin: 2rem auto 3rem;
+        text-align: center;
+    }
   }
