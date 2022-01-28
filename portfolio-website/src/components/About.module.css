@@ -75,9 +75,6 @@
     margin: 0 .2rem;
 }
 
-.details p {
-    /* letter-spacing: normal; */
-}
 
 .highlightedLight {
     color: var(--neon-blue);
