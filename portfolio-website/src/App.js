@@ -46,7 +46,7 @@ function App() {
     if(width > 768 || height > 800) {
       setFormat('Desktop')
     } 
-    if(width < 769 || height < 801) {
+    if(width < 769 || height < 450) {
       setFormat('Mobile')
     }
   },[width, height]);
