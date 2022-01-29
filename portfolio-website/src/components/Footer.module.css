@@ -4,6 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
+    /* font-family: var(--mono-font); */
 }
 
 .footerLight {
@@ -14,18 +16,23 @@
     color: var(--cultured);
 }
 
-.copyright {
-    margin-right: 1rem;
-}
-
-.copyrightLight {
-    fill: var(--dark-text-color);
-}
-.copyrightDark {
-    fill: var(--cultured);
-}
-
 .footer p {
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+.contactMeans {
+    display: flex;
+
+}
+
+.emailWrapper {
+    display: flex;
+}
+
+.location {
+    position: relative;
+    display: flex;
+    align-items: center;
+
 }
