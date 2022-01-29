@@ -68,14 +68,14 @@ const Quiz = (props) => {
                 </div>
             </div>
         </div>}
-            {questionNumber > 9 && 
+        {questionNumber > 9 && 
             <div className={styles.resultsWrapper}>
                 <h1>Your results</h1>
                 <p>You were {currentScore}% correct.</p>
                 <p>You got {correctAnswers} answers right.</p>
                 <p>You completed the test in {elapsedMinutes} minutes and {elapsedSeconds} seconds.</p>
             </div>}
-            <Link className={styles.homeBtn} to='/' onClick={() => {dispatch(infoActions.reset()); dispatch(quizActions.reset()); props.resetTimer()}}>Home</Link>
+        <Link className={styles.homeBtn} to='/' onClick={() => {dispatch(infoActions.reset()); dispatch(quizActions.reset()); props.resetTimer()}}>Home</Link>
 
     </Fragment>
 }
