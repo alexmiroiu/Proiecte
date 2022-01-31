@@ -51,7 +51,7 @@ const Hero = React.forwardRef((props, ref) => {
             eng: 'and I\'m a'
         },
         description: {
-            ro: 'La momentul actual programarea web a devenit pasiunea mea si urmaresc o schimbare de cariera in acest domeniu. Caut un job full time unde sa pot contribui la crearea de aplicatii web moderne, obiectivul meu pe termen lung fiind dezvoltarea catre un rol full-stack.',
+            ro: 'La momentul actual programarea web a devenit pasiunea mea si urmaresc o schimbare de cariera in acest domeniu. Imi doresc sa contribui la crearea de aplicatii web moderne folosind tehnologii de actualitate.',
             eng: 'Web development is my passion and my new professional career focus. Contributing to the creation of modern web applications with the use of new technologies has become my drive.'
         }
     }
