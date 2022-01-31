@@ -26,7 +26,9 @@ const Footer = () => {
                 <a href='https://github.com/alexmiroiu' target="_blank" rel="noreferrer noopener">
                     <SvgGithubLogo className={`${classes.footerIcon} ${dark ? classes.iconDarkH : classes.iconLightH}`} />
                 </a>
-                <SvgLinkedin className={`${classes.footerIcon} ${dark ? classes.iconDarkH : classes.iconLightH}`}/>
+                <a href='https://www.linkedin.com/in/alexandru-miroiu' target="_blank" >
+                    <SvgLinkedin className={`${classes.footerIcon} ${dark ? classes.iconDarkH : classes.iconLightH}`}/>
+                </a>
             </div>
             <div className={classes.emailWrapper}>
                 <SvgEmail className={`${classes.footerIcon} ${dark ? classes.iconDark : classes.iconLight}`}/>
