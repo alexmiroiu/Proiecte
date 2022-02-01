@@ -42,7 +42,7 @@ const Header = (props) => {
                 <li onClick={props.aboutClick} className={classes.navItem}>{language === 'ro' ? displayedText.about.ro : displayedText.about.eng}</li>
                 <li onClick={props.projectsClick} className={classes.navItem}>{language === 'ro' ? displayedText.projects.ro : displayedText.projects.eng}</li>
                 <li onClick={props.contactClick} className={classes.navItem}>{language === 'ro' ? displayedText.contact.ro : displayedText.contact.eng}</li>
-                <li><a className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} href='https://docdro.id/CKzTXXf' without rel="noopener noreferrer" target="_blank">{language === 'ro' ? displayedText.button.ro : displayedText.button.eng}</a></li>
+                <li><button onClick={ctx.changeResumeModalState} className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`}>{language === 'ro' ? displayedText.button.ro : displayedText.button.eng}</button></li>
                 <li>
                     <input type="checkbox" className={classes.checkbox} id='checkbox' checked={dark} onChange={ctx.changeTheme}/>
                     <label htmlFor='checkbox' className={classes.label}>

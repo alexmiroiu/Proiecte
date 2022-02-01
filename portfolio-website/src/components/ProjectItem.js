@@ -15,11 +15,11 @@ const format = ctx.format;
 let clickHandler = (e) => {
     if(!props.projectFormat.includes('Mobile') & format === 'Mobile') {
         e.preventDefault();
-        ctx.changeModalState();
+        ctx.changeProjectModalState();
         document.body.style.overflowY = 'hidden';
     } else if (!props.projectFormat.includes('Desktop') & format === 'Desktop') {
         e.preventDefault();
-        ctx.changeModalState();
+        ctx.changeProjectModalState();
         document.body.style.overflowY = 'hidden';
     }
 }

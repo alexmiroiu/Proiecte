@@ -14,13 +14,13 @@ const Backdrop = () => {
     return <div className={`${classes.backdrop} ${dark ? classes.backdropDark : classes.backdropLight}`}></div>
 }
 
-const ModalElement = (props) => {
+const DocumentModalElement = (props) => {
     const ctx = useContext(GlobalState);
     const dark = ctx.darkMode;
     const language = ctx.currentLanguage;
 
     const closeModalHandler = () => {
-    ctx.changeModalState();
+    ctx.changeProjectModalState();
     document.body.style.overflowY = 'unset';
     }
 
@@ -37,6 +37,28 @@ const ModalElement = (props) => {
     </div>
 }
 
+const ResumeModalElement = () => {
+    const ctx = useContext(GlobalState);
+    const dark = ctx.darkMode;
+    const language = ctx.currentLanguage;
+
+    return  <div className={`${classes.modal} ${dark ? classes.modalDark : classes.modalLight}`}>
+                <h2>Selecteaza limba in care doresti sa vizualizezi CV-ul</h2>
+                <div className={classes.buttonsWrapper}>
+                    <a className={classes.modalBtn}>RO</a>
+                    <a className={classes.modalBtn}>ENG</a>
+                </div>
+            </div>
+}
+
+export const ResumeModalComponent = () => {
+
+    return  <Fragment>
+    {ReactDOM.createPortal(<Backdrop />, document.getElementById('backdrop'))}
+    {ReactDOM.createPortal(<ResumeModalElement />, document.getElementById('modal'))}
+    </Fragment>
+}
+
 const Modal = (props) => {
     const ctx = useContext(GlobalState);
     const language = ctx.currentLanguage;
@@ -48,7 +70,7 @@ const Modal = (props) => {
 
     return  <Fragment>
                 {ReactDOM.createPortal(<Backdrop />, document.getElementById('backdrop'))}
-                {ReactDOM.createPortal(<ModalElement messageTitle={language === 'ro' ? title.ro : title.eng} />, document.getElementById('modal'))}
+                {ReactDOM.createPortal(<DocumentModalElement messageTitle={language === 'ro' ? title.ro : title.eng} />, document.getElementById('modal'))}
             </Fragment>
 }
 

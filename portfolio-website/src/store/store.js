@@ -5,8 +5,8 @@ const GlobalState = React.createContext({
     changeTheme: () => {},
     format: undefined,
     formatMessage: undefined,
-    modal: false,
-    changeModalState: () => {},
+    changeProjectModalState: () => {},
+    changeResumeModalState: () => {},
     currentLanguage: 'ro',
     changeLanguage: () => {}
 });

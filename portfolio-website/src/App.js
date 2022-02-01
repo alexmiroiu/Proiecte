@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 
+import { ResumeModalComponent } from './components/Modal';
+
 import classes from './App.module.css';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -18,13 +20,14 @@ function App() {
   const [height, setHeight] = useState(window.innerHeight);
   const [format, setFormat] = useState();
   const [formatMsg, setFormatMsg] = useState();
-  const [modalOn, setModal] = useState(false);
+  const [modalOn, setModalOn] = useState(false);
+  const [resumeModal, setResumeModal] = useState(false);
   const [lang, setLang] = useState('ro');
 
   const modalMsg = {
     desktop: {
-      ro: 'Proiectul nu este disponibil in varianta desktop, incearca sa accesezi acest proiect pe telefonul mobil.',
-      eng: 'The project is not available on desktop, please try accessing it on a mobile phone.'
+      ro: 'Proiectul nu este disponibil pe laptop sau desktop PC, incearca sa accesezi acest proiect pe telefonul mobil.',
+      eng: 'The project is not available on a desktop PC or laptop, please try accessing it on a mobile phone.'
     },
     mobile: {
       ro: 'Acest proiect nu este disponibil pe telefonul mobil, incearca sa accesezi acest proiect de pe un desktop PC sau un laptop.',
@@ -116,8 +119,14 @@ function App() {
 
 
   const modalStatusHandler = () => {
-    setModal(previousState => !previousState)
+    setModalOn(previousState => !previousState)
   }
+
+  const resumeModalHandler = () => {
+    setResumeModal(previousState => !previousState);
+  }
+
+
 
   const heroComponentRef = useRef();
   const aboutComponentRef = useRef();
@@ -142,8 +151,8 @@ function App() {
     changeTheme: toggleTheme,
     format: format,
     formatMessage: formatMsg,
-    modalIsActive: modalOn,
-    changeModalState: modalStatusHandler,
+    changeProjectModalState: modalStatusHandler,
+    changeResumeModalState: resumeModalHandler,
     currentLanguage: lang,
     changeLanguage: toggleLanguage
   }}>
@@ -151,6 +160,7 @@ function App() {
       {(width > 799) && <Header logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects} contactClick={navigateToContact}/>}
       {(width < 800) && <MobileHeader logoClick={navigateToHero} aboutClick={navigateToAbout} projectsClick={navigateToProjects} contactClick={navigateToContact}/>}
       {modalOn && <Modal />}
+      {resumeModal && <ResumeModalComponent />}
       <div className={`${classes.outerWrapper} `}>
       <Hero ref={heroComponentRef}/>
       <About ref={aboutComponentRef}/>

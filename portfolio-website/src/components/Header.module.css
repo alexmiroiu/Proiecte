@@ -119,6 +119,7 @@
 .navBtn {
     position: relative;
     display: flex;
+    background: transparent;
     align-items: center;
     justify-content: center;
     text-align: center;
