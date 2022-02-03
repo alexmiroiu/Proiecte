@@ -5,8 +5,6 @@ import classes from './Header.module.css';
 import SvgAmLogo from './iconComponents/AmLogo';
 import SvgSun from './iconComponents/Sun';
 import SvgMoon from './iconComponents/Moon';
-import roFlag from '../assets/icons/romania.png';
-import ukFlag from '../assets/icons/unitedKingdom.png';
 
 const Header = (props) => {
     const ctx = useContext(GlobalState);
@@ -43,11 +41,14 @@ const Header = (props) => {
                 <SvgAmLogo className={classes.logo} onClick={props.logoClick}/>
         <nav className={`${classes.mainNav} ${dark ? classes.mainNavDark : classes.mainNavLight}`}>
             <ul className={classes.menuItems}>
-                <li className={`${classes.language} ${dark ? classes.languageDark : classes.languageLight}`} onClick={ctx.changeLanguage}><img src={language === 'eng' ? ukFlag : roFlag} className={classes.flag} alt=''></img></li>
+                <li><button onClick={resumeModalHandler} className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`}>{language === 'ro' ? displayedText.button.ro : displayedText.button.eng}</button></li>
                 <li onClick={props.aboutClick} className={classes.navItem}>{language === 'ro' ? displayedText.about.ro : displayedText.about.eng}</li>
                 <li onClick={props.projectsClick} className={classes.navItem}>{language === 'ro' ? displayedText.projects.ro : displayedText.projects.eng}</li>
                 <li onClick={props.contactClick} className={classes.navItem}>{language === 'ro' ? displayedText.contact.ro : displayedText.contact.eng}</li>
-                <li><button onClick={resumeModalHandler} className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`}>{language === 'ro' ? displayedText.button.ro : displayedText.button.eng}</button></li>
+                <li className={`${classes.languageSwitcher} ${dark ? classes.languageSwitcherDark : classes.languageSwitcherLight}`} onClick={ctx.changeLanguage}>
+                    <p className={`${classes.ro} ${language === 'ro' ? classes.highlightedLanguage : ''}`}>Ro</p>
+                    <p className={`${classes.en} ${language === 'eng' ? classes.highlightedLanguage : ''} ${dark ? classes.enDark : classes.enLight}`}>En</p>
+                </li>
                 <li>
                     <input type="checkbox" className={classes.checkbox} id='checkbox' checked={dark} onChange={ctx.changeTheme}/>
                     <label htmlFor='checkbox' className={classes.label}>

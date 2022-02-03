@@ -60,8 +60,8 @@ const ResumeModalElement = () => {
                 <SvgResume className={classes.resumeImage}/>
                 <p className={classes.resumeTitle}>{language === 'ro' ? modalText.ro : modalText.eng}</p>
                 <div className={classes.buttonsWrapper}>
-                    <a onClick={closeAfterClick} href="https://docdro.id/wW0Do66" target="_blank" rel="noreferrer noopener"><button className={`${classes.modalBtn} ${classes.resumeButton} ${dark ? classes.modalBtnDark : classes.modalBtnLight}`}>RO</button></a>
-                    <a onClick={closeAfterClick} href="https://docdro.id/XJOBQnD" target="_blank" rel="noreferrer noopener"><button className={`${classes.modalBtn} ${classes.resumeButton} ${dark ? classes.modalBtnDark : classes.modalBtnLight}`}>ENG</button></a>
+                    <a onClick={closeAfterClick} href="https://docdro.id/wW0Do66" target="_blank" rel="noreferrer noopener"><button className={`${classes.modalBtn} ${classes.resumeButton} ${dark ? classes.modalBtnDark : classes.modalBtnLight}`}>Ro</button></a>
+                    <a onClick={closeAfterClick} href="https://docdro.id/XJOBQnD" target="_blank" rel="noreferrer noopener"><button className={`${classes.modalBtn} ${classes.resumeButton} ${dark ? classes.modalBtnDark : classes.modalBtnLight}`}>En</button></a>
                 </div>
             </div>
 }

@@ -4,8 +4,6 @@ import classes from './MobileHeader.module.css';
 import SvgAmLogo from "./iconComponents/AmLogo";
 import SvgMoon from "./iconComponents/Moon";
 import SvgSun from "./iconComponents/Sun";
-import roFlag from '../assets/icons/romania.png';
-import ukFlag from '../assets/icons/unitedKingdom.png';
 
 import GlobalState from "../store/store";
 
@@ -90,11 +88,14 @@ const MobileHeader = (props) => {
             </label>
           </div>
           <ul className={classes.menuItems}>
+            <li><button onClick={resumeModalHandler} className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} >{language === 'ro' ? displayedText.button.ro : displayedText.button.eng}</button></li>
             <li onClick={aboutClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>{language === 'ro' ? displayedText.about.ro : displayedText.about.eng}</li>
             <li onClick={projectsClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>{language === 'ro' ? displayedText.projects.ro : displayedText.projects.eng}</li>
             <li onClick={contactClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>{language === 'ro' ? displayedText.contact.ro : displayedText.contact.eng}</li>
-            <li><button onClick={resumeModalHandler} className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} >{language === 'ro' ? displayedText.button.ro : displayedText.button.eng}</button></li>
-            <li className={`${classes.language} ${dark ? classes.languageDark : classes.languageLight}`} onClick={ctx.changeLanguage}><img src={language === 'eng' ? ukFlag : roFlag} className={classes.flag} alt=''></img></li>
+            <li className={`${classes.languageSwitcher} ${dark ? classes.languageSwitcherDark : classes.languageSwitcherLight}`} onClick={ctx.changeLanguage}>
+                    <p className={`${classes.ro} ${language === 'ro' ? classes.highlightedLanguage : ''}`}>Ro</p>
+                    <p className={`${classes.en} ${language === 'eng' ? classes.highlightedLanguage : ''} ${dark ? classes.enDark : classes.enLight}`}>En</p>
+            </li>
           </ul>
         </div>
         {active && <div className={`${classes.backDrop} ${dark ? classes.backDropDark : classes.backDropLight}`} onClick={changeMenuState}></div>}
