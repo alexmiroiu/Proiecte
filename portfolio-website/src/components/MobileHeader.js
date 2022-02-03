@@ -16,24 +16,39 @@ const MobileHeader = (props) => {
   const dark = ctx.darkMode;
   const language = ctx.currentLanguage;
 
+  const resumeModalHandler = () => {
+    ctx.changeResumeModalState();
+    document.body.style.overflowY = 'hidden';
+}
 
-  const changeButtonState = () => {
-    setActive(prevState => !prevState)
-  }
+  const changeMenuState = () => {
+    if(active) {
+      setActive(false)
+      document.body.style.overflowY = 'unset';
+    }
+    if(!active) {
+      setActive(true)
+      document.body.style.overflowY = 'hidden';
+    }
+  }  
+
 
   const aboutClickHandler = () => {
     props.aboutClick();
     setActive(prevState => !prevState);
+    document.body.style.overflowY = 'unset';
   }
 
   const projectsClickHandler = () => {
     props.projectsClick();
     setActive(prevState => !prevState);
+    document.body.style.overflowY = 'unset';
   }
 
   const contactClickHandler = () => {
     props.contactClick();
     setActive(prevState => !prevState);
+    document.body.style.overflowY = 'unset';
   }
 
   const displayedText = {
@@ -60,7 +75,7 @@ const MobileHeader = (props) => {
         <nav className={`${classes.header} ${dark ? classes.darkHeader : classes.lightHeader}`}>
           <SvgAmLogo className={classes.logo} onClick={props.logoClick}/>
         </nav>
-          <button className={classes.hamburger} onClick={changeButtonState}>
+          <button className={classes.hamburger} onClick={changeMenuState}>
             <div className={`${classes.bar1} ${active ? classes.activeBar1 : ''} ${dark ? classes.barLight : classes.barDark}`}></div>
             <div className={`${classes.bar2} ${active ? classes.activeBar2 : ''} ${dark ? classes.barLight : classes.barDark}`}></div>
             <div className={`${classes.bar3} ${active ? classes.activeBar3 : ''} ${dark ? classes.barLight : classes.barDark}`}></div>
@@ -78,11 +93,11 @@ const MobileHeader = (props) => {
             <li onClick={aboutClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>{language === 'ro' ? displayedText.about.ro : displayedText.about.eng}</li>
             <li onClick={projectsClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>{language === 'ro' ? displayedText.projects.ro : displayedText.projects.eng}</li>
             <li onClick={contactClickHandler} className={`${classes.navItem} ${dark ? classes.navItemDark : classes.navItemLight}`}>{language === 'ro' ? displayedText.contact.ro : displayedText.contact.eng}</li>
-            <li><a className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} href='https://docdro.id/CKzTXXf' without rel="noopener noreferrer" target="_blank">{language === 'ro' ? displayedText.button.ro : displayedText.button.eng}</a></li>
+            <li><button onClick={resumeModalHandler} className={`${classes.navBtn} ${dark ? classes.navBtnDark : classes.navBtnLight}`} >{language === 'ro' ? displayedText.button.ro : displayedText.button.eng}</button></li>
             <li className={`${classes.language} ${dark ? classes.languageDark : classes.languageLight}`} onClick={ctx.changeLanguage}><img src={language === 'eng' ? ukFlag : roFlag} className={classes.flag} alt=''></img></li>
           </ul>
         </div>
-        {active && <div className={`${classes.backDrop} ${dark ? classes.backDropDark : classes.backDropLight}`} onClick={changeButtonState}></div>}
+        {active && <div className={`${classes.backDrop} ${dark ? classes.backDropDark : classes.backDropLight}`} onClick={changeMenuState}></div>}
         </Fragment>
     )
 }

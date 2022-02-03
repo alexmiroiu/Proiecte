@@ -175,6 +175,7 @@
     text-decoration: none;
     cursor: pointer;
     margin-bottom: 6rem;
+    background: transparent;
 }
 
 .navBtnLight {
