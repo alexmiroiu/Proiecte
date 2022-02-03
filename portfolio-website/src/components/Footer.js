@@ -1,7 +1,6 @@
 import { React } from 'react';
 import { useContext } from 'react';
 import classes from './Footer.module.css';
-import SvgCopyright from './iconComponents/Copyright';
 import SvgLocation from './newIconComponents/Location';
 import SvgGithubLogo from './iconComponents/GithubLogo';
 import SvgLinkedin from './iconComponents/Linkedin';
@@ -26,7 +25,7 @@ const Footer = () => {
                 <a href='https://github.com/alexmiroiu' target="_blank" rel="noreferrer noopener">
                     <SvgGithubLogo className={`${classes.footerIcon} ${dark ? classes.iconDarkH : classes.iconLightH}`} />
                 </a>
-                <a href='https://www.linkedin.com/in/alexandru-miroiu' target="_blank" >
+                <a href='https://www.linkedin.com/in/alexandru-miroiu' target="_blank" rel="noreferrer noopener">
                     <SvgLinkedin className={`${classes.footerIcon} ${dark ? classes.iconDarkH : classes.iconLightH}`}/>
                 </a>
             </div>
