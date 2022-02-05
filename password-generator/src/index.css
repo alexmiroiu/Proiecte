@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Stint+Ultra+Expanded&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --red: #F38181;
+  --green: #FCE38A;
+  --light-green: #EAFFD0;
+  --teal: #95E1D3;
+  
+  --dark-text: rgb(59, 59, 59);
+  --mediumLight-text: rgb(112, 112, 112);
+  --light-text: rgb(219, 219, 219);
+
+  --title-font: 'Stint Ultra Expanded', cursive;
+  --default: 'Raleway', sans-serif;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -33,4 +50,9 @@ p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
 
+
+#root {
+  width: 100%;
+  height: 100%;
+}
 
