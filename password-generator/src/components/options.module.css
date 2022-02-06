@@ -1,7 +1,7 @@
 .optionsContainer {
     position: relative;
-    width: 45rem;
-    height: 40rem;
+    width: 35rem;
+    height: 35rem;
     background-color: var(--red);
     border-radius: 10px;
     display: flex;
@@ -17,11 +17,92 @@
 
 .optionsContainer h2 {
     color: var(--light-text);
-    font-size: 1.7rem;
+    font-size: 1.9rem;
+    margin-top: .5rem;
+    margin-bottom: 3rem;
 }
 
 .optionsWrapper {
-    width: 30rem;
+    width: 35rem;
     height: 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 3rem;
+    justify-content: flex-start;
+    gap: 1.4rem;
     /* background-color: var(--light-green); */
+}
+
+.lengthWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.optionName {
+    width: 45%;
+    font-size: 1.3rem;
+    color: var(--light-text);
+    font-weight: 700;
+    text-align: center;
+}
+
+.optionDesc {
+    font-size: 1.3rem;
+    color: var(--light-text);
+    font-weight: 700;
+}
+
+.checkBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkBox:hover .svgCheck {
+    background: var(--red);
+}
+
+.check {
+    width: 0;
+    height: 0;
+    opacity: 0; 
+}
+
+.check:checked + .svgCheck {
+    background: var(--green);
+    stroke-dashoffset: 0; 
+}
+
+.svgCheck {
+    border: 0.2rem solid var(--green);
+    background: var(--teal);
+    stroke: var(--red);
+    stroke-dasharray: 25;
+    stroke-dashoffset: 25;
+    stroke-linecap: round;
+    stroke-width: 0.2rem;
+  
+    border-radius: 0.2rem;
+  
+    fill: none;
+  
+    transition: background 0.3s, stroke-dashoffset 0.4s;
+  }
+
+.optionWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.descriptionWrapper {
+    display: flex;
+    width: 50%;
+    justify-content: flex-start;
+    gap: .5rem;
 }
