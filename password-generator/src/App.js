@@ -1,4 +1,3 @@
-import React, {Fragment} from 'react';
 import classes from './App.module.css';
 import Generate from './components/generate';
 import Options from './components/options';
@@ -12,9 +11,7 @@ function App() {
             <Strength />
             <Options />
             <Generate />
-          </div>
-
-        
+          </div>      
 }
 
 export default App;

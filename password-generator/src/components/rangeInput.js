@@ -1,21 +1,23 @@
 import React from "react";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { pwActions } from "../store/generate-password";
 
 import classes from './rangeInput.module.css';
 
 const RangeInput = () => {
-    const [inputval, setInputval] = useState(6);
+    const dispatch = useDispatch();
+    const rangeValue = useSelector(state => state.passwordLength);
 
-    const changeInputValue = (event) => {
-        setInputval(event.target.value);
+    const changeValueHandler = (event) => {
+        dispatch(pwActions.changeLength(event.target.value));
     }
 
     return (
         <div className={classes.slider}>
             <div className={classes.showValue}>
-                {inputval}
+                {rangeValue}
             </div>
-            <input type='range' className={classes.customSlider} onChange={changeInputValue} min='6' max='24' value={inputval} steps='1'></input>
+            <input type='range' className={classes.customSlider} onChange={changeValueHandler}  min='6' max='24' value={rangeValue} steps='1'></input>
         </div>)
 }
 
