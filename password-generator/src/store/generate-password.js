@@ -14,7 +14,9 @@ const pwGeneratorSlice = createSlice({
         lowercaseChecked: false,
         uppercase: [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'],
         uppercaseChecked: false,
-        combined: []
+        combined: '',
+        strength: '',
+        pwError: false
     },
     reducers: {
         changeLength(state, action) {
@@ -34,6 +36,7 @@ const pwGeneratorSlice = createSlice({
             state.uppercaseChecked = !state.uppercaseChecked;
         },
         combineChoices(state, action) {
+            state.pwError = false;
             const newArr = [];
             if(state.numbersChecked) {
                 newArr.push(...state.numbers);
@@ -47,10 +50,11 @@ const pwGeneratorSlice = createSlice({
             if(state.uppercaseChecked) {
                 newArr.push(...state.uppercase)
             }
-
-            // const generatePassword = (combinedArray, passwordLength) => {
-            //     return [...Array(passwordLength)].map(i => combinedArray[Math.random() * combinedArray.length|0]).join('');
-            // };
+            if(!state.numbersChecked && !state.symbolsChecked && !state.lowercaseChecked && !state.uppercaseChecked) {
+                state.combined = 'Please make at least one selection';
+                state.pwError = true;
+                return;
+            }
 
             const generatePassword = (arr, length) => {
                 let result = '';
@@ -60,11 +64,18 @@ const pwGeneratorSlice = createSlice({
                 }
                 return result;
             }
-
-            console.log(newArr);
-            console.log(state.passwordLength);
             const newPassword = generatePassword(newArr, state.passwordLength);
-            console.log(newPassword);
+            state.combined = newPassword;
+
+            if(state.combined.length < 11) {
+                state.strength = 'Weak';
+            } else if (state.combined.length > 10 && state.combined.length < 18) {
+                state.strength = 'Strong';
+            } else if (state.combined.length > 17) {
+                state.strength = 'Very Strong';
+            }
+            console.log(state.strength)
+
         }
     }
 });

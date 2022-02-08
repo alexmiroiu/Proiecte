@@ -5,6 +5,7 @@ import Password from './components/password';
 import Strength from './components/strength';
 
 function App() {
+
   return <div className={classes.mainWrapper}>
             <h1>Password Generator</h1>
             <Password />
