@@ -16,5 +16,18 @@
 h1 {
     font-family: var(--title-font);
     color: var(--dark-text);
-    font-size: 2.5rem;
+    font-size: 3rem;
+    margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.7rem;
+        margin-bottom: 2rem;
+    }
+
+    .mainWrapper {
+        justify-content: flex-start;
+    }
+
 }

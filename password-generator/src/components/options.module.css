@@ -85,11 +85,8 @@
     stroke-dashoffset: 25;
     stroke-linecap: round;
     stroke-width: 0.2rem;
-  
     border-radius: 0.2rem;
-  
     fill: none;
-  
     transition: background 0.3s, stroke-dashoffset 0.4s;
   }
 
@@ -105,4 +102,27 @@
     width: 50%;
     justify-content: flex-start;
     gap: .5rem;
+}
+
+@media (max-width: 768px) {
+    .optionsContainer {
+        width: 320px;
+        height: fit-content;
+    }
+    .optionsContainer h2 {
+        margin-bottom: 1rem;
+    }
+
+    .optionsWrapper {
+        width: 300px;
+        padding: .8rem .8rem;
+        margin-bottom: 1rem;
+    }
+    .optionDesc {
+        display: none;
+    }
+    .descriptionWrapper {
+        justify-content: center;
+    }
+
 }
