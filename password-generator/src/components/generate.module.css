@@ -24,3 +24,15 @@
     transform: translateY(-1px);
     box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
+
+@media (max-width: 768px) {
+    .btn {
+        margin-bottom: 5rem;
+    }
+}
+
+@media (min-width: 1000px) and (max-height: 950px) {
+    .btn {
+        margin-bottom: 5rem;
+    }
+}
