@@ -86,16 +86,27 @@ const intermediateProjects = [
     technologies: ['React', 'Redux'],
     format: ['Mobile', 'Desktop']
 },
+// {
+//     title: 'CeGatim App',
+//     description: [
+//         'O aplicatie in care utilizatorul poate adauga mancarurile pe care le gateste intr-o baza de date pentru ca ulterior sa le poata vizualiza.',
+//         'An app where the user can add dishes he/she cooks and then view them in a list.'
+//     ],
+//     githubLink: 'https://github.com/alexmiroiu',
+//     projectLink: 'https://alexmiroiu.github.io/ceGatim/',
+//     technologies: ['React', 'Firebase'],
+//     format: ['Mobile']
+// },
 {
-    title: 'CeGatim App',
+    title: 'Password Generator',
     description: [
-        'O aplicatie in care utilizatorul poate adauga mancarurile pe care le gateste intr-o baza de date pentru ca ulterior sa le poata vizualiza.',
-        'An app where the user can add dishes he/she cooks and then view them in a list.'
+        'O aplicatie web care genereaza o parola in mod aleatoriu in functie de optiunile selectate de utilizator.',
+        'A web app that generates a random password depending on certain options selected by the user.'
     ],
-    githubLink: 'https://github.com/alexmiroiu',
-    projectLink: 'https://alexmiroiu.github.io/ceGatim/',
-    technologies: ['React', 'Firebase'],
-    format: ['Mobile']
+    githubLink: 'https://github.com/alexmiroiu/alexmiroiu.github.io/tree/main/password-generator',
+    projectLink: 'https://alexmiroiu.github.io/password-generator/',
+    technologies: ['React', 'Redux'],
+    format: ['Mobile', 'Desktop']
 },
     
 ]
