@@ -7,7 +7,7 @@ import classes from './FoodList.module.css';
 
 const FoodList = () => {
     const dispatch = useDispatch();
-    const listOfFoods = useSelector(state => state.list.FoodList);
+    const listOfFoods = useSelector(state => state.list.foodList);
 
     useEffect(() => {
         dispatch(getFoodItems())
@@ -15,7 +15,7 @@ const FoodList = () => {
 
     console.log(listOfFoods)
 
-    return <div>{listOfFoods}</div>
+    return <div className={classes.font}><p>{}</p></div>
 }
 
 export default FoodList;

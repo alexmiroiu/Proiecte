@@ -24,7 +24,6 @@ export const getFoodItems = () => {
         const fetchData = async () =>{
             const request = await fetch('https://cemancam-14798-default-rtdb.europe-west1.firebasedatabase.app/recipes.json');
             const response = await request.json();
-            console.log(response)
             if(!response) {
                 console.log('error');
                 throw new Error('Something went wrong!');
@@ -48,6 +47,7 @@ export const getFoodItems = () => {
         try {
             const data = await fetchData();
             dispatch(listActions.displayDishes(data));
+            console.log('dispatched')
         } catch (error) {
             dispatch(listActions.setErrorMessage(error.message))
         }
