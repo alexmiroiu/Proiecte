@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import styles from './App.module.css';
+import React, { useState } from 'react';
 import AddFoodForm from './components/AddFoodForm';
 import FoodList from './components/FoodList';
 import Header from './components/Header';

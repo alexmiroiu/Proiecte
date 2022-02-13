@@ -1,19 +1,19 @@
 import React from "react";
-import styles from './Header.module.css';
+import classes from './MobileHeader.module.css';
 
 const Header = (props) => {
 
 
 
     return (
-        <nav className={styles.header}>
+        <nav className={classes.header}>
             <p>ce mancam?</p>
-            <div className={styles.menuToggle}>
+            <div className={classes.menuToggle}>
               <input type="checkbox" onChange={props.menuStatus} checked={props.menuIsDisplayed}/>
                 <span></span>
                 <span></span>
                 <span></span>
-              <ul className={styles.menu}>
+              <ul className={classes.menu}>
                 <li><button onClick={props.renderList}>Lista preparate</button></li>
                 <li><button onClick={props.renderForm}>Adauga un preparat</button></li>
               </ul>
