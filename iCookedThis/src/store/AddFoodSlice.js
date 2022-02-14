@@ -26,7 +26,7 @@ const AddFoodSlice = createSlice({
         selectedImage,
         uploadedImage: {
             url:'',
-            isLoading: '',
+            isLoading: false,
         },
         formValidity: false,
         showError: false
@@ -74,16 +74,46 @@ const AddFoodSlice = createSlice({
         },
         checkTypeValidity(state, action) {
             state.type.touched = true;
-            if(state.type.value.) {
-                
+            if(state.type.value !== 'Selecteaza') {
+                state.type.isValid = true;
+            } else {
+                state.type.isValid = false;
             }
+        },
+        resetAll(state, action) {
+            ///foodname
+            state.foodname.value = '';
+            state.foodname.touched = false;
+            state.foodname.isValid = false;
+            ///time
+            state.time.value = '';
+            state.time.isValid = false;
+            state.time.touched = false;
+            ///recipe
+            state.recipe.value = '';
+            state.recipe.touched = false;
+            state.recipe.isValid = false;
+            ///type
+            state.type.value = 'Selecteaza';
+            state.type.touched = false;
+            state.type.isValid false;
+            ///image
+            state.selectedImage = '';
+            state.uploadedImage.url = '';
+            state.formValidity = false;
+            state.showError = false;
         }
     }
 
 });
 
-
-
 export const addFoodActions = AddFoodSlice.actions;
+
+export const uploadImage = (event, image) => {
+    return async dispatch => {
+        event.preventDefault();
+
+    }
+}
 
 export default AddFoodSlice;
