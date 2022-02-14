@@ -4,6 +4,8 @@ const FoodListSlice = createSlice({
     name: 'FoodList',
     initialState: {
         foodList: [],
+        selectedType : "Toate",
+        searchText: '',
         errorMessage:''
     },
     reducers: {
@@ -12,6 +14,13 @@ const FoodListSlice = createSlice({
         },
         setErrorMessage(state, action) {
             state.errorMessage = action.payload;
+        },
+        getSelectedType(state, action) {
+            state.selectedType = action.payload;
+            console.log(`changed to ${action.payload}`)
+        },
+        getSearchPhrase(state, action) {
+            state.searchText = action.payload;
         }
 
     },

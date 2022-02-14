@@ -1,0 +1,67 @@
+.foodItem {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 1rem;
+    overflow: hidden;
+    background-color: var(--main-background);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 5px 5px 26px rgba(0, 0, 0, 0.14);
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    min-width: 50%;
+    max-width: 65%;
+    border-bottom-right-radius: 20px;
+    text-align: center;
+    padding: 1rem 2rem;
+}
+
+.titleContainer h2 {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 2.5rem;
+    color: white;
+
+}
+
+
+.foodItem img {
+    width: 100%;
+    height: 30rem;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--header-background) ;
+}
+
+.itemMenu {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.menuBtn {
+    flex-basis: 40%;
+    font-family: inherit;
+    font-size: 1.6rem;
+    margin: 1rem 0;
+    display: inline-block;
+    background-color: var(--header-background);
+    color: white;
+    padding: .5rem 1rem;
+    border: 1px solid var(--header-background);
+    border-radius: 5px;
+}
+
+.menuBtn:active {
+    background-color: var(--lighter-blue);
+}
