@@ -1,0 +1,65 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.75);
+
+}
+
+.errorModal {
+    position: fixed;
+    z-index: 10;
+    left: 15%;
+    top: 60vh;
+    width: 70%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    animation: slideDown .3s ease-out;
+}
+
+.errorModal h3 {
+    font-size: 2.3rem;
+}
+
+
+
+.errorDescription {
+    width: 80%;
+    text-align: center;
+}
+
+.modalBtn {
+    font-family: inherit;
+    font-size: 1.6rem;
+    margin: 1rem 0;
+    display: inline-block;
+    width: 60%;
+    background-color: var(--header-background);
+    color: white;
+    padding: .5rem 1rem;
+    border: 1px solid var(--header-background);
+    border-radius: 5px;
+}
+
+.modalBtn:active {
+    background-color: var(--lighter-blue);
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: .9;
+        transform: translateY(-2rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

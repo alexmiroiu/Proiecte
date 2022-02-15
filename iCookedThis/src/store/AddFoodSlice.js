@@ -15,15 +15,15 @@ const AddFoodSlice = createSlice({
         },
         recipe: {
             value: '',
-            isValid,
-            touched
+            isValid: false,
+            touched: false
         },
         type: {
             value: 'Selecteaza',
             isValid: false,
             touched: false
         },
-        selectedImage,
+        selectedImage: '',
         uploadedImage: {
             url:'',
             isLoading: false,
@@ -47,6 +47,12 @@ const AddFoodSlice = createSlice({
         },
         setSelectedImage(state, action) {
             state.selectedImage = action.payload;
+        },
+        setUploadedImage(state, action) {
+            state.uploadedImage.url = action.payload;
+        },
+        changeImageStatus(state, action) {
+            state.uploadedImage.isLoading = !state.uploadedImage.isLoading;
         },
         checkNameValidity(state, action) {
             state.foodname.touched = true;
@@ -80,6 +86,15 @@ const AddFoodSlice = createSlice({
                 state.type.isValid = false;
             }
         },
+        setFormValid(state, action) {
+            state.formValidity = true;
+        },
+        setFormInvalid(state, action) {
+            state.formValidity = false;
+        },
+        changeErrorState(state, action) {
+            state.showError = !state.showError;
+        },
         resetAll(state, action) {
             ///foodname
             state.foodname.value = '';
@@ -96,7 +111,7 @@ const AddFoodSlice = createSlice({
             ///type
             state.type.value = 'Selecteaza';
             state.type.touched = false;
-            state.type.isValid false;
+            state.type.isValid = false;
             ///image
             state.selectedImage = '';
             state.uploadedImage.url = '';
@@ -112,6 +127,25 @@ export const addFoodActions = AddFoodSlice.actions;
 export const uploadImage = (event, image) => {
     return async dispatch => {
         event.preventDefault();
+        dispatch(addFoodActions.changeImageStatus());
+        const data = new FormData();
+        data.append('file', image);
+        data.append('upload_preset', 'axmimages');
+        try {
+            const request = await fetch('https://api.cloudinary.com/v1_1/axmwebsitesro/image/upload', {
+                method: 'POST',
+                body: data
+            })
+            if(!request.ok) {
+                throw new Error('Image did not upload !')
+            }
+            const response = await request.json();
+            addFoodActions.setUploadedImage(response.secure_url);
+            dispatch(addFoodActions.changeImageStatus());
+        } catch(error) {
+            console.log(error);
+            dispatch(addFoodActions.changeImageStatus());
+        }
 
     }
 }

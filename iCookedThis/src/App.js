@@ -4,6 +4,7 @@ import MobileHeader from './components/MobileHeader';
 
 import FoodList from './pages/FoodList';
 import classes from './App.module.css';
+import AddFoodForm from './pages/AddFoodForm';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <MobileHeader />
       <Routes>
         <Route path='/' element={<FoodList />} />
+        <Route path='/add-recipe' element={<AddFoodForm />} />
       </Routes>
     </Fragment>
 
