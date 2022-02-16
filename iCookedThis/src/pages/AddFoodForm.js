@@ -36,7 +36,7 @@ const AddFoodForm = () => {
     const newImage = useSelector(state => state.addFood.selectedImage);
     const imgUrl = useSelector(state => state.addFood.uploadedImage.url);
     const imgIsLoading = useSelector(state => state.addFood.uploadedImage.isLoading);
-    //form validity
+    //form validity modified
     const formIsValid = useSelector(state => state.addFood.formValididty);
     const showError = useSelector(state => state.addFood.showError);
 
