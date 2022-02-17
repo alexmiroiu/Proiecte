@@ -1,8 +1,8 @@
 import { Fragment } from "react/cjs/react.production.min";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addFoodActions, uploadImage, uploadRecipe } from "../store/AddFoodSlice";
+import { addFoodActions, uploadRecipe } from "../store/AddFoodSlice";
 
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import ErrorModal from "../components/Modals/ErrorModal";
@@ -33,11 +33,11 @@ const AddFoodForm = () => {
     const typeIsValid = useSelector(state => state.addFood.type.isValid);
     const typeIsTouched = useSelector(state => state.addFood.type.touched);
     /// image 
-    const newImage = useSelector(state => state.addFood.selectedImage);
+    const [newImage, setNewImage] = useState();
     const imgUrl = useSelector(state => state.addFood.uploadedImage.url);
     const imgIsLoading = useSelector(state => state.addFood.uploadedImage.isLoading);
     //form validity
-    const formIsValid = useSelector(state => state.addFood.formValididty);
+    const formIsValid = useSelector(state => state.addFood.formValidity);
     const showError = useSelector(state => state.addFood.showError);
 
 
@@ -70,10 +70,7 @@ const AddFoodForm = () => {
     }
 
     const setImage = (event) => {
-        dispatch(addFoodActions.setSelectedImage(event.target.files[0]));
-    }
-    const uploadImg = (event) => {
-        dispatch(uploadImage(event, newImage))
+        setNewImage(event.target.files[0]);
     }
     const closeErrorModal = () => {
         dispatch(modalActions.changeModalState());
@@ -81,7 +78,8 @@ const AddFoodForm = () => {
     }
 
     const storeRecipe = (event) => {
-        dispatch(uploadRecipe(event, formIsValid, foodName, time, recipe, type, imgUrl))
+        dispatch(uploadRecipe(event, formIsValid, foodName, time, recipe, type, imgUrl));
+        setNewImage('');
     }
 
     useEffect(() => {
@@ -90,7 +88,33 @@ const AddFoodForm = () => {
         } else {
             dispatch(addFoodActions.setFormInvalid());
         }
-    },[]);
+        console.log(foodNameValid, timeIsValid, typeIsValid, recipeIsValid, formIsValid)
+    },[foodNameValid, timeIsValid, recipeIsValid, typeIsValid, formIsValid, dispatch]);
+
+    const uploadImage = async (event) => {
+        event.preventDefault();
+        dispatch(addFoodActions.changeImageStatus());
+        const data = new FormData();
+        data.append('file', newImage);
+        data.append('upload_preset', 'axmimages');
+        try {
+            const request = await fetch('https://api.cloudinary.com/v1_1/axmwebsitesro/image/upload', {
+                method: 'POST',
+                body: data
+            })
+            if(!request.ok) {
+                throw new Error('Image did not upload !');
+            }
+            const response = await request.json();
+            const url = response.secure_url;
+            console.log(url);
+            dispatch(addFoodActions.setUploadedImage(url));
+            dispatch(addFoodActions.changeImageStatus());
+        } catch(error) {
+            console.log(error);
+            dispatch(addFoodActions.changeImageStatus());
+        }
+    }
 
     const errorVisible = `${classes.errorMessage}`;
     const errorHidden = `${classes.errorMessage} ${classes.errorHidden}`;
@@ -121,14 +145,14 @@ const AddFoodForm = () => {
         <div className={classes.fileSelectWrapper}>
             <label htmlFor='fileSelect' className={newImage ? classes.fileSelectActive : classes.fileSelect}>{newImage ? newImage.name : 'Selecteaza o imagine'} </label>
             <input type='file' id="fileSelect" name="fileSelect" hidden onChange={setImage} />
-            <button onClick={uploadImg} className={classes.uploadBtn}>Adauga imaginea</button>
+            <button onClick={uploadImage} className={classes.uploadBtn}>Adauga imaginea</button>
             {imgUrl && <img src={imgUrl} alt='upload'/>}
             {!imgUrl && !imgIsLoading && <img src={placeholderImg} alt='upload'/>}
             {imgIsLoading && <LoadingSpinner className={classes.spinner}/>}
         </div>
         <button onClick={storeRecipe} className={classes.submitBtn} >Finalizeaza</button>
     </form>
-    {showError && <ErrorModal message={'Eroare'} description={'Nu ai introdus corect datele!'} closeModal={closeErrorModal}></ErrorModal>}
+    {/* {showError && <ErrorModal message={'Eroare'} description={'Nu ai introdus corect datele!'} closeModal={closeErrorModal}></ErrorModal>} */}
     </Fragment>
 }
 

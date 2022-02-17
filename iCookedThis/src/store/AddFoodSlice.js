@@ -45,9 +45,6 @@ const AddFoodSlice = createSlice({
         setType(state, action) {
             state.type.value = action.payload;
         },
-        setSelectedImage(state, action) {
-            state.selectedImage = action.payload;
-        },
         setUploadedImage(state, action) {
             state.uploadedImage.url = action.payload;
         },
@@ -113,7 +110,6 @@ const AddFoodSlice = createSlice({
             state.type.touched = false;
             state.type.isValid = false;
             ///image
-            state.selectedImage = '';
             state.uploadedImage.url = '';
             state.formValidity = false;
             state.showError = false;
@@ -123,32 +119,6 @@ const AddFoodSlice = createSlice({
 });
 
 export const addFoodActions = AddFoodSlice.actions;
-
-export const uploadImage = (event, image) => {
-    return async dispatch => {
-        event.preventDefault();
-        dispatch(addFoodActions.changeImageStatus());
-        const data = new FormData();
-        data.append('file', image);
-        data.append('upload_preset', 'axmimages');
-        try {
-            const request = await fetch('https://api.cloudinary.com/v1_1/axmwebsitesro/image/upload', {
-                method: 'POST',
-                body: data
-            })
-            if(!request.ok) {
-                throw new Error('Image did not upload !');
-            }
-            const response = await request.json();
-            addFoodActions.setUploadedImage(response.secure_url);
-            dispatch(addFoodActions.changeImageStatus());
-        } catch(error) {
-            console.log(error);
-            dispatch(addFoodActions.changeImageStatus());
-        }
-
-    }
-}
 
 export const uploadRecipe = (event, formValidity, itemName, itemTime, itemRecipe, itemType, imgUrl) => {
     return async dispatch => {
@@ -160,11 +130,11 @@ export const uploadRecipe = (event, formValidity, itemName, itemTime, itemRecipe
             type: itemType,
             img: imgUrl
         }
-        const postData = async (data) => {
+        const postData = async () => {
             if(formValidity) {
                 const request = await fetch('https://cemancam-14798-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', {
                     method: 'POST',
-                    body: JSON.stringify(data),
+                    body: JSON.stringify(foodItem),
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -177,10 +147,11 @@ export const uploadRecipe = (event, formValidity, itemName, itemTime, itemRecipe
             }
         }
         try {
-            await postData()
+            await postData();
         } catch (error) {
             dispatch(addFoodActions.changeErrorState());
             // adaugare modal aici
+            console.log(error)
         }
 
 
