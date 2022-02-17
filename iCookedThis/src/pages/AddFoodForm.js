@@ -2,7 +2,7 @@ import { Fragment } from "react/cjs/react.production.min";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addFoodActions, uploadImage } from "../store/AddFoodSlice";
+import { addFoodActions, uploadImage, uploadRecipe } from "../store/AddFoodSlice";
 
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import ErrorModal from "../components/Modals/ErrorModal";
@@ -36,7 +36,7 @@ const AddFoodForm = () => {
     const newImage = useSelector(state => state.addFood.selectedImage);
     const imgUrl = useSelector(state => state.addFood.uploadedImage.url);
     const imgIsLoading = useSelector(state => state.addFood.uploadedImage.isLoading);
-    //form validity modified
+    //form validity
     const formIsValid = useSelector(state => state.addFood.formValididty);
     const showError = useSelector(state => state.addFood.showError);
 
@@ -80,13 +80,17 @@ const AddFoodForm = () => {
         dispatch(addFoodActions.changeErrorState())
     }
 
+    const storeRecipe = (event) => {
+        dispatch(uploadRecipe(event, formIsValid, foodName, time, recipe, type, imgUrl))
+    }
+
     useEffect(() => {
         if(foodNameValid && timeIsValid && recipeIsValid && typeIsValid) {
             dispatch(addFoodActions.setFormValid());
         } else {
             dispatch(addFoodActions.setFormInvalid());
         }
-    },[])
+    },[]);
 
     const errorVisible = `${classes.errorMessage}`;
     const errorHidden = `${classes.errorMessage} ${classes.errorHidden}`;

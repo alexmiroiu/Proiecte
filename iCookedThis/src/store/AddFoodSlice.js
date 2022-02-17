@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const AddFoodSlice = createSlice({
     name: 'AddFood',
     initialState: {
-        foodname: {
+        foodName: {
             value: '',
             isValid: false,
             touched: false
@@ -34,7 +34,7 @@ const AddFoodSlice = createSlice({
     },
     reducers: {
         setName(state, action) {
-            state.foodname.value = action.payload;
+            state.foodName.value = action.payload;
         },
         setTime(state, action) {
             state.time.value = action.payload;
@@ -55,11 +55,11 @@ const AddFoodSlice = createSlice({
             state.uploadedImage.isLoading = !state.uploadedImage.isLoading;
         },
         checkNameValidity(state, action) {
-            state.foodname.touched = true;
-            if(state.foodname.value.length >= 3) {
-                state.foodname.isValid = true;
+            state.foodName.touched = true;
+            if(state.foodName.value.length >= 3) {
+                state.foodName.isValid = true;
             } else {
-                state.foodname.isValid = false;
+                state.foodName.isValid = false;
             }
         },
         checkTimeValidity(state, action) {
@@ -96,10 +96,10 @@ const AddFoodSlice = createSlice({
             state.showError = !state.showError;
         },
         resetAll(state, action) {
-            ///foodname
-            state.foodname.value = '';
-            state.foodname.touched = false;
-            state.foodname.isValid = false;
+            ///foodName
+            state.foodName.value = '';
+            state.foodName.touched = false;
+            state.foodName.isValid = false;
             ///time
             state.time.value = '';
             state.time.isValid = false;
@@ -137,7 +137,7 @@ export const uploadImage = (event, image) => {
                 body: data
             })
             if(!request.ok) {
-                throw new Error('Image did not upload !')
+                throw new Error('Image did not upload !');
             }
             const response = await request.json();
             addFoodActions.setUploadedImage(response.secure_url);
@@ -146,6 +146,43 @@ export const uploadImage = (event, image) => {
             console.log(error);
             dispatch(addFoodActions.changeImageStatus());
         }
+
+    }
+}
+
+export const uploadRecipe = (event, formValidity, itemName, itemTime, itemRecipe, itemType, imgUrl) => {
+    return async dispatch => {
+        event.preventDefault();
+        const foodItem = {
+            name: itemName,
+            time: itemTime,
+            recipe: itemRecipe,
+            type: itemType,
+            img: imgUrl
+        }
+        const postData = async (data) => {
+            if(formValidity) {
+                const request = await fetch('https://cemancam-14798-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                const response = await request.json();
+                console.log(response);
+                dispatch(addFoodActions.resetAll());
+            } else {
+                throw new Error('Uploading failed!');
+            }
+        }
+        try {
+            await postData()
+        } catch (error) {
+            dispatch(addFoodActions.changeErrorState());
+            // adaugare modal aici
+        }
+
 
     }
 }
