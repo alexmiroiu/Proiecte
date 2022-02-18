@@ -1,0 +1,11 @@
+.mainWrapper {
+    position: relative;
+    width: 100rem;
+    height: fit-content;
+    min-height: 100rem;
+    margin: 10rem auto 0;
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
