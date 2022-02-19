@@ -18,7 +18,7 @@ const TaskList = () => {
 
     return <div>
         <div>
-            <h2>Tasks for today</h2>
+            <h2>Your tasks</h2>
             <p>A list of the tasks you have appointed for today</p>
         </div>
         <div>

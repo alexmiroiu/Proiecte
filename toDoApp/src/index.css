@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+html {
+  --main-background: #0A1931;
+  --blue: #185ADB;
+  --yellow: #FFC947;
+  --cream: #EFEFEF;
+}
+
 *{
   margin: 0;
   padding: 0;

@@ -55,6 +55,7 @@ const TaskListSlice = createSlice({
             state.finishedItems.push(finishedItem);
             const filteredItems = state.listItems.filter(item => item.id !== action.payload);
             state.listItems = filteredItems;
+
         },
         addItemToList(state, action) {
             state.listItems.push(action.payload);
@@ -93,6 +94,12 @@ const TaskListSlice = createSlice({
             while(state.finishedItems.length > 0) {
                 state.finishedItems.pop();
             }
+        },
+        getInitialState(state, action) {
+           const parsedList = JSON.parse(localStorage.getItem('listItems'));
+           state.listItems = parsedList;
+           const parsedFinishedList = JSON.parse(localStorage.getItem('finishedItems'));
+           state.finishedItems = parsedFinishedList; 
         }
     }
 });
