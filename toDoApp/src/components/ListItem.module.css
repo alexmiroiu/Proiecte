@@ -2,3 +2,8 @@
     margin-bottom: .5rem;
     border: 1px solid black;
 }
+
+.hidden {
+    display: none;
+}
+

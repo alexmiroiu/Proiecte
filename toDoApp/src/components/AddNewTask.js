@@ -25,7 +25,8 @@ const AddNewTask = () => {
         const itemToAdd = {
             text: inputText,
             createdAt: newTimeStamp,
-            id
+            id,
+            displayed: true
         };
         dispatch(taskActions.addItemToList(itemToAdd));
         setInputText('');
