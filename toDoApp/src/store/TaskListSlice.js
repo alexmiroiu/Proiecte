@@ -61,14 +61,12 @@ const TaskListSlice = createSlice({
         },
         editText(state, action) {
             const {id, text} = action.payload;
-            let index;
+            console.log(id)
             state.listItems.forEach(item => {
                 if(item.id === id) {
-                    index = state.listItems.indexOf(item);
-                    return index;
+                    item.text = text;
                 }
             });
-            state.listItems[index].text = text;
         },
         searchByText(state, action) {
             const typedText = action.payload;
@@ -79,6 +77,22 @@ const TaskListSlice = createSlice({
                     item.displayed = false;
                 }
             })
+        },
+        backToList(state, action) {
+            let selectedItem;
+            state.finishedItems.forEach(item => {
+                if(item.id === action.payload) {
+                    selectedItem = item;
+                }
+            })
+            state.listItems.push(selectedItem);
+            const filteredFinishedItems = state.finishedItems.filter(item => item.id !== action.payload);
+            state.finishedItems = filteredFinishedItems;
+        },
+        clearFinishedItems (state, action) {
+            while(state.finishedItems.length > 0) {
+                state.finishedItems.pop();
+            }
         }
     }
 });

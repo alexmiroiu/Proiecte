@@ -22,7 +22,7 @@ const TaskList = () => {
             <p>A list of the tasks you have appointed for today</p>
         </div>
         <div>
-            {itemList.map(item => <ListItem text={item.text} key={itemList.indexOf(item)} id={item.id} displayed={item.displayed}/>)}
+            {itemList.map(item => <ListItem text={item.text} key={item.id} id={item.id} displayed={item.displayed}/>)}
         </div>
         <div>
             <button onClick={sortAscending}>Sort Ascending</button>
