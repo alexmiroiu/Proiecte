@@ -22,6 +22,7 @@
     outline: none;
     transition: .3s;
     font-weight: 500;
+    color: var(--dark-text);
 }
 
 .searchWrapper input:focus {

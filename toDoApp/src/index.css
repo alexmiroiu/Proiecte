@@ -8,12 +8,14 @@ html {
 /* colors */
   --main-background: #0A1931;
   --blue: hsl(220, 80%, 48%);
+  --deleted: hsla(0, 0%, 63%, 0.157);
   --yellow: #FFC947;
   --yellow-darker: #ecba44;
   --yellow-darkest: #c59b38;
   --cream: #EFEFEF;
   --white: hsl(70, 30%, 96%);
   --error: #fa7031;
+  --dark-text: rgba(0, 0, 0, 0.904);
 /* fonts */
   --title-font: 'Bowlby One SC', cursive;
   --main-font: 'Sora', sans-serif;

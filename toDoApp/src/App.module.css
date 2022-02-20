@@ -2,7 +2,6 @@
     position: relative;
     width: 80rem;
     height: fit-content;
-    min-height: 100rem;
     margin: 4rem auto 0;
     font-size: 1.6rem;
     display: flex;
@@ -12,7 +11,46 @@
     gap: 2rem;
 }
 
-h1 {
+.secondaryWrapper {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+}
+
+.noTasksTitle {
     font-family: var(--title-font);
     font-size: 6rem;
+    text-align: center;
+}
+
+.noTasksTitle span {
+    color: var(--blue);
+}
+
+.mainTitle {
+    font-family: var(--title-font);
+    font-size: 6rem;
+}
+
+.mainTitle span {
+    color: var(--blue);
+}
+
+@media (max-width: 768px) {
+    .mainTitle {
+        font-size: 4rem;
+    }
+    .noTasksTitle {
+        font-size: 4rem;
+    }
+
+    .mainWrapper {
+        width: 34rem;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
 }

@@ -13,13 +13,19 @@ let firstRender = true;
 
 function App() {
   const dispatch = useDispatch();
+  const [noItems, setNoItems] = useState(false);
   const listItems = useSelector(state => state.listItems);
   const finishedItems = useSelector(state => state.finishedItems);
 
   useEffect(() => {
     dispatch(taskActions.getInitialState());
+    if(listItems.length === 0 && finishedItems.length === 0) {
+      setNoItems(true);
+    }
     firstRender = false;
   }, [])
+
+
 
   useEffect(() => {
     if(!firstRender) {
@@ -28,17 +34,25 @@ function App() {
       const finishedItemsString = JSON.stringify(finishedItems);
       localStorage.setItem('finishedItems', finishedItemsString);
     }
+    if(listItems.length > 0 || finishedItems.length > 0) {
+      setNoItems(false);
+    }
 
   },[listItems, finishedItems])
 
-  return <div className={classes.mainWrapper}>
-    
-    <h1>To do list</h1>
-    <AddNewTask />
-    <Search />
-    <TaskList />
-    <FinishedTasks />
-  </div>
+  return  <div className={classes.mainWrapper}>
+            <h1 className={classes.mainTitle}><span>To do </span>list</h1>
+            <AddNewTask />
+            {!noItems && <div className={classes.secondaryWrapper}>
+              <Search />
+              <TaskList />
+              <FinishedTasks />
+            </div>}
+            {noItems && <div className={classes.secondaryWrapper}>
+              <p className={classes.noTasksTitle}>Create a <span>list</span> of tasks and manage it here!</p>
+            </div>
+            }
+          </div>
 }
 
 export default App;

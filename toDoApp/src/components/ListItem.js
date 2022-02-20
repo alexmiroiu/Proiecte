@@ -2,7 +2,12 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { taskActions } from '../store/TaskListSlice';
 
+
+
 import classes from './ListItem.module.css';
+import circle from '../assets/circle.svg';
+import editIcon from '../assets/edit.svg';
+import closeIcon from '../assets/close.svg';
 
 const ListItem = (props) => {
     const [editableText, setEditableText] = useState(props.text)
@@ -22,11 +27,20 @@ const ListItem = (props) => {
     }
 
     return <div className={`${classes.item} ${displayed ? '' : classes.hidden}`}>
-                {!editable && <p>{props.text}</p>}
-                {editable && <input type="text" onChange={(event) => {setEditableText(event.target.value)}} value={editableText} /> }
-                {!editable && <button onClick={() => {setEditable(true)}}>Edit</button>}
-                {editable && <button onClick={doneEditingHandler}>Done Editing</button>}
-                <button onClick={deleteItemHandler}>Finish Task</button>
+                <div className={classes.textWrapper}>
+                    {!editable && <p><img src={circle} alt="circle"/><span>{props.text}</span></p>}
+                    {editable && <input type="text" onChange={(event) => {setEditableText(event.target.value)}} value={editableText} /> }
+                </div>
+                <div className={classes.buttonsWrapper}>
+                    {!editable && <button className={`${classes.itemBtn} ${classes.editBtn}`} onClick={() => {setEditable(true)}}>
+                        <img src={editIcon} alt='edit'/>
+                        </button>}
+                    {editable && <button className={classes.itemBtn} onClick={doneEditingHandler}>
+                        <img src={closeIcon} alt="close" />
+                        <span>Done Editing</span>
+                        </button>}
+                    {!editable && <button className={classes.itemBtn} onClick={deleteItemHandler}>Finish Task</button>}
+                </div>
             </div>
 }
 

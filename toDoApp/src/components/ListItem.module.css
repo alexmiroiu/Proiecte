@@ -1,9 +1,119 @@
 .item {
-    margin-bottom: .5rem;
-    border: 1px solid black;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    background-color: var(--blue);
+    animation-name: itemFade;
+    animation-duration: .2s;
+}
+
+.textWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.textWrapper p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    cursor: default;
+}
+
+.textWrapper img {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.textWrapper input {
+    color: var(--white);
+    position: relative;
+    width: 35rem;
+    padding: 0 1rem;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--white);
+    background-color: transparent;
 }
 
 .hidden {
     display: none;
 }
 
+.buttonsWrapper {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+}
+
+.itemBtn {
+    position: relative;
+    color: var(--dark-text);
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    align-items: center;
+    height: 4rem;
+    padding: 0 .5rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    background-color: var(--yellow);
+    cursor: pointer;
+}
+
+.itemBtn:hover {
+    background-color: var(--yellow-darker);
+}
+
+.itemBtn:active {
+    background-color: var(--yellow-darkest);
+}
+
+.buttonsWrapper img {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.editBtn {
+    padding: 0 1rem;
+}
+
+/* animation for the to do item */
+
+@keyframes itemFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .item {
+        width: 100%;
+    }
+    .textWrapper {
+        width: 50%;
+    }
+    .textWrapper p {
+        width: 100%;
+    }
+
+    .textWrapper span {
+        overflow: auto;
+    }
+
+    .textWrapper img {
+        display: none;
+    }
+    .textWrapper input {
+        width: 100%;
+    }
+}

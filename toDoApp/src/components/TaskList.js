@@ -20,6 +20,7 @@ const TaskList = () => {
 
     return <div className={classes.listWrapper}>
         <h2>Active tasks</h2>
+        <h3>Sort tasks by date</h3>
         <div className={classes.buttonsWrapper}>
             <button onClick={sortAscending}>
                 <img src={arrowUp} alt='arrow up' />

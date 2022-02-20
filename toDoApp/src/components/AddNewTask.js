@@ -1,6 +1,6 @@
 import uniqid from 'uniqid';
 import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { taskActions } from '../store/TaskListSlice';
 
@@ -13,7 +13,6 @@ const AddNewTask = () => {
     const [inputTouched, setInputTouched] = useState(false);
     const [minErr, setMinErr] = useState(false);
     const [maxErr, setMaxErr] = useState(false);
-    // de adaugat TOUCHED
 
     const updateTextHandler = (event) => {
         setInputText(event.target.value);
@@ -71,10 +70,10 @@ const AddNewTask = () => {
                 <div className={classes.wrapper}>
                     <div className={classes.inputWrapper}>
                         <input type="text" onChange={updateTextHandler} onBlur={checkValidity} value={inputText}/>
-                        {minErr && <p>task name must be minimum 3 characters long</p>}
-                        {maxErr && <p>Max characters allowed 30</p>}
+                        {minErr && <p>Min characters allowed is 3</p>}
+                        {maxErr && <p>Max characters allowed is 30</p>}
                     </div>
-                    <button onClick={addNewItem}><img className={classes.buttonImage} src={plusImg} alt="add image" /></button>
+                    <button onClick={addNewItem}><img className={classes.buttonImage} src={plusImg} alt="add" /></button>
                 </div>
             </div>
 }

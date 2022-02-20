@@ -3,40 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const TaskListSlice = createSlice({
     name: 'tasks',
     initialState: {
-        listItems: [
-            {
-                text: 'de dat cu matura',
-                createdAt: 2000,
-                id: 24,
-                displayed: true,
-            },
-            {
-                text: 'de spalat vasele',
-                createdAt: 3000,
-                id: 33,
-                displayed: true,
-            },
-            {
-                text: 'de dus gunoiul',
-                createdAt: 1000,
-                id: 44,
-                displayed: true,
-            },
-            {
-                text: 'de facut mancare',
-                createdAt: 724,
-                id: 63,
-                displayed: true,
-            }
-        ],
-        finishedItems: [
-            {
-                text: 'de spalat masina',
-                createdAt: 4488,
-                id: 123123,
-                displayed: true
-            }
-        ]
+        listItems: [],
+        finishedItems: []
     },
     reducers: {
         sortAscending(state, action) {
@@ -96,10 +64,18 @@ const TaskListSlice = createSlice({
             }
         },
         getInitialState(state, action) {
-           const parsedList = JSON.parse(localStorage.getItem('listItems'));
-           state.listItems = parsedList;
-           const parsedFinishedList = JSON.parse(localStorage.getItem('finishedItems'));
-           state.finishedItems = parsedFinishedList; 
+            if(localStorage.getItem('listItems')) {
+                const parsedList = JSON.parse(localStorage.getItem('listItems'));
+                state.listItems = parsedList;
+            } else {
+                state.listItems = [];
+            }
+            if(localStorage.getItem('finishedItems')) {
+                const parsedFinishedList = JSON.parse(localStorage.getItem('finishedItems'));
+                state.finishedItems = parsedFinishedList; 
+            } else {
+                state.finishedItems = [];
+            }
         }
     }
 });

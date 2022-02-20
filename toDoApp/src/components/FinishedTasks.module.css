@@ -1,0 +1,61 @@
+.finishedItemsWrapper {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 10rem;
+}
+
+.finishedItemsWrapper h2 {
+    font-size: 2.5rem;
+    width: fit-content;
+}
+
+.finishedItemsList {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+}
+
+.finishedItemsWrapper > button {
+    height: 4rem;
+    width: 25rem;
+    color: var(--dark-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    background-color: var(--yellow);
+    cursor: pointer;
+}
+
+.finishedItemsWrapper > button:hover {
+    background-color: var(--yellow-darker);
+}
+
+.finishedItemsWrapper > button:active {
+    background-color: var(--yellow-darkest);
+}
+
+.closeImg {
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+@media (max-width: 768px) {
+    .finishedItemsList {
+        padding: .5rem 0;
+    }
+}
