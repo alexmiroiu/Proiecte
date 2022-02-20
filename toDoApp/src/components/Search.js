@@ -5,26 +5,22 @@ import { useDispatch } from "react-redux";
 import { taskActions } from "../store/TaskListSlice";
 
 
-import classes from './Header.module.css';
+import classes from './Search.module.css';
 
-const Header = () => {
+const Search = () => {
     const dispatch = useDispatch();
     const [typedText, setTypedText] = useState('');
 
     useEffect(() => {
         dispatch(taskActions.searchByText(typedText));
-    },[typedText, dispatch])
+    },[typedText, dispatch]);
 
-    return <header>
-        <h1>To do list</h1>
-        <div>
-            <div>
-                <label>Search:</label>
+    return  <div className={classes.searchWrapper}>
+                <h2>Search tasks by name</h2>
                 <input type="text" onChange={(event) => {setTypedText(event.target.value)}} value={typedText}/>
             </div>
-        </div>
-    </header>
+
 
 }
 
-export default Header;
+export default Search;

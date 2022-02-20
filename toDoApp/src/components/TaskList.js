@@ -4,6 +4,8 @@ import { taskActions } from '../store/TaskListSlice';
 import ListItem from './ListItem';
 
 import classes from './TaskList.module.css';
+import arrowUp from '../assets/arrowUp.svg';
+import arrowDown from '../assets/arrowDown.svg';
 
 const TaskList = () => {
     const dispatch = useDispatch();
@@ -16,17 +18,20 @@ const TaskList = () => {
         dispatch(taskActions.sortDescending())
     }
 
-    return <div>
-        <div>
-            <h2>Your tasks</h2>
-            <p>A list of the tasks you have appointed for today</p>
+    return <div className={classes.listWrapper}>
+        <h2>Active tasks</h2>
+        <div className={classes.buttonsWrapper}>
+            <button onClick={sortAscending}>
+                <img src={arrowUp} alt='arrow up' />
+                <span>Sort Ascending</span>
+            </button>
+            <button onClick={sortDescending}>
+                <img src={arrowDown} alt='arrow up' />
+                <span>Sort Descending</span>
+            </button>
         </div>
-        <div>
+        <div className={classes.itemListWrapper}>
             {itemList.map(item => <ListItem text={item.text} key={item.id} id={item.id} displayed={item.displayed}/>)}
-        </div>
-        <div>
-            <button onClick={sortAscending}>Sort Ascending</button>
-            <button onClick={sortDescending}>Sort Descending</button>
         </div>
     </div>
 }

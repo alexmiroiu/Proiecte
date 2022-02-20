@@ -17,7 +17,7 @@ const FinishedTasks = () => {
     } 
 
     return <div>
-                <h1>Finished items here</h1>
+                <h2>Finished items here</h2>
                 <div>
                     {finishedItems.map(item => <DeletedItem text={item.text} key={finishedItems.indexOf(item)} id={item.id}/>)}   
                 </div>

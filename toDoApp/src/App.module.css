@@ -1,11 +1,18 @@
 .mainWrapper {
     position: relative;
-    width: 100rem;
+    width: 80rem;
     height: fit-content;
     min-height: 100rem;
-    margin: 10rem auto 0;
+    margin: 4rem auto 0;
     font-size: 1.6rem;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     gap: 2rem;
+}
+
+h1 {
+    font-family: var(--title-font);
+    font-size: 6rem;
 }

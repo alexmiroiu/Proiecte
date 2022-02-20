@@ -1,0 +1,30 @@
+.searchWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+
+}
+
+.searchWrapper h2 {
+    font-size: 2.5rem;
+}
+
+.searchWrapper input {
+    height: 4rem;
+    width: 30rem;
+    padding: 0 1rem;
+    border: 2px solid var(--cream);
+    border-radius: 4px;
+    outline: none;
+    transition: .3s;
+    font-weight: 500;
+}
+
+.searchWrapper input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 8px 0 var(--blue);
+}

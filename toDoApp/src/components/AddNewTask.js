@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { taskActions } from '../store/TaskListSlice';
 
 import classes from './AddNewTask.module.css';
+import plusImg from '../assets/plus.svg';
 
 const AddNewTask = () => {
     const dispatch = useDispatch();
@@ -65,16 +66,17 @@ const AddNewTask = () => {
         setInputTouched(false);
     }
 
-    return <div>
-        <h2>Add a task</h2>
-        <div>
-        <input type="text" onChange={updateTextHandler} onBlur={checkValidity} value={inputText}/>
-        {minErr && <p>task name must be minimum 3 characters long</p>}
-        {maxErr && <p>Max characters allowed 30</p>}
-        <button onClick={addNewItem}>PLUS</button>
-        </div>
-
-    </div>
+    return <div className={classes.addNew}>
+                <h2>Add a task</h2>
+                <div className={classes.wrapper}>
+                    <div className={classes.inputWrapper}>
+                        <input type="text" onChange={updateTextHandler} onBlur={checkValidity} value={inputText}/>
+                        {minErr && <p>task name must be minimum 3 characters long</p>}
+                        {maxErr && <p>Max characters allowed 30</p>}
+                    </div>
+                    <button onClick={addNewItem}><img className={classes.buttonImage} src={plusImg} alt="add image" /></button>
+                </div>
+            </div>
 }
 
 export default AddNewTask;

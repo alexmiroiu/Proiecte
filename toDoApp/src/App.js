@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { taskActions } from './store/TaskListSlice';
 
-import Header from './components/Header';
+import Search from './components/Search';
 import TaskList from './components/TaskList';
 import AddNewTask from './components/AddNewTask';
 import FinishedTasks from './components/FinishedTasks';
@@ -32,9 +32,11 @@ function App() {
   },[listItems, finishedItems])
 
   return <div className={classes.mainWrapper}>
-    <Header />
-    <TaskList />
+    
+    <h1>To do list</h1>
     <AddNewTask />
+    <Search />
+    <TaskList />
     <FinishedTasks />
   </div>
 }
