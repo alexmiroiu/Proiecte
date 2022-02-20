@@ -41,7 +41,11 @@
     outline: none;
     font-weight: 500;
     transition: .3s;
+}
 
+.inputWrapper input::placeholder {
+    color: rgb(173, 173, 173);
+    font-weight: 200;
 }
 
 .inputWrapper input:focus {

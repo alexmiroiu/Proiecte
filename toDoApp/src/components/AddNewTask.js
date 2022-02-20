@@ -69,7 +69,7 @@ const AddNewTask = () => {
                 <h2>Add a task</h2>
                 <div className={classes.wrapper}>
                     <div className={classes.inputWrapper}>
-                        <input type="text" onChange={updateTextHandler} onBlur={checkValidity} value={inputText}/>
+                        <input placeholder='Maximum 30 characters ' type="text" onChange={updateTextHandler} onBlur={checkValidity} value={inputText}/>
                         {minErr && <p>Min characters allowed is 3</p>}
                         {maxErr && <p>Max characters allowed is 30</p>}
                     </div>

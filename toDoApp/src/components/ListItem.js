@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { taskActions } from '../store/TaskListSlice';
 
@@ -11,9 +11,21 @@ import closeIcon from '../assets/close.svg';
 
 const ListItem = (props) => {
     const [editableText, setEditableText] = useState(props.text)
+    const [editErr, setEditErr] = useState(false);
     const dispatch = useDispatch();
     const itemId = props.id;
     const displayed = props.displayed;
+
+    useEffect(() => {
+        if(editableText.length < 3 || editableText.length > 29) {
+            setEditErr(true);
+            console.log(editErr)
+        } else {
+            setEditErr(false);
+            console.log(editErr)
+        }
+    },[editableText])
+    
 
     const [editable, setEditable] = useState(false);
 
@@ -22,6 +34,12 @@ const ListItem = (props) => {
     }
 
     const doneEditingHandler = () => {
+        if(editableText.length < 3) {
+            return;
+        }
+        if(editableText.length > 29) {
+            return;
+        }
         dispatch(taskActions.editText({id: itemId, text: editableText}))
         setEditable(false);
     }
@@ -29,7 +47,7 @@ const ListItem = (props) => {
     return <div className={`${classes.item} ${displayed ? '' : classes.hidden}`}>
                 <div className={classes.textWrapper}>
                     {!editable && <p><img src={circle} alt="circle"/><span>{props.text}</span></p>}
-                    {editable && <input type="text" onChange={(event) => {setEditableText(event.target.value)}} value={editableText} /> }
+                    {editable && <input type="text" className={`${classes.editInput} ${editErr ? classes.textErr : ''}`} onChange={(event) => {setEditableText(event.target.value)}} value={editableText} /> }
                 </div>
                 <div className={classes.buttonsWrapper}>
                     {!editable && <button className={`${classes.itemBtn} ${classes.editBtn}`} onClick={() => {setEditable(true)}}>

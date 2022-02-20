@@ -28,7 +28,7 @@
     height: 1.6rem;
 }
 
-.textWrapper input {
+.editInput{
     color: var(--white);
     position: relative;
     width: 35rem;
@@ -37,6 +37,10 @@
     border: none;
     border-bottom: 1px solid var(--white);
     background-color: transparent;
+}
+
+.textErr {
+    color: red;
 }
 
 .hidden {

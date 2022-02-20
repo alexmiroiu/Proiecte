@@ -30,7 +30,6 @@ const TaskListSlice = createSlice({
         },
         editText(state, action) {
             const {id, text} = action.payload;
-            console.log(id)
             state.listItems.forEach(item => {
                 if(item.id === id) {
                     item.text = text;
