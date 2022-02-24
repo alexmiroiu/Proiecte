@@ -152,6 +152,8 @@ export const uploadRecipe = (event, formValidity, itemName, itemTime, itemRecipe
             dispatch(addFoodActions.changeErrorState());
             // adaugare modal aici
             console.log(error)
+            document.body.style.overflow = 'hidden';
+
         }
 
 

@@ -77,7 +77,8 @@ const AddFoodForm = () => {
     // inchiderea modalului de eroare
     const closeErrorModal = () => {
         dispatch(modalActions.changeModalState());
-        dispatch(addFoodActions.changeErrorState())
+        dispatch(addFoodActions.changeErrorState());
+        document.body.style.overflow = 'auto';
     }
 
     const storeRecipe = (event) => {
@@ -129,7 +130,7 @@ const AddFoodForm = () => {
 
     return <Fragment>
     <h1>Adauga ce ai gatit</h1>
-    <form className={modalActive ? `${classes.form} ${classes.modalIsDisplayed}` : `${classes.form}`}>
+    <form className={classes.form}>
         <label htmlFor="foodName">Nume preparat</label>
         <input type="text" required id="foodName" name="foodName" value={foodName} onChange={setFoodName} onBlur={checkNameValidity} className={!foodNameValid && foodNameTouched ? invalidInput : classes.input}/>
         <p className={!foodNameValid && foodNameTouched ? errorVisible : errorHidden}>Introdu un nume valid !</p>
