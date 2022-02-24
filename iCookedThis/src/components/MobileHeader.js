@@ -1,6 +1,8 @@
 import React from "react";
 import classes from './MobileHeader.module.css';
 
+import { Link } from 'react-router-dom';
+
 const Header = (props) => {
 
 
@@ -14,8 +16,8 @@ const Header = (props) => {
                 <span></span>
                 <span></span>
               <ul className={classes.menu}>
-                <li><button onClick={props.renderList}>Lista preparate</button></li>
-                <li><button onClick={props.renderForm}>Adauga un preparat</button></li>
+                <Link to="/" className={classes.menuBtn} onClick={props.renderList}>Lista preparate</Link>
+                <Link to="/add-recipe" className={classes.menuBtn} onClick={props.renderForm}> Adauga un preparat</Link>
               </ul>
            </div>
         </nav>

@@ -124,7 +124,7 @@
   transform: none;
 }
 
-.menu button {
+.menuBtn {
     border-style: none;
     background: none;
     font-family: inherit;
@@ -135,8 +135,8 @@
     color: var(--text);
 }
 
-.menu button:hover,
-.menu button:active {
+.menuBtn:hover,
+.menuBtn:active {
     color: var(--lighter-blue);
     background-color: none;
     outline: none;

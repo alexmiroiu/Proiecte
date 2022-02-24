@@ -108,6 +108,17 @@ const intermediateProjects = [
     technologies: ['React', 'Redux'],
     format: ['Mobile', 'Desktop']
 },
+{
+    title: 'To-Do App',
+    description: [
+        'O aplicatie web in care utilizatorul poate crea task-uri pe care ulterior le poate sterge, filtra si ordona.',
+        'A web app where the user can create tasks, delete them, sort them by the date they were added or search for each one using the search bar.'
+    ],
+    githubLink: 'https://github.com/alexmiroiu/Proiecte/tree/main/toDoApp',
+    projectLink: 'https://alexmiroiu.github.io/to-do-app/',
+    technologies: ['React', 'Redux'],
+    format: ['Mobile', 'Desktop']
+}
     
 ]
 

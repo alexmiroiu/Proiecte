@@ -1,6 +1,6 @@
 # To Do WebApp
 
-Proiectul a fost creat in cadrul unui proces de intervievare
+Am realizat acest proiect ca cerinta in cadrul unui proces de intervievare.
 
 ## Functionalitati 
 
@@ -8,7 +8,9 @@ Proiectul a fost creat in cadrul unui proces de intervievare
 <br>
 :white_check_mark: Task-urile pot fi editate, ordonate crescator sau descrescator in ordinea datei in care au fost create sau filtrate folosind bara de cautare
 <br>
-:white_check_mark: task-ruile completate sunt grupate separat, de unde utilizatorul are optiunea de a le sterge definitiv sau de a le adauga inapoi in lista de task-uri active 
+:white_check_mark: Task-ruile completate sunt grupate separat, de unde utilizatorul are optiunea de a le sterge definitiv sau de a le adauga inapoi in lista de task-uri active 
+<br>
+:white_check_mark: Pentru a stoca datele am folosit localStorage 
 
 
 ## Proiectul a fost creat folosind :

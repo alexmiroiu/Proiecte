@@ -69,9 +69,12 @@ const AddFoodForm = () => {
         dispatch(addFoodActions.checkTypeValidity(event.target.value));
     }
 
+    // alegerea imaginii din galerie
     const setImage = (event) => {
         setNewImage(event.target.files[0]);
     }
+
+    // inchiderea modalului de eroare
     const closeErrorModal = () => {
         dispatch(modalActions.changeModalState());
         dispatch(addFoodActions.changeErrorState())
@@ -91,6 +94,8 @@ const AddFoodForm = () => {
         console.log(foodNameValid, timeIsValid, typeIsValid, recipeIsValid, formIsValid)
     },[foodNameValid, timeIsValid, recipeIsValid, typeIsValid, formIsValid, dispatch]);
 
+
+// async call pentru a uploada imaginea in clodinary
     const uploadImage = async (event) => {
         event.preventDefault();
         dispatch(addFoodActions.changeImageStatus());
@@ -152,7 +157,7 @@ const AddFoodForm = () => {
         </div>
         <button onClick={storeRecipe} className={classes.submitBtn} >Finalizeaza</button>
     </form>
-    {/* {showError && <ErrorModal message={'Eroare'} description={'Nu ai introdus corect datele!'} closeModal={closeErrorModal}></ErrorModal>} */}
+    {showError && <ErrorModal message={'Eroare'} description={'Nu ai introdus corect datele!'} closeModal={closeErrorModal}></ErrorModal>}
     </Fragment>
 }
 
