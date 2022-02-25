@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 import classes from './FoodItem.module.css';
 
 const FoodItem = (props) => {
@@ -11,11 +11,10 @@ const FoodItem = (props) => {
                 <h2>{props.name}</h2>
             </div>
             <div className={classes.itemMenu}>
-                <button className={`${classes.menuBtn}  ${classes.detailsBtn}`} >Detalii</button>
-                <button className={`${classes.menuBtn}  ${classes.deleteBtn}`} >Sterge</button>
+                <Link to={`/food-items/${props.itemId}`} className={`${classes.menuBtn}  ${classes.detailsBtn}`} >Detalii</Link>
+                
             </div>
-            {/* {itemModal && <FoodModal clickAction={closeModal} foodDetails={foodDetails}/>}
-            {deleteItem && <DeleteItemModal showDeleteModal={deleteModalHandler} removeDeleteModal={cancelDelete} id={props.itemId} reRenderList={props.renderList}/>} */}
+            {/* {deleteItem && <DeleteItemModal showDeleteModal={deleteModalHandler} removeDeleteModal={cancelDelete} id={props.itemId} reRenderList={props.renderList}/>} */} 
         </div>
     )
 }

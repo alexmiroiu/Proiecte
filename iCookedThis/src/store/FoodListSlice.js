@@ -21,13 +21,14 @@ const FoodListSlice = createSlice({
         },
         getSearchPhrase(state, action) {
             state.searchText = action.payload;
-        }
+        },
 
     },
 
 });
 
 export const listActions = FoodListSlice.actions;
+
 export const getFoodItems = () => {
     return async dispatch => {
         const fetchData = async () =>{
@@ -59,6 +60,13 @@ export const getFoodItems = () => {
             dispatch(listActions.setErrorMessage(error.message))
         }
 
+    }
+}
+
+export const deleteFoodItem = (id) => {
+    return async dispatch => {
+        const request = await fetch(`https://cemancam-14798-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}.json`, {method: 'DELETE'});
+        const response = await request.json();
     }
 }
 

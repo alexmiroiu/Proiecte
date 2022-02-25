@@ -17,9 +17,8 @@ const FoodList = () => {
     const listOfFoods = useSelector(state => state.list.foodList);
 
     useEffect(() => {
-        dispatch(getFoodItems())
-        console.log(listOfFoods);
-    }, [dispatch])
+        dispatch(getFoodItems());
+    }, [dispatch]);
 
 
     const toate = selectedType === 'Toate' && listOfFoods.filter(item => item.name.toLowerCase().includes(searchText.toLowerCase()))

@@ -1,31 +1,44 @@
-
-
-
+import { useDispatch, useSelector } from 'react-redux';
 import { Fragment } from 'react/cjs/react.production.min';
+import { Link, useParams } from 'react-router-dom';
+import { getFoodItems } from '../store/FoodListSlice';
+import { useEffect } from 'react';
+
+import clock from '../assets/clock.svg';
+
 import classes from './FoodItemPage.module.css';
 
 
 const FoodItemPage = () => {
+    const dispatch = useDispatch();
+    const params = useParams();
+    const foodList = useSelector(state => state.list.foodList);
+
+    const foodItem = foodList.find(item => item.id === params.id);
+    console.log(foodItem)
+
+    useEffect(() => {
+        dispatch(getFoodItems());
+    }, [dispatch]);
 
 
     return <Fragment>
-            <div className={styles.imageWrapper}>
-                <img src={props.image} alt='food item' className={styles.mainImage}/>
-                <div className={styles.timeWrapper}>
-                    <img src={clock} alt='clock' className={styles.icon}/>
-                    <p className={styles.time}>{props.time} min</p>
+            <div className={classes.imageWrapper}>
+                <img src={foodItem.image} alt='food item' className={classes.mainImage}/>
+                <div className={classes.timeWrapper}>
+                    <img src={clock} alt='clock' className={classes.icon}/>
+                    <p className={classes.time}>{foodItem.time} min</p>
                 </div>
-                <p className={styles.type}>{props.type}</p>
+                <p className={classes.type}>{foodItem.type}</p>
             </div>
-            <h3>{props.name}</h3>
-            <div className={styles.recipeWrapper}>
+            <h3>{foodItem.name}</h3>
+            <div className={classes.recipeWrapper}>
                 <h4>Reteta</h4>
-                <p className={styles.errorDescription}>{props.recipe}</p>
+                <p className={classes.errorDescription}>{foodItem.recipe}</p>
             </div>
-            <button className={styles.modalBtn} onClick={props.clickAction}>Inchide</button>
+            <Link to='/food-items' className={classes.modalBtn}>Inchide</Link>
+            <button  className={classes.modalBtn}>Sterge</button>
             </Fragment>
-
-
 
 }
 
