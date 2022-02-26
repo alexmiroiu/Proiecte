@@ -14,8 +14,6 @@ import { modalActions } from "../store/ModalSlice";
 const AddFoodForm = () => {
     const dispatch = useDispatch();
 
-    const modalActive = useSelector(state => state.modal.modalActive);
-
     ///food name
     const foodName = useSelector(state => state.addFood.foodName.value);
     const foodNameValid = useSelector(state => state.addFood.foodName.isValid);
@@ -96,7 +94,7 @@ const AddFoodForm = () => {
     },[foodNameValid, timeIsValid, recipeIsValid, typeIsValid, formIsValid, dispatch]);
 
 
-// async call pentru a uploada imaginea in clodinary
+// async call pentru a uploada imaginea in cloudinary
     const uploadImage = async (event) => {
         event.preventDefault();
         dispatch(addFoodActions.changeImageStatus());

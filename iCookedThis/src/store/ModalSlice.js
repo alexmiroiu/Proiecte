@@ -7,7 +7,7 @@ const ModalSlice = createSlice({
     },
     reducers: {
         changeModalState(state, action) {
-            state.modalActive = !state.modalActive;
+            state.modalActive = action.payload;
         }
     }
 })

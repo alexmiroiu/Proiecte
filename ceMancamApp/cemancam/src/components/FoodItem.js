@@ -9,7 +9,6 @@ const FoodItem = (props) => {
     const [itemModal, setItemModal] = useState(false);
     const [deleteItem, setDeleteItem] = useState(false);
 
-
     const shortRecipe = () => {
         let maxLength = 10;
         let shortenedRecipe = props.recipe.slice(0, maxLength);
@@ -34,8 +33,6 @@ const FoodItem = (props) => {
         setDeleteItem(false);
         ctx.setModalOff();
     }
-
-    
 
     const foodDetails = {
         id: props.itemId,

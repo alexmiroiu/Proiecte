@@ -1,25 +1,38 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Fragment } from 'react/cjs/react.production.min';
 import { Link, useParams } from 'react-router-dom';
-import { getFoodItems } from '../store/FoodListSlice';
-import { useEffect } from 'react';
 
+import { getFoodItems } from '../store/FoodListSlice';
+import { modalActions } from '../store/ModalSlice';
+
+import DeleteItemModal from '../components/Modals/DeleteItemModal';
 import clock from '../assets/clock.svg';
 
 import classes from './FoodItemPage.module.css';
 
 
 const FoodItemPage = () => {
+    const modalActive = useSelector(state => state.modal.modalActive);
     const dispatch = useDispatch();
     const params = useParams();
-    const foodList = useSelector(state => state.list.foodList);
+    const itemId = params.id;
+    const foodList = JSON.parse(localStorage.getItem('foodList'));
 
-    const foodItem = foodList.find(item => item.id === params.id);
-    console.log(foodItem)
 
-    useEffect(() => {
-        dispatch(getFoodItems());
-    }, [dispatch]);
+    const foodItem = foodList.find(item => item.id === itemId);
+    
+    window.onpopstate = e => {
+        dispatch(modalActions.changeModalState(false));
+        return () => {
+            window.removeEventListener('onpopstate')
+        }
+    }
+
+    const showDeleteModal = () => {
+        dispatch(modalActions.changeModalState(true));
+        console.log(modalActive)
+    }
 
 
     return <Fragment>
@@ -37,7 +50,8 @@ const FoodItemPage = () => {
                 <p className={classes.errorDescription}>{foodItem.recipe}</p>
             </div>
             <Link to='/food-items' className={classes.modalBtn}>Inchide</Link>
-            <button  className={classes.modalBtn}>Sterge</button>
+            <button  className={classes.modalBtn} onClick={showDeleteModal}>Sterge</button>
+            {modalActive && <DeleteItemModal id={itemId} />}
             </Fragment>
 
 }

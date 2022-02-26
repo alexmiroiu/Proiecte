@@ -18,7 +18,8 @@ const FoodList = () => {
 
     useEffect(() => {
         dispatch(getFoodItems());
-    }, [dispatch]);
+        localStorage.setItem('foodList', JSON.stringify(listOfFoods));
+    }, [dispatch, listOfFoods]);
 
 
     const toate = selectedType === 'Toate' && listOfFoods.filter(item => item.name.toLowerCase().includes(searchText.toLowerCase()))

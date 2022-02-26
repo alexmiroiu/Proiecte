@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { modalActions } from "./ModalSlice";
 
 const FoodListSlice = createSlice({
     name: 'FoodList',
@@ -17,7 +18,6 @@ const FoodListSlice = createSlice({
         },
         getSelectedType(state, action) {
             state.selectedType = action.payload;
-            console.log(`changed to ${action.payload}`)
         },
         getSearchPhrase(state, action) {
             state.searchText = action.payload;
@@ -37,7 +37,6 @@ export const getFoodItems = () => {
             if(!response) {
                 throw new Error('Something went wrong!');
             }
-            console.log('fetched');
             let listOfFoods = [];
             for(const item in response) {
                 const food = {
@@ -55,7 +54,6 @@ export const getFoodItems = () => {
         try {
             const data = await fetchData();
             dispatch(listActions.displayDishes(data));
-            console.log('dispatched')
         } catch (error) {
             dispatch(listActions.setErrorMessage(error.message))
         }
@@ -67,6 +65,8 @@ export const deleteFoodItem = (id) => {
     return async dispatch => {
         const request = await fetch(`https://cemancam-14798-default-rtdb.europe-west1.firebasedatabase.app/recipes/${id}.json`, {method: 'DELETE'});
         const response = await request.json();
+        console.log(response);
+        dispatch(modalActions.changeModalState());
     }
 }
 
