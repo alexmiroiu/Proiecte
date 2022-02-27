@@ -18,7 +18,7 @@ const Header = (props) => {
               <ul className={classes.menu}>
                 <Link to="/" className={classes.menuBtn} >Lista preparate</Link>
                 <Link to="/add-recipe" className={classes.menuBtn} > Adauga un preparat</Link>
-                <Link to="/auth" className={classes.menuBtn} >Creeaza un cont</Link>
+                <Link to="/auth" className={classes.menuBtn} >Contul meu</Link>
               </ul>
            </div>
         </nav>
