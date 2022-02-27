@@ -1,9 +1,7 @@
-import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Fragment } from 'react/cjs/react.production.min';
 import { Link, useParams } from 'react-router-dom';
 
-import { getFoodItems } from '../store/FoodListSlice';
 import { modalActions } from '../store/ModalSlice';
 
 import DeleteItemModal from '../components/Modals/DeleteItemModal';

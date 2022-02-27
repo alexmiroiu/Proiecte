@@ -16,8 +16,9 @@ const Header = (props) => {
                 <span></span>
                 <span></span>
               <ul className={classes.menu}>
-                <Link to="/" className={classes.menuBtn} onClick={props.renderList}>Lista preparate</Link>
-                <Link to="/add-recipe" className={classes.menuBtn} onClick={props.renderForm}> Adauga un preparat</Link>
+                <Link to="/" className={classes.menuBtn} >Lista preparate</Link>
+                <Link to="/add-recipe" className={classes.menuBtn} > Adauga un preparat</Link>
+                <Link to="/auth" className={classes.menuBtn} >Creeaza un cont</Link>
               </ul>
            </div>
         </nav>

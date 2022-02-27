@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { modalActions } from "../../store/ModalSlice";
-import { deleteFoodItem, getFoodItems } from "../../store/FoodListSlice";
+import { deleteFoodItem } from "../../store/FoodListSlice";
 
 const Backdrop = () => {
     return <div className={classes.backdrop}></div>;

@@ -3,9 +3,9 @@ import { Fragment } from 'react/cjs/react.production.min';
 import MobileHeader from './components/MobileHeader';
 
 import FoodList from './pages/FoodList';
-import classes from './App.module.css';
 import AddFoodForm from './pages/AddFoodForm';
 import FoodItemPage from './pages/FoodItemPage';
+import Auth from './pages/Auth';
 
 function App() {
 
@@ -17,6 +17,7 @@ function App() {
         <Route path='/food-items' element={<FoodList />} />
         <Route path='/food-items/:id' element={<FoodItemPage />} />
         <Route path='/add-recipe' element={<AddFoodForm />} />
+        <Route path='/auth' element={<Auth />} />
       </Routes>
     </Fragment>
 
