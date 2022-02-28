@@ -127,7 +127,7 @@ const AddFoodForm = () => {
     const invalidSelect = `${classes.select} ${classes.inputError}`;
 
     return <Fragment>
-    <h1>Adauga ce ai gatit</h1>
+    <h1 className={classes.formTitle}>Adauga ce ai gatit</h1>
     <form className={classes.form}>
         <label htmlFor="foodName">Nume preparat</label>
         <input type="text" required id="foodName" name="foodName" value={foodName} onChange={setFoodName} onBlur={checkNameValidity} className={!foodNameValid && foodNameTouched ? invalidInput : classes.input}/>

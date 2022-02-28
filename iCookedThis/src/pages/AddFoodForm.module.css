@@ -14,7 +14,7 @@
     left: 0;
 }
 
-h1 {
+.formTitle {
     font-weight: 600;
     margin-top: 7vh;
     padding: 1rem 0;
