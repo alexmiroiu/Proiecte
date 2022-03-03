@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFoodActions, uploadRecipe } from "../store/AddFoodSlice";
 
 import LoadingSpinner from "../components/UI/LoadingSpinner";
-import ErrorModal from "../components/Modals/ErrorModal";
+import MessageModal from "../components/Modals/MessageModal";
 
 import placeholderImg from '../assets/placeholder.png';
 import classes from './AddFoodForm.module.css';
@@ -156,7 +156,7 @@ const AddFoodForm = () => {
         </div>
         <button onClick={storeRecipe} className={classes.submitBtn} >Finalizeaza</button>
     </form>
-    {showError && <ErrorModal message={'Eroare'} description={'Nu ai introdus corect datele!'} closeModal={closeErrorModal}></ErrorModal>}
+    {showError && <MessageModal message={'Eroare'} description={'Nu ai introdus corect datele!'} closeModal={closeErrorModal}></MessageModal>}
     </Fragment>
 }
 

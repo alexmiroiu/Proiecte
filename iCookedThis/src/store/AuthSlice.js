@@ -15,7 +15,7 @@ const AuthSlice = createSlice({
 export const authActions = AuthSlice.actions;
 
 export const signUp = (url, email, password) => {
-    return async dispatch => {
+    return async () => {
             console.log('initiated')
             const request =  await fetch(url, {
                 method: 'POST',
@@ -31,7 +31,24 @@ export const signUp = (url, email, password) => {
             const response = await request.json();
             console.log(response);
 
-
+    }
+}
+export const signIn = (url, email, password) => {
+    return async () => {
+            console.log('initiated')
+            const request =  await fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    email,
+                    password,
+                    returnSecureToken: true
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const response = await request.json();
+            console.log(response);
 
     }
 }
